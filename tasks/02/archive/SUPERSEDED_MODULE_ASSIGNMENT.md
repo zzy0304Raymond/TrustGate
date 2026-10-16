@@ -19,7 +19,7 @@
 
 ## 负责文件
 
-configs/attacks/、experiments/attacks/、tests/test_task2_*。自己的 `tasks/02/` 可自由补充。共同接口见 [接口说明](../../docs/INTERFACES_ZH.md)。
+configs/attacks/、experiments/attacks/、tests/test_task2_*。自己的 `tasks/02/` 可自由补充。共同接口见 [接口说明](../../../docs/INTERFACES_ZH.md)。
 
 ## 交付物
 
