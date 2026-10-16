@@ -64,6 +64,8 @@ def build_plan(config, workers=5, budget_usd=1.0, seed=4213):
     return plan
 
 def validate_plan(plan):
+    if plan.get('profile') == 'formal_allocation':
+        raise ValueError('正式实验当前只有五份工作量清单；需先冻结权限、攻击案例并接入正式执行器。没有调用 API。')
     content = {k: v for k, v in plan.items() if k != 'plan_sha256'}
     if digest(content) != plan.get('plan_sha256'):
         raise ValueError('Plan changed after hashing; regenerate it before execution.')
