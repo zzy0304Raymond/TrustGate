@@ -19,7 +19,7 @@
 
 ## 负责文件
 
-experiments/mvp/policies.py、experiments/mvp/mcp_workspace_server.py、experiments/mvp/simulation_runtime.py、configs/study/tasks.json、tests/test_task1_*。自己的 `tasks/01/` 可自由补充。共同接口见 [接口说明](../../docs/INTERFACES_ZH.md)。
+experiments/mvp/policies.py、experiments/mvp/mcp_workspace_server.py、experiments/mvp/simulation_runtime.py、configs/study/tasks.json、tests/test_task1_*。自己的 `tasks/01/` 可自由补充。共同接口见 [接口说明](../../../docs/INTERFACES_ZH.md)。
 
 ## 交付物
 
