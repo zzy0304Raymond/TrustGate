@@ -21,12 +21,16 @@ def merge_results(plan_path, run_root, allow_partial=False):
         source_versions.add(json.dumps(manifest['source_sha256'], sort_keys=True))
         if len(source_versions) > 1:
             raise ValueError('Workers used different source versions.')
+        if plan.get('source_sha256') and manifest['source_sha256']!=plan['source_sha256']:
+            raise ValueError('Worker code differs from the frozen plan.')
         if manifest['plan_sha256'] != plan['plan_sha256'] or manifest['shard_index'] != shard['index']:
             raise ValueError('Worker used another plan or shard index.')
         if not (folder/'worker_summary.json').exists():
             unfinished.append(shard['index'])
         else:
             worker = json.loads((folder/'worker_summary.json').read_text())
+            if worker.get('complete') is False or worker.get('fatal_error') or (plan['profile'].startswith('formal_') and worker.get('complete') is not True):
+                unfinished.append(shard['index'])
             if worker.get('budget'):
                 budgets.append(worker['budget'])
         for row in json.loads((folder/'results.json').read_text()) if (folder/'results.json').exists() else []:
@@ -37,6 +41,9 @@ def merge_results(plan_path, run_root, allow_partial=False):
             for field in ('workflow','task','surface','condition','repeat','transport'):
                 if row[field] != case[field]:
                     raise ValueError('Result identity differs from manifest: '+cid)
+            for field in ('slot_id','attack_case_id','split'):
+                if field in case and row.get(field)!=case[field]:
+                    raise ValueError('Formal result identity differs: '+cid)
             seen.add(cid); rows.append(row)
     missing = sorted(set(expected)-seen)
     if (missing or unfinished) and not allow_partial:
@@ -57,7 +64,7 @@ def merge_results(plan_path, run_root, allow_partial=False):
     output = root/'merged'; output.mkdir(exist_ok=True)
     (output/'results.json').write_text(json.dumps(rows, ensure_ascii=False, indent=2))
     (output/'summary.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2))
-    fields = ['case_id','workflow','task','surface','condition','repeat','transport','status','native_utility','attacker_success','safe_completion','seconds','api_calls','cost_usd','result_dir']
+    fields = ['case_id','workflow','task','surface','condition','repeat','transport','status','native_utility','attacker_success','safe_completion','injection_point_reached','injection_reached_model','seconds','api_calls','cost_usd','result_dir']
     with (output/'results.csv').open('w', newline='') as stream:
         writer = csv.DictWriter(stream, fieldnames=fields, extrasaction='ignore')
         writer.writeheader(); writer.writerows(rows)

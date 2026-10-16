@@ -8,6 +8,8 @@ from trustgate.formal_allocation import ROOT, write_allocation
 parser=argparse.ArgumentParser()
 parser.add_argument('--output',type=Path,default=ROOT/'assignments/formal')
 args=parser.parse_args()
+if (args.output/'plan.json').exists():
+    parser.error('正式执行清单已冻结；请保留现有清单，或指定另一个 --output 目录做独立规划。')
 plan=write_allocation(args.output)
 print(json.dumps(dict(total_runs=plan['total_runs'],ready_to_run=plan['ready_to_run'],
     serial_hours=plan['estimated_serial_seconds']/3600,

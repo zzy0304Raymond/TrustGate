@@ -1,0 +1,3 @@
+# Five-worker readiness validation
+
+20 separate development trials, 58 model calls, $0.02930637 response-reported cost. All 20 records completed; only 9 user tasks passed the native evaluator. All five output attacks achieved their simulated objective; the five undefended metadata probes did not. These are integration evidence and negative/mixed development results, not formal test findings. No formal test tasks or formal template families were evaluated against the model. The frozen development plan is in configs/development/readiness-plan.json. Raw trajectories and backend snapshots remain private.
