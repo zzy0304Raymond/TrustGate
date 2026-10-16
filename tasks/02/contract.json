@@ -1,0 +1,14 @@
+{
+  "task": 2,
+  "branch": "task-2-attack-cases",
+  "planned_person_hours": 14,
+  "status": "assigned_not_completed",
+  "owned_files": "configs/attacks/、experiments/attacks/、tests/test_task2_*",
+  "acceptance": [
+    "60 指全测试集总数，不能误做成每任务 60。",
+    "每个案例均记录 split 和 template_family，测试冻结后不根据效果挑选。",
+    "工具说明攻击只改变指定描述，不偷偷改工具实现或参数 schema。",
+    "工具输出攻击记录注入内容是否实际到达模型。",
+    "未攻破无防护时报告攻击未有效，不能声称防护成功。"
+  ]
+}
