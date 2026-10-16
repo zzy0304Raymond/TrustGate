@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "formal_runs": 1680,
+  "people": 5,
+  "runs_each": 336,
+  "normal_each": 84,
+  "output_attack_each": 126,
+  "metadata_attack_each": 126,
+  "unique_case_ids": 1680,
+  "task_overlap": 0,
+  "all_conditions_per_person": true,
+  "tests_passed": 24,
+  "serial_estimate_hours": 15.838315264018236,
+  "parallel_estimate_hours": 3.189390291643084,
+  "ready_to_run": false,
+  "live_api_calls": 0
+}
