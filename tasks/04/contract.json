@@ -1,0 +1,14 @@
+{
+  "task": 4,
+  "branch": "task-4-parallel-reproducibility",
+  "planned_person_hours": 14,
+  "status": "assigned_not_completed",
+  "owned_files": "trustgate/、scripts/、experiments/mvp/run_matrix_v2.py 的集成、依赖和公共运行文档、tests/test_task4_*",
+  "acceptance": [
+    "新正式清单等于 420 正常 + 1,260 攻击，ID 唯一、分片不重复。",
+    "每个 worker 有独立 MCP 后端状态、日志和输出；模型缓存只读。",
+    "总预算不能在五路各自重复使用，未知收费请求不可自动重发。",
+    "续跑只补明确未开始的案例，失败任务保留，不能重写历史结果。",
+    "校验来源 commit 和清单哈希，汇总必须检测重复、漏项和版本混用。"
+  ]
+}
