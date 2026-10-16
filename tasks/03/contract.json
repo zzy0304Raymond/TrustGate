@@ -1,14 +1,14 @@
 {
-  "task": 3,
-  "branch": "task-3-detection-provenance",
-  "planned_person_hours": 14,
-  "status": "assigned_not_completed",
-  "owned_files": "experiments/mvp/detector.py、experiments/defenses/、configs/defenses/、tests/test_task3_*",
-  "acceptance": [
-    "仅在开发集调阈值；不要根据最终测试攻击成功率调参。",
-    "保留模型 revision 和下载哈希，不能让不同工作节点自动升级模型。",
-    "扫描长文本所有窗口，不静默截断末尾攻击。",
-    "七配置共享模型、提示基线和错误恢复策略，只有目标组件不同。",
-    "区分执行授权效果与模型回答污染；不把来源标注称为已实现完整污点追踪。"
-  ]
+  "person": 3,
+  "branch": "experiment-3",
+  "mode": "formal_experiment_shard",
+  "status": "waiting_for_shared_freeze",
+  "ready_to_run": false,
+  "runs": 336,
+  "benign_runs": 84,
+  "output_attack_runs": 126,
+  "metadata_attack_runs": 126,
+  "estimated_machine_hours": 3.164549843963469,
+  "assignment_path": "assignments/formal/person-03.json",
+  "allocation_sha256": "7fb549daee7c22a0ebd8f354b8ab5bb4cf9c470e2cda1d2cb72b4e8816eb6342"
 }
