@@ -1,14 +1,14 @@
 {
-  "task": 5,
-  "branch": "task-5-evaluation-report",
-  "planned_person_hours": 14,
-  "status": "assigned_not_completed",
-  "owned_files": "analysis/、reports/、docs/evaluation/、tests/test_task5_*",
-  "acceptance": [
-    "攻击成功率、正常效用和安全完成分别报告，不只看攻击成功率。",
-    "明确计划数、已运行数、到达注入点数以及错误和超时。",
-    "任务级配对；同一 payload 的三次重复不当成三个独立攻击。",
-    "API usage.cost 与额度余额区分，吞吐时间与每任务耗时区分。",
-    "成员真实贡献占比最终合计 100%；未完成时留空，不用预计工时编造成实际贡献。"
-  ]
+  "person": 5,
+  "branch": "experiment-5",
+  "mode": "formal_experiment_shard",
+  "status": "waiting_for_shared_freeze",
+  "ready_to_run": false,
+  "runs": 336,
+  "benign_runs": 84,
+  "output_attack_runs": 126,
+  "metadata_attack_runs": 126,
+  "estimated_machine_hours": 3.189390291643084,
+  "assignment_path": "assignments/formal/person-05.json",
+  "allocation_sha256": "7fb549daee7c22a0ebd8f354b8ab5bb4cf9c470e2cda1d2cb72b4e8816eb6342"
 }
