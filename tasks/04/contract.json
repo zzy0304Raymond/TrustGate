@@ -2,13 +2,18 @@
   "person": 4,
   "branch": "experiment-4",
   "mode": "formal_experiment_shard",
-  "status": "waiting_for_shared_freeze",
-  "ready_to_run": false,
+  "status": "ready_not_started",
+  "ready_to_run": true,
   "runs": 336,
   "benign_runs": 84,
   "output_attack_runs": 126,
   "metadata_attack_runs": 126,
   "estimated_machine_hours": 3.189390291643084,
   "assignment_path": "assignments/formal/person-04.json",
-  "allocation_sha256": "7fb549daee7c22a0ebd8f354b8ab5bb4cf9c470e2cda1d2cb72b4e8816eb6342"
+  "plan_path": "assignments/formal/plan.json",
+  "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+  "launch_script": "scripts/formal/person-4.pbs",
+  "budget_usd": 2,
+  "output_shard_index": 3,
+  "formal_trials_completed": 0
 }
