@@ -19,7 +19,7 @@
 
 ## 负责文件
 
-experiments/mvp/detector.py、experiments/defenses/、configs/defenses/、tests/test_task3_*。自己的 `tasks/03/` 可自由补充。共同接口见 [接口说明](../../docs/INTERFACES_ZH.md)。
+experiments/mvp/detector.py、experiments/defenses/、configs/defenses/、tests/test_task3_*。自己的 `tasks/03/` 可自由补充。共同接口见 [接口说明](../../../docs/INTERFACES_ZH.md)。
 
 ## 交付物
 
