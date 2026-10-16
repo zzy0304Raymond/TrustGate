@@ -1,0 +1,14 @@
+{
+  "task": 1,
+  "branch": "task-1-workflows-permissions",
+  "planned_person_hours": 14,
+  "status": "assigned_not_completed",
+  "owned_files": "experiments/mvp/policies.py、experiments/mvp/mcp_workspace_server.py、experiments/mvp/simulation_runtime.py、configs/study/tasks.json、tests/test_task1_*",
+  "acceptance": [
+    "权限只从原用户请求和攻击前可信目录产生，不读取 ground_truth 或攻击目标。",
+    "保持 make_policy 和 authorize 接口；任何新权限默认拒绝未授权工具、对象和收件人。",
+    "新权限同时有合法调用和越权调用的测试。",
+    "正常业务复测保留每次失败，不能要求模型不停重跑直到 3/3。",
+    "与任务 4 对齐正式 task ID 和字段，不自行运行未冻结的正式测试。"
+  ]
+}
