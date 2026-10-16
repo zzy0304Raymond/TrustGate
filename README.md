@@ -8,10 +8,12 @@
 
 **开始运行：阅读 [五人启动说明](docs/FORMAL_START_ZH.md)，每人只提交自己的一个作业。**
 
+**环境约定：前期配置与验证以 Vanda 为基准。**使用 NSCC 等其他环境前，请逐项核对 [跨平台运行与合并检查清单](docs/CROSS_PLATFORM_CHECKLIST_ZH.md)；最终交付的公共代码和结果须在 Vanda 验收，并保留真实运行平台信息。
+
 ## 从哪里开始
 
 1. 阅读 [五人分工与合并顺序](docs/TEAM_PLAN_ZH.md)，每位成员选择 experiment-1 至 experiment-5 中的一个实验分支。
-2. 按 [运行说明](docs/REPRODUCE_ZH.md) 在 PBS 计算节点检查环境并运行离线测试。
+2. 按 [跨平台检查清单](docs/CROSS_PLATFORM_CHECKLIST_ZH.md) 确认共同配置，再按 [运行说明](docs/REPRODUCE_ZH.md) 在 PBS 计算节点检查环境并运行离线测试。
 3. 阅读本分支 `tasks/0N/ASSIGNMENT.md`，按验收清单运行自己的 336 次实验并交付结果。
 4. 完成后发起 PR。五个任务分支尚未合并，组员自行审核后合并。
 
