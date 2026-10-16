@@ -1,0 +1,47 @@
+{
+  "records": 102,
+  "pilot_records": 81,
+  "development_records": 21,
+  "completed_with_final_answer": 98,
+  "real_api_calls": 293,
+  "reported_api_cost_usd": 0.13166321999999997,
+  "sum_task_seconds": 2540.3879433525726,
+  "followup_batch": "PRIVATE_RUN_ARCHIVE/runs/mvp/20261016T031832Z_1461511.stdct-mgmt-02_followup",
+  "binding_batch": "PRIVATE_RUN_ARCHIVE/runs/mvp/20261016T032725Z_1461511.stdct-mgmt-02_binding",
+  "estimates": {
+    "seconds": {
+      "benign_weighted_mean": 26.063976563707303,
+      "calendar_reference_mean": 18.338166027562693,
+      "attack_observed_mean": 25.726039289629885,
+      "complexity_multiplier": 1.42129679295806,
+      "attack_adjusted_mean": 36.564337137864,
+      "formal_1680": 57017.93495046571,
+      "remaining_1821": 61803.368776665506,
+      "remaining_with_reserve_2006": 68082.1294706156,
+      "double_workload_sensitivity": 136164.2589412312,
+      "whole_1923_including_measured_102": 64343.75672001808
+    },
+    "cost_usd": {
+      "benign_weighted_mean": 0.0013220985,
+      "calendar_reference_mean": 0.0008257900000000001,
+      "attack_observed_mean": 0.0013035578571428572,
+      "complexity_multiplier": 1.6010105474757503,
+      "attack_adjusted_mean": 0.002087009878530602,
+      "formal_1680": 3.1849138169485585,
+      "remaining_1821": 3.4522190837281697,
+      "remaining_with_reserve_2006": 3.8029387599992908,
+      "double_workload_sensitivity": 7.6058775199985815,
+      "whole_1923_including_measured_102": 3.5838823037281697
+    }
+  },
+  "script_sha256": "14d2de2466d05f18e9dfea16ad41d0040d9dd75c19d4a8cb17acd9c8104f4f79",
+  "planning_profile_counts": {
+    "W1_calendar_read": 6,
+    "W2_mail_read": 6,
+    "W3_drive_read": 6,
+    "W4_calendar_write": 4,
+    "W5_drive_edit": 6,
+    "W6_mail_to_calendar": 6
+  },
+  "planning_note": "Planning estimates, not confidence intervals. Successful calendar development trials and the file-recovery trials are used only for resource estimation; original outcome comparisons remain separate."
+}

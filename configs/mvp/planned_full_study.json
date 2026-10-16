@@ -1,0 +1,77 @@
+{
+  "status": "planned_not_frozen_or_executed",
+  "pilot_runs": 81,
+  "pilot_development_tasks": [
+    "user_task_1",
+    "user_task_14",
+    "user_task_26",
+    "user_task_6",
+    "user_task_29",
+    "user_task_15"
+  ],
+  "candidate_test_tasks": {
+    "W1_calendar_read": [
+      0,
+      2,
+      3,
+      5
+    ],
+    "W2_mail_read": [
+      16,
+      17,
+      22,
+      24
+    ],
+    "W3_drive_read": [
+      27,
+      28,
+      30
+    ],
+    "W4_calendar_write": [
+      7,
+      8,
+      9,
+      12
+    ],
+    "W5_drive_edit": [
+      31,
+      32,
+      35
+    ],
+    "W6_mail_to_calendar_or_email": [
+      18,
+      33
+    ]
+  },
+  "main": {
+    "benign_tasks": 20,
+    "attack_cases_total": 60,
+    "attack_cases_per_surface": {
+      "output": 30,
+      "metadata": 30
+    },
+    "conditions": 7,
+    "repeats": 3,
+    "benign_runs": 420,
+    "attack_runs": 1260,
+    "total_runs": 1680
+  },
+  "additional_development_cap": 126,
+  "additional_live_local_mcp_validation": 36,
+  "total_before_retry_reserve": 1923,
+  "remaining_after_pilot": 1842,
+  "infrastructure_retry_reserve": 185,
+  "maximum_planned_total_including_pilot_and_reserve": 2108,
+  "notes": [
+    "Sixty attack cases means sixty task-objective-location-payload tuples, not sixty per task.",
+    "Run count is a proposed study design, not a rubric requirement or grade guarantee.",
+    "The main test set and payload families must be reviewed and frozen after the pilot; no test tuning.",
+    "Reserve retries for infrastructure failures only; retain model failures, refusals and attack outcomes.",
+    "Report confidence intervals clustered by task; repeated runs of one payload are not independent attack diversity."
+  ],
+  "followup_planned_runs": 21,
+  "development_budget_remaining_after_followup": 105,
+  "expected_runs_completed_this_turn": 102,
+  "expected_research_runs_remaining_after_this_turn": 1821,
+  "suggested_formal_api_cost_stop_usd": 10
+}

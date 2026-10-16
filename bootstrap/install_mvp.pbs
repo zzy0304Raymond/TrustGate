@@ -1,0 +1,14 @@
+#!/bin/bash
+#PBS -N trustgate_mvp_env
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=00:45:00
+#PBS -j oe
+set -euo pipefail
+source /scratch/xinqi.chen/load-conda.sh
+conda activate dsa4213
+cd "${PBS_O_WORKDIR:?Submit from repository root}"
+python -c 'import platform; assert platform.python_version() == "3.10.20"'
+python -m pip install --only-binary=:all: --no-deps --require-hashes -r requirements-mvp.lock
+python -m pip check
+export HF_HUB_DISABLE_XET=1 TOKENIZERS_PARALLELISM=false
+python -u experiments/mvp/prepare_detector.py

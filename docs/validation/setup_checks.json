@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "python": "3.10.20",
+  "offline_unit_tests": 19,
+  "checks": [
+    "deterministic 81-case five-way partition",
+    "budget reservations and unknown charges",
+    "duplicate/missing/foreign result rejection",
+    "five concurrent mocked runners with isolated state and budget",
+    "native/MCP 24-tool and six-workflow parity",
+    "invalid JSON recovery executes no invalid write",
+    "pip check"
+  ],
+  "live_api_calls_this_setup": 0,
+  "live_five_host_throughput_tested": false,
+  "formal_study_frozen": false,
+  "task_packages": 5,
+  "planned_person_hours_each": 14
+}

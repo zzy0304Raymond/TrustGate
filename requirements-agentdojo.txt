@@ -1,0 +1,2 @@
+# Core AgentDojo only; no optional detector or local-model extras.
+agentdojo==0.1.35

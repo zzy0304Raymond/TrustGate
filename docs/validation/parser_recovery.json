@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "real_model_calls": 0,
+  "invalid_call_executed": false,
+  "valid_append_count": 1,
+  "recovery_completed": true
+}

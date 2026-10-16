@@ -1,0 +1,16 @@
+#!/bin/bash
+#PBS -N trustgate_five
+#PBS -q auto
+#PBS -J 0-4%5
+#PBS -r y
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=06:00:00
+#PBS -j oe
+set -euo pipefail
+cd "${PBS_O_WORKDIR:?Submit from the repository root}"
+source /scratch/xinqi.chen/load-conda.sh
+conda activate dsa4213
+export PYTHONHASHSEED=0 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2
+: "${TRUSTGATE_PLAN:?Export the absolute plan path with qsub -v}"
+: "${TRUSTGATE_RUN_ID:?Export a fresh shared run ID with qsub -v}"
+python -m trustgate run --plan "$TRUSTGATE_PLAN" --shard-index "$PBS_ARRAY_INDEX" --run-id "$TRUSTGATE_RUN_ID"

@@ -1,0 +1,26 @@
+#!/bin/bash
+#PBS -N trustgate_setup
+#PBS -l select=1:ncpus=1:mem=6gb
+#PBS -l walltime=00:30:00
+#PBS -j oe
+
+set -eo pipefail
+umask 077
+cd "${PBS_O_WORKDIR:?Submit from repository root}"
+source /scratch/xinqi.chen/load-conda.sh
+conda activate dsa4213
+python - <<'PYTHON'
+import os
+import platform
+assert os.environ.get("PBS_JOBID"), "A PBS allocation is required"
+assert platform.python_version() == "3.10.20", "Python 3.10.20 is required"
+PYTHON
+python -m pip freeze > "runs/environment_check/before_install_${PBS_JOBID}.txt"
+python -m pip install --only-binary=:all: --no-deps --require-hashes -r requirements-agentdojo.lock
+python -m pip check
+python -m agentdojo.scripts.benchmark --help > "runs/environment_check/agentdojo_help_${PBS_JOBID}.txt"
+python -m pip freeze > "runs/environment_check/after_install_${PBS_JOBID}.txt"
+python - <<'PYTHON'
+from importlib.metadata import version
+print("AgentDojo installation and CLI checks passed:", version("agentdojo"))
+PYTHON

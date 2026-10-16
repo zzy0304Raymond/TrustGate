@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -N trustgate_dev18
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=00:30:00
+#PBS -j oe
+set -euo pipefail
+source /scratch/xinqi.chen/load-conda.sh
+conda activate dsa4213
+cd "${PBS_O_WORKDIR:?Submit from repository root}"
+export TOKENIZERS_PARALLELISM=false PYTHONHASHSEED=0
+python -u experiments/mvp/run_followup.py

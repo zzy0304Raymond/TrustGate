@@ -1,0 +1,16 @@
+#!/bin/bash
+#PBS -N trustgate_checks
+#PBS -q auto
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=00:20:00
+#PBS -j oe
+set -euo pipefail
+cd "${PBS_O_WORKDIR:?Submit from the repository root}"
+source /scratch/xinqi.chen/load-conda.sh
+conda activate dsa4213
+export PYTHONHASHSEED=0 TOKENIZERS_PARALLELISM=false
+mkdir -p runs/mvp
+python -m unittest discover -s tests -v
+python experiments/mvp/preflight.py
+python experiments/mvp/test_parser_recovery.py
+python -m pip check

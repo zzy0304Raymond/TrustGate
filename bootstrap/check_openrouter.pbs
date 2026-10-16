@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -N trustgate_api
+#PBS -l select=1:ncpus=1:mem=1gb
+#PBS -l walltime=00:05:00
+#PBS -j oe
+
+set -eo pipefail
+umask 077
+cd "${PBS_O_WORKDIR:?Submit from repository root}"
+source /scratch/xinqi.chen/load-conda.sh
+conda activate dsa4213
+python bootstrap/check_openrouter.py
