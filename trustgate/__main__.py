@@ -26,6 +26,10 @@ def main():
     merge.add_argument('--plan', type=Path, required=True)
     merge.add_argument('--run-root', type=Path, required=True)
     merge.add_argument('--allow-partial', action='store_true')
+    export = commands.add_parser('export', help='Export a completed worker without private traces')
+    export.add_argument('--plan', type=Path, required=True)
+    export.add_argument('--worker-dir', type=Path, required=True)
+    export.add_argument('--destination', type=Path, required=True)
     args = parser.parse_args()
     if args.command == 'plan':
         result = build_plan(json.loads(args.config.read_text()), args.workers, args.budget_usd)
@@ -40,6 +44,9 @@ def main():
     elif args.command == 'run':
         from .runner import run_shard
         print(asyncio.run(run_shard(args.plan, args.shard_index, args.run_id, args.output_root, args.detector_dir)))
+    elif args.command == 'export':
+        from .delivery import export_delivery
+        print(json.dumps(export_delivery(args.plan,args.worker_dir,args.destination),ensure_ascii=False,indent=2))
     else:
         print(json.dumps(merge_results(args.plan, args.run_root, args.allow_partial), indent=2))
 
