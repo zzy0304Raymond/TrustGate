@@ -19,7 +19,7 @@
 
 ## 负责文件
 
-trustgate/、scripts/、experiments/mvp/run_matrix_v2.py 的集成、依赖和公共运行文档、tests/test_task4_*。自己的 `tasks/04/` 可自由补充。共同接口见 [接口说明](../../docs/INTERFACES_ZH.md)。
+trustgate/、scripts/、experiments/mvp/run_matrix_v2.py 的集成、依赖和公共运行文档、tests/test_task4_*。自己的 `tasks/04/` 可自由补充。共同接口见 [接口说明](../../../docs/INTERFACES_ZH.md)。
 
 ## 交付物
 
