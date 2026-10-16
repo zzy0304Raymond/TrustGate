@@ -19,7 +19,7 @@
 
 ## 负责文件
 
-analysis/、reports/、docs/evaluation/、tests/test_task5_*。自己的 `tasks/05/` 可自由补充。共同接口见 [接口说明](../../docs/INTERFACES_ZH.md)。
+analysis/、reports/、docs/evaluation/、tests/test_task5_*。自己的 `tasks/05/` 可自由补充。共同接口见 [接口说明](../../../docs/INTERFACES_ZH.md)。
 
 ## 交付物
 
