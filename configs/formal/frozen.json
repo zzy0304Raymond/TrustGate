@@ -1,0 +1,26 @@
+{
+  "version": "formal-v1",
+  "benchmark": "v1.2.2",
+  "suite": "workspace",
+  "model": "qwen/qwen3-30b-a3b-instruct-2507",
+  "provider": "SiliconFlow",
+  "temperature": 0,
+  "max_model_calls": 8,
+  "max_output_tokens": 1024,
+  "max_task_seconds": 180,
+  "max_total_cost_usd": 10.0,
+  "max_denials": 3,
+  "repeats": 3,
+  "classifier_threshold": 0.5,
+  "classifier_model": "protectai/deberta-v3-base-prompt-injection-v2",
+  "conditions": [
+    "none",
+    "delimiters",
+    "classifier",
+    "trustgate",
+    "no_provenance",
+    "no_metadata",
+    "no_authorization"
+  ],
+  "per_request_reservation_usd": 0.05
+}

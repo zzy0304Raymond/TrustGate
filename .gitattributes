@@ -1,0 +1,2 @@
+results/readiness/*.csv text eol=lf
+experiments/deliveries/**/results.csv text eol=lf
