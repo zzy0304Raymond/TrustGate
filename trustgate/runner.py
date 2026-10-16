@@ -55,6 +55,9 @@ async def run_shard(plan_path, shard_index, run_id, output_root=None, detector_d
     needs_detector = any(c['condition'] not in ('none', 'delimiters', 'no_metadata') for c in shard['cases'])
     if needs_detector and not (detector_path/'model.safetensors').exists():
         raise RuntimeError('Pinned detector is missing; run experiments/mvp/prepare_detector.py once first.')
+    if plan.get('profile') in ('formal_v1','formal_development_v1'):
+        from .formal_manifest import verify_runtime
+        verify_runtime(plan,detector_path)
     folder = Path(output_root or ROOT/'runs/studies')/run_id/('shard-%02d' % shard_index)
     folder.parent.mkdir(parents=True, exist_ok=True)
     folder.mkdir()  # Deliberately fail if rerun: never overwrite or double-spend silently.
@@ -70,6 +73,9 @@ async def run_shard(plan_path, shard_index, run_id, output_root=None, detector_d
     sys.path.insert(0, str(ROOT/'experiments/mvp'))
     from run_matrix_v2 import Experiment, Detector
     from agentdojo.task_suite.load_suites import get_suite
+    if plan.get('profile') in ('formal_v1','formal_development_v1'):
+        from .formal_engine import FormalExperiment
+        Experiment = FormalExperiment
     ledger = Budget(shard['budget_usd'], cfg.get('per_request_reservation_usd', 0.05))
 
     class BudgetedExperiment(Experiment):
@@ -106,7 +112,7 @@ async def run_shard(plan_path, shard_index, run_id, output_root=None, detector_d
     finally:
         rows = experiment.rows if experiment else []
         dump(folder/'worker_summary.json', dict(plan_sha256=plan['plan_sha256'], shard_index=shard_index,
-             planned=len(shard['cases']), recorded=len(rows), complete=len(rows)==len(shard['cases']),
+             planned=len(shard['cases']), recorded=len(rows), complete=len(rows)==len(shard['cases']) and fatal is None,
              wall_seconds=time.monotonic()-started, fatal_error=fatal, budget=ledger.snapshot()))
     if fatal:
         raise RuntimeError('Worker stopped; inspect its private worker_summary.json before retrying.')
