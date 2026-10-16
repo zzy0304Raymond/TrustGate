@@ -4,13 +4,13 @@
 
 一个执行案例必须包含 `case_id, workflow, task, surface, condition, repeat, transport`。`surface` 为 `benign/output/metadata`；七种 condition 的名字在 `trustgate/planning.py` 中固定。模型、供应商、提示版本、阈值和预算来自清单 config，不按节点私自改变。
 
-新增正式案例还需 `attack_case_id, attack_task, attack_vector, metadata_tool, payload, template_family, split`。这些扩展在共同准备阶段形成审查清单并统一接入；当前 MVP 仍从 config 读取固定攻击参数。不要把未接入的字段当成已经生效。
+正式案例还包含 `slot_id, attack_case_id, split`，通过 attack_case_id 关联冻结的 `metadata_tool, output_tools, payload, goal, template_family`。正式输出攻击使用指定 MCP 返回文字追加，不修改后端数据；原生用户任务评估器保持不变，攻击目标使用显式状态差异判定。
 
 每路只拥有自己的 `runs/studies/<run-id>/shard-NN/`，任何分支不能共享修改同一个 state.pickle。模型文件共享只读。
 
 ## 权限
 
-权限从原用户请求与攻击前可信资源目录确定，最少包含 `origin, task_prompt, read_tools, writes`。写权限约束工具、对象、收件人和参数；不得读取 `ground_truth`、攻击者目标或隐藏评估结果。共同准备阶段扩展范围时保留现有 `make_policy(task, env, runtime)` 和 `authorize(policy, name, args)` 的调用接口。
+权限从原用户请求与攻击前可信资源目录确定，最少包含 `origin, task_prompt, read_tools, writes`。写权限约束工具、对象、收件人和参数；不得读取 `ground_truth`、攻击者目标或隐藏评估结果。正式编译器为 `compile_policy(task, env, runtime, workflow)`；真实执行时仅读取冻结策略。动态共享对象只允许可信后端确认本次新建且名称符合用户请求的文件。策略不会根据攻击文字扩大。
 
 ## 检测
 

@@ -48,3 +48,9 @@ class MergeTests(unittest.TestCase):
         path = self.root/'shard-01/manifest.json'; manifest = json.loads(path.read_text())
         manifest['source_sha256'] = {'fixture':'changed'}; path.write_text(json.dumps(manifest))
         with self.assertRaises(ValueError): merge_results(self.path, self.root)
+
+    def test_fatal_worker_cannot_look_complete_even_with_all_rows(self):
+        (self.root/'shard-00/worker_summary.json').write_text(json.dumps({'complete':False,'fatal_error':{'type':'BudgetExceeded'}}))
+        with self.assertRaises(ValueError):merge_results(self.path,self.root)
+        result=merge_results(self.path,self.root,allow_partial=True)
+        self.assertFalse(result['complete']);self.assertIn(0,result['unfinished_shards'])

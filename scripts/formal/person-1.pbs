@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -N tg_person_1
+#PBS -q auto
+#PBS -r n
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=06:00:00
+#PBS -j oe
+set -euo pipefail
+umask 077
+cd "${TRUSTGATE_REPO:-${PBS_O_WORKDIR:?Submit from the TrustGate checkout root}}"
+source /scratch/xinqi.chen/load-conda.sh
+conda activate dsa4213
+export PYTHONHASHSEED=0 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
+: "${TRUSTGATE_RUN_ID:?Use the same fresh experiment ID for all five people}"
+: "${TRUSTGATE_KEY_FILE:?Path to the private Group 9 credential}"
+: "${TRUSTGATE_DETECTOR_DIR:?Path to the pinned detector cache}"
+python -m trustgate run --plan "$PWD/assignments/formal/plan.json" --shard-index 0 --run-id "$TRUSTGATE_RUN_ID"
