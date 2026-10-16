@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "formal_plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+  "development_plan_sha256": "aabb7cba07d1858ff364a363bc4e7f09b03804ac77c41bb3ba1c66c84fc23eaf",
+  "formal_trials_executed": 0,
+  "development_trials_planned": 20,
+  "development_trials_recorded": 20,
+  "api_calls": 58,
+  "reported_api_cost_usd": 0.029306369999999998,
+  "cost_accounting_complete": true,
+  "worker_complete": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "fatal_errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "worker_seconds": [
+    102.3720219032839,
+    100.62976264581084,
+    104.38230633176863,
+    128.16919108014554,
+    137.09174447599798
+  ],
+  "task_passes": 9,
+  "attack_successes": 5,
+  "all_original_outcomes_retained": true,
+  "five_independent_pbs_workers": true,
+  "scheduler": [
+    {
+      "stime": "Fri Oct 16 12:29:07 2026",
+      "obittime": "Fri Oct 16 12:31:20 2026",
+      "Exit_status": 0,
+      "job_state": "F",
+      "exec_host": "CN-017/7*2"
+    },
+    {
+      "stime": "Fri Oct 16 12:29:07 2026",
+      "obittime": "Fri Oct 16 12:31:18 2026",
+      "Exit_status": 0,
+      "job_state": "F",
+      "exec_host": "CN-017/11*2"
+    },
+    {
+      "stime": "Fri Oct 16 12:29:07 2026",
+      "obittime": "Fri Oct 16 12:31:21 2026",
+      "Exit_status": 0,
+      "job_state": "F",
+      "exec_host": "CN-017/13*2"
+    },
+    {
+      "stime": "Fri Oct 16 12:29:07 2026",
+      "obittime": "Fri Oct 16 12:31:46 2026",
+      "Exit_status": 0,
+      "job_state": "F",
+      "exec_host": "CN-017/14*2"
+    },
+    {
+      "stime": "Fri Oct 16 12:29:07 2026",
+      "obittime": "Fri Oct 16 12:31:54 2026",
+      "Exit_status": 0,
+      "job_state": "F",
+      "exec_host": "CN-017/15*2"
+    }
+  ],
+  "private_and_sanitized_analysis_identical": true,
+  "interpretation": "Readiness/integration check only; includes model utility failures. Do not pool with formal tests or treat metadata development attacks as successful."
+}

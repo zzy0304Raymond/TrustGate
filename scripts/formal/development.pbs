@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -N tg_formal_check
+#PBS -q auto
+#PBS -J 0-4%5
+#PBS -r y
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=00:30:00
+#PBS -j oe
+set -euo pipefail
+umask 077
+cd "${PBS_O_WORKDIR:?Submit from repository root}"
+source /scratch/xinqi.chen/load-conda.sh
+conda activate dsa4213
+export PYTHONHASHSEED=0 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
+python -m trustgate run --plan "${TRUSTGATE_PLAN:?}" --shard-index "$PBS_ARRAY_INDEX" --run-id "${TRUSTGATE_RUN_ID:?}"
