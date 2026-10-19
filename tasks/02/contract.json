@@ -2,7 +2,7 @@
   "person": 2,
   "branch": "experiment-2",
   "mode": "formal_experiment_shard",
-  "status": "ready_not_started",
+  "status": "completed_local_pending_platform_review",
   "ready_to_run": true,
   "runs": 336,
   "benign_runs": 84,
@@ -15,5 +15,14 @@
   "launch_script": "scripts/formal/person-2.pbs",
   "budget_usd": 2,
   "output_shard_index": 1,
-  "formal_trials_completed": 0
+  "formal_trials_completed": 336,
+  "actual_api_cost_usd": 0.72108042,
+  "actual_platform": "macOS arm64 CPU; no PBS",
+  "actual_run_ids": [
+    "local-person2-20261019-001",
+    "local-person2-20261019-001-resume01"
+  ],
+  "delivery_path": "experiments/deliveries/person-02",
+  "platform_review": "pending",
+  "submission_prepared": true
 }
