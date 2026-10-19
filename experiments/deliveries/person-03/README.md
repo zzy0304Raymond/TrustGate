@@ -1,7 +1,7 @@
-# 第 3 人结果交付
+# Person 03 — collection complete, final delivery pending
 
-正式实验尚未运行。完成后用 `python -m trustgate export` 导出本份 336 条记录至这里，再提交本分支。
+336/336 formal trial records are available in the [sanitized review bundle](../../../tasks/03/delivery_pending/README.md).
 
-允许提交：results.csv、receipt.json，以及不含原始任务内容的结果说明。完整请求、回复、后端状态和密钥保留在私有 runs/ 中。
+Reported API cost: $0.51220968. One retained TimeoutError request has a $0.05 uncertain reservation. This is not a confirmed charge. Final export and team/Vanda acceptance remain pending.
 
-运行步骤见 [五人启动说明](../../../docs/FORMAL_START_ZH.md)。
+There is intentionally no final `receipt.json` here. Do not treat this folder or the review bundle as an accepted delivery for the original five-shard aggregator. See [merge review](../../../tasks/03/LOCAL_MERGE_REVIEW.md) for runtime and recovery provenance.

@@ -2,7 +2,7 @@
   "person": 3,
   "branch": "experiment-3",
   "mode": "formal_experiment_shard",
-  "status": "ready_not_started",
+  "status": "completed_pending_cost_review",
   "ready_to_run": true,
   "runs": 336,
   "benign_runs": 84,
@@ -15,5 +15,11 @@
   "launch_script": "scripts/formal/person-3.pbs",
   "budget_usd": 2,
   "output_shard_index": 2,
-  "formal_trials_completed": 0
+  "formal_trials_completed": 336,
+  "delivery_ready": false,
+  "reported_cost_usd": 0.51220968,
+  "uncertain_reserved_usd": 0.05,
+  "review_bundle": "tasks/03/delivery_pending",
+  "actual_platform": "WSL2 Ubuntu 22.04.5, Python 3.10.20, CPU",
+  "team_vanda_acceptance": false
 }
