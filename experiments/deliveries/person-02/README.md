@@ -5,7 +5,7 @@ This delivery provides the original assigned 336 unique trial records and exact 
 ## Data and pause recovery
 
 - `results.csv`: canonical 336-row dataset, normalized to LF without changing field values.
-- `parts/before_pause_150.csv` and `parts/after_resume_186.csv`: non-overlapping partitions of the same dataset, not additional trials.
+- This delivery contains exactly one result CSV. Before-pause and after-resume partition backups remain private locally.
 - `ACCOUNTING.json`: distinguishes logical row partitions from when API charges occurred. The recovered trial's five cached responses were paid before the pause and are included exactly once.
 - `RECOVERY.json`: trial151 exact-request replay, preserved eight-call/time bounds and latency caveat. Original private attempt remains intact.
 

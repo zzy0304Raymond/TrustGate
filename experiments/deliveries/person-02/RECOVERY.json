@@ -4,7 +4,7 @@
   "before_pause_recorded": 150,
   "after_resume_recorded": 186,
   "combined_unique_records": 336,
-  "partition_basis": "Original row indices 1-150 and 151-336. The parts are the same observations as results.csv; do not count them again.",
+  "partition_basis": "Original row indices 1-150 and 151-336 within the single results.csv. Separate partition backups remain private locally.",
   "interrupted_trial": {
     "index": 151,
     "case_id": "98f0051e9f3cdb5a5daf",
