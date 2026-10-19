@@ -8,7 +8,7 @@
 
 初次单元测试和运行验证见 `tasks/03/LOCAL_READINESS.json`，后续恢复检查见 `tasks/03/RESUME_REVIEW.json` 和 `tasks/03/PROGRESS.md`。116 条依赖约束逐项匹配，25 个冻结源码和六个模型文件哈希匹配。真实三个 MCP 服务通过 24 个工具描述/schema 核对、全部 60 个攻击传输/目标可达性/权限拒绝检查和 34 条脚本回复循环；固定检测器在 CPU 上完成两条真实推理冒烟检查。测试中的模型回复为脚本，不是 LLM 成绩。Windows 上用简化 fixture 写文件，Linux 测试使用实际原子写入。
 
-2026-10-19 已完成真实开发试跑和正式 336 条采集，记录见 `tasks/03/PILOT_READINESS.json`、`tasks/03/FORMAL_COMPLETION_REVIEW.json`。保留 1 条 TimeoutError 和 $0.05 未确认费用预留，累计已报告正式费用 $0.51220968；最终交付尚未通过费用核对。已运行的目录不能删除重跑；恢复流程见 `tasks/03/RECOVERY_ZH.md`。Vanda 验收及组员对独立适配器的接收仍未完成，格式兼容不等于自动获得组内批准。
+2026-10-19 已完成真实开发试跑和正式 336 条采集，记录见 `tasks/03/PILOT_READINESS.json`、`tasks/03/FORMAL_COMPLETION_REVIEW.json`。保留 1 条 TimeoutError。标准交付现位于 `experiments/deliveries/person-03/`；正式费用约 $0.51、含开发试跑约 $0.52，按用户批准的近似口径报告，原记账和预留释放记录见 ACCOUNTING.json。精确已返回正式费用仍为 $0.51220968。已运行的目录不能删除重跑；恢复流程见 `tasks/03/RECOVERY_ZH.md`。Vanda 验收及组员对独立适配器的接收仍未完成，格式兼容不等于自动获得组内批准。
 
 适配器继承原 `FormalExperiment`，只覆盖 MCP `start()`，删除对 PBS 作业变量的依赖；模型请求、工具执行、防护与评估方法均继承原代码。分片调度与预算封装在独立入口实现；未知费用、网络失败、拒绝覆盖和身份检查继续保留。只允许第 3 份、336 次、每人 $2 停止预算；无需 GPU。
 

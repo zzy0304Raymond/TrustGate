@@ -4,9 +4,9 @@
 
 ## 当前状态与结果入口
 
-2026-10-19 已完成正式 336 条采集。脱敏完整指标位于 `tasks/03/delivery_pending/results.csv`，同目录附 `review_receipt.json`、`ENVIRONMENT.md`、`analysis.json`、`ANALYSIS.md`。审核包刻意不提供最终 `receipt.json`，不会被原五分片交付入口当作已接收的结果。
+2026-10-19 已完成正式 336 条采集。标准交付位于 `experiments/deliveries/person-03/`，包括原格式 `results.csv`、`receipt.json`、实际 `ENVIRONMENT.md`、平台/恢复来源和分析。此前 `tasks/03/delivery_pending/` 是保留的历史审核快照，已经由标准交付替代。
 
-正式已报告 API 费用 $0.51220968，历史超时请求另保留 $0.05 未确认预留；预留额不是实际扣款。最终导出检查对未知费用的拒绝规则未放宽，费用核对、组员接收及 Vanda 验收仍待完成。
+费用按用户明确批准的近似口径报告：正式实验约 $0.51，含开发试跑约 $0.52。精确已返回正式使用量仍为 $0.51220968；`ACCOUNTING.json` 保留原执行记账及用户批准的客户端预留释放，不把估算写成供应商逐请求账单。提交已准备好，组员接收及 Vanda 验收仍待完成。
 
 336 条包括 1 条 TimeoutError 和 12 条 model_call_budget；未重跑、替换或删除失败。各案例耗时之和 6,750.43 秒，不包含启动、导出或用户暂停，不能与其他组员的完整 worker 墙钟时间直接混同。完整覆盖不表示模型全部答对，本份无防护攻击也未成功，不能据此断言额外防护有效。
 
@@ -31,7 +31,7 @@
 1. 审阅独立适配器，决定是否按组内规则接受本机来源，或要求共同换版；不能仅因原源代码哈希没变就省略审核额外执行代码。
 2. 在 Vanda 的真实 PBS 计算节点复核原公共检查及本机来源凭据。现有材料不声称已经完成 Vanda 验收。
 3. 取得实际 `results.csv`、`receipt.json`、`platform_receipt.json`、自动生成的 `ENVIRONMENT.md`；审阅平台、离线报告、失败和费用记录。
-4. 根据审核过的适配代码独立计算 SHA 白名单，在汇总前运行本机 delivery audit；五份最终汇总使用 `--require-complete`。不直接信任交付者自报的批准文件。
+4. 根据审核过的适配代码独立计算 SHA 白名单，在汇总前运行本机 delivery audit，并运行 `python tasks/03/audit_delivery.py --accept-estimated-costs` 核对本份近似记账与恢复来源；五份最终汇总使用 `--require-complete`。不直接信任交付者自报的批准文件。
 5. 通过后仍使用原 `scripts/formal/summarize.py` 和原 plan；不修改其他四份的成绩或身份，不伪造共同版本凭据。
 
 实际正式数据采集已完成，证据见 `FORMAL_COMPLETION_REVIEW.json`；初次 `LOCAL_READINESS.json` 是开跑前的历史快照。已离线核对第 1、4、5 份公开记录，但不代表全组最终汇总或验收完成。用户授权本分支提交和推送；不会自动合并到 main。

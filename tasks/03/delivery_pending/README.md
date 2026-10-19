@@ -1,5 +1,7 @@
 # Person 03 review bundle — not a final delivery
 
+Historical snapshot. The current standard submission is [experiments/deliveries/person-03](../../../experiments/deliveries/person-03/README.md); the owner has approved approximate cost reporting and the standard receipt is now present there. Statements below describe the earlier review stage.
+
 All 336 formal measurements are included. There is no final receipt.json: the strict final-export gate remains unchanged.
 
 - Actual platform: local WSL2 Linux, Python 3.10.20, CPU detector; no PBS impersonation.
