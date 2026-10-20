@@ -39,7 +39,8 @@ class RunnerIsolationTests(unittest.TestCase):
                 return row
             async def scenario():
                 return await asyncio.gather(*(run_shard(plan_path, i, 'fixture-only', root, detector) for i in range(5)))
-            with patch.dict(os.environ, {'OPENROUTER_API_KEY':'test-no-network-credential'}), \
+            with patch.dict(os.environ, {'OPENROUTER_API_KEY':'test-no-network-credential',
+                                         'PBS_JOBID':'offline-fixture-not-a-real-job'}), \
                  patch('trustgate.runner.require_compute'), \
                  patch('trustgate.runner.sys.flags') as flags, \
                  patch.object(run_matrix_v2.Experiment, 'start', start), \

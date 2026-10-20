@@ -1,0 +1,17 @@
+{
+  "observed_at_utc": "2026-10-19T02:29:07.097866+00:00",
+  "status": "running",
+  "worker_pids": [
+    402
+  ],
+  "recorded": 21,
+  "remaining": 315,
+  "original_18_unchanged": true,
+  "reported_cost_usd": 0.03743421,
+  "pending_reserved_usd": 0.05,
+  "uncertain_reserved_usd": 0.0,
+  "total_budget_usd": 2.0,
+  "worker_directory": "/home/trustgate/TrustGate/runs/recoveries/formal-v1-001-resume-01/shard-02",
+  "recovery_sha256": "d80b5c8633aa97847762e6d434e57656423ef65ddd04442a5609853429aab8c2",
+  "note": "Point-in-time snapshot; consult live worker files for current state."
+}

@@ -1,0 +1,4 @@
+# Keep the audited public delivery byte-identical across Windows/Linux checkouts.
+*.csv text eol=lf
+*.json text eol=lf
+ENVIRONMENT.md text eol=lf
