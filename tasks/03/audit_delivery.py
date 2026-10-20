@@ -14,10 +14,25 @@ from trustgate.delivery import PUBLIC_FIELDS
 
 CASE = '9f7467fd5e9ede0aa172'
 REQUEST_SHA = 'f0c204640256d9de138d5b529b746f845b67ee84c8c06f3ec2f98116440617a8'
+LINUX_ADAPTER_FILES = (
+    'api_check.py', 'delivery.py', 'offline.py', 'pilot.py',
+    'prepare_detector.py', 'run.py', 'runtime.py',
+)
 
 
 def read(path):
     return json.loads(Path(path).read_text(encoding='utf-8'))
+
+
+def reviewed_adapter_hashes(recorded):
+    """Check every executed Linux adapter file, excluding unrelated Mac additions."""
+    paths = {'scripts/platforms/local/' + name for name in LINUX_ADAPTER_FILES}
+    if set(recorded) != paths:
+        raise ValueError('Incomplete or unexpected historical Linux adapter inventory')
+    actual = {path: runtime.sha(ROOT / path) for path in sorted(paths)}
+    if actual != recorded:
+        raise ValueError('Local adapter differs from delivered provenance')
+    return actual
 
 
 def audit(folder, accept_estimated_costs=False):
@@ -41,8 +56,7 @@ def audit(folder, accept_estimated_costs=False):
         raise ValueError('Package/detector identity mismatch')
     if platform['system'] != 'Linux' or platform['python'] != '3.10.20' or platform['pbs_job_id'] is not None:
         raise ValueError('Unexpected platform provenance')
-    if platform['adapter_sha256'] != runtime.adapter_hashes():
-        raise ValueError('Local adapter differs from delivered provenance')
+    reviewed_adapter_hashes(platform['adapter_sha256'])
     if platform['plan_sha256'] != plan['plan_sha256'] or platform['shard_index'] != 2:
         raise ValueError('Platform plan/shard mismatch')
     runtime.source_check(plan)
