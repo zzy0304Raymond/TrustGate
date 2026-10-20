@@ -4,6 +4,8 @@
 
 原始公开测量位于 `experiments/deliveries/person-01/` 至 `person-05/`。[数据清单](manifest.json) 记录每份数据的文件哈希、运行平台、样本数及 API 返回费用。
 
+[结果表与六张核心图](analysis/README_ZH.md) 展示七种配置的安全性、正常任务完成率、配对差异、组件消融、逐任务表现和资源使用。每张图提供 PNG 与 PDF；机器可读表格位于 `analysis/tables/`。
+
 ## 数据范围与实验局限
 
 - 保留一条 `TimeoutError` 和所有拒绝、调用上限及任务失败。超时不能当作防御成功。

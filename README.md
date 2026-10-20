@@ -6,7 +6,7 @@
 
 **正式实验已完成：**20 个测试任务、60 个具体攻击案例、七种配置、三次重复，共 1,680 条记录，五人各 336 条，无重复、无缺失。统计保留所有任务失败和运行错误。历史 102 次试验和开发验证单独保存。
 
-**查看结果：阅读 [正式结果说明](results/formal/README_ZH.md)。**既有分片已完成，不要再次提交原作业；[五人启动说明](docs/FORMAL_START_ZH.md) 保留为复现文档。
+**查看结果：阅读 [正式结果说明](results/formal/README_ZH.md) 和 [结果表与核心图](results/formal/analysis/README_ZH.md)。**既有分片已完成，不要再次提交原作业；[五人启动说明](docs/FORMAL_START_ZH.md) 保留为复现文档。
 
 **环境约定：前期配置与验证以 Vanda 为基准。**使用 NSCC 等其他环境前，请逐项核对 [跨平台运行与合并检查清单](docs/CROSS_PLATFORM_CHECKLIST_ZH.md)；最终交付的公共代码和结果须在 Vanda 验收，并保留真实运行平台信息。
 
