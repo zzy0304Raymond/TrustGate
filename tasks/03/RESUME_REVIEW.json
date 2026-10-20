@@ -1,0 +1,39 @@
+{
+  "reviewed_at_utc": "2026-10-19T02:27:44.300449+00:00",
+  "status": "offline_review_passed_ready_to_resume",
+  "person": 3,
+  "branch": "experiment-3",
+  "formal_plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+  "recovery_sha256": "d80b5c8633aa97847762e6d434e57656423ef65ddd04442a5609853429aab8c2",
+  "recovery_entrypoint_sha256": "03a42ac45d81bdc5be78cf495cc684a12d13567fed0eb52551d61eb6e2b9a70d",
+  "frozen_sources_unchanged": 25,
+  "original_local_adapter_files_unchanged": 7,
+  "unit_tests_passed": 55,
+  "unit_test_seconds": 43.39,
+  "locked_packages_matched": 116,
+  "pip_check_passed": true,
+  "offline_report": "runs/local-offline/1792376792979036362/verification.json",
+  "offline_checks": {
+    "task_loops": 20,
+    "condition_surface_loops": 14,
+    "attack_transport_checks": 60,
+    "native_mcp_tools": 24,
+    "detector_device": "cpu",
+    "network_model_requests": 0
+  },
+  "preserved_records": 18,
+  "remaining_records": 318,
+  "carried_cost_usd": 0.035071349999999994,
+  "remaining_budget_usd": 1.96492865,
+  "total_budget_usd": 2,
+  "max_new_model_calls": 2544,
+  "actual_previous_api_model_provider_verified": true,
+  "model": "qwen/qwen3-30b-a3b-instruct-2507",
+  "provider": "SiliconFlow",
+  "team_vanda_acceptance": false,
+  "limitations": [
+    "Result quality cannot be guaranteed before the remaining formal trials.",
+    "receipt wall_seconds will be sum of case seconds across attempts; worker timing is separately documented.",
+    "Original base audit must be supplemented by recovery audit before team merge."
+  ]
+}

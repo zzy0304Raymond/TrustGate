@@ -1,0 +1,27 @@
+{
+  "schema": "person03-final-accounting-v1",
+  "status": "finalized_with_owner_approved_estimate",
+  "authorized_at_utc": "2026-10-19T06:31:05.217692+00:00",
+  "authorized_by": "project_owner_in_this_chat",
+  "scope": "one_retained_historical_timeout_only",
+  "authorization_basis": "Owner explicitly requested approximate cost calculation and that the negligible reservation not remain a submission blocker.",
+  "case_id": "9f7467fd5e9ede0aa172",
+  "request_sha256": "f0c204640256d9de138d5b529b746f845b67ee84c8c06f3ec2f98116440617a8",
+  "reported_formal_cost_usd": 0.51220968,
+  "development_probe_cost_usd": 0.00728094,
+  "formal_cost_rounded_usd": 0.51,
+  "formal_and_probe_cost_rounded_usd": 0.52,
+  "released_client_reservation_usd": 0.05,
+  "estimates_are_provider_invoices": false,
+  "raw_execution_budget": {
+    "limit_usd": 2.0,
+    "per_request_reservation_usd": 0.05,
+    "reported_cost_usd": 0.51220968,
+    "uncertain_reserved_usd": 0.05,
+    "pending_reserved_usd": 0.0,
+    "halted": false
+  },
+  "raw_execution_budget_sha256": "b7652896be84d9b42a04643c00a1c5aeef82230449c70ccae7ecac859896f0f1",
+  "accounting_note": "Reported row costs are unchanged. The old client reservation is released for submission by the owner; cent-rounded totals are estimates, not a newly reconciled per-request invoice. The private execution ledger remains unchanged.",
+  "no_future_requests_authorized": true
+}
