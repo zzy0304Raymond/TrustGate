@@ -1,0 +1,125 @@
+{
+  "execution_backend": "local-linux-v1",
+  "system": "Linux",
+  "release": "6.6.87.2-microsoft-standard-WSL2",
+  "python": "3.10.20",
+  "git_commit": "80e05a3e8b6d7597791aa0ea5ee65c6e3d2ddc2a",
+  "hardware": {
+    "logical_cpus": 32,
+    "cpu_model": "Intel(R) Core(TM) i9-14900HX",
+    "memory_total": "7985272 kB"
+  },
+  "thread_environment": {
+    "PYTHONHASHSEED": "0",
+    "TOKENIZERS_PARALLELISM": "false",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2"
+  },
+  "pbs_job_id": null,
+  "adapter_sha256": {
+    "scripts/platforms/local/api_check.py": "b9a13226651ceccf3b6051db74bb01df37861d37245b5911505c3f0618e4ee7f",
+    "scripts/platforms/local/delivery.py": "3dc94fd33aa0f8a9271bf05a60f4491b4b430b928e0a8a91b16e893333a0286d",
+    "scripts/platforms/local/offline.py": "8ef3f292a983e1f3be2d55aaf4a2c37c0a3df618f9e67d662826c9a5da6e5709",
+    "scripts/platforms/local/pilot.py": "b72e0c5cf42164f6602b47f06caf90cb9ddbdf81699ecd72dbe5dade0ab3272b",
+    "scripts/platforms/local/prepare_detector.py": "75fa52d86c98aee1c4f9a24b1289be9b84e852bdb6a80e8fe0f16e0322043f4d",
+    "scripts/platforms/local/run.py": "2f90a90fc06bcf6489a90011c25ee68a2049171a8ecdc693c41a125f89fe875b",
+    "scripts/platforms/local/runtime.py": "d85d4679bd4beeeb1c5f02ab330fa86ae3e980157731b21b20d37044a68d0046"
+  },
+  "packages": {
+    "agentdojo": "0.1.35",
+    "mcp": "1.26.0",
+    "transformers": "4.53.3",
+    "torch": "2.7.1+cu126",
+    "pydantic": "2.14.1",
+    "openai": "3.31.0"
+  },
+  "acceptance": "Requires team review of adapter and real environment; not Vanda validation.",
+  "detector_sha256": {
+    "model.safetensors": "6521cb8d0ac08148c81464899c424e6148fcc62befa371089fa4061d8b6e0424",
+    "config.json": "05079f4735092040b780d459027afab413faa6eeb66a548571a58832304b60bb",
+    "tokenizer.json": "f0a66ad0d735d8dca9ecac4ff50fcdef4bb6adbadd2941a926844844d2c2059b",
+    "tokenizer_config.json": "557b3d33d3f41b81ad769244e506549e98a1857d41dd58160aacd4d98d710b5a",
+    "special_tokens_map.json": "9463f61e1b109a8eb4688b829260d7c6b1e6dff04c98ff7269bb89e2b92369b9",
+    "spm.model": "c679fbf93643d19aab7ee10c0b99e460bdbc02fedf34b92b05af343b4af586fd"
+  },
+  "execution_history": [
+    {
+      "attempt_id": "formal-v1-001",
+      "start_index": 1,
+      "end_index": 18,
+      "adapter_sha256": {
+        "scripts/platforms/local/api_check.py": "b9a13226651ceccf3b6051db74bb01df37861d37245b5911505c3f0618e4ee7f",
+        "scripts/platforms/local/delivery.py": "3dc94fd33aa0f8a9271bf05a60f4491b4b430b928e0a8a91b16e893333a0286d",
+        "scripts/platforms/local/offline.py": "8ef3f292a983e1f3be2d55aaf4a2c37c0a3df618f9e67d662826c9a5da6e5709",
+        "scripts/platforms/local/pilot.py": "b72e0c5cf42164f6602b47f06caf90cb9ddbdf81699ecd72dbe5dade0ab3272b",
+        "scripts/platforms/local/prepare_detector.py": "75fa52d86c98aee1c4f9a24b1289be9b84e852bdb6a80e8fe0f16e0322043f4d",
+        "scripts/platforms/local/run.py": "2f90a90fc06bcf6489a90011c25ee68a2049171a8ecdc693c41a125f89fe875b",
+        "scripts/platforms/local/runtime.py": "d85d4679bd4beeeb1c5f02ab330fa86ae3e980157731b21b20d37044a68d0046"
+      },
+      "results_sha256": "e0d4e0d5754f987754f76f0418a06c51c45a43270c623be3c846d7e5da71fdc1",
+      "pause_checkpoint_sha256": "de430a19c5887fb37b08dcaf0dd5c9101445985f42064b5ca87a0c33bb40fdb1"
+    },
+    {
+      "attempt_id": "formal-v1-001-resume-01",
+      "start_index": 19,
+      "end_index": 58,
+      "recovery_sha256": "d80b5c8633aa97847762e6d434e57656423ef65ddd04442a5609853429aab8c2",
+      "recovery_entrypoint_sha256": "03a42ac45d81bdc5be78cf495cc684a12d13567fed0eb52551d61eb6e2b9a70d",
+      "adapter_sha256": {
+        "scripts/platforms/local/api_check.py": "b9a13226651ceccf3b6051db74bb01df37861d37245b5911505c3f0618e4ee7f",
+        "scripts/platforms/local/delivery.py": "3dc94fd33aa0f8a9271bf05a60f4491b4b430b928e0a8a91b16e893333a0286d",
+        "scripts/platforms/local/offline.py": "8ef3f292a983e1f3be2d55aaf4a2c37c0a3df618f9e67d662826c9a5da6e5709",
+        "scripts/platforms/local/pilot.py": "b72e0c5cf42164f6602b47f06caf90cb9ddbdf81699ecd72dbe5dade0ab3272b",
+        "scripts/platforms/local/prepare_detector.py": "75fa52d86c98aee1c4f9a24b1289be9b84e852bdb6a80e8fe0f16e0322043f4d",
+        "scripts/platforms/local/run.py": "2f90a90fc06bcf6489a90011c25ee68a2049171a8ecdc693c41a125f89fe875b",
+        "scripts/platforms/local/runtime.py": "d85d4679bd4beeeb1c5f02ab330fa86ae3e980157731b21b20d37044a68d0046"
+      },
+      "carried_cost_usd": 0.035071349999999994,
+      "total_budget_usd": 2.0
+    },
+    {
+      "attempt_id": "formal-v1-001-resume-02",
+      "start_index": 59,
+      "end_index": 191,
+      "recovery_sha256": "28ba84375b3fe43666e77ea60e9b75707720dd66c6e6dedfe550a5d538e02ecd",
+      "recovery_entrypoint_sha256": "eab8d16b277b78b246d10f2bb745ba82a0fe04be955f8cd4d53c0d95a0308a0b",
+      "adapter_sha256": {
+        "scripts/platforms/local/api_check.py": "b9a13226651ceccf3b6051db74bb01df37861d37245b5911505c3f0618e4ee7f",
+        "scripts/platforms/local/delivery.py": "3dc94fd33aa0f8a9271bf05a60f4491b4b430b928e0a8a91b16e893333a0286d",
+        "scripts/platforms/local/offline.py": "8ef3f292a983e1f3be2d55aaf4a2c37c0a3df618f9e67d662826c9a5da6e5709",
+        "scripts/platforms/local/pilot.py": "b72e0c5cf42164f6602b47f06caf90cb9ddbdf81699ecd72dbe5dade0ab3272b",
+        "scripts/platforms/local/prepare_detector.py": "75fa52d86c98aee1c4f9a24b1289be9b84e852bdb6a80e8fe0f16e0322043f4d",
+        "scripts/platforms/local/run.py": "2f90a90fc06bcf6489a90011c25ee68a2049171a8ecdc693c41a125f89fe875b",
+        "scripts/platforms/local/runtime.py": "d85d4679bd4beeeb1c5f02ab330fa86ae3e980157731b21b20d37044a68d0046"
+      },
+      "carried_cost_usd": 0.08037558000000002,
+      "total_budget_usd": 2.0,
+      "carried_uncertain_reserved_usd": 0.05
+    },
+    {
+      "attempt_id": "formal-v1-001-resume-03",
+      "start_index": 192,
+      "end_index": 336,
+      "recovery_sha256": "9ead8dd35d66293cdb61af41bbfd8b77b7f121c92918ff0e4cad8b0bdffe9d0b",
+      "recovery_entrypoint_sha256": "eab8d16b277b78b246d10f2bb745ba82a0fe04be955f8cd4d53c0d95a0308a0b",
+      "adapter_sha256": {
+        "scripts/platforms/local/api_check.py": "b9a13226651ceccf3b6051db74bb01df37861d37245b5911505c3f0618e4ee7f",
+        "scripts/platforms/local/delivery.py": "3dc94fd33aa0f8a9271bf05a60f4491b4b430b928e0a8a91b16e893333a0286d",
+        "scripts/platforms/local/offline.py": "8ef3f292a983e1f3be2d55aaf4a2c37c0a3df618f9e67d662826c9a5da6e5709",
+        "scripts/platforms/local/pilot.py": "b72e0c5cf42164f6602b47f06caf90cb9ddbdf81699ecd72dbe5dade0ab3272b",
+        "scripts/platforms/local/prepare_detector.py": "75fa52d86c98aee1c4f9a24b1289be9b84e852bdb6a80e8fe0f16e0322043f4d",
+        "scripts/platforms/local/run.py": "2f90a90fc06bcf6489a90011c25ee68a2049171a8ecdc693c41a125f89fe875b",
+        "scripts/platforms/local/runtime.py": "d85d4679bd4beeeb1c5f02ab330fa86ae3e980157731b21b20d37044a68d0046"
+      },
+      "carried_cost_usd": 0.2850117899999996,
+      "total_budget_usd": 2.0,
+      "carried_uncertain_reserved_usd": 0.05
+    }
+  ],
+  "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+  "shard_index": 2,
+  "delivery_sha256": {
+    "results.csv": "3c1108a44627fac4ef02f1f7a0a5789bd20e3d4b51c82337c716d0b6e95acac7",
+    "receipt.json": "6c504dda294a52cc78396d5bd493143481497c4fd52c835a943a8cb074ce5c2f"
+  }
+}

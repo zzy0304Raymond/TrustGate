@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-19 Asia/Shanghai",
+  "development_only": true,
+  "cases": 4,
+  "api_calls": 9,
+  "reported_cost_usd": 0.00728094,
+  "case_seconds": 94.78807847200001,
+  "worker_seconds": 103.165932727,
+  "task_passes": 3,
+  "infrastructure_errors": 0,
+  "providers": [
+    "SiliconFlow"
+  ],
+  "models": [
+    "qwen/qwen3-30b-a3b-instruct-2507"
+  ],
+  "row_cost_matches_ledger": true,
+  "original_export_passed": true,
+  "original_summary_passed": true,
+  "extended_delivery_self_consistency_passed": true,
+  "team_merge_approval": false,
+  "linear_336_cost_estimate_usd": 0.61159896,
+  "linear_336_case_hours_estimate": 2.2117218310133335,
+  "caveat": "Four development cases are not a representative performance sample. Do not pool with formal tests. Estimates are uncertain; formal budget remains $2.",
+  "plan_sha256": "bea30edd894d8a362a093980c53d783fd254d966b736d57d59954d803bbb0309",
+  "formal_plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+  "adapter_sha256": {
+    "scripts/platforms/local/api_check.py": "b9a13226651ceccf3b6051db74bb01df37861d37245b5911505c3f0618e4ee7f",
+    "scripts/platforms/local/delivery.py": "3dc94fd33aa0f8a9271bf05a60f4491b4b430b928e0a8a91b16e893333a0286d",
+    "scripts/platforms/local/offline.py": "8ef3f292a983e1f3be2d55aaf4a2c37c0a3df618f9e67d662826c9a5da6e5709",
+    "scripts/platforms/local/pilot.py": "b72e0c5cf42164f6602b47f06caf90cb9ddbdf81699ecd72dbe5dade0ab3272b",
+    "scripts/platforms/local/prepare_detector.py": "75fa52d86c98aee1c4f9a24b1289be9b84e852bdb6a80e8fe0f16e0322043f4d",
+    "scripts/platforms/local/run.py": "2f90a90fc06bcf6489a90011c25ee68a2049171a8ecdc693c41a125f89fe875b",
+    "scripts/platforms/local/runtime.py": "d85d4679bd4beeeb1c5f02ab330fa86ae3e980157731b21b20d37044a68d0046"
+  }
+}

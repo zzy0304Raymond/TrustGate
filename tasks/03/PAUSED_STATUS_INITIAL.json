@@ -1,0 +1,14 @@
+{
+  "status": "paused_by_user",
+  "paused_at_utc": "2026-10-18T16:56:00.811599+00:00",
+  "run_id": "formal-v1-001",
+  "shard_index": 2,
+  "completed_count": 18,
+  "remaining_count": 318,
+  "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+  "remaining_budget_usd": 1.96492865,
+  "restart_policy": "No native automatic resume exists yet. Preserve this attempt. Resume requires a separately bounded recovery manifest excluding completed IDs, retained cost accounting, and explicit multi-attempt provenance. Do not rerun the original full command.",
+  "reported_cost_usd": 0.035071349999999994,
+  "pending_or_uncertain_cost_usd": 0,
+  "private_checkpoint": "runs/studies/formal-v1-001/shard-02/PAUSE_CHECKPOINT.json"
+}
