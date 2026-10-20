@@ -1,0 +1,70 @@
+#!/bin/bash
+#PBS -N tg_person01
+#PBS -q auto
+#PBS -r n
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=06:00:00
+#PBS -j oe
+set -euo pipefail
+umask 077
+
+export TRUSTGATE_REPO=/scratch/xinqi.chen/dsa4213/TrustGate_Project/github/TrustGate_person01
+export TRUSTGATE_KEY_FILE=/scratch/xinqi.chen/dsa4213/TrustGate_Project/.secrets/openrouter_group9.key
+export TRUSTGATE_DETECTOR_DIR=/scratch/xinqi.chen/dsa4213/TrustGate_Project/models/prompt_injection_detector
+export TRUSTGATE_RUN_ID=formal-v1-001
+export TRUSTGATE_RUN_COMMIT=92888fc2fbd09ef967f1af25a657df94d3e42d56
+export PYTHONHASHSEED=0 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
+export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
+
+cd "$TRUSTGATE_REPO"
+source /scratch/xinqi.chen/load-conda.sh
+conda activate dsa4213
+: "${PBS_JOBID:?This entry point requires a real PBS allocation}"
+
+exec 9>/scratch/xinqi.chen/dsa4213/TrustGate_Project/github/person-01-formal-v1-001.lock
+flock -n 9 || { echo 'Another person-01 launch holds the lock.'; exit 1; }
+for previous in \
+  "$TRUSTGATE_REPO/runs/studies/$TRUSTGATE_RUN_ID/shard-00" \
+  "/scratch/xinqi.chen/dsa4213/TrustGate_Project/github/TrustGate/runs/studies/$TRUSTGATE_RUN_ID/shard-00"; do
+  if [[ -e "$previous" ]]; then
+    echo "Existing run must be inspected; refusing to restart: $previous"
+    exit 1
+  fi
+done
+
+export TRUSTGATE_PREP_DIR="$TRUSTGATE_REPO/runs/person01-preparation/$PBS_JOBID"
+mkdir -p "$TRUSTGATE_PREP_DIR" runs/mvp
+echo "PIPELINE_LOG=$TRUSTGATE_PREP_DIR/pipeline.log"
+exec >>"$TRUSTGATE_PREP_DIR/pipeline.log" 2>&1
+monitor_pid=''
+cleanup() {
+  local result=$?
+  if [[ -n "$monitor_pid" ]]; then
+    kill "$monitor_pid" 2>/dev/null || true
+    wait "$monitor_pid" 2>/dev/null || true
+  fi
+  echo "PIPELINE_EXIT=$result"
+}
+trap cleanup EXIT
+
+echo 'STAGE=offline_checks'
+python tasks/01/run_support.py environment before
+python -m pip check
+python -m unittest discover -s tests -v
+python experiments/mvp/preflight.py
+python experiments/mvp/test_parser_recovery.py
+python scripts/formal/preflight.py
+python tasks/01/run_support.py environment preflight_passed
+
+echo 'STAGE=formal_person01'
+python tasks/01/run_support.py monitor &
+monitor_pid=$!
+bash scripts/formal/person-1.pbs
+
+echo 'STAGE=export'
+python -m trustgate export \
+  --plan assignments/formal/plan.json \
+  --worker-dir "runs/studies/$TRUSTGATE_RUN_ID/shard-00" \
+  --destination experiments/deliveries/person-01
+python tasks/01/run_support.py environment completed
+echo 'PERSON01_COMPLETE=336'
