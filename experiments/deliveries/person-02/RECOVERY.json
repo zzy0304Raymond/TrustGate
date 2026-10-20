@@ -1,0 +1,24 @@
+{
+  "original_run_id": "local-person2-20261019-001",
+  "continuation_run_id": "local-person2-20261019-001-resume01",
+  "before_pause_recorded": 150,
+  "after_resume_recorded": 186,
+  "combined_unique_records": 336,
+  "partition_basis": "Original row indices 1-150 and 151-336 within the single results.csv. Separate partition backups remain private locally.",
+  "interrupted_trial": {
+    "index": 151,
+    "case_id": "98f0051e9f3cdb5a5daf",
+    "status": "completed",
+    "cached_paid_responses_reused": 5,
+    "new_live_requests_begin_at_step": 6,
+    "max_model_calls_including_cached": 8,
+    "cached_cost_usd": "0.00425460",
+    "cached_requests_and_responses_compared_exactly": true,
+    "historical_api_duration_source": "file timestamps; flag/exclude this trial in latency sensitivity analysis"
+  },
+  "original150_unchanged": true,
+  "continuation_sha256": "34df12830603ca06b8e0bd56bd79bccb7c58711db84c929d58cc28ac3527a5a6",
+  "previous_attempt_preserved": true,
+  "retries_until_success": false,
+  "evidence": "Original private run, pause-request, replay-check and continuation manifests retained locally; raw requests are not public."
+}
