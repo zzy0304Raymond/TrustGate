@@ -1,0 +1,9 @@
+agentdojo==0.1.35
+mcp==1.26.0
+transformers==4.53.3
+sentencepiece==0.2.1
+huggingface_hub==0.36.2
+tokenizers==0.21.4
+torch==2.7.1
+pydantic==2.14.1
+openai==3.31.0

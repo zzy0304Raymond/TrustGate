@@ -1,0 +1,16 @@
+{
+  "currency": "USD",
+  "basis": "Actual API usage.cost, unique response IDs; no estimate or manual release of reservations.",
+  "total_api_cost_usd": "0.72108042",
+  "before_pause_recorded150_cost_usd": "0.33796212",
+  "interrupted_trial_paid_before_pause_usd": "0.00425460",
+  "charged_before_pause_usd": "0.34221672",
+  "after_resume186_row_cost_usd": "0.38311830",
+  "new_api_charges_after_resume_usd": "0.37886370",
+  "row_partition_note": "The after-resume row partition includes the already-paid cached part of trial151. It is not an extra charge.",
+  "unique_api_responses": 1338,
+  "copied_cached_response_files_not_charged_again": 5,
+  "pending_reserved_usd": 0,
+  "uncertain_reserved_usd": 0,
+  "stop_budget_usd": 2
+}
