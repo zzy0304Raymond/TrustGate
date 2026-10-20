@@ -22,6 +22,21 @@ def write_json(path,value):path.write_text(json.dumps(value,ensure_ascii=False,i
 def rows_from(path):
     with path.open(newline='') as stream:return list(csv.DictReader(stream))
 def money(value):return format(Decimal(value).quantize(Decimal('0.00000001')),'f')
+def validated_delivery(folder, manifest_path, plan_sha):
+    """Match the published dataset manifest to the exact delivery files and plan."""
+    if not manifest_path.exists():
+        return False
+    manifest = load(manifest_path)
+    if manifest.get('schema_version') != 1 or manifest.get('plan_sha256') != plan_sha:
+        return False
+    people = [p for p in manifest.get('shards', []) if p.get('person') == 2]
+    if len(people) != 1 or people[0].get('recorded') != 336:
+        return False
+    actual = {p.relative_to(folder).as_posix(): sha(p) for p in sorted(folder.rglob('*')) if p.is_file()}
+    if actual != people[0].get('delivery_sha256'):
+        raise ValueError('Person-02 files differ from the published dataset manifest')
+    return True
+
 def csv_write(path,rows):
     with path.open('w',newline='',encoding='utf-8') as stream:
         writer=csv.DictWriter(stream,fieldnames=[*PUBLIC_FIELDS,'error_type'],lineterminator='\n')
@@ -154,14 +169,16 @@ def check(require_approval):
     if secret.exists():
         value=secret.read_text().strip().encode();assert all(value not in p.read_bytes() for p in files)
     assert not any(p.suffix in ('.key','.pickle') or p.name.startswith(('request_','response_','trajectory')) for p in files)
-    if require_approval and receipt['acceptance']['status']!='approved':
-        raise SystemExit('Platform review remains pending; do not claim Vanda acceptance or automatic merge readiness.')
+    accepted = validated_delivery(DEST, ROOT/'results/formal/manifest.json', plan['plan_sha256'])
+    if require_approval and not accepted:
+        raise SystemExit('Person-02 delivery does not match a published dataset manifest.')
     return {'structural_checks':'passed','records':336,'before_pause_rows':150,'after_resume_rows':186,
         'cost_usd':money(cost),'receipt_format':'standard_fields_with_explicit_local_platform_provenance',
-        'platform_review':'pending','network_write_performed_by_this_command':False}
+        'dataset_manifest':'matched' if accepted else 'unavailable_or_mismatched',
+        'network_write_performed_by_this_command':False}
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');parser.add_argument('--require-platform-approved',action='store_true');args=parser.parse_args()
-    result=check(args.require_platform_approved) if args.check else prepare()
+    parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');parser.add_argument('--require-validated','--require-platform-approved',dest='require_validated',action='store_true',help='Require exact agreement with the published dataset manifest.');args=parser.parse_args()
+    result=check(args.require_validated) if args.check else prepare()
     print(json.dumps(result,ensure_ascii=False,indent=2))

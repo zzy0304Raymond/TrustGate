@@ -62,7 +62,21 @@ class FinalDeliveryTests(unittest.TestCase):
         import delivery
         from trustgate.planning import read_plan
         plan = read_plan(ROOT / 'assignments/formal/plan.json')
-        self.assertTrue(delivery.validate(plan, self.folder, audit_module.runtime.adapter_hashes())['checked'])
+        recorded = json.loads((self.folder / 'platform_receipt.json').read_text())['adapter_sha256']
+        self.assertTrue(delivery.validate(plan, self.folder,
+            audit_module.reviewed_adapter_hashes(recorded))['checked'])
+
+    def test_historical_adapter_inventory_rejects_omitted_or_changed_code(self):
+        recorded = json.loads((self.folder / 'platform_receipt.json').read_text())['adapter_sha256']
+        self.assertEqual(audit_module.reviewed_adapter_hashes(recorded), recorded)
+        omitted = dict(recorded)
+        omitted.pop(next(iter(omitted)))
+        changed = dict(recorded)
+        changed[next(iter(changed))] = '0' * 64
+        extra = dict(recorded, **{'scripts/platforms/local/person2.py': '0' * 64})
+        for invalid in (omitted, changed, extra):
+            with self.assertRaises(ValueError):
+                audit_module.reviewed_adapter_hashes(invalid)
 
 
 if __name__ == '__main__':

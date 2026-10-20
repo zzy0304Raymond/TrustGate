@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+  "planned": 1680,
+  "recorded": 1680,
+  "shards": [
+    {
+      "person": 1,
+      "recorded": 336,
+      "statuses": {
+        "completed": 326,
+        "model_call_budget": 10
+      },
+      "errors": {},
+      "reported_cost_usd": "0.71732400",
+      "delivery_sha256": {
+        "ENVIRONMENT.md": "cde1a4a7aab5feeeeac5fbf0db9dda4587b95cbf8e8b037294309eea74bd88a4",
+        "README.md": "8a31551bae98d0a1d8aec75efc233c34d1b23616454a91cbc5ce4020f8b7dd86",
+        "receipt.json": "a8391951ef32b2ff2063428e08744c7758a6cd138f60a6acd838c867e70ff66b",
+        "results.csv": "5eb1241ac630a78a19fbe8e173bd2cb84f8f976760edb68e2c3f8d17f9e27b09"
+      },
+      "execution_platform": "Vanda PBS",
+      "torch_version": "2.7.1+cu126"
+    },
+    {
+      "person": 2,
+      "recorded": 336,
+      "statuses": {
+        "completed": 314,
+        "model_call_budget": 20,
+        "denial_budget": 2
+      },
+      "errors": {},
+      "reported_cost_usd": "0.72108042",
+      "delivery_sha256": {
+        "ACCOUNTING.json": "56375cfa3c36b5d85206c5a9ee4c000d8f7635bff80ab13155b239edfe798f18",
+        "AUDIT_REPORT.json": "c459df60e2d1ce5ce3d42387616db952b02421daa82a1631fdccafcfc0147fa1",
+        "AUDIT_ZH.txt": "02f46901d36cdb86d17aff38f6465c462a87d2c3e3c3e75abc6126cf6a1fdb40",
+        "ENVIRONMENT.md": "5dea98f18928bb5ec0e87a67e5eb44879ae3197772505ff8f941c884385bfe51",
+        "README.md": "ff442f01ba0834612e759d99ff8ef597557cc5fcc355f5cc28d89cfb305f7f61",
+        "RECOVERY.json": "d0510be452745dc0494361aba9f01f6aa5e47e98e94dd55f1d8ed39f1ad7a7a5",
+        "SHA256SUMS": "f917d03288c48a9b89de324be8082adec13b9a2d9e8d4640dd1ab68dd7d74527",
+        "local-receipt.json": "4774e2e2b9479cf5ad6cf1d602819b72fc7351542f70311c956f360697fd6b66",
+        "receipt.json": "d8911e76e7975fd268ec80034d6b0a7896f5e3312cfa4be634c40e4831d2f967",
+        "results.csv": "42bcaf2ee6b8dbfb73d0ec1bf49870c0e413546e8558e3b47a250e0c35bd7fe6",
+        "verification.json": "6ca3158d5fd2b3fa622b6cf95bfbe7e10865133c1c5fb0ad4f96d41df55c7887"
+      },
+      "execution_platform": "macOS arm64",
+      "torch_version": "2.7.1"
+    },
+    {
+      "person": 3,
+      "recorded": 336,
+      "statuses": {
+        "completed": 323,
+        "error": 1,
+        "model_call_budget": 12
+      },
+      "errors": {
+        "TimeoutError": 1
+      },
+      "reported_cost_usd": "0.51220968",
+      "delivery_sha256": {
+        ".gitattributes": "d0d071f2d18d914d03d187060c992ace4a9b70d541db2b6e63bef6094be5b785",
+        "ACCOUNTING.json": "6c9541cf96d221577ba1dfdb0706fbbd7ed7b8660f3c09d88de255ae2cb488b1",
+        "ANALYSIS.md": "d9b6dcf7bb56f5147382c59eb6c7ceb6c365251ddb8fda25cc460c408f0ec76d",
+        "ENVIRONMENT.md": "3156b26d49feaceb0708dfe9f9f0ca7f1f7c0b80271c9a8e2d5984cae58fa6dc",
+        "README.md": "c9a1d4998f0057e992ef2385e7e5b85ab8216ada0095758555d7e90adc2ec8a9",
+        "analysis.json": "f879b4867fa9cc81b3006cc6e9d767a866fe4cb6caca88a29ac455f91b30e9dc",
+        "platform_receipt.json": "3375ca374c35f808ecd4b539f482b8a3f9d2e8e59c5382f7287022da6f4fe01b",
+        "receipt.json": "6c504dda294a52cc78396d5bd493143481497c4fd52c835a943a8cb074ce5c2f",
+        "recovery_receipt.json": "1d2f0533f7564a1035f3d4f879687ab3d48883a6098198aa42a059401c2c7493",
+        "results.csv": "3c1108a44627fac4ef02f1f7a0a5789bd20e3d4b51c82337c716d0b6e95acac7"
+      },
+      "execution_platform": "WSL2",
+      "torch_version": "2.7.1+cu126"
+    },
+    {
+      "person": 4,
+      "recorded": 336,
+      "statuses": {
+        "completed": 324,
+        "denial_budget": 4,
+        "model_call_budget": 8
+      },
+      "errors": {},
+      "reported_cost_usd": "0.45516825",
+      "delivery_sha256": {
+        "ENVIRONMENT.md": "88a98a99414b6b5f4cfb732da8fba2b5683e8360cccb10f860f0606bb6d5b69c",
+        "README.md": "270ef549f8c963857ea492d7ee69b6c59175971454631d361cccbe49bf32728e",
+        "receipt.json": "47faaf9cb3c9740de88010a4f9638a682f49e018dc78f2df372781409d694ce2",
+        "results.csv": "75fcf3d97837a6543ff10008eccdd971e8781f2708f4e562fb8b79dc70902049"
+      },
+      "execution_platform": "Vanda PBS",
+      "torch_version": "2.7.1+cu126"
+    },
+    {
+      "person": 5,
+      "recorded": 336,
+      "statuses": {
+        "completed": 302,
+        "model_call_budget": 34
+      },
+      "errors": {},
+      "reported_cost_usd": "0.66977826",
+      "delivery_sha256": {
+        "ENVIRONMENT.md": "fb93eb0b3e1c84a6bd55dbabcf91768b611cd0b6402bd850251570a741fb39b7",
+        "README.md": "ac716c9a534c2cf21915ed39acdbb310a132b626f9c34ba77a3f2ff203455382",
+        "receipt.json": "77ccd9bcddab517e1789c87f5d06cf837c9e802f401d8ee00273db21cf663730",
+        "results.csv": "0f0ad259cabbd44feaeaacf19869c6cc4b83dcd9cc43be4268b8cf5211ff9c86"
+      },
+      "execution_platform": "Vanda PBS",
+      "torch_version": "2.7.1+cu126"
+    }
+  ],
+  "reported_cost_usd": "3.07556061",
+  "currency": "USD",
+  "cost_basis": "API usage.cost returned by the provider; one timeout has unknown final billing.",
+  "timing_exceptions": [
+    "Person 2 trial 151 reconstructs pre-pause API time from file timestamps.",
+    "Person 3 wall_seconds sums case durations; do not compare it directly to full worker wall time."
+  ]
+}

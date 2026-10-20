@@ -182,11 +182,9 @@ class LocalPlatformTests(unittest.TestCase):
             source.write_bytes(b'pass\r\n')
             with self.assertRaises(RuntimeError): runtime.source_check(plan)
 
-    def test_frozen_git_sources_still_match_published_manifest(self):
-        import hashlib
-        for path, expected in self.plan['source_sha256'].items():
-            data = subprocess.check_output(['git', 'show', 'HEAD:' + path], cwd=ROOT)
-            self.assertEqual(hashlib.sha256(data).hexdigest(), expected, path)
+    def test_checked_out_sources_still_match_published_manifest(self):
+        # Verify the bytes actually executed; compute nodes need not install Git.
+        self.assertEqual(runtime.source_check(self.plan), self.plan['source_sha256'])
 
     def test_full_person3_runner_and_original_export(self):
         worker = self.execute()
