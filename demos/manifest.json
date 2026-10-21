@@ -1,0 +1,21 @@
+{
+  "inputs": {
+    "assignments/formal/plan.json": "ae6ccef2fc58d3dce9f27434d7cbd6da2eefef9a964a11331ef9672c9c50af07",
+    "assignments/metadata_supplement/evaluation.json": "d0babe647035922ce9e453846fb654ecbf0144ae664c3b3a9d79ec54e7ff3357",
+    "experiments/deliveries/person-01/results.csv": "5eb1241ac630a78a19fbe8e173bd2cb84f8f976760edb68e2c3f8d17f9e27b09",
+    "experiments/deliveries/person-05/results.csv": "0f0ad259cabbd44feaeaacf19869c6cc4b83dcd9cc43be4268b8cf5211ff9c86",
+    "results/metadata_supplement/evaluation_trials.csv": "ece9cf3fc0ace8fbf0f989f5bf20477eb3aca4647d16592591fbb35ebf87a7bf",
+    "results/metadata_supplement/posthoc_calendar_audit.csv": "2f829016732615dc88f703ca739769f928762f187e4269c8558d27e5797c13f5",
+    "demos/trace_checks.json": "977e81695599b19193b7c3ae99d3f8fe58f0dc856e2f4e8d82df7e55b823b4e7",
+    "scripts/demo/build.py": "07df6f9dd044527b825755c8cd30eb5ac723350c8147bbae682a2d2ccb8665f2",
+    "scripts/demo/style.css": "3a7b63d8d5203bb520819f4873b0e17d1a829b81a5e82ce0e84df58854d87b57",
+    "scripts/demo/export_checks.py": "150ab7f48154604bfd081fc92722bc64710d350e406780b42f10a4b5ef4fa397",
+    "review-data/person-05/ba130a14b581bdd43e95/evidence.json": "e53ffedf5609caaef97a84d5bf6295ca5fe5d956ba200a8b534157f8a3c22080",
+    "review-data/person-05/d578981c28682b1c6ef0/evidence.json": "9644b758bbefed448a1f381988b1f7963fdaf0df88c555ed7121eaeda2818cd6",
+    "review-data/person-05/39bd5fa6fd6bec2335a8/evidence.json": "dc066de32926bb0d5be65d988cc0be5f0b8564ac4a9a2616d3f8e663e731ef0e"
+  },
+  "outputs": {
+    "cases.json": "28ca0223ccd619bd28831065ef90e2d0afd0330b50f59ce380c951197a58b05e",
+    "index.html": "b13a1fe670dae375f320cabd7c733d3c352e903671f5778bd8389660cda66e66"
+  }
+}

@@ -1,8 +1,12 @@
 # 环境、验证与执行
 
+## 已完成结果与演示的复现入口
+
+无需重新运行模型实验即可查看 [三个演示案例](../demos/README_ZH.md) 和 [机制分析](../results/formal/mechanism_evidence/README_ZH.md)。在仓库根目录提交 `qsub scripts/formal/mechanisms.pbs` 可复现正式统计与证据表。演示的 PBS 命令及检测器路径设置见演示说明；其模型回复是预设的，只验证真实 MCP、检测器与授权逻辑，不产生新的模型实验结果。
+
 ## 环境
 
-Vanda 上所有项目命令在 PBS 分配的计算节点执行；登录节点仅提交、查看或取消作业。环境为 `dsa4213`，Python 必须为 `3.10.20`。不需要 GPU。
+Vanda 上计算、安装和运行验证在 PBS 分配的计算节点执行；登录节点可用于调度命令、轻量检查、编辑与 Git 操作。环境为 `dsa4213`，Python 必须为 `3.10.20`。不需要 GPU。
 
 ```bash
 source /scratch/xinqi.chen/load-conda.sh

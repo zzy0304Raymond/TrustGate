@@ -8,6 +8,8 @@
 
 **查看结果：阅读 [正式结果说明](results/formal/README_ZH.md)。**既有分片已完成，不要再次提交原作业；[五人启动说明](docs/FORMAL_START_ZH.md) 保留为复现文档。
 
+**演示入口：[三个真实案例与运行说明](demos/README_ZH.md)。**包含合法日程创建、实际授权防御、正常工具误隔离与评分问题；提供离线展示页及 PBS 机制检查。总体结论见 [防护机制证据](results/formal/mechanism_evidence/README_ZH.md)。
+
 **环境约定：前期配置与验证以 Vanda 为基准。**使用 NSCC 等其他环境前，请逐项核对 [跨平台运行与合并检查清单](docs/CROSS_PLATFORM_CHECKLIST_ZH.md)；最终交付的公共代码和结果须在 Vanda 验收，并保留真实运行平台信息。
 
 ## 从哪里开始
