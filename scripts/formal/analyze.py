@@ -388,7 +388,7 @@ def write_readme(output, tables, include_figures=True):
         ("03_paired_comparisons", "完整系统与三种对照的配对差异", "误差线显示按任务聚类的逐项 95% 区间。"),
         ("04_component_ablations", "三项组件消融", "分别比较移除来源标注、说明筛查和执行授权后的变化。"),
         ("05_task_completion", "逐任务正常完成情况", "观察总体均值掩盖的任务差异，每格为三次重复。"),
-        ("06_resource_usage", "费用、调用数与 token", "使用已返回 API 使用量；跨平台延迟留待单独分析。"),
+        ("06_resource_usage", "费用、调用数与 token", "使用已返回 API 使用量；配对延迟与平台分层见独立开销分析。"),
     ]
     for name, title, description in (figures if include_figures else []):
         lines += [f"### {title}", "", description, "",
@@ -416,7 +416,7 @@ def write_readme(output, tables, include_figures=True):
         "```", "",
         "默认输出为本目录。使用 `--output runs/analysis-check` 可以在独立目录复现；`--tables-only` 仅生成表格，不需要绘图库。数据读取、统计和绘图均不调用模型 API。",
         "",
-        "轨迹抽查、工具说明攻击诊断、平台与恢复计时敏感性分析，以及演示材料属于后续分析范围。",
+        "后续分析已完成：[轨迹核查](../review/README_ZH.md)、[工具说明诊断](../metadata_diagnosis/README_ZH.md)、[机制分析](../mechanism_evidence/README_ZH.md)、[开销与恢复敏感性](../overhead/README_ZH.md)、[合法调用误报](../false_positives/README_ZH.md)。完整研究入口见 [结果总览](../../../docs/RESULTS_ZH.md)。",
     ]
     (output / "README_ZH.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 

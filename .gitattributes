@@ -1,2 +1,5 @@
 results/readiness/*.csv text eol=lf
 experiments/deliveries/**/results.csv text eol=lf
+# Preserve byte-level hashes of generated CSV artifacts across platforms.
+results/formal/overhead/*.csv -text whitespace=cr-at-eol
+results/transport_validation/*.csv -text whitespace=cr-at-eol

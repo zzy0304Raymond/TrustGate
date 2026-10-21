@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -N trustgate-reproduce
+#PBS -q auto
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=01:00:00
+#PBS -r n
+#PBS -j oe
+set -euo pipefail
+cd "${PBS_O_WORKDIR:?Submit from the repository root}"
+output="runs/reproduce-${PBS_JOBID}"
+mkdir -p "$output"
+exec > "$output/run.log" 2>&1
+source "${TRUSTGATE_CONDA_LOADER:-/scratch/xinqi.chen/load-conda.sh}"
+conda activate dsa4213
+export PYTHONHASHSEED=0 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
+export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 MPLBACKEND=Agg
+options=()
+if [ "${TRUSTGATE_FULL_CHECK:-0}" = 1 ]; then options+=(--full); fi
+if [ "${TRUSTGATE_PLOTS:-0}" = 1 ]; then options+=(--plots); fi
+python -u scripts/reproduce.py --output "$output" "${options[@]}"

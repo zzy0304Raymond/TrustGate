@@ -1,0 +1,19 @@
+#!/bin/bash
+#PBS -N tg-install-analysis
+#PBS -q auto
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=00:30:00
+#PBS -r n
+#PBS -j oe
+set -euo pipefail
+cd "${PBS_O_WORKDIR:?Submit from the repository root}"
+source "${TRUSTGATE_CONDA_LOADER:-/scratch/xinqi.chen/load-conda.sh}"
+conda activate dsa4213
+mkdir -p runs/install-analysis
+exec > runs/install-analysis/run.log 2>&1
+python -m pip install -c requirements-runtime-constraints.txt -r requirements-analysis.txt
+python -m pip check
+export PYTHONHASHSEED=0 MPLBACKEND=Agg
+python scripts/formal/analyze.py
+python scripts/formal/analyze_overhead.py --check
+python scripts/transport/verify_public.py --write

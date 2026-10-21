@@ -72,7 +72,7 @@
 
 ### 费用、调用数与 token
 
-使用已返回 API 使用量；跨平台延迟留待单独分析。
+使用已返回 API 使用量；配对延迟与平台分层见独立开销分析。
 
 ![费用、调用数与 token](figures/06_resource_usage.png)
 
@@ -102,4 +102,4 @@ python scripts/formal/analyze.py
 
 默认输出为本目录。使用 `--output runs/analysis-check` 可以在独立目录复现；`--tables-only` 仅生成表格，不需要绘图库。数据读取、统计和绘图均不调用模型 API。
 
-轨迹抽查、工具说明攻击诊断、平台与恢复计时敏感性分析，以及演示材料属于后续分析范围。
+后续分析已完成：[轨迹核查](../review/README_ZH.md)、[工具说明诊断](../metadata_diagnosis/README_ZH.md)、[机制分析](../mechanism_evidence/README_ZH.md)、[开销与恢复敏感性](../overhead/README_ZH.md)、[合法调用误报](../false_positives/README_ZH.md)。完整研究入口见 [结果总览](../../../docs/RESULTS_ZH.md)。
