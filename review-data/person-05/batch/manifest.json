@@ -1,0 +1,42 @@
+{
+  "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+  "shard_index": 4,
+  "run_id": "formal-v1-001",
+  "host": "CN-017",
+  "pbs_job_id": "1465592.stdct-mgmt-02",
+  "python": "3.10.20",
+  "source_sha256": {
+    "trustgate/formal_manifest.py": "a4c1e0446c52d7235454156771be32323cd5d717955f2b22aa886f1ee91f1c74",
+    "trustgate/merge.py": "28594652f0c875d4e94a5e702f78ee699d820c3dfc599cc6e1c45960f7cbf614",
+    "trustgate/__main__.py": "08307bdcb438819d952c1fd9329d964770928b0f7914235bf29f20546a02f450",
+    "trustgate/delivery.py": "e756b39a45942bf3ad000acd6ad1c6df2fe4420819aa790c91c22f28e757bd77",
+    "trustgate/runner.py": "ee26d38bc436f552fd49a0dc9e70ab0adbdbe8a4ed271bcfef589834030d4857",
+    "trustgate/formal_engine.py": "33e4af4734f574f280645ea7bcedb1ac845412312cd7ec9b29e83ee9ad5bf960",
+    "trustgate/formal_allocation.py": "8e8332fb636358c3c6aa78201aee41d12c3b2e65b453ac82ccf2452729323a57",
+    "trustgate/formal_data.py": "1ea82dbb04bbf7c84e5c86e6205ab518ba93bf97b097f7235bd50a9d685d4eb5",
+    "trustgate/planning.py": "fc442b190e7f31ba9107072e977c36b84da51ca925094c6ecc303260e85d1808",
+    "trustgate/formal_policy.py": "18f539f962a3fe2b6d36a479d4bd4b49ff55a2d2b74fafdd62c60b84a5c8f7a5",
+    "trustgate/budget.py": "176c48173a530ac94270e4990d8ad0e300b72f43fcb14a58d99d6a719f9a8ce9",
+    "trustgate/__init__.py": "10c74404c9d0969788357a59900a2057acbcb093dd32aca3ccdf4190ded4489a",
+    "experiments/mvp/run_followup.py": "1ab63d46f568d79e44c70e97b5b672ad830404cc7d578cb44d948cb02407c31d",
+    "experiments/mvp/build_report.py": "14d2de2466d05f18e9dfea16ad41d0040d9dd75c19d4a8cb17acd9c8104f4f79",
+    "experiments/mvp/mcp_workspace_server.py": "d282f1e1d681c31e3eab5f408998e5a4cf87c91fbb66f999b64ff597584b2cbe",
+    "experiments/mvp/detector.py": "5811734d6c1713b97fcee8ee19bc8a955b74a9c2da77bcd30b3f70648f13a524",
+    "experiments/mvp/validate_delivery.py": "da2de2e5a515548d0c104f53294e93b87ba1640db0e186987c61023c86aaff8b",
+    "experiments/mvp/run_matrix_v2.py": "027287680e794639e0b3efcf8784eb4eaa9e2d958374eab38373dd723d5d437b",
+    "experiments/mvp/test_parser_recovery.py": "4c0794a399a0b210ff218acc0c8c3692932260a08d8d25eec56fe1365a85b445",
+    "experiments/mvp/preflight.py": "58f95a006000be8e58c0ce77ef7c45a334e20af9434d0ced42b64c8fe08c6229",
+    "experiments/mvp/run_bound_description.py": "15a22d4cd79724f069640b97e4b85b59cc2b6e4ca3a174680241363709b890b5",
+    "experiments/mvp/prepare_detector.py": "d8c25d6ec775e82e47e632df2553ce6fbca11f58a4d946214ba3e835e8f92301",
+    "experiments/mvp/run_matrix.py": "88c755fed127d256169009c16692248487e7f073825c1a2f11687b55f913bebb",
+    "experiments/mvp/simulation_runtime.py": "2a86038b9aad258ce51d72c131f6c5ffde5b8a1aec9b1765400d87f362609280",
+    "experiments/mvp/analyze_results.py": "cff576f4f941ceac14d89e07647d279131130b48a97963b5bfca6cbb90ac8e44"
+  },
+  "packages": {
+    "agentdojo": "0.1.35",
+    "mcp": "1.26.0",
+    "transformers": "4.53.3",
+    "torch": "2.7.1+cu126"
+  },
+  "classifier_revision": "90c9989b1a342275dd0d1a95aad283c04e075671"
+}
