@@ -51,7 +51,7 @@
 | B01 manifest.json | [batch/manifest.json](batch/manifest.json) | 原件复制，不含私人路径：plan SHA、代码哈希、Python 3.10.20、依赖版本、分类器修订、主机 CN-017、PBS 作业 1465592 |
 | B02 config / plan | 私有原件；哈希见 [SHA256SUMS.csv](SHA256SUMS.csv) | 运行目录中的 `plan.json` 与仓库 [assignments/formal/plan.json](../../assignments/formal/plan.json) 完全一致。`config.json` 与 `plan.config` 只差一项：`max_total_cost_usd` 分片值为 2.0，全组为 10.0，这是执行器按设计写入的 |
 | B03 worker_summary.json | [batch/worker_summary.json](batch/worker_summary.json) | planned=336，recorded=336，complete=true，fatal_error=null，wall_seconds=9342.5；只有一个批次，没有中断或恢复 |
-| B04 交付文件 | [experiments/deliveries/person-05/](../../experiments/deliveries/person-05/) | results.csv、receipt.json、ENVIRONMENT.md 已随 PR #2 合并（交付提交 `931dc94`） |
+| B04 交付文件 | [experiments/deliveries/person-05/](../../experiments/deliveries/person-05/) | results.csv、receipt.json、ENVIRONMENT.md 已随 PR #2 合并（交付提交 `831db87`） |
 | B05 results.json | 私有原件；哈希见 SHA256SUMS.csv | 13 条记录都由 `case_id` 和 `index` 定位到原始目录，与 results.csv 一致 |
 | B06 费用账本 | [batch/budget.json](batch/budget.json) | 已报告 `usage.cost` 合计 $0.66977826；没有未知费用（uncertain_reserved_usd=0），没有未结预留，没有停止。每次请求的 $0.05 预留不是实际收费。没有核对供应商的最终账单 |
 | B07 起止时间 | 见下表 | |
