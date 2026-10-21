@@ -23,3 +23,5 @@ python tasks/02/prepare_delivery.py --check --require-validated
 python scripts/formal/summarize.py --plan assignments/formal/plan.json \
   --deliveries experiments/deliveries --output runs/validation/analysis.json
 ```
+
+[52 条重点记录核查](review/README_ZH.md)提供逐条原因分类、实际防护机制及评分局限。该定向抽查不替代全量正式统计。
