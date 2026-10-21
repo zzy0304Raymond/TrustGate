@@ -25,7 +25,7 @@ def write_csv(path, rows):
     if not rows:
         return
     with path.open('w', newline='') as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
 
@@ -106,6 +106,7 @@ def extract(folder):
             cfg = plan['config']
             assert request['model'] == cfg['model'] and request['temperature'] == cfg['temperature']
             assert request['provider'] == dict(order=[cfg['provider']], allow_fallbacks=False, require_parameters=True)
+            assert response['model'] == cfg['model'] and response['provider'] == cfg['provider']
             functions = {t['function']['name']: t['function'] for t in request['tools']}
             if attack:
                 if attack['goal']['tool'] in functions:

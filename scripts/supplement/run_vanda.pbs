@@ -6,15 +6,15 @@
 #PBS -l walltime=04:00:00
 #PBS -r n
 #PBS -j oe
-#PBS -o /scratch/xinqi.chen/dsa4213/TrustGate_Project/github/TrustGate_metadata_supplement_20261021/runs/metadata-supplement-pbs.log
+#PBS -o runs/metadata-supplement-pbs.log
 set -eo pipefail
 source /scratch/xinqi.chen/load-conda.sh
 conda activate dsa4213
-cd /scratch/xinqi.chen/dsa4213/TrustGate_Project/github/TrustGate_metadata_supplement_20261021
+cd "${TRUSTGATE_REPO_DIR:-$PBS_O_WORKDIR}"
 export PYTHONHASHSEED=0 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
 export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
-export TRUSTGATE_KEY_FILE=/scratch/xinqi.chen/dsa4213/TrustGate_Project/.secrets/openrouter_group9.key
-export TRUSTGATE_DETECTOR_DIR=/scratch/xinqi.chen/dsa4213/TrustGate_Project/models/prompt_injection_detector
+export TRUSTGATE_KEY_FILE="${TRUSTGATE_KEY_FILE:-$PWD/.secrets/openrouter_group9.key}"
+export TRUSTGATE_DETECTOR_DIR="${TRUSTGATE_DETECTOR_DIR:-$PWD/models/prompt_injection_detector}"
 if [ ! -f assignments/metadata_supplement/development.json ]; then
     python -u scripts/supplement/study.py prepare development
 fi
@@ -22,7 +22,10 @@ if [ ! -f assignments/metadata_supplement/development_controls.json ]; then
     python -u scripts/supplement/study.py controls assignments/metadata_supplement/development.json runs/metadata_supplement/dev-controls
 fi
 python -u scripts/supplement/study.py run assignments/metadata_supplement/development.json runs/metadata_supplement/development
-python -u scripts/supplement/study.py prepare evaluation --development-run runs/metadata_supplement/development
+if [ ! -f assignments/metadata_supplement/evaluation.json ]; then
+    python -u scripts/supplement/study.py prepare evaluation --development-run runs/metadata_supplement/development
+fi
 python -u scripts/supplement/study.py controls assignments/metadata_supplement/evaluation.json runs/metadata_supplement/eval-controls
 python -u scripts/supplement/study.py run assignments/metadata_supplement/evaluation.json runs/metadata_supplement/evaluation
 python -u scripts/supplement/analyze.py runs/metadata_supplement/development runs/metadata_supplement/evaluation
+python -u scripts/supplement/audit_calendar.py runs/metadata_supplement/evaluation
