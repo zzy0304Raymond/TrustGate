@@ -1,0 +1,34 @@
+{
+  "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+  "inputs": {
+    "assignments/formal/plan.json": "ae6ccef2fc58d3dce9f27434d7cbd6da2eefef9a964a11331ef9672c9c50af07",
+    "experiments/deliveries/person-01/results.csv": "5eb1241ac630a78a19fbe8e173bd2cb84f8f976760edb68e2c3f8d17f9e27b09",
+    "experiments/deliveries/person-02/results.csv": "42bcaf2ee6b8dbfb73d0ec1bf49870c0e413546e8558e3b47a250e0c35bd7fe6",
+    "experiments/deliveries/person-03/results.csv": "3c1108a44627fac4ef02f1f7a0a5789bd20e3d4b51c82337c716d0b6e95acac7",
+    "experiments/deliveries/person-04/results.csv": "75fcf3d97837a6543ff10008eccdd971e8781f2708f4e562fb8b79dc70902049",
+    "experiments/deliveries/person-05/results.csv": "0f0ad259cabbd44feaeaacf19869c6cc4b83dcd9cc43be4268b8cf5211ff9c86",
+    "results/formal/metadata_diagnosis/trace_checks_person-01.json": "c8edbffaca76474f53546463ce20217deb00256c997825c3e8fa9f165036dc02",
+    "results/formal/metadata_diagnosis/controls.json": "551af28ca2753b1757c20ba351e5153ace893702ee8d3f255ab3b762be69c1dd",
+    "review-data/person-03/addc986589d29cc6ae90.json": "080fff7f96f664401e9fd613b99edae6f65892d4097438132edb10a3f17985b5",
+    "review-data/person-03/b010fdf27838f26e35ae.json": "9ff0b8bf1f1a09a3a52947b43282be2abc225e61b238b0dd1a7a3d8949e0a346",
+    "review-data/person-04/b67228ed3fbe753580e5/evidence.json": "fbd7a3bd61bbec2ac86c32cc6791b2f8882e069dda229cbc9799c3bb9026ff42",
+    "review-data/person-04/b4cde1d7545d383cd4db/evidence.json": "07f18c5d619dffc769a556dd9da9282793e19df9ef6a76e5d11a81bb2459711b",
+    "review-data/person-05/736fc8affae9efb2d67e/evidence.json": "7e8958b72bf68411c92304754f24a99d76c509f95db46ed53fe513a84ba740b5",
+    "review-data/person-05/53c10b651eeb19f9abc2/evidence.json": "0bb9fe0fc918e76ff457418c174cf4263ec17721a790d8f71dc4c2dccbbcb6f9",
+    "scripts/formal/extract_metadata_trace_checks.py": "c044c94afac63d13571b92e9149b10ca7e28a98f25616719c0767f7258e44890",
+    "scripts/formal/check_metadata_controls.py": "1d7f23c667504e0725e209b240235a45525265597aaf566bcc18ae668fb0a77b",
+    "scripts/formal/analyze_metadata_diagnosis.py": "b3d7c1bc9f1d7b7cdc2a377748411683154833f3766bb3491ba8d2f7fb0c4225"
+  },
+  "outputs": {
+    "trials.csv": "4cb84071c98b9262c25fc2861b3859d7ec0b156f5f239dcc34d6757c942b6ac2",
+    "pairs.csv": "144d0d122034cd24d1821533d501d748b7dcc308d408bd6fab080428a26360ce",
+    "evidence_gaps.csv": "a751f2c3778ceecdbb230699d1085473f95cda7a71944fbbdc6d7a85a124e6b2",
+    "all_conditions.csv": "73b487b748b11874210383cd8d385dc6fff0a8beceb723e9d68b3cb86280c418",
+    "attack_controls.csv": "a06dbbdb9be38f12cea3f4fada40cb04865df9819ea2feb8161a3f300a393232",
+    "summary.json": "aa81e09e6f03a994303d18fe9f08ceb47fed51ef14545275cba1a8d002e1e05c",
+    "README_ZH.md": "72b262555530b8594f00b967197eb6da86515568abd49b655a324e6b6e3c0d85",
+    "EXPORT_ZH.md": "d51e8d617fe9ae62b9641eef0968973bbcc30388ffbcbc8fb0341ce8ca4807a0",
+    "verify.py": "c2a74579e167edbf6dfa80ffb75b60d6de6cbf94e5e46e1517b301cf4f1abcfa"
+  },
+  "notes": "Blank trace fields mean unknown, not zero. Derived private checks do not publish original messages or states."
+}

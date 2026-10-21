@@ -25,3 +25,5 @@ python scripts/formal/summarize.py --plan assignments/formal/plan.json \
 ```
 
 [52 条重点记录核查](review/README_ZH.md)提供逐条原因分类、实际防护机制及评分局限。该定向抽查不替代全量正式统计。
+
+[工具说明攻击诊断](metadata_diagnosis/README_ZH.md)整理 90 组无防护与 TrustGate 对照，区分完整原件、公开摘录和摘要证据，并提供攻击目标与评分器的离线控制。
