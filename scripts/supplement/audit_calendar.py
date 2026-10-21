@@ -47,13 +47,25 @@ def main():
     sys.addaudithook(offline)
     parser = argparse.ArgumentParser()
     parser.add_argument('evaluation', type=Path)
+    parser.add_argument('--continuation', type=Path)
     args = parser.parse_args()
     worker = read(args.evaluation / 'worker_summary.json')
-    assert worker['complete']
     rows = read(args.evaluation / 'results.json')
+    origins = {r['case_id']: args.evaluation for r in rows}
+    if args.continuation:
+        assert read(args.continuation / 'worker_summary.json')['complete']
+        receipt = read(args.continuation / 'continuation.json')
+        assert receipt['prior_results_sha256'] == sha(args.evaluation / 'results.json')
+        extra = read(args.continuation / 'results.json')
+        assert not set(origins) & {r['case_id'] for r in extra}
+        origins.update({r['case_id']: args.continuation for r in extra})
+        rows += extra
+    else:
+        assert worker['complete']
+    assert len(rows) == len({r['case_id'] for r in rows}) == 144
     selected = [r for r in rows if r['task'] == 'user_task_10']
     assert len(selected) == 48
-    records = [inspect(r, args.evaluation / Path(r['result_dir']).name) for r in selected]
+    records = [inspect(r, origins[r['case_id']] / Path(r['result_dir']).name) for r in selected]
     write_csv(OUT / 'posthoc_calendar_audit.csv', records)
     summary = dict(posthoc=True, primary_scores_unchanged=True, new_api_requests=0,
                    motivation='Native task-10 utility accepts substring 3/three; an incorrect date can satisfy it.',

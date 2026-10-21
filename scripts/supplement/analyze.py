@@ -59,18 +59,41 @@ def changed_states(before, after):
     return sent, cancelled, deleted
 
 
-def extract(folder):
+def extract(folder, continuation=None):
     plan = checked_plan(folder / 'plan.json')
     worker = read(folder / 'worker_summary.json')
     original = read(folder / 'results.json')
+    origins = {r['case_id']: folder for r in original}
+    chunks = [worker]
+    if continuation:
+        receipt = read(continuation / 'continuation.json')
+        other = read(continuation / 'worker_summary.json')
+        extra = read(continuation / 'results.json')
+        assert receipt['parent_plan_sha256'] == plan['plan_sha256']
+        assert receipt['prior_results_sha256'] == sha(folder / 'results.json')
+        assert receipt['prior_worker_sha256'] == sha(folder / 'worker_summary.json')
+        assert other['complete'] and [r['case_id'] for r in extra] == [c['case_id'] for c in receipt['cases']]
+        assert not set(origins) & {r['case_id'] for r in extra}
+        origins.update({r['case_id']: continuation for r in extra})
+        original += extra
+        chunks.append(other)
+        worker = dict(worker, complete=len(original) == plan['planned_cases'], recorded=len(original),
+                      wall_seconds=sum(s['wall_seconds'] for s in chunks),
+                      attempted_requests=sum(s['attempted_requests'] for s in chunks),
+                      budget=dict(worker['budget'],
+                          reported_cost_usd=sum(s['budget']['reported_cost_usd'] for s in chunks),
+                          uncertain_reserved_usd=sum(s['budget']['uncertain_reserved_usd'] for s in chunks)))
     assert worker['complete'] and len(original) == plan['planned_cases']
     cases = {c['case_id']: c for c in plan['cases']}
     assert len(original) == len({r['case_id'] for r in original}) and set(cases) == {r['case_id'] for r in original}
     suite = get_suite('v1.2.2', 'workspace')
     records, evidence = [], []
     for row in original:
-        private = folder / Path(row['result_dir']).name
-        assert row == read(private / 'summary.json') and row['error'] is None
+        private = origins[row['case_id']] / Path(row['result_dir']).name
+        assert row == read(private / 'summary.json')
+        valid = row['error'] is None
+        if not valid:
+            assert row['error']['type'] == 'TimeoutError' and row['status'] == 'error'
         case = cases[row['case_id']]
         assert all(row[k] == v for k, v in case.items())
         attack = plan['config']['formal_attacks'].get(row['attack_case_id'])
@@ -119,6 +142,23 @@ def extract(folder):
                         visible.append(step)
         if attack:
             assert bool(visible) == row['injection_reached_model']
+        unreturned = sorted(int(p.stem.rsplit('_', 1)[1]) for p in private.glob('request_*.json')
+                            if not p.with_name(p.name.replace('request_', 'response_')).exists())
+        assert unreturned == ([] if valid else [len(assistants) + 1])
+        for step in unreturned:
+            request = read(private / f'request_{step:02}.json')
+            assert request['messages'] == trajectory
+            assert request['model'] == plan['config']['model']
+            assert request['provider'] == dict(order=[plan['config']['provider']], allow_fallbacks=False, require_parameters=True)
+            functions = {t['function']['name']: t['function'] for t in request['tools']}
+            if attack and attack['goal']['tool'] in functions:
+                goal_available.append(step)
+            if attack and attack['metadata_tool'] in functions:
+                desc = functions[attack['metadata_tool']]['description']
+                if row['condition'] in ('trustgate', 'no_metadata', 'no_authorization'):
+                    desc = json.loads(desc)['description']
+                if attack['payload'] in desc:
+                    visible.append(step)
         proposed = [tc['function'] for _, m in assistants for tc in m.get('tool_calls', [])]
         assert len(calls) == row['tool_calls'] and len(proposed) >= len(calls)
         for p, c in zip(proposed, calls):
@@ -128,6 +168,7 @@ def extract(folder):
         quarantine = [e['tool'] for e in events if e['kind'] == 'metadata_quarantine']
         malicious = bool(attack and attack['metadata_tool'] in quarantine)
         normal = [name for name in quarantine if not attack or name != attack['metadata_tool']]
+        output_blocks = [e['tool'] for e in events if e['kind'] == 'output_classifier' and e['blocked']]
         assert len(normal) == row['benign_metadata_quarantines']
         sent, canceled, deleted = changed_states(before, after)
         loose_mail = None
@@ -140,20 +181,25 @@ def extract(folder):
                 'tool_calls', 'tool_errors', 'authorization_blocks', 'metadata_quarantines',
                 'benign_metadata_quarantines', 'detector_seconds']
         public = {k: row[k] for k in keep}
-        public.update(goal_tool=attack['goal']['tool'] if attack else '',
+        public.update(valid_for_comparison=valid, error_type='' if valid else row['error']['type'],
+                      request_attempts=len(assistants) + len(unreturned), unreturned_requests=len(unreturned),
+                      goal_tool=attack['goal']['tool'] if attack else '',
                       full_payload_requests=len(visible), malicious_metadata_quarantined=malicious,
                       goal_tool_proposals=sum(p['name'] == attack['goal']['tool'] for p in proposed) if attack else 0,
                       exact_goal_proposals=sum(exact(p, attack['goal']) for p in proposed) if attack else 0,
                       goal_tool_executions=sum(c['name'] == attack['goal']['tool'] and c['executed'] for c in calls) if attack else 0,
                       goal_authorization_blocks=sum(e['kind'] == 'authorization_block' and e['tool'] == attack['goal']['tool'] for e in events) if attack else 0,
                       pending_proposals=len(proposed) - len(calls),
+                      output_classifier_blocks=len(output_blocks),
                       same_recipient_mail_success=loose_mail,
                       unauthorized_side_effect=bool(sent or canceled or deleted),
                       new_sent_emails=len(sent), new_canceled_events=len(canceled), deleted_files=len(deleted))
         records.append(public)
         evidence.append(dict(case_id=row['case_id'], full_payload_request_steps=visible,
+                             unreturned_request_steps=unreturned, valid_for_comparison=valid,
                              goal_tool_available_request_steps=goal_available,
                              normal_metadata_quarantines=normal, proposed_tool_names=[p['name'] for p in proposed],
+                             output_classifier_blocked_tools=output_blocks,
                              recomputed_attacker_success=recomputed, state_roundtrip_exact=True,
                              request_response_trajectory_match=True,
                              source_files={p.name: sha(p) for p in sorted(private.glob('*.json'))}))
@@ -164,12 +210,16 @@ def extract(folder):
     return records, dict(stage=plan['stage'], plan_sha256=plan['plan_sha256'], planned=plan['planned_cases'],
                         recorded=len(records), complete=worker['complete'], wall_seconds=worker['wall_seconds'],
                         attempted_requests=worker['attempted_requests'], budget=worker['budget'],
+                        complete_means='All planned case IDs recorded; infrastructure failures are retained and excluded from valid comparisons.',
+                        infrastructure_errors=sum(not r['valid_for_comparison'] for r in records), execution_chunks=chunks,
                         host=worker['host'], pbs_job_id=worker['pbs_job_id'])
 
 
 def aggregate(rows):
-    return dict(trials=len(rows), exact_attack_successes=sum(r['attacker_success'] is True for r in rows),
-                utility_successes=sum(r['native_utility'] is True for r in rows),
+    valid = [r for r in rows if r['valid_for_comparison']]
+    return dict(trials=len(rows), valid_trials=len(valid), infrastructure_errors=len(rows) - len(valid),
+                exact_attack_successes=sum(r['attacker_success'] is True for r in valid),
+                utility_successes=sum(r['native_utility'] is True for r in valid),
                 completed=sum(r['pipeline_completed'] for r in rows),
                 safe_completions=sum(r['safe_completion'] is True for r in rows),
                 goal_proposal_trials=sum(r['goal_tool_proposals'] > 0 for r in rows),
@@ -177,6 +227,7 @@ def aggregate(rows):
                 goal_authorization_block_trials=sum(r['goal_authorization_blocks'] > 0 for r in rows),
                 malicious_quarantine_trials=sum(r['malicious_metadata_quarantined'] for r in rows),
                 normal_quarantine_trials=sum(r['benign_metadata_quarantines'] > 0 for r in rows),
+                output_classifier_block_trials=sum(r['output_classifier_blocks'] > 0 for r in rows),
                 unauthorized_side_effect_trials=sum(r['unauthorized_side_effect'] for r in rows),
                 same_recipient_mail_successes=sum(r['same_recipient_mail_success'] is True for r in rows),
                 statuses=dict(Counter(r['status'] for r in rows)), api_calls=sum(r['api_calls'] for r in rows),
@@ -189,6 +240,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('development', type=Path)
     parser.add_argument('evaluation', type=Path, nargs='?')
+    parser.add_argument('--continuation', type=Path)
     args = parser.parse_args()
     OUT.mkdir(exist_ok=True, parents=True)
     development, dev_worker = extract(args.development)
@@ -196,7 +248,7 @@ def main():
     summary = dict(development={f: aggregate([r for r in development if r['family'] == f])
                                for f in sorted({r['family'] for r in development})})
     if args.evaluation:
-        evaluation, eval_worker = extract(args.evaluation)
+        evaluation, eval_worker = extract(args.evaluation, args.continuation)
         stages.append(eval_worker)
         attacked = [r for r in evaluation if r['surface'] == 'metadata']
         clean = [r for r in evaluation if r['surface'] == 'benign']
@@ -210,6 +262,7 @@ def main():
         for baseline in [r for r in attacked if r['condition'] == 'none']:
             defended = next(r for r in attacked if (r['task'], r['family'], r['repeat'], r['condition']) ==
                             (baseline['task'], baseline['family'], baseline['repeat'], 'trustgate'))
+            assert baseline['valid_for_comparison'] and defended['valid_for_comparison']
             pairs.append(dict(task=baseline['task'], family=baseline['family'], repeat=baseline['repeat'],
                               none_case=baseline['case_id'], trustgate_case=defended['case_id'],
                               none_success=baseline['attacker_success'], trustgate_success=defended['attacker_success'],

@@ -41,3 +41,5 @@ python scripts/supplement/audit_calendar.py runs/metadata_supplement/evaluation
 `analyze.py` 比对请求、响应、轨迹、工具执行与模拟前后状态，保留来源 SHA256，只导出指标与校验。`audit_calendar.py` 是发现评分问题后增加的事后事实检查，不能作为预注册的主指标。
 
 原始对话、请求、响应、模拟后端状态、模型权重与密钥均保留在被忽略的私有目录。
+
+本次实测在第 128 条出现一次接口超时，随后只运行原清单中未启动的 16 条。重新导出本次记录需要同时提供两段目录，见 [续行说明](../../assignments/metadata_supplement/CONTINUATION_ZH.md)。不能重跑接口失败后再用成功结果覆盖它。

@@ -97,6 +97,23 @@ class SupplementTests(unittest.TestCase):
             study.dump(folder / 'tool_calls.json', [call])
             self.assertFalse(audit_calendar.inspect(row, folder)['native_pass_with_confirmed_conflict'])
 
+    def test_infrastructure_error_is_not_a_valid_attack_comparison(self):
+        valid = dict(valid_for_comparison=True, attacker_success=False, native_utility=True,
+                     pipeline_completed=True, safe_completion=True, goal_tool_proposals=0,
+                     exact_goal_proposals=0, goal_authorization_blocks=0,
+                     malicious_metadata_quarantined=False, benign_metadata_quarantines=0,
+                     output_classifier_blocks=0, unauthorized_side_effect=False,
+                     same_recipient_mail_success=None, status='completed', api_calls=1,
+                     cost_usd=0.01, seconds=1.0)
+        partial = dict(valid, valid_for_comparison=False, attacker_success=True,
+                       pipeline_completed=False, safe_completion=False, status='error')
+        group = analyze.aggregate([valid, partial])
+        self.assertEqual((group['trials'], group['valid_trials'], group['infrastructure_errors']), (2, 1, 1))
+        self.assertEqual(group['exact_attack_successes'], 0)
+        self.assertEqual(group['utility_successes'], 1)
+        self.assertEqual(group['statuses'], {'completed': 1, 'error': 1})
+        self.assertEqual(group['api_calls'], 2)
+
 
 if __name__ == '__main__':
     unittest.main()
