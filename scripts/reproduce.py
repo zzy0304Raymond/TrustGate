@@ -129,6 +129,8 @@ def main():
         command('-m', 'unittest', 'discover', '-s', 'tests', '-v')
         command('scripts/validation/check_deliveries.py')
         command('tasks/02/prepare_delivery.py', '--check', '--require-validated')
+        # Frozen pilot helpers expect their parent output directory to exist.
+        (ROOT / 'runs/mvp').mkdir(parents=True, exist_ok=True)
         command('experiments/mvp/preflight.py')
         command('experiments/mvp/test_parser_recovery.py')
         command('scripts/formal/preflight.py')
