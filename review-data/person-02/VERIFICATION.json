@@ -1,0 +1,21 @@
+{
+  "prepared_at": "2026-10-20T20:05:04+08:00",
+  "selected_cases": 12,
+  "case_ids_match_selection": true,
+  "native_utility_rechecks": 12,
+  "native_score_mismatches": 0,
+  "no_selected_record_missing": true,
+  "original_scores_unchanged": true,
+  "private_originals_unchanged": true,
+  "selected_tool_calls_reconciled": 40,
+  "unique_api_response_cost_reconciled": "0.72108042",
+  "new_paid_api_requests": 0,
+  "raw_logs_or_full_states_published": false,
+  "secret_email_contact_name_absolute_path_scan": "passed",
+  "limitations": [
+    "See README.md for intentional omissions and unavailable explicit allow events."
+  ],
+  "selection_source_commit": "8a0b6ec4d598a7509b83fcd485d35ff055489ee4",
+  "selection_sha256": "29a3a81d9c9379c775712ae1621b89df694876c9ed188818f66e2258384c4cc0",
+  "formal_result_csv_sha256": "42bcaf2ee6b8dbfb73d0ec1bf49870c0e413546e8558e3b47a250e0c35bd7fe6"
+}

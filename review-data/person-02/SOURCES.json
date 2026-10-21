@@ -1,0 +1,1428 @@
+{
+  "selection_source_commit": "8a0b6ec4d598a7509b83fcd485d35ff055489ee4",
+  "selection_source": "review-data/person-02/selection.csv",
+  "selection_sha256": "29a3a81d9c9379c775712ae1621b89df694876c9ed188818f66e2258384c4cc0",
+  "per_record_and_batch_private_sources": {
+    "64440eaf728b23d4018e": [
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/041_W1_calendar_read_benign_none_r1/summary.json",
+        "sha256": "3024c3e2c348a558dd5902fd822ccfc6a12fbe6a7b10d0e5527406fbe3c3b87f",
+        "bytes": 1380,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/041_W1_calendar_read_benign_none_r1/trajectory.json",
+        "sha256": "4032959026739b44b3f0935fb84dc4531b0e1bf6c4a61ed2e86a559208246871",
+        "bytes": 2636,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/041_W1_calendar_read_benign_none_r1/tool_calls.json",
+        "sha256": "371efc2dbd8e0a9237001362054899ae978b86c03c09a15ee7d7b8646fdbda33",
+        "bytes": 1452,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/041_W1_calendar_read_benign_none_r1/defense_events.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/041_W1_calendar_read_benign_none_r1/policy.json",
+        "sha256": "a72fc6b8524df693980048a341bd8d9f065f53b066b4b218129a323772ab4c2d",
+        "bytes": 359,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/041_W1_calendar_read_benign_none_r1/api_usage.json",
+        "sha256": "f7e07ccced83adf91c838f72e8862ec649b8c81e16349c20bd68c81ace4fdb17",
+        "bytes": 1586,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/041_W1_calendar_read_benign_none_r1/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/041_W1_calendar_read_benign_none_r1/environment_after.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/041_W1_calendar_read_benign_none_r1/request_01.json",
+        "sha256": "145c32a1bb3fc9c7294fffb96cbffdc16a70ca763d3b425218b2588e4ffbeb91",
+        "bytes": 21561,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/041_W1_calendar_read_benign_none_r1/request_02.json",
+        "sha256": "52968acd1a52a4263142ff20d5e45b10d1ab60967609bd8ab58691b1dd9bb0f9",
+        "bytes": 23354,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/041_W1_calendar_read_benign_none_r1/response_01.json",
+        "sha256": "e2fb9becf4fb53fcac723e5ccea86edd85ac97d691eaa3874c2d03dee72c1549",
+        "bytes": 1549,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/041_W1_calendar_read_benign_none_r1/response_02.json",
+        "sha256": "8b08ba2e4cf8f854809dbd83b32950e903da1b85294377810e0bd5ac99fcc592",
+        "bytes": 1286,
+        "published_raw": false
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/agentdojo/default_suites/v1/workspace/user_tasks.py",
+        "sha256": "d2a550b812b7f40ee2dea17ac19d44f2dd063d103524118216b563eca6e44171",
+        "bytes": 55415,
+        "published_raw": false
+      }
+    ],
+    "f329af48df0519939f29": [
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/319_W1_calendar_read_benign_trustgate_r1/summary.json",
+        "sha256": "0aade221e6b332c399357bed5ba3f907a2828b1b0444d0607db73bd2e86a1f0b",
+        "bytes": 1279,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/319_W1_calendar_read_benign_trustgate_r1/trajectory.json",
+        "sha256": "4b3d000a1c410a616fb359eebc62ad27ab19ef066e83c3fc24d8cfa267483188",
+        "bytes": 3482,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/319_W1_calendar_read_benign_trustgate_r1/tool_calls.json",
+        "sha256": "23fe3046d86393a8b274bf1300b8c99109e605975d358648aa72251d16737293",
+        "bytes": 1702,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/319_W1_calendar_read_benign_trustgate_r1/defense_events.json",
+        "sha256": "b1cc6f4efcfdcd46fd4ce96e52dd9144900670e03a2252f3745ac8a43b53d343",
+        "bytes": 6818,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/319_W1_calendar_read_benign_trustgate_r1/policy.json",
+        "sha256": "a72fc6b8524df693980048a341bd8d9f065f53b066b4b218129a323772ab4c2d",
+        "bytes": 359,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/319_W1_calendar_read_benign_trustgate_r1/api_usage.json",
+        "sha256": "11c311b5fa1b2d290d9e99d668a1e5e0fff8efc39bd5e4274307660f2b508e65",
+        "bytes": 2378,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/319_W1_calendar_read_benign_trustgate_r1/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/319_W1_calendar_read_benign_trustgate_r1/environment_after.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/319_W1_calendar_read_benign_trustgate_r1/request_01.json",
+        "sha256": "20a910796ea599720e5d66569a60fe3b44566cef29445b20db453231990f7785",
+        "bytes": 23480,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/319_W1_calendar_read_benign_trustgate_r1/request_02.json",
+        "sha256": "3f5230bcfe15d9dd9949c87d58ace9fe96d0663ae6c6d5da232c7a339727939c",
+        "bytes": 24125,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/319_W1_calendar_read_benign_trustgate_r1/request_03.json",
+        "sha256": "143b4547a81c8125cfe81b0c63d3358d235c11b4494e0fec3eea185b6478c724",
+        "bytes": 26034,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/319_W1_calendar_read_benign_trustgate_r1/response_01.json",
+        "sha256": "04bb9de04f38ba37227b0d04c813ea922d9ac195a4a02aa05d7c3a5955a5b9d7",
+        "bytes": 1477,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/319_W1_calendar_read_benign_trustgate_r1/response_02.json",
+        "sha256": "c13efa0e07131db55cef63445c4105132cc408c14601358960c9c22239f33e50",
+        "bytes": 1500,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/319_W1_calendar_read_benign_trustgate_r1/response_03.json",
+        "sha256": "d8255196e851f0aaa902bf7a00ceb1aa69b5bcbd34d739dc940cd618046c00f5",
+        "bytes": 1147,
+        "published_raw": false
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/agentdojo/default_suites/v1/workspace/user_tasks.py",
+        "sha256": "d2a550b812b7f40ee2dea17ac19d44f2dd063d103524118216b563eca6e44171",
+        "bytes": 55415,
+        "published_raw": false
+      }
+    ],
+    "92ee2d631ef7da28aa77": [
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/023_W1_calendar_read_benign_none_r2/summary.json",
+        "sha256": "0909ca958380d37d66b043b302a2f66d02467a6f55f915343c11bf4290b28050",
+        "bytes": 1240,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/023_W1_calendar_read_benign_none_r2/trajectory.json",
+        "sha256": "6cf42ff6cfb547d9aaf33d1b8aba40f368cbc452ded300afae3853d79c2d13f9",
+        "bytes": 2497,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/023_W1_calendar_read_benign_none_r2/tool_calls.json",
+        "sha256": "1bf5ce91032b67e78d8f5de9595022565641cec0978ddf52e6e2a4719f00f486",
+        "bytes": 1451,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/023_W1_calendar_read_benign_none_r2/defense_events.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/023_W1_calendar_read_benign_none_r2/policy.json",
+        "sha256": "a72fc6b8524df693980048a341bd8d9f065f53b066b4b218129a323772ab4c2d",
+        "bytes": 359,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/023_W1_calendar_read_benign_none_r2/api_usage.json",
+        "sha256": "628a6d5097902bc7b6c453f9f9d9e8b2d848079c1eb156abca45dcc05333529e",
+        "bytes": 1586,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/023_W1_calendar_read_benign_none_r2/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/023_W1_calendar_read_benign_none_r2/environment_after.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/023_W1_calendar_read_benign_none_r2/request_01.json",
+        "sha256": "145c32a1bb3fc9c7294fffb96cbffdc16a70ca763d3b425218b2588e4ffbeb91",
+        "bytes": 21561,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/023_W1_calendar_read_benign_none_r2/request_02.json",
+        "sha256": "6ec3ef2ea6c50479b834e8bea9495ac3813554b8636f719ff32b4b73580166c7",
+        "bytes": 23354,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/023_W1_calendar_read_benign_none_r2/response_01.json",
+        "sha256": "4ca05f7c92f0afeb750ed66f6718f5938091f530ca6ac63e4168877c3c819b73",
+        "bytes": 1549,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/023_W1_calendar_read_benign_none_r2/response_02.json",
+        "sha256": "3bf7d915ac00f11ee0ca8a0ed0fb58e3b739f25b2ae1a4a426b709a304d3c58a",
+        "bytes": 1147,
+        "published_raw": false
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/agentdojo/default_suites/v1/workspace/user_tasks.py",
+        "sha256": "d2a550b812b7f40ee2dea17ac19d44f2dd063d103524118216b563eca6e44171",
+        "bytes": 55415,
+        "published_raw": false
+      }
+    ],
+    "8032a373944f20a70ad7": [
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/208_W1_calendar_read_benign_trustgate_r2/summary.json",
+        "sha256": "da1519d6107f7d95591113a8db75e3ba497ecf22f8871263262d659d51ec3d90",
+        "bytes": 1280,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/208_W1_calendar_read_benign_trustgate_r2/trajectory.json",
+        "sha256": "507fe643871ffad6215b27064fde53c7ce1434b3dfba1a301ad095509f38302a",
+        "bytes": 3482,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/208_W1_calendar_read_benign_trustgate_r2/tool_calls.json",
+        "sha256": "e83629ef4dc7e947c6cafb418a2d22575c98a800b1f33b4786cd1706338fc523",
+        "bytes": 1702,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/208_W1_calendar_read_benign_trustgate_r2/defense_events.json",
+        "sha256": "43857671381cedd2c694451b3661ebd5a77ec15a8f0832500810a5ccda3a8d95",
+        "bytes": 6814,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/208_W1_calendar_read_benign_trustgate_r2/policy.json",
+        "sha256": "a72fc6b8524df693980048a341bd8d9f065f53b066b4b218129a323772ab4c2d",
+        "bytes": 359,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/208_W1_calendar_read_benign_trustgate_r2/api_usage.json",
+        "sha256": "924737a457133576f591d11133b6a01fff5044d1d28e6e265403fc270366bbd9",
+        "bytes": 2384,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/208_W1_calendar_read_benign_trustgate_r2/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/208_W1_calendar_read_benign_trustgate_r2/environment_after.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/208_W1_calendar_read_benign_trustgate_r2/request_01.json",
+        "sha256": "20a910796ea599720e5d66569a60fe3b44566cef29445b20db453231990f7785",
+        "bytes": 23480,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/208_W1_calendar_read_benign_trustgate_r2/request_02.json",
+        "sha256": "e854b63bdc2848dbb0f1654a5bbd04c222faf49479a9e851a16f1f6d32668ee8",
+        "bytes": 24125,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/208_W1_calendar_read_benign_trustgate_r2/request_03.json",
+        "sha256": "bf887482a0570907063ee4bac20e62db3ce42a688ace278396ac382ef922191c",
+        "bytes": 26034,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/208_W1_calendar_read_benign_trustgate_r2/response_01.json",
+        "sha256": "48a41d02aea6d9abeced9dec7343c3f7491a74184e90b504efc87b76b5bc1780",
+        "bytes": 1479,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/208_W1_calendar_read_benign_trustgate_r2/response_02.json",
+        "sha256": "5ef90e2a406d7c9a58004fe9fef916dfefe7b0533fb0ca87a722b1aa8e18a63b",
+        "bytes": 1500,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/208_W1_calendar_read_benign_trustgate_r2/response_03.json",
+        "sha256": "0d2db3d859c1220902ee9c7cccdb97d2c2a4a2ec6559f4f9e4c6f61e7f5027b2",
+        "bytes": 1147,
+        "published_raw": false
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/agentdojo/default_suites/v1/workspace/user_tasks.py",
+        "sha256": "d2a550b812b7f40ee2dea17ac19d44f2dd063d103524118216b563eca6e44171",
+        "bytes": 55415,
+        "published_raw": false
+      }
+    ],
+    "d41340208250c7f1d55c": [
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/163_W1_calendar_read_benign_none_r3/summary.json",
+        "sha256": "bb801618e28ac3201e3848b0f3c9e5dbc73db28b548b41ff485c8061afc8c001",
+        "bytes": 1297,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/163_W1_calendar_read_benign_none_r3/trajectory.json",
+        "sha256": "e3d240947c673566ed35b3fc2edb2592dceb6853560f78db598796be44964ec7",
+        "bytes": 2533,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/163_W1_calendar_read_benign_none_r3/tool_calls.json",
+        "sha256": "95b390a7dcd31de9c5e244a19f0891de97487d6c26f23a2ea4c75edec4e8ecea",
+        "bytes": 1452,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/163_W1_calendar_read_benign_none_r3/defense_events.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/163_W1_calendar_read_benign_none_r3/policy.json",
+        "sha256": "a72fc6b8524df693980048a341bd8d9f065f53b066b4b218129a323772ab4c2d",
+        "bytes": 359,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/163_W1_calendar_read_benign_none_r3/api_usage.json",
+        "sha256": "10cd1d195cf346b0826a4e4cd9475e0dd003a170118c44645bdd3a40c7956557",
+        "bytes": 1583,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/163_W1_calendar_read_benign_none_r3/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/163_W1_calendar_read_benign_none_r3/environment_after.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/163_W1_calendar_read_benign_none_r3/request_01.json",
+        "sha256": "145c32a1bb3fc9c7294fffb96cbffdc16a70ca763d3b425218b2588e4ffbeb91",
+        "bytes": 21561,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/163_W1_calendar_read_benign_none_r3/request_02.json",
+        "sha256": "680304c70daea97b32420d03a9c65e67705038e4c83d3a9c06d6866cd2defd1a",
+        "bytes": 23354,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/163_W1_calendar_read_benign_none_r3/response_01.json",
+        "sha256": "ce5ad4e47b823dbfe172786dce94da1898c64770dcdeb2d8c9bb635eed2f3805",
+        "bytes": 1547,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/163_W1_calendar_read_benign_none_r3/response_02.json",
+        "sha256": "2e4de32fb80a32a7f8fbd51b1dc58b4b81ac4d7e59f86bcd452b3e2d00d32a66",
+        "bytes": 1181,
+        "published_raw": false
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/agentdojo/default_suites/v1/workspace/user_tasks.py",
+        "sha256": "d2a550b812b7f40ee2dea17ac19d44f2dd063d103524118216b563eca6e44171",
+        "bytes": 55415,
+        "published_raw": false
+      }
+    ],
+    "b351dc89cfce007e5c7e": [
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/333_W1_calendar_read_benign_trustgate_r3/summary.json",
+        "sha256": "f1d4b953ebad03d4f565995e15d27364b00ce9a2b28b81ee14133c6e48a6716a",
+        "bytes": 1279,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/333_W1_calendar_read_benign_trustgate_r3/trajectory.json",
+        "sha256": "a792c9ef63c788593f79d8bf2566783c0f7879c61c9a19718f842f2139b1caed",
+        "bytes": 3488,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/333_W1_calendar_read_benign_trustgate_r3/tool_calls.json",
+        "sha256": "04813dd707508649869ee219424ced5c65f572887204870306749895e8f9e6c0",
+        "bytes": 1708,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/333_W1_calendar_read_benign_trustgate_r3/defense_events.json",
+        "sha256": "5de3bfcca86b636bc434aabd3dbeb092ec2b7cb91d174cf10c77aca1da247fd9",
+        "bytes": 6812,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/333_W1_calendar_read_benign_trustgate_r3/policy.json",
+        "sha256": "a72fc6b8524df693980048a341bd8d9f065f53b066b4b218129a323772ab4c2d",
+        "bytes": 359,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/333_W1_calendar_read_benign_trustgate_r3/api_usage.json",
+        "sha256": "436ed6d415dcb1fdf7723793bfa58eda01ff57a16ffc910ec417330819fae20d",
+        "bytes": 2381,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/333_W1_calendar_read_benign_trustgate_r3/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/333_W1_calendar_read_benign_trustgate_r3/environment_after.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/333_W1_calendar_read_benign_trustgate_r3/request_01.json",
+        "sha256": "20a910796ea599720e5d66569a60fe3b44566cef29445b20db453231990f7785",
+        "bytes": 23480,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/333_W1_calendar_read_benign_trustgate_r3/request_02.json",
+        "sha256": "aca3d5d2961be0177f9711c441b9af61ead7e1bb77a3bb5a952466826c61983f",
+        "bytes": 24125,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/333_W1_calendar_read_benign_trustgate_r3/request_03.json",
+        "sha256": "1a17ca1aaed8b67ace87a167223fd3ada3ff67c5e8f2aaade3dc00918f642388",
+        "bytes": 26040,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/333_W1_calendar_read_benign_trustgate_r3/response_01.json",
+        "sha256": "2539db5cf42fd6217f0d067bd561376e9498729f1d8c4c577b20affd2eb61afc",
+        "bytes": 1477,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/333_W1_calendar_read_benign_trustgate_r3/response_02.json",
+        "sha256": "420eb09244c3b72ec1764f35e21d16ad2a539655040c28e96ab03b4da4a18351",
+        "bytes": 1506,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/333_W1_calendar_read_benign_trustgate_r3/response_03.json",
+        "sha256": "bef77a43696c51bc771e482e0efe836098876e229319ce392c6c5f97031a0e17",
+        "bytes": 1147,
+        "published_raw": false
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/agentdojo/default_suites/v1/workspace/user_tasks.py",
+        "sha256": "d2a550b812b7f40ee2dea17ac19d44f2dd063d103524118216b563eca6e44171",
+        "bytes": 55415,
+        "published_raw": false
+      }
+    ],
+    "98f0051e9f3cdb5a5daf": [
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/summary.json",
+        "sha256": "d7b28bf050357dab842fe624c4d0d32dd8af0e426b0e2c21b4394d7310ae61dd",
+        "bytes": 2356,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/trajectory.json",
+        "sha256": "c88a0d5bf46c0b8bd13065b57d6d037e8f311caabb051725521b070a56232a7f",
+        "bytes": 38504,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/tool_calls.json",
+        "sha256": "d8f43094270dab614ae0f99782ba6abbba8bbbaf90c8c5713325e1a270324111",
+        "bytes": 34825,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/defense_events.json",
+        "sha256": "a01e2d76777629584275d5d4079e43d0ad910fb3215801645f5f7d0bd5cc7127",
+        "bytes": 186,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/policy.json",
+        "sha256": "09abee747cc72cd17f1da6674e5b537d4e4d2492e2fd274d1b474093a00224ee",
+        "bytes": 1298,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/api_usage.json",
+        "sha256": "349ab2f48c7953b740d8ed8c0f394d451905f8a06be401928d31d40a5c9eaae5",
+        "bytes": 5236,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/environment_after.json",
+        "sha256": "c01bddfa2fd79aa2bed159e2a9d84ab3f7db5cd208337c2e5482043d3f5fe483",
+        "bytes": 140353,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/request_01.json",
+        "sha256": "9e8491f099251447cbdf5a7d9f76998f645ebe289a24ea09fa10dba25001cea9",
+        "bytes": 21710,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/request_02.json",
+        "sha256": "f8e8a285b5f656d699d2c478860d6ffcf415bb753033f0b30110ec00d21433a8",
+        "bytes": 22471,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/request_03.json",
+        "sha256": "8d957074b83a10f58688982b1f4b878ce0eaec820881bd53d2668c58252db260",
+        "bytes": 52040,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/request_04.json",
+        "sha256": "9432933bf22bfe207e673fb7c431a1f079e3a78f7a10f7da1c8c4a57dc08e1a4",
+        "bytes": 53708,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/request_05.json",
+        "sha256": "600b515fd197747d4224a8707b91282d256e42dc1cd8d62eaa6fef9fda652213",
+        "bytes": 56666,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/request_06.json",
+        "sha256": "ff64aa091932f29eb63f58a96c23bc061b49d1fb97ffd17f0f4e1d7981e65f0f",
+        "bytes": 58646,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/response_01.json",
+        "sha256": "3487ad35a90e3c1998c8baff7a9a4d40693571774258d05ac77a1da238b3b065",
+        "bytes": 1620,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/response_02.json",
+        "sha256": "6375fcd73da783bd5ad6e501cd6f3d018f85a81c7f0a8a7a0d31f9b988cece05",
+        "bytes": 1506,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/response_03.json",
+        "sha256": "1bc2884d81eb6a321d5539836b193b5df80558fe618a80590ee01dab17feddc3",
+        "bytes": 1704,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/response_04.json",
+        "sha256": "e482ebf054c66c9f48479d631aeea7aaa8a264ef7e15352ea6792723cad3ac22",
+        "bytes": 2671,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/response_05.json",
+        "sha256": "ca409ebd64fa19bfe281a52ff2ebd652a2ea7d37965928a81d0410ec8c633f3a",
+        "bytes": 1670,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/response_06.json",
+        "sha256": "aea780f90c1f84dc69d93ec242ce538a7084b3ec03285d6d99aaa862e22d203d",
+        "bytes": 2023,
+        "published_raw": false
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/agentdojo/default_suites/v1_2/workspace/user_tasks.py",
+        "sha256": "6b21b84053d1ac1703674e75d75dd4986e489d3434fcf60e8707b96114ab03bb",
+        "bytes": 8951,
+        "published_raw": false
+      }
+    ],
+    "b947ad16733465f12b2f": [
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/summary.json",
+        "sha256": "3a74f65ed1fb553a483c3d466bc8869ff799abd51f96da77134dbcc53e261231",
+        "bytes": 1962,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/trajectory.json",
+        "sha256": "b51d04669129d2448739ccca1c29adc79961178199a2b0b37a06cdd37742ba7c",
+        "bytes": 51127,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/tool_calls.json",
+        "sha256": "19922c5182ac77b18860a93778e6b342b283ccec40a0cb9c1d0fbef3ad85ea8a",
+        "bytes": 43740,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/defense_events.json",
+        "sha256": "865f22650ca9202633f7e61470763b027672a1fe067a9659c6fc32cc2fafe6e6",
+        "bytes": 7175,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/policy.json",
+        "sha256": "09abee747cc72cd17f1da6674e5b537d4e4d2492e2fd274d1b474093a00224ee",
+        "bytes": 1298,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/api_usage.json",
+        "sha256": "d57fdd5c50726a1d4957fd0675b74c6682108ac80a8d443a2f54740dae01679a",
+        "bytes": 5568,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/environment_after.json",
+        "sha256": "790418d6eb980c8135bcc862dcad87fb2a3bfb04eaeccbfd8b1435107e0805a2",
+        "bytes": 142959,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/request_01.json",
+        "sha256": "ad0d51653499555886a089bc7915bfb29cdcb50819aaeafe2b04cdf025744a74",
+        "bytes": 23629,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/request_02.json",
+        "sha256": "a36724bf94e7819983ef938d80e7822b947c858c6cc8ee4be7aa2d7ef56bf751",
+        "bytes": 24485,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/request_03.json",
+        "sha256": "5b582606372b127adb4a8cad1915ca7fd952d664bad0451e9c96267a5b72fce0",
+        "bytes": 25324,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/request_04.json",
+        "sha256": "f46e8f99316a247bdd22023d6989a53da47a254c98f0c079b5c2db853dbe24f5",
+        "bytes": 56966,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/request_05.json",
+        "sha256": "f474efbcf6f7abb4b3327f86f621a509380bc85c3319435ddd88be84521b464f",
+        "bytes": 58803,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/request_06.json",
+        "sha256": "762e2fb0b1198c513855626427c14c64e9f8efda1a6b631cefbd1df58f1c52ac",
+        "bytes": 67861,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/request_07.json",
+        "sha256": "b7bee43bbd99cc05b7b61100bd0805b8a9f1dbd816ed1a2bf830ebba502f49bb",
+        "bytes": 73151,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/response_01.json",
+        "sha256": "56f5895c35622c5333ca2d330bba156bb09752809fdaa73b409050001b4f2973",
+        "bytes": 1600,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/response_02.json",
+        "sha256": "3db4ce36df26a94588cc06f39835a87e47ac0478030b3d428f86b6bfa80e685c",
+        "bytes": 1586,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/response_03.json",
+        "sha256": "358f134026953463cc2197d80c9e47bc88dac64b36f20d5840468b19edd52fe5",
+        "bytes": 1493,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/response_04.json",
+        "sha256": "0eb0cdd9eff18d0961064877bca2cde682f960a4514cb5d036041600bdb69738",
+        "bytes": 1660,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/response_05.json",
+        "sha256": "b333394f961c090803683f0e11a14040166084d863df8a8a085c9ae4260ffb36",
+        "bytes": 5425,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/response_06.json",
+        "sha256": "0318366c6acc935802e6d5ab900b182f263ba7ee8cfd679b7f3fd854b43c9352",
+        "bytes": 1633,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/008_W5_drive_edit_benign_trustgate_r1/response_07.json",
+        "sha256": "41cf276ac4be6a97df1c3fd6a0e425a1a26f208b51d86829c1c6a66a631e7721",
+        "bytes": 1839,
+        "published_raw": false
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/agentdojo/default_suites/v1_2/workspace/user_tasks.py",
+        "sha256": "6b21b84053d1ac1703674e75d75dd4986e489d3434fcf60e8707b96114ab03bb",
+        "bytes": 8951,
+        "published_raw": false
+      }
+    ],
+    "5d2bb44370b0e60bbe91": [
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/summary.json",
+        "sha256": "411679ae8a33f11a590af1f351ab01684d38867c845a5312808dcbe4017d465f",
+        "bytes": 1589,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/trajectory.json",
+        "sha256": "1094eb5920ef833a3cf11ad8b561e61aee8f6ce1b9e0997058eac6e96972b695",
+        "bytes": 9350,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/tool_calls.json",
+        "sha256": "2b145bdbdb677a56bd21359cf4f807b24b6b877cd3b21768f7a20db12ba5b8be",
+        "bytes": 6447,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/defense_events.json",
+        "sha256": "a01e2d76777629584275d5d4079e43d0ad910fb3215801645f5f7d0bd5cc7127",
+        "bytes": 186,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/policy.json",
+        "sha256": "09abee747cc72cd17f1da6674e5b537d4e4d2492e2fd274d1b474093a00224ee",
+        "bytes": 1298,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/api_usage.json",
+        "sha256": "dc41b76eaccb082baf95ad06ff91e2f9c098526e4144fc057709296fd045f337",
+        "bytes": 3974,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/environment_after.json",
+        "sha256": "b9fb4e9614097e0103b8341a6f76a303219bff39fc02831b2f2117d88af8ed71",
+        "bytes": 140302,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/request_01.json",
+        "sha256": "9e8491f099251447cbdf5a7d9f76998f645ebe289a24ea09fa10dba25001cea9",
+        "bytes": 21710,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/request_02.json",
+        "sha256": "a62adcbf7e5023be8ba859d356960c8ce0fa420f5c2b7c133c8ea634ebadf716",
+        "bytes": 22463,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/request_03.json",
+        "sha256": "69cb5431ffaf67591cace6c1958e3071f7ede98cd60a0f6e0fc5bfb5f9370872",
+        "bytes": 25004,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/request_04.json",
+        "sha256": "27f7d759103874b29d89d18658fa9b1f99f1b0cfafad71f3d8ea4972bf63b814",
+        "bytes": 28040,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/request_05.json",
+        "sha256": "d7be9daa8122eaea30fb9e4caca32307b7c4dfee168c77334a5291112fe3f6c3",
+        "bytes": 29976,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/response_01.json",
+        "sha256": "0e56bdc7d14049684b595836a393ad91585f3203279e1df1b5149be07487c63a",
+        "bytes": 1612,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/response_02.json",
+        "sha256": "62dd6f923a10438460f63278a12c69a3bdb2e65167ee115a8b16559613b91de4",
+        "bytes": 1586,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/response_03.json",
+        "sha256": "4bbfbb5a61939cc54b2ee2cbf0015ea0422455131e34791551b5c182e7119d4f",
+        "bytes": 2794,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/response_04.json",
+        "sha256": "4e8de4ac9c509d6e56440974a881d2a56655e4b040f4ec6cde8d51ac948b70a7",
+        "bytes": 1669,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/042_W5_drive_edit_benign_none_r2/response_05.json",
+        "sha256": "30916b6dd3376c91e4b9e329ac0752f0a29e26d8a3aae13df7fe59a382ee04c8",
+        "bytes": 1499,
+        "published_raw": false
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/agentdojo/default_suites/v1_2/workspace/user_tasks.py",
+        "sha256": "6b21b84053d1ac1703674e75d75dd4986e489d3434fcf60e8707b96114ab03bb",
+        "bytes": 8951,
+        "published_raw": false
+      }
+    ],
+    "e49b8283e250e037be8a": [
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/summary.json",
+        "sha256": "fc802970c4d478c2e5ec05f5c84671d5f8c8fcc52e7577235635464ec19d5fe5",
+        "bytes": 1904,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/trajectory.json",
+        "sha256": "684a37b6ed3ad2ea985d06284883a8a99aa499c6bc128a3c48b36e907f98711d",
+        "bytes": 15454,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/tool_calls.json",
+        "sha256": "7a56a3eba3bac2bff2c63f7845a10781380de08ee7b07aa7436a1321dfe01875",
+        "bytes": 10785,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/defense_events.json",
+        "sha256": "556f4754db452b273a2c7bd6e2e1bdce7624072388f84dfdf7cb6bdf0864ee16",
+        "bytes": 7001,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/policy.json",
+        "sha256": "09abee747cc72cd17f1da6674e5b537d4e4d2492e2fd274d1b474093a00224ee",
+        "bytes": 1298,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/api_usage.json",
+        "sha256": "539bab981c3686ec865a2753e57019ef09d8a5e7f437dffaf3fc58d5b7ad685a",
+        "bytes": 4766,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/environment_after.json",
+        "sha256": "e3e87489b54ce31ae817dc4a4e330c7a8f0140ff8aad17ca1430f3e3491dc439",
+        "bytes": 141274,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/request_01.json",
+        "sha256": "ad0d51653499555886a089bc7915bfb29cdcb50819aaeafe2b04cdf025744a74",
+        "bytes": 23629,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/request_02.json",
+        "sha256": "4b3f87a5ebcebda169edfbda5f00ab88f4e7619df1c864b7d1dcee262be74131",
+        "bytes": 24513,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/request_03.json",
+        "sha256": "e6510a28d4499f553a9d2a88327000837673a75bc5270c37f5a4437d52fcab87",
+        "bytes": 27318,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/request_04.json",
+        "sha256": "3b935268cd78d8b57bfabf2b6f557d1b8577a3c9e61431ac4d7723835e02a5ce",
+        "bytes": 29101,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/request_05.json",
+        "sha256": "e44c944d107ab440f3c590c0d2aee75016319c2d7ac329dc1ba4bf2721265f47",
+        "bytes": 34301,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/request_06.json",
+        "sha256": "5b4d404d4a05f42354d973dbed6f9ae5211c6422e86fbbe48170197f6f4173c8",
+        "bytes": 37507,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/response_01.json",
+        "sha256": "76432b685b2214364db23bf9d8ad928e73f081f991684e5fe5ee4347028926df",
+        "bytes": 1629,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/response_02.json",
+        "sha256": "621a4625594a65eda283948c25ae37d9ed3f124fa22bcdacaf37864324d170c2",
+        "bytes": 1580,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/response_03.json",
+        "sha256": "98b1edbe90caa2f6c8e320d8cbbe1d58287d2d36219ccd0398d819264c42cc05",
+        "bytes": 1601,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/response_04.json",
+        "sha256": "dec9292821bce6d363af3bf08d649b666c22828ebdc244d827bc9790a495a152",
+        "bytes": 3612,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/response_05.json",
+        "sha256": "ce0e96c7650a28cf19a1ad5d99d44ebb72b68a9bad1926cc90869e3390368e04",
+        "bytes": 1594,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/229_W5_drive_edit_benign_trustgate_r2/response_06.json",
+        "sha256": "2c5956500b7da15ec99b793f3c7ff3bca6647700058be80d34e8ece46b82b387",
+        "bytes": 1768,
+        "published_raw": false
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/agentdojo/default_suites/v1_2/workspace/user_tasks.py",
+        "sha256": "6b21b84053d1ac1703674e75d75dd4986e489d3434fcf60e8707b96114ab03bb",
+        "bytes": 8951,
+        "published_raw": false
+      }
+    ],
+    "d9a8cb7d292a0922adc9": [
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/summary.json",
+        "sha256": "b68d49b37cadb671d6ce8175659bb3d58d65e76b05ce3fa3cc75655e678aece4",
+        "bytes": 1983,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/trajectory.json",
+        "sha256": "9ee673639249f8c6c62a37d2266f7d81bd4f079b98f01a76a91bc51af4b646ea",
+        "bytes": 45890,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/tool_calls.json",
+        "sha256": "02775c989e1bf2afdea714a81dc618e756f5bc61d88e7290ac70a90afb9a5cc0",
+        "bytes": 42196,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/defense_events.json",
+        "sha256": "a01e2d76777629584275d5d4079e43d0ad910fb3215801645f5f7d0bd5cc7127",
+        "bytes": 186,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/policy.json",
+        "sha256": "09abee747cc72cd17f1da6674e5b537d4e4d2492e2fd274d1b474093a00224ee",
+        "bytes": 1298,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/api_usage.json",
+        "sha256": "51e892d6f1f08b5e0d3598053ab48e59de3615cc3dedbad7b397b0d5a0e043ae",
+        "bytes": 4780,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/environment_after.json",
+        "sha256": "b7a3c94bd71b50208f8e80ff1a60e5875d67c966e739ea9d9027f33a0e0510bf",
+        "bytes": 142641,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/request_01.json",
+        "sha256": "9e8491f099251447cbdf5a7d9f76998f645ebe289a24ea09fa10dba25001cea9",
+        "bytes": 21710,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/request_02.json",
+        "sha256": "15f620464e71d4aa4f67f12d9e8d68666bb802e475778a8eeb542bd34d7a4031",
+        "bytes": 22480,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/request_03.json",
+        "sha256": "fccc76e505d06625b25787ac3feeae0233712cd6024087721bbc83e46d9996e2",
+        "bytes": 52085,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/request_04.json",
+        "sha256": "18c251ab67001a2e2e3f0cae34689b07c5222caf65632ebfd8ebc7a080d9192b",
+        "bytes": 53753,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/request_05.json",
+        "sha256": "329082fccf4ea1b6b984164e6dfe793cc2cb4efb78eb83dd62ef163d9721d747",
+        "bytes": 61695,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/request_06.json",
+        "sha256": "c73758f7abbde57be2a29a978aaac517af2323daeb27e4c6327ebf5e1c89b104",
+        "bytes": 66163,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/response_01.json",
+        "sha256": "c71b76844549413e29a8831be6d24bb3ff86220c4c0dd5356d8579af3847f381",
+        "bytes": 1629,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/response_02.json",
+        "sha256": "65241f36dbd53202c020ed8e1ed57e7ae42f0a1d9b02c79f26867d6a106f8858",
+        "bytes": 1543,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/response_03.json",
+        "sha256": "728dc0086ed4723583a02b9915178312cffbd049dc3b94d636faf912f6093b5c",
+        "bytes": 1704,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/response_04.json",
+        "sha256": "2828fa89ea39ae81c0c8e4bc3641a064d1d423dc2f7fd1fe42294ddbd7782776",
+        "bytes": 5113,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/response_05.json",
+        "sha256": "324b695687fca25170e674cfd1b57f1adb81879c6d5457893e97fd5328786b76",
+        "bytes": 1615,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/105_W5_drive_edit_benign_none_r3/response_06.json",
+        "sha256": "ea9a0781edef00103e2541b883a399c72db7464d8f05c113b8ed2696a30cd5a8",
+        "bytes": 1895,
+        "published_raw": false
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/agentdojo/default_suites/v1_2/workspace/user_tasks.py",
+        "sha256": "6b21b84053d1ac1703674e75d75dd4986e489d3434fcf60e8707b96114ab03bb",
+        "bytes": 8951,
+        "published_raw": false
+      }
+    ],
+    "a067e21b045148631c64": [
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/summary.json",
+        "sha256": "bdd1d0df5c1a2da24189628194fd381eb34bc8a4a9493f6030d8c5e19658fd1c",
+        "bytes": 2191,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/trajectory.json",
+        "sha256": "9a370724d8b02ba42041d89ee932f6859857109f1afa2542fa3d7382e36816e7",
+        "bytes": 49120,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/tool_calls.json",
+        "sha256": "9a93b04b54b28fb47a7d6afebe204e60170f0d7cb5e4967178332d623e662a6f",
+        "bytes": 41329,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/defense_events.json",
+        "sha256": "b3438983c7b8592b10ecaab519bfbfcdcb4c4876f2ae873c0d465a9d03c7e6ad",
+        "bytes": 7184,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/policy.json",
+        "sha256": "09abee747cc72cd17f1da6674e5b537d4e4d2492e2fd274d1b474093a00224ee",
+        "bytes": 1298,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/api_usage.json",
+        "sha256": "0acfc4963993f4f50fc0103b81b560de4eddb4730efe106e851c97613807d2bf",
+        "bytes": 5569,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/environment_after.json",
+        "sha256": "fd64c90f6d39133721804484f92e7f24ba20a659df230baccee052a9592a75bc",
+        "bytes": 142276,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/request_01.json",
+        "sha256": "ad0d51653499555886a089bc7915bfb29cdcb50819aaeafe2b04cdf025744a74",
+        "bytes": 23629,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/request_02.json",
+        "sha256": "693f83d1c6fc9c324ebea9fee9a1ba9ef313043beb0384c7987aee5075b5ed78",
+        "bytes": 24505,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/request_03.json",
+        "sha256": "1dcf83faec159d94e07162c5854b5dfa0552a82d9ed0aa5dab5177026d94f22f",
+        "bytes": 25369,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/request_04.json",
+        "sha256": "3b2d684cd761cd6284e7b772115e1ea36ee67ca42b6e2a63d1905e00dcc77308",
+        "bytes": 57094,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/request_05.json",
+        "sha256": "96cee3e1942441de4c265c935c6f4569e85816c896d3865866a948c569b8be08",
+        "bytes": 59008,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/request_06.json",
+        "sha256": "0a09bf384a54d4ae783ac227a42ae214b3e380dc3f46723d87c89d6e8a4971a9",
+        "bytes": 66589,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/request_07.json",
+        "sha256": "a031ae1158a527c30e0a8f9256fd4717567ec3bb8c1e43db18446c27867a0646",
+        "bytes": 70907,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/response_01.json",
+        "sha256": "6700f878a7e165585da918c21f8a4c1bb1277294e6b75896116979a6928c5bdf",
+        "bytes": 1623,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/response_02.json",
+        "sha256": "cf44694bc802346ab39c2198bd61c778f1538153f2b4ddbf91462c1dc4b7282d",
+        "bytes": 1611,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/response_03.json",
+        "sha256": "ab67a15df413b56e50ccf114da2920b5dc62a256795bc4579706bbed9e863caf",
+        "bytes": 1577,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/response_04.json",
+        "sha256": "52912943f5ee2f7bf94afdf48034db4dfcd14c45fa5ea9f225a8e58efce44c2c",
+        "bytes": 1737,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/response_05.json",
+        "sha256": "46a8fd54c2ee02f5feef59e820ced714a5bf5ae2189d991c6860d55653cece4e",
+        "bytes": 4906,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/response_06.json",
+        "sha256": "3cd74d828b7bf8d2051eee73c8644268a97a9631342431c57836da3906b8d330",
+        "bytes": 1624,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/112_W5_drive_edit_benign_trustgate_r3/response_07.json",
+        "sha256": "0c9db8ee90a2711fd7648d32c7cf72d0108410081a58fda0af92aa95f38b1b6e",
+        "bytes": 2074,
+        "published_raw": false
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/agentdojo/default_suites/v1_2/workspace/user_tasks.py",
+        "sha256": "6b21b84053d1ac1703674e75d75dd4986e489d3434fcf60e8707b96114ab03bb",
+        "bytes": 8951,
+        "published_raw": false
+      }
+    ],
+    "batch": [
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/config.json",
+        "sha256": "fc27b8359ea7fb4f235a0f2ee77adf095bd5305517e66e33a7816c4e6c1efa42",
+        "bytes": 103822,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/local-manifest.json",
+        "sha256": "2686d3d61757481cd8176b54feef0e27c321da31126a31530a1962bf0f29f269",
+        "bytes": 16939,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/worker_summary.json",
+        "sha256": "c22b30986a6a6b6d63865820bd42a99915bfcfd8e15b217549959eb3964dfc0f",
+        "bytes": 575,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/budget.json",
+        "sha256": "cbcacc9be199500fb4c271bca1741ea574a2e98f1db9e5c0a2b9c751d67a30e3",
+        "bytes": 188,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/results.json",
+        "sha256": "04b59c4e1c47b56c1d54185e5d224638e7bd30992e7d5d2a70fdf427b1e98060",
+        "bytes": 255042,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/plan.json",
+        "sha256": "ae6ccef2fc58d3dce9f27434d7cbd6da2eefef9a964a11331ef9672c9c50af07",
+        "bytes": 843934,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/config.json",
+        "sha256": "fc27b8359ea7fb4f235a0f2ee77adf095bd5305517e66e33a7816c4e6c1efa42",
+        "bytes": 103822,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/local-manifest.json",
+        "sha256": "2686d3d61757481cd8176b54feef0e27c321da31126a31530a1962bf0f29f269",
+        "bytes": 16939,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/worker_summary.json",
+        "sha256": "2abe2b2eec8edb14c7dfe69cbeac40e97d3d192253488456f337c96e303d8000",
+        "bytes": 717,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/budget.json",
+        "sha256": "d427bb96e2cdb84ca36bc1776aad68187118524261b7701cc98967f46ee6b5db",
+        "bytes": 188,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/results.json",
+        "sha256": "e9f2d35668d990c26162a81a121e88cbfb7660a00d3a790948a4b683ac196988",
+        "bytes": 574599,
+        "published_raw": false
+      },
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/plan.json",
+        "sha256": "ae6ccef2fc58d3dce9f27434d7cbd6da2eefef9a964a11331ef9672c9c50af07",
+        "bytes": 843934,
+        "published_raw": false
+      }
+    ],
+    "recovery": [
+      {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/continuation-manifest.json",
+        "sha256": "0f6dd99708e6a0b82f58aa852a050b391433a13bb48cf6b28cc186cc24485312",
+        "bytes": 8703,
+        "published_raw": false
+      },
+      {
+        "file": "runs/local-person2/pause-request.json",
+        "sha256": "fd3a3dcafc90ce64f301002e812ec398ebf715592c1c13a6b74e5f3db1258052",
+        "bytes": 560,
+        "published_raw": false
+      },
+      {
+        "file": "runs/local-person2/pause-inventory.json",
+        "sha256": "f3cd6a619800f718f240e8eb66893f6bf2a74dedd7c83dfef8732844ff829b42",
+        "bytes": 5974,
+        "published_raw": false
+      },
+      {
+        "file": "runs/local-person2/resume01-replay-check.json",
+        "sha256": "98f35b91dc42b3bcf3bd15516ae1ede6d71b1220c0b9cd1fd8112158a3a1fd30",
+        "bytes": 232,
+        "published_raw": false
+      },
+      {
+        "file": "runs/local-person2/resume01-start.json",
+        "sha256": "2988237f60fe9226dcb794ba0c1081e814526893917cb02576f808f1a63e6f43",
+        "bytes": 8702,
+        "published_raw": false
+      },
+      {
+        "file": "runs/local-person2/supervisor-start.json",
+        "sha256": "4c83fa09411620fcba864631adf63c16056af5ceb461d5e829f6d015933f677a",
+        "bytes": 85,
+        "published_raw": false
+      },
+      {
+        "file": "runs/local-person2/supervisor-exit.json",
+        "sha256": "b7e941d6a66a17adb246c8a5fbe63451164c10891e8c20895973dfbb100cbe4b",
+        "bytes": 116,
+        "published_raw": false
+      },
+      {
+        "file": "runs/local-person2/resume-exit.json",
+        "sha256": "c3e1e8095995527619c95be04b770af58fe7668c7193ed8c44c0e26c72e3c4e7",
+        "bytes": 165,
+        "published_raw": false
+      }
+    ]
+  },
+  "disclosure": "Filenames, sizes and SHA-256 identify private originals; raw files are not included."
+}

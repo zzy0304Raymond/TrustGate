@@ -1,0 +1,260 @@
+{
+  "schema": "trustgate_explicit_continuation_v1",
+  "original_run_id": "local-person2-20261019-001",
+  "continuation_run_id": "local-person2-20261019-001-resume01",
+  "upstream_plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+  "local_execution_sha256": "9f035b8069725c351b9aea376569252c5b484f32bfce5dd03b544a58b156d65b",
+  "completed_prefix": 150,
+  "cached_response_steps": 5,
+  "prior_cost_usd": 0.3422167199999998,
+  "stop_budget_usd": 2,
+  "prior_trial_elapsed_seconds": 37.0817391872406,
+  "remaining_trial_seconds": 142.9182608127594,
+  "continuation_source_sha256": "2f1dd8cbb04d749e7fa37179bc70bd4e0893f503972979002d140d4fd4f05b31",
+  "supervisor_source_sha256": "4f90c21bac9dd33ae96ecbf992954191940652f9207b126d8b6b05963b62ddaa",
+  "recovery": "Rebuild only simulated state using the five cached responses, checking each entire outgoing request for exact equality. Cached responses are not charged again. New API calls begin at step six. Original trial call budget is retained; elapsed pre-pause time is deducted from its timeout. Historical API durations for trial 151 are recovered from file timestamps and must be flagged in latency analysis.",
+  "continuation_sha256": "34df12830603ca06b8e0bd56bd79bccb7c58711db84c929d58cc28ac3527a5a6",
+  "case_id": "98f0051e9f3cdb5a5daf",
+  "original_trial_index": 151,
+  "original_completed_rows_unchanged": true,
+  "original_incomplete_trial_has_final_summary": false,
+  "interruption": {
+    "requested_at": "2026-10-19T15:41:51+08:00",
+    "signal_sent_at": "2026-10-19T15:42:10+08:00",
+    "signal": "SIGINT",
+    "strategy": "Finish current request if possible, then interrupt once; retain all files. No automatic resume."
+  },
+  "original_supervisor_exit": {
+    "finished_at": "2026-10-19T15:42:30+08:00",
+    "runner_returncode": -2,
+    "complete": false,
+    "recorded": 150
+  },
+  "completed_supervisor_exit": {
+    "run_id": "local-person2-20261019-001-resume01",
+    "finished_at": "2026-10-19T17:07:43+08:00",
+    "runner_returncode": 0,
+    "complete": true,
+    "recorded": 336
+  },
+  "offline_replay_check": {
+    "passed": true,
+    "paid_model_requests": 0,
+    "cached_steps_verified": 5,
+    "continuation_sha256": "34df12830603ca06b8e0bd56bd79bccb7c58711db84c929d58cc28ac3527a5a6",
+    "next_live_step": 6,
+    "case_id": "98f0051e9f3cdb5a5daf"
+  },
+  "cached_step_equality_checks": [
+    {
+      "step": 1,
+      "request_equal": true,
+      "response_equal": true,
+      "original_request": {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/151_W5_drive_edit_benign_none_r1/request_01.json",
+        "sha256": "9e8491f099251447cbdf5a7d9f76998f645ebe289a24ea09fa10dba25001cea9",
+        "bytes": 21710,
+        "published_raw": false
+      },
+      "restored_request": {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/request_01.json",
+        "sha256": "9e8491f099251447cbdf5a7d9f76998f645ebe289a24ea09fa10dba25001cea9",
+        "bytes": 21710,
+        "published_raw": false
+      },
+      "original_response": {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/151_W5_drive_edit_benign_none_r1/response_01.json",
+        "sha256": "3487ad35a90e3c1998c8baff7a9a4d40693571774258d05ac77a1da238b3b065",
+        "bytes": 1620,
+        "published_raw": false
+      },
+      "restored_response": {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/response_01.json",
+        "sha256": "3487ad35a90e3c1998c8baff7a9a4d40693571774258d05ac77a1da238b3b065",
+        "bytes": 1620,
+        "published_raw": false
+      },
+      "usage_cost_usd": "0.00035787",
+      "historical_api_seconds": 4.080389022827148
+    },
+    {
+      "step": 2,
+      "request_equal": true,
+      "response_equal": true,
+      "original_request": {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/151_W5_drive_edit_benign_none_r1/request_02.json",
+        "sha256": "f8e8a285b5f656d699d2c478860d6ffcf415bb753033f0b30110ec00d21433a8",
+        "bytes": 22471,
+        "published_raw": false
+      },
+      "restored_request": {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/request_02.json",
+        "sha256": "f8e8a285b5f656d699d2c478860d6ffcf415bb753033f0b30110ec00d21433a8",
+        "bytes": 22471,
+        "published_raw": false
+      },
+      "original_response": {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/151_W5_drive_edit_benign_none_r1/response_02.json",
+        "sha256": "6375fcd73da783bd5ad6e501cd6f3d018f85a81c7f0a8a7a0d31f9b988cece05",
+        "bytes": 1506,
+        "published_raw": false
+      },
+      "restored_response": {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/response_02.json",
+        "sha256": "6375fcd73da783bd5ad6e501cd6f3d018f85a81c7f0a8a7a0d31f9b988cece05",
+        "bytes": 1506,
+        "published_raw": false
+      },
+      "usage_cost_usd": "0.00035874",
+      "historical_api_seconds": 4.060197353363037
+    },
+    {
+      "step": 3,
+      "request_equal": true,
+      "response_equal": true,
+      "original_request": {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/151_W5_drive_edit_benign_none_r1/request_03.json",
+        "sha256": "8d957074b83a10f58688982b1f4b878ce0eaec820881bd53d2668c58252db260",
+        "bytes": 52040,
+        "published_raw": false
+      },
+      "restored_request": {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/request_03.json",
+        "sha256": "8d957074b83a10f58688982b1f4b878ce0eaec820881bd53d2668c58252db260",
+        "bytes": 52040,
+        "published_raw": false
+      },
+      "original_response": {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/151_W5_drive_edit_benign_none_r1/response_03.json",
+        "sha256": "1bc2884d81eb6a321d5539836b193b5df80558fe618a80590ee01dab17feddc3",
+        "bytes": 1704,
+        "published_raw": false
+      },
+      "restored_response": {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/response_03.json",
+        "sha256": "1bc2884d81eb6a321d5539836b193b5df80558fe618a80590ee01dab17feddc3",
+        "bytes": 1704,
+        "published_raw": false
+      },
+      "usage_cost_usd": "0.00111201",
+      "historical_api_seconds": 6.297109127044678
+    },
+    {
+      "step": 4,
+      "request_equal": true,
+      "response_equal": true,
+      "original_request": {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/151_W5_drive_edit_benign_none_r1/request_04.json",
+        "sha256": "9432933bf22bfe207e673fb7c431a1f079e3a78f7a10f7da1c8c4a57dc08e1a4",
+        "bytes": 53708,
+        "published_raw": false
+      },
+      "restored_request": {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/request_04.json",
+        "sha256": "9432933bf22bfe207e673fb7c431a1f079e3a78f7a10f7da1c8c4a57dc08e1a4",
+        "bytes": 53708,
+        "published_raw": false
+      },
+      "original_response": {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/151_W5_drive_edit_benign_none_r1/response_04.json",
+        "sha256": "e482ebf054c66c9f48479d631aeea7aaa8a264ef7e15352ea6792723cad3ac22",
+        "bytes": 2671,
+        "published_raw": false
+      },
+      "restored_response": {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/response_04.json",
+        "sha256": "e482ebf054c66c9f48479d631aeea7aaa8a264ef7e15352ea6792723cad3ac22",
+        "bytes": 2671,
+        "published_raw": false
+      },
+      "usage_cost_usd": "0.00121929",
+      "historical_api_seconds": 17.041683197021484
+    },
+    {
+      "step": 5,
+      "request_equal": true,
+      "response_equal": true,
+      "original_request": {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/151_W5_drive_edit_benign_none_r1/request_05.json",
+        "sha256": "600b515fd197747d4224a8707b91282d256e42dc1cd8d62eaa6fef9fda652213",
+        "bytes": 56666,
+        "published_raw": false
+      },
+      "restored_request": {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/request_05.json",
+        "sha256": "600b515fd197747d4224a8707b91282d256e42dc1cd8d62eaa6fef9fda652213",
+        "bytes": 56666,
+        "published_raw": false
+      },
+      "original_response": {
+        "file": "runs/studies/local-person2-20261019-001/shard-01/151_W5_drive_edit_benign_none_r1/response_05.json",
+        "sha256": "ca409ebd64fa19bfe281a52ff2ebd652a2ea7d37965928a81d0410ec8c633f3a",
+        "bytes": 1670,
+        "published_raw": false
+      },
+      "restored_response": {
+        "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/151_W5_drive_edit_benign_none_r1/response_05.json",
+        "sha256": "ca409ebd64fa19bfe281a52ff2ebd652a2ea7d37965928a81d0410ec8c633f3a",
+        "bytes": 1670,
+        "published_raw": false
+      },
+      "usage_cost_usd": "0.00120669",
+      "historical_api_seconds": 5.5337042808532715
+    }
+  ],
+  "case_final_cost_usd": "0.00553548",
+  "cached_cost_counted_once_usd": "0.00425460",
+  "new_step6_cost_usd": "0.00128088",
+  "source_files": [
+    {
+      "file": "runs/studies/local-person2-20261019-001-resume01/shard-01/continuation-manifest.json",
+      "sha256": "0f6dd99708e6a0b82f58aa852a050b391433a13bb48cf6b28cc186cc24485312",
+      "bytes": 8703,
+      "published_raw": false
+    },
+    {
+      "file": "runs/local-person2/pause-request.json",
+      "sha256": "fd3a3dcafc90ce64f301002e812ec398ebf715592c1c13a6b74e5f3db1258052",
+      "bytes": 560,
+      "published_raw": false
+    },
+    {
+      "file": "runs/local-person2/pause-inventory.json",
+      "sha256": "f3cd6a619800f718f240e8eb66893f6bf2a74dedd7c83dfef8732844ff829b42",
+      "bytes": 5974,
+      "published_raw": false
+    },
+    {
+      "file": "runs/local-person2/resume01-replay-check.json",
+      "sha256": "98f35b91dc42b3bcf3bd15516ae1ede6d71b1220c0b9cd1fd8112158a3a1fd30",
+      "bytes": 232,
+      "published_raw": false
+    },
+    {
+      "file": "runs/local-person2/resume01-start.json",
+      "sha256": "2988237f60fe9226dcb794ba0c1081e814526893917cb02576f808f1a63e6f43",
+      "bytes": 8702,
+      "published_raw": false
+    },
+    {
+      "file": "runs/local-person2/supervisor-start.json",
+      "sha256": "4c83fa09411620fcba864631adf63c16056af5ceb461d5e829f6d015933f677a",
+      "bytes": 85,
+      "published_raw": false
+    },
+    {
+      "file": "runs/local-person2/supervisor-exit.json",
+      "sha256": "b7e941d6a66a17adb246c8a5fbe63451164c10891e8c20895973dfbb100cbe4b",
+      "bytes": 116,
+      "published_raw": false
+    },
+    {
+      "file": "runs/local-person2/resume-exit.json",
+      "sha256": "c3e1e8095995527619c95be04b770af58fe7668c7193ed8c44c0e26c72e3c4e7",
+      "bytes": 165,
+      "published_raw": false
+    }
+  ],
+  "timing_caveat": "The five historical API durations were reconstructed from file timestamps. The original elapsed 37.0817391872406 seconds was retained, leaving 142.9182608127594 seconds of the original 180-second limit. User pause time is excluded. These are reconstructed timing measurements, not an uninterrupted wall-clock trace.",
+  "raw_material_policy": "Full old attempt and exact request/response files remain private. Only hashes/equality results and numeric accounting are published."
+}
