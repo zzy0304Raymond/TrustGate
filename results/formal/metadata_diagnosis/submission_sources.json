@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/zzy0304Raymond/TrustGate",
+  "extractor_commit": "172495c7ecb60114cf0b7c1825d8ae5b1286662f",
+  "records": [
+    {"person": 1, "pull_request": 14, "commit": "172495c7ecb60114cf0b7c1825d8ae5b1286662f", "git_blob_sha1": "2027f14262bde28105f6b811a1330243bc5490c1", "review_basis": "central_private_originals"},
+    {"person": 2, "pull_request": 17, "commit": "08680d3e61166f530f3a98b8ef69c1bb86bb060f", "git_blob_sha1": "a33401a325cf5712a0854e980ac09d5e08c1de39", "review_basis": "submitted_derived_checks"},
+    {"person": 3, "pull_request": 16, "commit": "ffdc914640023d7da77f5f2c9a015e72785b1540", "git_blob_sha1": "aafb199d3aa35e4c8a7783e612d5c0b0e6e3e529", "review_basis": "submitted_derived_checks"},
+    {"person": 4, "pull_request": 18, "commit": "fc30b5abd5287e4d295ebd599552eb683e87feb4", "git_blob_sha1": "9f88f2df951dd133eb237546fa16f1f986116a7e", "review_basis": "submitted_derived_checks"},
+    {"person": 5, "pull_request": 15, "commit": "9c86969e2499b9741b307e02d483243256cef803", "git_blob_sha1": "4aa7465aff959bb0edc7c4d4839f154176ddb13a", "review_basis": "submitted_derived_checks"}
+  ]
+}

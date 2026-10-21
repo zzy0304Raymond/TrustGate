@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -N tg-demo-validate
+#PBS -P personal-xinqi.chen
+#PBS -q auto
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=00:15:00
+#PBS -r n
+#PBS -j oe
+set -euo pipefail
+cd "${PBS_O_WORKDIR:?Submit from the repository root}"
+mkdir -p runs/demo
+exec > runs/demo/validate.log 2>&1
+source "${TRUSTGATE_CONDA_LOADER:-/scratch/xinqi.chen/load-conda.sh}"
+conda activate dsa4213
+export PYTHONHASHSEED=0 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
+export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
+python scripts/demo/build.py --check
+python -m unittest tests.test_demo
+python scripts/demo/check_mcp.py
+python scripts/demo/show.py > runs/demo/recorded_walkthrough.txt

@@ -1,0 +1,38 @@
+{
+  "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+  "analysis_script_sha256": "ee9ee0b1ef056857a9e2d2d5fe0e5d8c573cc0dcc2c220744c30b6ecfff5df4c",
+  "python_version": "3.10.20",
+  "plot_packages": {
+    "matplotlib": "3.10.9",
+    "numpy": "2.2.6"
+  },
+  "dataset_manifest_sha256": "29e3ecde0ac219387d7eecd9460ee52a9911bb5d0848cf79281432edd13ae1f0",
+  "published_summary_sha256": "61c00369fa980b9f6e0ce67fe7e59b6d3ac389f1cf0a7e92e4c2063b3b9796bf",
+  "delivery_csv_sha256": {
+    "person-01/results.csv": "5eb1241ac630a78a19fbe8e173bd2cb84f8f976760edb68e2c3f8d17f9e27b09",
+    "person-02/results.csv": "42bcaf2ee6b8dbfb73d0ec1bf49870c0e413546e8558e3b47a250e0c35bd7fe6",
+    "person-03/results.csv": "3c1108a44627fac4ef02f1f7a0a5789bd20e3d4b51c82337c716d0b6e95acac7",
+    "person-04/results.csv": "75fcf3d97837a6543ff10008eccdd971e8781f2708f4e562fb8b79dc70902049",
+    "person-05/results.csv": "0f0ad259cabbd44feaeaacf19869c6cc4b83dcd9cc43be4268b8cf5211ff9c86"
+  },
+  "recorded": 1680,
+  "valid": 1679,
+  "reported_cost_usd": "3.07556061",
+  "paired_interval_method": "Existing task-cluster percentile bootstrap; 2000 resamples; seed 4213",
+  "multiple_comparison_adjustment": "none",
+  "tables": {
+    "main_metrics": 21,
+    "paired_comparisons": 30,
+    "task_metrics": 420,
+    "resource_summary": 7,
+    "status_counts": 13
+  },
+  "figures": [
+    "01_security_and_utility",
+    "02_safe_completion",
+    "03_paired_comparisons",
+    "04_component_ablations",
+    "05_task_completion",
+    "06_resource_usage"
+  ]
+}

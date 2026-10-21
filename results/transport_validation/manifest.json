@@ -1,0 +1,10 @@
+{
+  "files_sha256": {
+    "assignments/transport_validation/plan.json": "b363909547a3f3687b957fb2aeb18d55bb91f5fef0620ed250a618ff84af341a",
+    "assignments/transport_validation/PROTOCOL_ZH.md": "ef44a3c7a1b9bdc175ab43563fec5dc8bf8edad6e3213859fc0d26f56bd64a65",
+    "scripts/transport/study.py": "356803943faa0074ffd499630738a7bff0adc9d7e0193c54fa1d6eccc0d9f48c",
+    "results/transport_validation/trials.csv": "a2008cbef83ab56e5ba52932ac68c41f84c760894a6b73779ae86a237b9252f5",
+    "results/transport_validation/summary.json": "b07fb26149e0dc10ea540c7aa5ddc5b25cf068f66ef84433169fc9264ed1be6d",
+    "results/transport_validation/checks.json": "9ea5e4f2b615825cfb0590dc2203a41dd833b03b3e2bdba7b1bbf198b213d0d8"
+  }
+}

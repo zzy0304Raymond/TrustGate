@@ -1,0 +1,8 @@
+condition,trials,checks,denials,trials_with_denial,rejection_fraction,is_false_positive_rate
+none,60,0,0,0,,False
+delimiters,60,0,0,0,,False
+classifier,60,0,0,0,,False
+trustgate,60,140,3,3,0.02142857142857143,False
+no_provenance,60,145,5,4,0.034482758620689655,False
+no_metadata,60,141,13,10,0.09219858156028368,False
+no_authorization,60,0,0,0,,False

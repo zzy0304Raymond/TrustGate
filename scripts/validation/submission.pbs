@@ -1,0 +1,19 @@
+#!/bin/bash
+#PBS -N tg-submission-check
+#PBS -P personal-xinqi.chen
+#PBS -q auto
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=00:30:00
+#PBS -r n
+#PBS -j oe
+set -euo pipefail
+cd "${PBS_O_WORKDIR:?Submit from the repository root}"
+mkdir -p runs/submission-check
+exec > runs/submission-check/run.log 2>&1
+source "${TRUSTGATE_CONDA_LOADER:-/scratch/xinqi.chen/load-conda.sh}"
+conda activate dsa4213
+export PYTHONHASHSEED=0 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
+export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 MPLBACKEND=Agg
+python -m unittest discover -s tests -v
+python scripts/formal/analyze.py
+python scripts/formal/analyze_overhead.py --check

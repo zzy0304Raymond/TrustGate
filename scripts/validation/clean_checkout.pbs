@@ -1,0 +1,35 @@
+#!/bin/bash
+#PBS -N tg-clean-checkout
+#PBS -q auto
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=01:00:00
+#PBS -r n
+#PBS -j oe
+set -euo pipefail
+repository="${PBS_O_WORKDIR:?Submit from the committed repository root}"
+output="$repository/runs/clean-check-${PBS_JOBID}"
+mkdir -p "$output"
+exec > "$output/run.log" 2>&1
+source "${TRUSTGATE_CONDA_LOADER:-/scratch/xinqi.chen/load-conda.sh}"
+conda activate dsa4213
+export PYTHONHASHSEED=0 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
+export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 MPLBACKEND=Agg
+unset OPENROUTER_API_KEY TRUSTGATE_KEY_FILE
+: "${TRUSTGATE_DETECTOR_DIR:?Set the pinned detector directory}"
+revision=$(git -C "$repository" rev-parse HEAD)
+temporary=$(mktemp -d /tmp/trustgate-check.XXXXXX)
+trap 'rm -rf "$temporary"' EXIT
+git clone --quiet --no-local "$repository" "$temporary/project"
+cd "$temporary/project"
+git checkout --quiet --detach "$revision"
+# Verify public statistics in an isolated interpreter with no site packages.
+python -m venv --without-pip "$temporary/public-env"
+"$temporary/public-env/bin/python" scripts/reproduce.py --output runs/public-stdlib
+cp runs/public-stdlib/verification.json "$output/public-stdlib.json"
+python -u scripts/reproduce.py --full --plots --output runs/full
+cp runs/full/verification.json "$output/full.json"
+cp runs/full/mcp-demo.json "$output/mcp-demo.json"
+cp runs/full/false_positives/checks.json "$output/false-positives.json"
+git diff --exit-code
+git status --porcelain > "$output/checkout-status.txt"
+printf 'CLEAN_CHECKOUT_PASSED\n'

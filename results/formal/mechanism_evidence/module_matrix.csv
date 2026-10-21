@@ -1,0 +1,8 @@
+﻿condition,provenance,metadata_classifier,metadata_rules,output_classifier,authorization
+none,False,False,False,False,False
+delimiters,False,False,False,False,False
+classifier,False,True,False,True,False
+trustgate,True,True,True,False,True
+no_provenance,False,True,True,False,True
+no_metadata,True,False,False,False,True
+no_authorization,True,True,True,False,False

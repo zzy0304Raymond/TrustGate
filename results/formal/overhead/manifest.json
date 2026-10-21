@@ -1,0 +1,18 @@
+{
+  "inputs": {
+    "person-01/results.csv": "5eb1241ac630a78a19fbe8e173bd2cb84f8f976760edb68e2c3f8d17f9e27b09",
+    "person-02/results.csv": "42bcaf2ee6b8dbfb73d0ec1bf49870c0e413546e8558e3b47a250e0c35bd7fe6",
+    "person-03/results.csv": "3c1108a44627fac4ef02f1f7a0a5789bd20e3d4b51c82337c716d0b6e95acac7",
+    "person-04/results.csv": "75fcf3d97837a6543ff10008eccdd971e8781f2708f4e562fb8b79dc70902049",
+    "person-05/results.csv": "0f0ad259cabbd44feaeaacf19869c6cc4b83dcd9cc43be4268b8cf5211ff9c86"
+  },
+  "analyzer_sha256": "8b0b653e43d877677b4e4178f9c567ea0086d44f61bcd306b35f625458684879",
+  "outputs": {
+    "README_ZH.md": "37738d4de3a807d40ddeac2f3ef757ecb7c1e02c45e07bce4d915986be3c78bd",
+    "benign_authorization_rejections.csv": "ee1bcb8e1ebeaf751794257d848ee4fd6ee5e97e418befe7a39a1de23495ab10",
+    "metadata_false_positives.csv": "fad4046f022d27f6d3887922ee8270543cfa555d7e21707e6f52d35c7618b83c",
+    "paired_resources.csv": "43195526cfd7fb271bebcfcbfb47c0c555f0e1af14cce9f139c0aefa105d9ad8",
+    "recovery_sensitivity.csv": "181c678dc02452f4fe3432d6369fa549fbe1c84540abe57e03a7f993c26fb0b2",
+    "resource_by_platform.csv": "c1dd709fca69098ca85950fea5faba4f0d2448928de24da3f6badd4a718be70b"
+  }
+}

@@ -1,83 +1,95 @@
-# 环境、验证与执行
+# 安装、运行与复现
 
-## 环境
-
-Vanda 上所有项目命令在 PBS 分配的计算节点执行；登录节点仅提交、查看或取消作业。环境为 `dsa4213`，Python 必须为 `3.10.20`。不需要 GPU。
+## 1. 获取代码
 
 ```bash
-source /scratch/xinqi.chen/load-conda.sh
-conda activate dsa4213
-python --version
+git clone https://github.com/zzy0304Raymond/TrustGate.git
+cd TrustGate
 ```
 
-既有共享环境已安装依赖。在另一台机器重建时，先创建 Python 3.10.20 环境，再在计算节点执行：
+参考环境是 Python **3.10.20**，Conda 环境名 `dsa4213`。Vanda 上安装、计算和验证均通过 PBS；登录节点仅进行调度、编辑、检查和 Git 操作。CPU 即可，不申请 GPU。
+
+## 2. 安装依赖
+
+已有参考环境可直接使用。新环境在获分配的计算节点中创建，先加载本人的 Conda：
 
 ```bash
+source /path/to/your/load-conda.sh
+conda create -n dsa4213 python=3.10.20 pip
+conda activate dsa4213
 python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cu126
 python -m pip install -c requirements-runtime-constraints.txt -r requirements.txt
+python -m pip install -c requirements-runtime-constraints.txt -r requirements-analysis.txt
 python -m pip check
 ```
 
-`requirements-runtime-constraints.txt` 记录当前实际安装版本。当前共享环境的 Torch 是 2.7.1+cu126，实验只在 CPU 上执行；重建命令保留相同构建，不表示需要申请 GPU。构建来源见 [PyTorch 官方历史版本](https://pytorch.org/get-started/previous-versions/)。原 `requirements-agentdojo.lock`、`requirements-mvp.lock` 保留安装历史；不要单独重装前者覆盖最终版本。某些 wheel 与平台有关，若换系统应重新验证并记录环境。
+`requirements-runtime-constraints.txt` 固定运行依赖，正式清单还校验六项关键包版本。Torch 为 `2.7.1+cu126`，但推理在 CPU 上执行。旧 `requirements-agentdojo.lock` 和 `requirements-mvp.lock` 是安装历史，不用于覆盖最终约束。分析绘图依赖与运行依赖分开列出。
 
-## 密钥与模型
+仅重算公开统计时，Python 3.10.20 标准库即可运行下面的默认入口，不需要 API、模型权重或完整运行依赖。绘图另需 `requirements-analysis.txt`。模型和 MCP 检查使用完整环境。
 
-仅使用本小组授权的 Group 9 密钥。可通过已导出的 `OPENROUTER_API_KEY`，或权限为 600 的密钥文件提供；文件路径用 `TRUSTGATE_KEY_FILE` 指定。不要把密钥值放进命令参数、作业名称、Git 或聊天。
+## 3. 复现公开统计，不调用 API
 
-首次使用完整防护时，运行 `python experiments/mvp/prepare_detector.py`，按仓库中的 revision 下载模型。多个作业共享读取模型缓存；不要并行下载到同一目录。也可用 `TRUSTGATE_DETECTOR_DIR` 指向已经准备好的同版本缓存。
-
-## 无 API 的检查
+普通电脑或已分配的计算节点：
 
 ```bash
-export PYTHONHASHSEED=0 TOKENIZERS_PARALLELISM=false
-mkdir -p runs/mvp
-python -m unittest discover -s tests -v
-python experiments/mvp/preflight.py
-python experiments/mvp/test_parser_recovery.py
-python -m pip check
+export PYTHONHASHSEED=0
+python scripts/reproduce.py --output runs/reproduce
 ```
 
-确定性回放检查 24 个工具、六类业务和攻击传输一致性。测试中的原生 ground truth 仅用于适配器回放，不进入真实模型提示或权限规则。
-
-## 正式实验
-
-执行清单为 `assignments/formal/plan.json`，五人各 336 次、共 1,680 次，已冻结。每人可直接运行对应的 PBS 脚本；完整步骤、当前集群快捷命令和交付方式见 [五人启动说明](FORMAL_START_ZH.md)。
-
-新增无 API 检查：`python scripts/formal/preflight.py`。它检查全部 60 个攻击的 MCP 注入范围与目标可达性，以及 20 个任务、七配置×两入口的真实工具流程。此检查使用脚本模拟模型回复，不能作为 LLM 的任务成功率或攻击成功率证据。
-
-数据生成脚本 `scripts/formal/prepare.py` 仅用于维护冻结版本；组员正式运行时不要重新生成或改动清单。先前的 `allocation.json` 保留作时间估算历史。
-
-## MVP 五路运行
-
-先生成一次清单并检查。清单 SHA 保证五路使用同一实验设计；每个案例有独立 ID，不重复分配。对同一任务/攻击入口/重复编号的不同防护配置尽量放在同一份，按预计耗时平衡五份。
+Vanda 从仓库根目录提交：
 
 ```bash
-python -m trustgate plan --workers 5 --budget-usd 1 --output runs/plans/pilot-five.json
-python -m trustgate inspect --plan runs/plans/pilot-five.json
+export TRUSTGATE_CONDA_LOADER=/path/to/your/load-conda.sh
+qsub -P personal-YOUR_ACCOUNT -v TRUSTGATE_CONDA_LOADER scripts/reproduce.pbs
 ```
 
-从仓库根目录向 PBS 提交。下面变量仅为路径和实验编号，不含密钥：
+入口核对五份 CSV、冻结源码、案例完整性、评分分母、诊断及演示来源，并从公开记录重新生成主表和开销表，与已提交表格逐字比较。输出为 `runs/reproduce/`；PBS 入口使用 `runs/reproduce-作业号/`，包含 `run.log`、结果副本及 `verification.json`。它不会读取密钥或重新请求模型。
+
+需要重新画六张图时，加 `--plots`；PBS 使用 `TRUSTGATE_PLOTS=1` 并通过 `qsub -v` 传递。PDF 的生成时间等元数据不作为实验结果，数值表格才是逐字校验对象。
+
+## 4. 准备固定检测器
+
+下载发生在计算节点，只有第一次需要网络：
 
 ```bash
-export TRUSTGATE_PLAN="$PWD/runs/plans/pilot-five.json"
-export TRUSTGATE_RUN_ID="pilot-five-001"
-qsub -v TRUSTGATE_PLAN,TRUSTGATE_RUN_ID scripts/run_five_workers.pbs
+python experiments/mvp/prepare_detector.py
+export TRUSTGATE_DETECTOR_DIR="$PWD/models/prompt_injection_detector"
 ```
 
-默认密钥位于仓库 `.secrets/openrouter_group9.key`。如果使用自定义文件或模型路径，另外通过 `qsub -v` 传递对应路径变量。不要通过 qsub 导出密钥值。
+下载版本由 `models/detector_revision.txt` 指定，正式清单固定六个模型文件的 SHA256。已有缓存可以直接设置其绝对路径。权重不上传 Git。
 
-`auto` 路由到普通 CPU 批处理队列。核对时每用户上限为 6 个同时运行的作业；资源或其他作业会减少实际并发。`auto_free` 下多核作业上限不同，不能直接照搬五并发。
-
-每路有独立模拟状态、日志、结果和费用份额。五份份额之和等于总预算，每个请求先预留 $0.05；未知费用、超额或网络错误会停止该路，避免自动重复收费。预留额不是价格保证；若响应费用超过预留额，记录已发生费用并停止。预算较小时，可能因为不足下一次预留而提前结束。
-
-本版本故意拒绝覆盖已有分片目录；没有自动断点续跑。网络失败后先核对记录，另行准备明确的补跑清单并保留费用和原失败记录，不要直接删除目录重跑。
-
-## 合并结果
+## 5. 完整离线系统验收
 
 ```bash
-python -m trustgate merge --plan runs/plans/pilot-five.json --run-root runs/studies/pilot-five-001
+export TRUSTGATE_CONDA_LOADER=/path/to/your/load-conda.sh
+export TRUSTGATE_DETECTOR_DIR=/path/to/frozen/prompt_injection_detector
+export TRUSTGATE_FULL_CHECK=1
+export TRUSTGATE_PLOTS=1
+qsub -P personal-YOUR_ACCOUNT \
+  -v TRUSTGATE_CONDA_LOADER,TRUSTGATE_DETECTOR_DIR,TRUSTGATE_FULL_CHECK,TRUSTGATE_PLOTS \
+  scripts/reproduce.pbs
 ```
 
-只有全部结果、清单身份和每路完成标记都一致才生成“完整”汇总。过程中查看用 `--allow-partial`，输出明确标为不完整。任务失败仍计入已记录实验，不能用“任务成功”替代“实验完成”。
+这一模式额外运行完整回归测试、依赖校验、24 工具适配、60 攻击传输与目标可达性、20 任务权限和七配置检查、合法说明及参考调用误报检查、八组双传输检查、六组真实 MCP 演示。模型回复在这些机制检查中是预设的；不会产生新的 LLM 效果数据。
 
-历史 102 次在 `results/pilot/` 中，后续新运行保持独立。更改代码后保存新 commit SHA 和新 run ID。
+已经位于 PBS 计算节点时，可直接运行 `python scripts/reproduce.py --full --plots --output runs/reproduce-new`。完整模式的输出目录应使用新名称，避免覆盖先前控制记录。不能伪造 PBS 变量来绕开集群规则。
+
+## 6. 重新运行真实模型实验
+
+提供本人获授权的 OpenRouter 凭据，放在私有文件中并 `chmod 600`，通过 `TRUSTGATE_KEY_FILE` 指定路径。也支持进程环境中的 `OPENROUTER_API_KEY`；不要把密钥值放进命令行、Git 或 PBS 导出参数。
+
+| 研究 | 冻结清单 | 执行入口 |
+|---|---|---|
+| 原正式 1,680 条 | `assignments/formal/plan.json` | [五份正式运行](FORMAL_START_ZH.md) |
+| 工具说明补测 156 条 | `assignments/metadata_supplement/` | [补测运行说明](../scripts/supplement/README_ZH.md) |
+| 双传输验证 48 条 | `assignments/transport_validation/plan.json` | `scripts/transport/run.pbs` |
+
+使用全新检出目录与新运行编号，复用发布清单，不重新选任务或模板。核心源码、模型和关键依赖的校验必须通过；保持失败与超时，基础设施错误不自动重试。新采样不能覆盖原 `results/` 中的实测成绩。
+
+双传输启动文件将新统计导出到 `runs/transport_validation/export/`。独立导出也可使用 `python scripts/transport/export_run.py --run runs/transport_validation/live --controls runs/transport_validation/live-controls --output runs/transport-validation-export-new`。
+
+Vanda 启动文件中的项目、Conda 加载器、凭据及模型目录需配置为本人路径。双传输入口传递 `TRUSTGATE_KEY_FILE,TRUSTGATE_DETECTOR_DIR,TRUSTGATE_CONDA_LOADER`；说明补测的既有入口需按本人环境设置 Conda 加载路径。其他调度器使用其实际分配的计算节点，参考 [跨平台要求](CROSS_PLATFORM_CHECKLIST_ZH.md)。
+
+## 7. 演示
+
+下载 `demos/index.html` 并在浏览器打开，或运行 `python scripts/demo/show.py` 查看记录回放。真实 MCP 机制检查已包含在完整验收入口中。见 [演示说明](../demos/README_ZH.md)。
