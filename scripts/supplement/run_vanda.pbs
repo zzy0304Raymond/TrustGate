@@ -1,0 +1,28 @@
+#!/bin/bash
+#PBS -N tg_metadata_sup
+#PBS -P personal-xinqi.chen
+#PBS -q auto
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=04:00:00
+#PBS -r n
+#PBS -j oe
+#PBS -o /scratch/xinqi.chen/dsa4213/TrustGate_Project/github/TrustGate_metadata_supplement_20261021/runs/metadata-supplement-pbs.log
+set -eo pipefail
+source /scratch/xinqi.chen/load-conda.sh
+conda activate dsa4213
+cd /scratch/xinqi.chen/dsa4213/TrustGate_Project/github/TrustGate_metadata_supplement_20261021
+export PYTHONHASHSEED=0 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
+export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
+export TRUSTGATE_KEY_FILE=/scratch/xinqi.chen/dsa4213/TrustGate_Project/.secrets/openrouter_group9.key
+export TRUSTGATE_DETECTOR_DIR=/scratch/xinqi.chen/dsa4213/TrustGate_Project/models/prompt_injection_detector
+if [ ! -f assignments/metadata_supplement/development.json ]; then
+    python -u scripts/supplement/study.py prepare development
+fi
+if [ ! -f assignments/metadata_supplement/development_controls.json ]; then
+    python -u scripts/supplement/study.py controls assignments/metadata_supplement/development.json runs/metadata_supplement/dev-controls
+fi
+python -u scripts/supplement/study.py run assignments/metadata_supplement/development.json runs/metadata_supplement/development
+python -u scripts/supplement/study.py prepare evaluation --development-run runs/metadata_supplement/development
+python -u scripts/supplement/study.py controls assignments/metadata_supplement/evaluation.json runs/metadata_supplement/eval-controls
+python -u scripts/supplement/study.py run assignments/metadata_supplement/evaluation.json runs/metadata_supplement/evaluation
+python -u scripts/supplement/analyze.py runs/metadata_supplement/development runs/metadata_supplement/evaluation
