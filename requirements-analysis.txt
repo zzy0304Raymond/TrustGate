@@ -1,0 +1,2 @@
+# Use with requirements-runtime-constraints.txt; experiment dependencies stay fixed.
+matplotlib==3.10.9

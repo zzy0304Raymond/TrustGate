@@ -6,7 +6,7 @@
 
 **正式实验已完成：**20 个测试任务、60 个具体攻击案例、七种配置、三次重复，共 1,680 条记录，五人各 336 条，无重复、无缺失。统计保留所有任务失败和运行错误。历史 102 次试验和开发验证单独保存。
 
-**查看结果：阅读 [正式结果说明](results/formal/README_ZH.md)。**既有分片已完成，不要再次提交原作业；[五人启动说明](docs/FORMAL_START_ZH.md) 保留为复现文档。
+**查看结果：阅读 [正式结果说明](results/formal/README_ZH.md) 和 [结果表与核心图](results/formal/analysis/README_ZH.md)。**既有分片已完成，不要再次提交原作业；[五人启动说明](docs/FORMAL_START_ZH.md) 保留为复现文档。
 
 **演示入口：[三个真实案例与运行说明](demos/README_ZH.md)。**包含合法日程创建、实际授权防御、正常工具误隔离与评分问题；提供离线展示页及 PBS 机制检查。总体结论见 [防护机制证据](results/formal/mechanism_evidence/README_ZH.md)。
 
