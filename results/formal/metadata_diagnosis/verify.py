@@ -68,6 +68,10 @@ def main():
     assert len(gaps) == len({r['case_id'] for r in gaps})
     assert {r['case_id'] for r in gaps} == {r['case_id'] for r in trials if r['evidence_level'] == 'summary_only'}
     summary = load('summary.json')
+    review = load('review.json')
+    assert review['passed'] and review['total']['records'] == len(trials)
+    for name, expected in review['input_sha256'].items():
+        assert hashlib.sha256((root / name).read_bytes()).hexdigest() == expected, name
     detailed = [r for r in trials if r['evidence_level'] != 'summary_only']
     assert summary['evidence_levels'] == dict(Counter(r['evidence_level'] for r in trials))
     assert summary['request_evidence_levels'] == dict(Counter(r['request_evidence'] for r in trials))
@@ -77,6 +81,12 @@ def main():
     assert summary['attacked_tool_proposed'] == sum(r['attacked_tool_proposed'] == 'True' for r in detailed)
     assert summary['attacked_tool_not_proposed'] == sum(r['attacked_tool_proposed'] == 'False' for r in detailed)
     assert summary['detailed_trials_with_goal_tool_proposals'] == sum(int(r['goal_tool_proposal_count']) > 0 for r in detailed)
+    assert summary['detailed_trials_with_exact_goal_proposals'] == sum(int(r['exact_goal_proposal_count']) > 0 for r in detailed)
+    assert summary['review_basis'] == dict(Counter(r['review_basis'] for r in trials))
+    assert review['total']['exact_goal_proposals'] == sum(int(r['exact_goal_proposal_count']) for r in detailed)
+    assert review['total']['attacked_tool_proposed'] == summary['attacked_tool_proposed']
+    assert review['total']['goal_tool_proposals'] == sum(int(r['goal_tool_proposal_count']) for r in detailed)
+    assert len(review['crosschecked_public_cases']) == 6
     controls = load('controls.json')
     assert len(controls['records']) == 30 and {r['attack_case_id'] for r in controls['records']} == set(attacks)
     for record in controls['records']:

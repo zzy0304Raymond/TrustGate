@@ -6,6 +6,7 @@ import unittest
 from unittest.mock import patch
 
 from scripts.formal import analyze_metadata_diagnosis as diagnosis
+from scripts.formal import review_metadata_checks as review
 
 
 class PublicEvidenceScopeTests(unittest.TestCase):
@@ -44,6 +45,45 @@ class PublicEvidenceScopeTests(unittest.TestCase):
         with patch.object(diagnosis, 'load', return_value=data):
             with self.assertRaises(AssertionError):
                 diagnosis.public_detail(path, attack, row)
+
+
+class SubmittedChecksTests(unittest.TestCase):
+    def setUp(self):
+        self.bundle = diagnosis.load(diagnosis.ROOT / 'results/formal/metadata_diagnosis/trace_checks_person-03.json')
+        self.plan = diagnosis.load(diagnosis.ROOT / 'assignments/formal/plan.json')
+        with (diagnosis.ROOT / 'experiments/deliveries/person-03/results.csv').open() as stream:
+            self.formal = list(csv.DictReader(stream))
+        self.extractor_hash = diagnosis.sha(diagnosis.ROOT / 'scripts/formal/extract_metadata_trace_checks.py')
+
+    def validate(self):
+        return review.validate_bundle(self.bundle, 3, self.formal, self.plan, self.extractor_hash)
+
+    def test_same_tool_name_does_not_count_as_exact_attack(self):
+        result = review.summarize(self.validate())
+        self.assertEqual(result['goal_tool_proposals'], 6)
+        self.assertEqual(result['exact_goal_proposals'], 0)
+        self.assertEqual(result['recomputed_attack_successes'], 0)
+
+    def test_duplicate_case_cannot_replace_missing_case(self):
+        self.bundle['records'][0] = copy.deepcopy(self.bundle['records'][1])
+        with self.assertRaises(AssertionError):
+            self.validate()
+
+    def test_wrong_identity_fails_even_when_pass_flags_are_true(self):
+        self.bundle['records'][0]['task'] = 'user_task_0'
+        with self.assertRaises(AssertionError):
+            self.validate()
+
+    def test_incomplete_response_hashes_fail(self):
+        self.bundle['records'][0]['source_files'].pop('response_01.json')
+        with self.assertRaises(AssertionError):
+            self.validate()
+
+    def test_duplicate_steps_cannot_fake_full_exposure(self):
+        record = self.bundle['records'][0]
+        record['full_payload_request_steps'] = [1] * record['requests_checked']
+        with self.assertRaises(AssertionError):
+            self.validate()
 
 
 if __name__ == '__main__':

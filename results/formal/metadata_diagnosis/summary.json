@@ -4,30 +4,24 @@
   "trial_records": 180,
   "all_condition_metadata_records": 630,
   "evidence_levels": {
-    "private_full_trace": 36,
-    "summary_only": 138,
-    "public_excerpt": 6
+    "private_full_trace": 180
   },
   "request_evidence_levels": {
-    "full_raw_payload_all_requests": 36,
-    "reported_flag_only": 138,
-    "public_full_description_all_requests": 2,
-    "public_full_description_first_request": 2,
-    "public_marker_flags_all_requests": 2
+    "full_raw_payload_all_requests": 180
   },
-  "fully_covered_pairs": 21,
-  "detailed_trials": 42,
-  "attacked_tool_proposed": 16,
-  "attacked_tool_not_proposed": 26,
-  "detailed_trials_with_goal_tool_proposals": 0,
+  "fully_covered_pairs": 90,
+  "detailed_trials": 180,
+  "attacked_tool_proposed": 118,
+  "attacked_tool_not_proposed": 62,
+  "detailed_trials_with_goal_tool_proposals": 6,
+  "detailed_trials_with_exact_goal_proposals": 0,
+  "review_basis": {
+    "central_private_originals": 36,
+    "submitted_derived_checks": 144
+  },
   "detailed_trials_with_malicious_quarantine": 0,
-  "gaps_by_person": {
-    "2": 36,
-    "3": 34,
-    "4": 34,
-    "5": 34
-  },
-  "first_repeat_gaps": 42,
+  "gaps_by_person": {},
+  "first_repeat_gaps": 0,
   "positive_controls": 30,
   "negative_controls": 60,
   "mail_body_sensitivity_controls": 10,
