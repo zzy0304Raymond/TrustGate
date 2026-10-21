@@ -2,13 +2,13 @@
 
 本目录用于集中收集正式实验的脱敏核查记录。现有正式成绩保持不变，核查发现与原始评分分开记录。
 
-第一轮清单包含 52 条记录，覆盖 11 个任务；任务 31 的 6 条正常记录已完成核查。该清单是针对具体问题选择的案例，不用于重新估计总体成功率或误报率。
+第一轮清单包含 52 条记录，覆盖 11 个任务；52 条均已完成核查，结论见[统一分析与逐条分类](../results/formal/review/README_ZH.md)。该清单是针对具体问题选择的案例，不用于重新估计总体成功率或误报率。
 
 ## 按实验提交
 
-| 实验 | 任务 | 清单记录数 | 抽查清单 |
+| 实验 | 任务 | 已核查记录数 | 抽查清单 |
 |---|---|---:|---|
-| 实验 1 | 31 | 9，其中 6 条已查 | [person-01/selection.csv](person-01/selection.csv) |
+| 实验 1 | 31 | 9 | [person-01/selection.csv](person-01/selection.csv) |
 | 实验 2 | 2、32 | 12 | [person-02/selection.csv](person-02/selection.csv) |
 | 实验 3 | 16、24 | 10 | [person-03/selection.csv](person-03/selection.csv) |
 | 实验 4 | 3、18 | 8 | [person-04/selection.csv](person-04/selection.csv) |
