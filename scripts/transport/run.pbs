@@ -19,5 +19,4 @@ if [ ! -f assignments/transport_validation/plan.json ]; then
 fi
 python -u scripts/transport/study.py controls --controls runs/transport_validation/live-controls
 python -u scripts/transport/study.py run
-python -u scripts/transport/study.py export
-python -u scripts/transport/study.py verify
+python -u scripts/transport/export_run.py

@@ -86,6 +86,8 @@ qsub -P personal-YOUR_ACCOUNT \
 
 使用全新检出目录与新运行编号，复用发布清单，不重新选任务或模板。核心源码、模型和关键依赖的校验必须通过；保持失败与超时，基础设施错误不自动重试。新采样不能覆盖原 `results/` 中的实测成绩。
 
+双传输启动文件将新统计导出到 `runs/transport_validation/export/`。独立导出也可使用 `python scripts/transport/export_run.py --run runs/transport_validation/live --controls runs/transport_validation/live-controls --output runs/transport-validation-export-new`。
+
 Vanda 启动文件中的项目、Conda 加载器、凭据及模型目录需配置为本人路径。双传输入口传递 `TRUSTGATE_KEY_FILE,TRUSTGATE_DETECTOR_DIR,TRUSTGATE_CONDA_LOADER`；说明补测的既有入口需按本人环境设置 Conda 加载路径。其他调度器使用其实际分配的计算节点，参考 [跨平台要求](CROSS_PLATFORM_CHECKLIST_ZH.md)。
 
 ## 7. 演示
