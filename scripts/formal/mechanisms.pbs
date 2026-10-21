@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -N tg-mechanisms
+#PBS -P personal-xinqi.chen
+#PBS -q auto
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=00:15:00
+#PBS -r n
+#PBS -j oe
+set -euo pipefail
+cd "${PBS_O_WORKDIR:?Submit from the repository root}"
+source /scratch/xinqi.chen/load-conda.sh
+conda activate dsa4213
+export PYTHONHASHSEED=0 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
+python scripts/validation/check_deliveries.py
+python results/formal/review/verify.py
+python -m unittest tests.test_mechanism_evidence
+python scripts/formal/analyze_mechanisms.py
+python scripts/formal/analyze_mechanisms.py --check
