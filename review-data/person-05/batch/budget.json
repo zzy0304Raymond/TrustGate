@@ -1,0 +1,8 @@
+{
+  "limit_usd": 2.0,
+  "per_request_reservation_usd": 0.05,
+  "reported_cost_usd": 0.6697782599999982,
+  "uncertain_reserved_usd": 0.0,
+  "pending_reserved_usd": 0.0,
+  "halted": false
+}

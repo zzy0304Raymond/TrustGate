@@ -1,0 +1,17 @@
+{
+  "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+  "shard_index": 4,
+  "planned": 336,
+  "recorded": 336,
+  "complete": true,
+  "wall_seconds": 9342.538802365772,
+  "fatal_error": null,
+  "budget": {
+    "limit_usd": 2.0,
+    "per_request_reservation_usd": 0.05,
+    "reported_cost_usd": 0.6697782599999982,
+    "uncertain_reserved_usd": 0.0,
+    "pending_reserved_usd": 0.0,
+    "halted": false
+  }
+}
