@@ -1,0 +1,1094 @@
+{
+  "selection_source_commit": "8a0b6ec4d598a7509b83fcd485d35ff055489ee4",
+  "selection_source": "https://github.com/zzy0304Raymond/TrustGate/blob/8a0b6ec4d598a7509b83fcd485d35ff055489ee4/review-data/person-03/selection.csv",
+  "selection_sha256": "8047f38d967187abd8b2a333549b1d30500244d46e9ff67ee6c47eff0ffdc309",
+  "per_record_and_batch_private_sources": {
+    "fa9cf1cea6e98a170495": [
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/222_W2_mail_read_benign_none_r1/api_usage.json",
+        "sha256": "2fccfec5e5adb092b655c7acb8104486c80bb00cfed43a3acf6a812bc4c1163e",
+        "bytes": 792,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/222_W2_mail_read_benign_none_r1/defense_events.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/222_W2_mail_read_benign_none_r1/environment_after.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/222_W2_mail_read_benign_none_r1/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/222_W2_mail_read_benign_none_r1/policy.json",
+        "sha256": "a9fd2dc739fa9a1fee217a2374b5ed86f64c3114124b8fe31d500126f8b80090",
+        "bytes": 461,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/222_W2_mail_read_benign_none_r1/raw_tools.json",
+        "sha256": "71fd666b9fee906f2d79c7e15e04d97939776ceb4f31cc7f8d5ad221dad91591",
+        "bytes": 17718,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/222_W2_mail_read_benign_none_r1/request_01.json",
+        "sha256": "c26abf8c0d2746451e034aaf952bced18c1ff6bed2a5cf00011c8d3ba6c6bf24",
+        "bytes": 21564,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/222_W2_mail_read_benign_none_r1/response_01.json",
+        "sha256": "7326b2ee1420be62527583271027d451b7c70e1c00c0c258946958530b4bc407",
+        "bytes": 1493,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/222_W2_mail_read_benign_none_r1/summary.json",
+        "sha256": "246550368d4c63577029ddc19a9fc5d511b447307c5910e0752341ceca5467c2",
+        "bytes": 1558,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/222_W2_mail_read_benign_none_r1/tool_calls.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/222_W2_mail_read_benign_none_r1/trajectory.json",
+        "sha256": "7fd5d4a9eb1d2869e0a424b282afb08f4613beeb41a3279e7a634adc5fc05440",
+        "bytes": 1092,
+        "role": "private_original"
+      }
+    ],
+    "d06677841aa5d65b9501": [
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/109_W2_mail_read_benign_trustgate_r1/api_usage.json",
+        "sha256": "33abf3bb0a7362a135da8b9882226ca8a72f917eedf07bcf3af26a829c1fce95",
+        "bytes": 788,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/109_W2_mail_read_benign_trustgate_r1/defense_events.json",
+        "sha256": "2a31aeac6d14a14390c3fd9d8409c6399432df797370d004ebdcdaf45185385f",
+        "bytes": 6793,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/109_W2_mail_read_benign_trustgate_r1/environment_after.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/109_W2_mail_read_benign_trustgate_r1/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/109_W2_mail_read_benign_trustgate_r1/policy.json",
+        "sha256": "a9fd2dc739fa9a1fee217a2374b5ed86f64c3114124b8fe31d500126f8b80090",
+        "bytes": 461,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/109_W2_mail_read_benign_trustgate_r1/raw_tools.json",
+        "sha256": "71fd666b9fee906f2d79c7e15e04d97939776ceb4f31cc7f8d5ad221dad91591",
+        "bytes": 17718,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/109_W2_mail_read_benign_trustgate_r1/request_01.json",
+        "sha256": "b1066d1234c7d3a63b94efc8d62ad902545ff71e8bb9156a0cf652649fb12e62",
+        "bytes": 23483,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/109_W2_mail_read_benign_trustgate_r1/response_01.json",
+        "sha256": "b4f065352e1eca49a93ed9b7a5b3d80c0f88bd5b32e590e2f6d363d82aec35d7",
+        "bytes": 1327,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/109_W2_mail_read_benign_trustgate_r1/summary.json",
+        "sha256": "9e0ac8ae56a91b6a08f3d7f5618f830863c062260f6491b53b9a312162a22ea0",
+        "bytes": 1420,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/109_W2_mail_read_benign_trustgate_r1/tool_calls.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/109_W2_mail_read_benign_trustgate_r1/trajectory.json",
+        "sha256": "a8f721c12bcbaaa92ef9b1d32ba0509083efb9d747ecf42d0a33228be8f0a78a",
+        "bytes": 1193,
+        "role": "private_original"
+      }
+    ],
+    "4cfd1f410dcefe94e7e8": [
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/073_W2_mail_read_benign_none_r2/api_usage.json",
+        "sha256": "e0014978ba12f0807c37db26e327267122156283df8d3c7df3ea90595bdfe136",
+        "bytes": 792,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/073_W2_mail_read_benign_none_r2/defense_events.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/073_W2_mail_read_benign_none_r2/environment_after.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/073_W2_mail_read_benign_none_r2/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/073_W2_mail_read_benign_none_r2/policy.json",
+        "sha256": "a9fd2dc739fa9a1fee217a2374b5ed86f64c3114124b8fe31d500126f8b80090",
+        "bytes": 461,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/073_W2_mail_read_benign_none_r2/raw_tools.json",
+        "sha256": "71fd666b9fee906f2d79c7e15e04d97939776ceb4f31cc7f8d5ad221dad91591",
+        "bytes": 17718,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/073_W2_mail_read_benign_none_r2/request_01.json",
+        "sha256": "c26abf8c0d2746451e034aaf952bced18c1ff6bed2a5cf00011c8d3ba6c6bf24",
+        "bytes": 21564,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/073_W2_mail_read_benign_none_r2/response_01.json",
+        "sha256": "23de5569ebcf4717c7e6ea1a8148d0b12802ed85563eb454e4c799bc76cf2578",
+        "bytes": 1509,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/073_W2_mail_read_benign_none_r2/summary.json",
+        "sha256": "ed856317e654bfb9aecbee5af5eb51cf4c741d06b685ee4fd7560c96f4b9ba22",
+        "bytes": 1573,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/073_W2_mail_read_benign_none_r2/tool_calls.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/073_W2_mail_read_benign_none_r2/trajectory.json",
+        "sha256": "8c63e14cf9870d24defeb887d3f585c933d25a5c313953034b57593b65ca0a8c",
+        "bytes": 1108,
+        "role": "private_original"
+      }
+    ],
+    "9ea18d7ba143ee2460fb": [
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/036_W2_mail_read_benign_trustgate_r2/api_usage.json",
+        "sha256": "9bf0b2fd074053b4b5a7be4f8f24ba8d311a02b1d7add4604a4fbdd67a150c94",
+        "bytes": 786,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/036_W2_mail_read_benign_trustgate_r2/defense_events.json",
+        "sha256": "f8daa5f5d1384aab6cc57bc9c75b788fdd6a2884a65066341c9cd3a9d59cb6e5",
+        "bytes": 6796,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/036_W2_mail_read_benign_trustgate_r2/environment_after.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/036_W2_mail_read_benign_trustgate_r2/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/036_W2_mail_read_benign_trustgate_r2/policy.json",
+        "sha256": "a9fd2dc739fa9a1fee217a2374b5ed86f64c3114124b8fe31d500126f8b80090",
+        "bytes": 461,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/036_W2_mail_read_benign_trustgate_r2/raw_tools.json",
+        "sha256": "71fd666b9fee906f2d79c7e15e04d97939776ceb4f31cc7f8d5ad221dad91591",
+        "bytes": 17718,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/036_W2_mail_read_benign_trustgate_r2/request_01.json",
+        "sha256": "b1066d1234c7d3a63b94efc8d62ad902545ff71e8bb9156a0cf652649fb12e62",
+        "bytes": 23483,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/036_W2_mail_read_benign_trustgate_r2/response_01.json",
+        "sha256": "6c03ce797f4bff9139d6edd39f38ef5a4bd0970593182ff3408963bc23a135a8",
+        "bytes": 1455,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/036_W2_mail_read_benign_trustgate_r2/summary.json",
+        "sha256": "b3d0c338039f9a35e2ac3626b39a782a431160b18f89f627c405206eb9dc6ff9",
+        "bytes": 1551,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/036_W2_mail_read_benign_trustgate_r2/tool_calls.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/036_W2_mail_read_benign_trustgate_r2/trajectory.json",
+        "sha256": "1f6c529bbd0446e585855f717a42e3d24af09a54ebc23c763e3a1ca04d77a0a1",
+        "bytes": 1324,
+        "role": "private_original"
+      }
+    ],
+    "0efb9039424e4a34e0ac": [
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/067_W2_mail_read_benign_none_r3/api_usage.json",
+        "sha256": "9a60844df81519ab6ce872d77f25d4563d7e953ec1d3ab7bcffa9a7f715bf825",
+        "bytes": 792,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/067_W2_mail_read_benign_none_r3/defense_events.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/067_W2_mail_read_benign_none_r3/environment_after.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/067_W2_mail_read_benign_none_r3/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/067_W2_mail_read_benign_none_r3/policy.json",
+        "sha256": "a9fd2dc739fa9a1fee217a2374b5ed86f64c3114124b8fe31d500126f8b80090",
+        "bytes": 461,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/067_W2_mail_read_benign_none_r3/raw_tools.json",
+        "sha256": "71fd666b9fee906f2d79c7e15e04d97939776ceb4f31cc7f8d5ad221dad91591",
+        "bytes": 17718,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/067_W2_mail_read_benign_none_r3/request_01.json",
+        "sha256": "c26abf8c0d2746451e034aaf952bced18c1ff6bed2a5cf00011c8d3ba6c6bf24",
+        "bytes": 21564,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/067_W2_mail_read_benign_none_r3/response_01.json",
+        "sha256": "13cf025accea859bd23f025cf4ea1f5f595af0bdec9e0074532eb3fe2e8fc1d1",
+        "bytes": 1389,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/067_W2_mail_read_benign_none_r3/summary.json",
+        "sha256": "7fb890a1f7d23b5d199e858327503124ca69ba5bdb74e4fc30b3db2e27129a4b",
+        "bytes": 1455,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/067_W2_mail_read_benign_none_r3/tool_calls.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/067_W2_mail_read_benign_none_r3/trajectory.json",
+        "sha256": "2b7963d09ea5e5b933e31387036c7335c6a092856d871c6128cb48ff4ef6474f",
+        "bytes": 989,
+        "role": "private_original"
+      }
+    ],
+    "0fda915767285926ab55": [
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/032_W2_mail_read_benign_trustgate_r3/api_usage.json",
+        "sha256": "12a36005b8a84f268c39b1ea7b384e243ea06e9f887e39dc38e99b72c71de732",
+        "bytes": 783,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/032_W2_mail_read_benign_trustgate_r3/defense_events.json",
+        "sha256": "b0988addd34ce106368a9a59dcfe02ae7b522ded0ae48722b73bc672e1bda359",
+        "bytes": 6803,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/032_W2_mail_read_benign_trustgate_r3/environment_after.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/032_W2_mail_read_benign_trustgate_r3/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/032_W2_mail_read_benign_trustgate_r3/policy.json",
+        "sha256": "a9fd2dc739fa9a1fee217a2374b5ed86f64c3114124b8fe31d500126f8b80090",
+        "bytes": 461,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/032_W2_mail_read_benign_trustgate_r3/raw_tools.json",
+        "sha256": "71fd666b9fee906f2d79c7e15e04d97939776ceb4f31cc7f8d5ad221dad91591",
+        "bytes": 17718,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/032_W2_mail_read_benign_trustgate_r3/request_01.json",
+        "sha256": "b1066d1234c7d3a63b94efc8d62ad902545ff71e8bb9156a0cf652649fb12e62",
+        "bytes": 23483,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/032_W2_mail_read_benign_trustgate_r3/response_01.json",
+        "sha256": "be6f1266e7c8100e0c59e00fd3af1e3d9215a83260815cc187032827d3d2c7a0",
+        "bytes": 1488,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/032_W2_mail_read_benign_trustgate_r3/summary.json",
+        "sha256": "cbe590b90d39eb9e33ea3c195f3d2b5dd136b5bef5c6a148596ce1408bfb3772",
+        "bytes": 1575,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/032_W2_mail_read_benign_trustgate_r3/tool_calls.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/032_W2_mail_read_benign_trustgate_r3/trajectory.json",
+        "sha256": "e9a53c307647e27382bab364e100ac82e61eef1e05f5ec7cc32a39aecb703cb8",
+        "bytes": 1354,
+        "role": "private_original"
+      }
+    ],
+    "addc986589d29cc6ae90": [
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/280_W2_mail_read_metadata_none_r1/api_usage.json",
+        "sha256": "87748a4b196780384191e3e922ccc416e89cc51c620a400f791aa258bbd1b285",
+        "bytes": 1586,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/280_W2_mail_read_metadata_none_r1/defense_events.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/280_W2_mail_read_metadata_none_r1/environment_after.json",
+        "sha256": "5dbdd37e31787365f8214924a56382b08fcd6ae6a83df665466feb99baf2b302",
+        "bytes": 139029,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/280_W2_mail_read_metadata_none_r1/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/280_W2_mail_read_metadata_none_r1/policy.json",
+        "sha256": "be14902737125940889fef55df84e4262d46cc418286ffee248b69fb5aadae57",
+        "bytes": 421,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/280_W2_mail_read_metadata_none_r1/raw_tools.json",
+        "sha256": "b09076351b45dd493e392ceb6ad06f708b462a538bf12c973d25f660a057c2d2",
+        "bytes": 18084,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/280_W2_mail_read_metadata_none_r1/request_01.json",
+        "sha256": "52570a465045a2722ccce0f839a561c9a54e936fd54c75d4be323d7a7cf75082",
+        "bytes": 21890,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/280_W2_mail_read_metadata_none_r1/request_02.json",
+        "sha256": "5f25360da5958f76ca4e8fd450c080e347a9a8b84de989a29853b10381d0f8ec",
+        "bytes": 25011,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/280_W2_mail_read_metadata_none_r1/response_01.json",
+        "sha256": "8a82faa2f51e8ea90293cc38aff67c8c7dfeae020fea4aa5aaa138b423dfacbf",
+        "bytes": 1436,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/280_W2_mail_read_metadata_none_r1/response_02.json",
+        "sha256": "aa179ac5ec0cd259e14657abfa9a982843f67354cc6a136d9515e70ea38a9703",
+        "bytes": 1668,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/280_W2_mail_read_metadata_none_r1/summary.json",
+        "sha256": "92d2f483aea6889d8769de2c2087f8d52b3cc4c2513d6be004acb7697e58edd0",
+        "bytes": 1762,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/280_W2_mail_read_metadata_none_r1/tool_calls.json",
+        "sha256": "80275f4e0b1fcefdfe7784b0f4417bcd00eb9f8efb656145ff7059f44469c7ef",
+        "bytes": 2855,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/280_W2_mail_read_metadata_none_r1/trajectory.json",
+        "sha256": "0c94284430da59bd2f27888473ecf42eac99afcb501ac6ed555ce53669f5b1fc",
+        "bytes": 4307,
+        "role": "private_original"
+      }
+    ],
+    "b010fdf27838f26e35ae": [
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/322_W2_mail_read_metadata_trustgate_r1/api_usage.json",
+        "sha256": "c1bcc31f406dc17931743c152dfcc1c53bc57f96c3c1c5badcd63c8d011a7a6d",
+        "bytes": 1584,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/322_W2_mail_read_metadata_trustgate_r1/defense_events.json",
+        "sha256": "0e27070991a8289348e950d763abb4d711b952e0f4e1112bf99222e5a5322586",
+        "bytes": 6799,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/322_W2_mail_read_metadata_trustgate_r1/environment_after.json",
+        "sha256": "5dbdd37e31787365f8214924a56382b08fcd6ae6a83df665466feb99baf2b302",
+        "bytes": 139029,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/322_W2_mail_read_metadata_trustgate_r1/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/322_W2_mail_read_metadata_trustgate_r1/policy.json",
+        "sha256": "be14902737125940889fef55df84e4262d46cc418286ffee248b69fb5aadae57",
+        "bytes": 421,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/322_W2_mail_read_metadata_trustgate_r1/raw_tools.json",
+        "sha256": "b09076351b45dd493e392ceb6ad06f708b462a538bf12c973d25f660a057c2d2",
+        "bytes": 18084,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/322_W2_mail_read_metadata_trustgate_r1/request_01.json",
+        "sha256": "4091e7b66e6e5fbd9ab5f898147a3424f50078443a4abbd7005271d6c7ca49e7",
+        "bytes": 23832,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/322_W2_mail_read_metadata_trustgate_r1/request_02.json",
+        "sha256": "f6f64e33d8f38058fbfa57c779ff2d06d5352db8f48eb0952f732459f47ebafc",
+        "bytes": 27141,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/322_W2_mail_read_metadata_trustgate_r1/response_01.json",
+        "sha256": "b9aea59697bf3c6a4404b003a055c0aa6e775b9c1c889c969c7abecae66da690",
+        "bytes": 1398,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/322_W2_mail_read_metadata_trustgate_r1/response_02.json",
+        "sha256": "0185a1ded6627178c01529f919b997bcb759f1062be64e3d3551c1d66a65b7ce",
+        "bytes": 1237,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/322_W2_mail_read_metadata_trustgate_r1/summary.json",
+        "sha256": "d67ffef001522472e80d46947eabd6841575e6b80300085af674a894004a62bb",
+        "bytes": 1357,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/322_W2_mail_read_metadata_trustgate_r1/tool_calls.json",
+        "sha256": "eed906e32ed00505d81391f139d5e091215c43b6d4dce5b2385049a6f887a739",
+        "bytes": 2854,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/322_W2_mail_read_metadata_trustgate_r1/trajectory.json",
+        "sha256": "33b75d3723c3be66000a397a1203173982c9089c002c0cbdf12fcec2080aa576",
+        "bytes": 4331,
+        "role": "private_original"
+      }
+    ],
+    "1bbd699cb28202332443": [
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/035_W2_mail_read_output_none_r1/api_usage.json",
+        "sha256": "023bb21254af3579c7f5444da4b276e0177809f6ef2407c1fa965b89ab4f487c",
+        "bytes": 1581,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/035_W2_mail_read_output_none_r1/defense_events.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/035_W2_mail_read_output_none_r1/environment_after.json",
+        "sha256": "5dbdd37e31787365f8214924a56382b08fcd6ae6a83df665466feb99baf2b302",
+        "bytes": 139029,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/035_W2_mail_read_output_none_r1/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/035_W2_mail_read_output_none_r1/policy.json",
+        "sha256": "be14902737125940889fef55df84e4262d46cc418286ffee248b69fb5aadae57",
+        "bytes": 421,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/035_W2_mail_read_output_none_r1/raw_tools.json",
+        "sha256": "71fd666b9fee906f2d79c7e15e04d97939776ceb4f31cc7f8d5ad221dad91591",
+        "bytes": 17718,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/035_W2_mail_read_output_none_r1/request_01.json",
+        "sha256": "fa91ddee789b2c0845b791a4f1baae35b69125a5011e4d97bd9049e090d4ca39",
+        "bytes": 21524,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/035_W2_mail_read_output_none_r1/request_02.json",
+        "sha256": "e0f068cb0bf90adf6870ffe867d4f76fea5c25284bdb43934d8e60878c844ba1",
+        "bytes": 25129,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/035_W2_mail_read_output_none_r1/response_01.json",
+        "sha256": "0a73acb779c1e2f2c692723e861cc7f69a28e0ba874f01a955709bb43a3174d3",
+        "bytes": 1435,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/035_W2_mail_read_output_none_r1/response_02.json",
+        "sha256": "f174447d46bcbf6b91952f94b606244963e6d8294c02b0fb415c54ec05acc16d",
+        "bytes": 2573,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/035_W2_mail_read_output_none_r1/summary.json",
+        "sha256": "48eb79484508e1653de8509ef1848efbacd86b102d758774b0194f1acbc1d26a",
+        "bytes": 2662,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/035_W2_mail_read_output_none_r1/tool_calls.json",
+        "sha256": "3808b893aded96a0ac4e0aa5334a2bff110efc5359aff38792aff2a9a6e2c01f",
+        "bytes": 3339,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/035_W2_mail_read_output_none_r1/trajectory.json",
+        "sha256": "c2fbf9de974a3c509f3dac54ea0e0b6375b76f3dd21122954eb240ab0cdff56c",
+        "bytes": 5701,
+        "role": "private_original"
+      }
+    ],
+    "9f7467fd5e9ede0aa172": [
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/058_W2_mail_read_output_trustgate_r1/api_usage.json",
+        "sha256": "9160bd5e374a7d0fb95ae6186b866b83375d0264b8334109eebaf50518141479",
+        "bytes": 795,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/058_W2_mail_read_output_trustgate_r1/defense_events.json",
+        "sha256": "c4783e27299db099a0769fd5adfd9163600240db37983a21adc54b315d71858b",
+        "bytes": 6790,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/058_W2_mail_read_output_trustgate_r1/environment_after.json",
+        "sha256": "5dbdd37e31787365f8214924a56382b08fcd6ae6a83df665466feb99baf2b302",
+        "bytes": 139029,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/058_W2_mail_read_output_trustgate_r1/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/058_W2_mail_read_output_trustgate_r1/policy.json",
+        "sha256": "be14902737125940889fef55df84e4262d46cc418286ffee248b69fb5aadae57",
+        "bytes": 421,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/058_W2_mail_read_output_trustgate_r1/raw_tools.json",
+        "sha256": "71fd666b9fee906f2d79c7e15e04d97939776ceb4f31cc7f8d5ad221dad91591",
+        "bytes": 17718,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/058_W2_mail_read_output_trustgate_r1/request_01.json",
+        "sha256": "5ac75224098e258d221d790a7a25b89556188cbfc47f3649375232e72395abdc",
+        "bytes": 23443,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/058_W2_mail_read_output_trustgate_r1/request_02.json",
+        "sha256": "f0c204640256d9de138d5b529b746f845b67ee84c8c06f3ec2f98116440617a8",
+        "bytes": 27313,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/058_W2_mail_read_output_trustgate_r1/response_01.json",
+        "sha256": "6477316a30f07de82896b832fea135465bc935f942e194da8aa867fc5c72ee52",
+        "bytes": 1435,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/058_W2_mail_read_output_trustgate_r1/summary.json",
+        "sha256": "536f92c8dcbd9c40d2ae9010332ad79a99524b27f9d8368aa6c2fbbb83628c93",
+        "bytes": 1285,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/058_W2_mail_read_output_trustgate_r1/tool_calls.json",
+        "sha256": "a9a36757406b93a3952a651dbaf159da871283de4c50afe8e411bbc327dd5b0d",
+        "bytes": 3339,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/058_W2_mail_read_output_trustgate_r1/trajectory.json",
+        "sha256": "be2102812ae6d835a91520494eb57f80eb8e893de09ce309aa44b4611d054fa8",
+        "bytes": 4702,
+        "role": "private_original"
+      }
+    ],
+    "batch": [
+      {
+        "file": "runs/studies/formal-v1-001/shard-02/manifest.json",
+        "sha256": "344cfbf7b39fa50c150b027f23205e3acafb11be77818325c1d93cf997c6a21b",
+        "bytes": 5316,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/studies/formal-v1-001/shard-02/config.json",
+        "sha256": "fc27b8359ea7fb4f235a0f2ee77adf095bd5305517e66e33a7816c4e6c1efa42",
+        "bytes": 103822,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/studies/formal-v1-001/shard-02/plan.json",
+        "sha256": "ae6ccef2fc58d3dce9f27434d7cbd6da2eefef9a964a11331ef9672c9c50af07",
+        "bytes": 843934,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/studies/formal-v1-001/shard-02/results.json",
+        "sha256": "e0d4e0d5754f987754f76f0418a06c51c45a43270c623be3c846d7e5da71fdc1",
+        "bytes": 29543,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/studies/formal-v1-001/shard-02/budget.json",
+        "sha256": "14309cb41664e305d4621864fd7a85db32d2ef710a2957e33ad20fbc2e61723e",
+        "bytes": 190,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/studies/formal-v1-001/shard-02/PAUSE_CHECKPOINT.json",
+        "sha256": "de430a19c5887fb37b08dcaf0dd5c9101445985f42064b5ca87a0c33bb40fdb1",
+        "bytes": 14000,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/studies/formal-v1-001/shard-02/mcp_calendar.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/studies/formal-v1-001/shard-02/mcp_mail.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/studies/formal-v1-001/shard-02/mcp_drive.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/manifest.json",
+        "sha256": "fe9546bc8819692e08bf004536cd04e2cc5882dd31f8791bc31c4be766d430cc",
+        "bytes": 7897,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/config.json",
+        "sha256": "fc27b8359ea7fb4f235a0f2ee77adf095bd5305517e66e33a7816c4e6c1efa42",
+        "bytes": 103822,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/plan.json",
+        "sha256": "ae6ccef2fc58d3dce9f27434d7cbd6da2eefef9a964a11331ef9672c9c50af07",
+        "bytes": 843934,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/worker_summary.json",
+        "sha256": "16f27dbdfb6cd6865746c694cb30cbd9a80d3cde468de5e2c6ac087d38b90663",
+        "bytes": 742,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/results.json",
+        "sha256": "c56d761af4f0ea10bd61ff4b307f006499fd6ae60adb9f0816800b395aca0e11",
+        "bytes": 100799,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/budget.json",
+        "sha256": "4d914e72cad1697daaa18ad3ae1a80dd42ec38bddeff320866f7e4f0264c5de6",
+        "bytes": 189,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/recovery.json",
+        "sha256": "47e51c4a8b42730a0115471f2fccc756324fc390d0961edef101cc662ca9b519",
+        "bytes": 11546,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/recovery_source.py",
+        "sha256": "03a42ac45d81bdc5be78cf495cc684a12d13567fed0eb52551d61eb6e2b9a70d",
+        "bytes": 23415,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/mcp_calendar.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/mcp_mail.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/mcp_drive.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/manifest.json",
+        "sha256": "c695f3c18d958ba2c389f3c49921a407dd2ee20376eb410924fcd04b29a0da00",
+        "bytes": 9202,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/config.json",
+        "sha256": "fc27b8359ea7fb4f235a0f2ee77adf095bd5305517e66e33a7816c4e6c1efa42",
+        "bytes": 103822,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/plan.json",
+        "sha256": "ae6ccef2fc58d3dce9f27434d7cbd6da2eefef9a964a11331ef9672c9c50af07",
+        "bytes": 843934,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/worker_summary.json",
+        "sha256": "b89453ffcbd1d1c03c67927015fe39545c54bbdb42b3d8dc0b634c7f02e28fcd",
+        "bytes": 714,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/results.json",
+        "sha256": "6316b0cb849e5bc58acfab08d02a9bdb80aa9b1f4f9d379fa486a877f3a289a9",
+        "bytes": 334937,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/budget.json",
+        "sha256": "e116052579439d04c8025406f3b3ddc7a93603621c2efeb0078cb65bec34116e",
+        "bytes": 189,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/PAUSE_CHECKPOINT.json",
+        "sha256": "e6fd6734b3e8571eccaa9606218ed30f52007d9dcfb88a9c3b073e9c5d85e630",
+        "bytes": 13470,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/recovery.json",
+        "sha256": "89f4d7d647f24114bdedcc76ae90df1ff4656f9bc6ee573ced7301d38505f7ca",
+        "bytes": 12078,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/recovery_source.py",
+        "sha256": "eab8d16b277b78b246d10f2bb745ba82a0fe04be955f8cd4d53c0d95a0308a0b",
+        "bytes": 29752,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/mcp_calendar.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/mcp_mail.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/mcp_drive.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/manifest.json",
+        "sha256": "4e70bf16a48d68e807cf13196afcce171dd0aad5ea42b3ac112ebf1fdcaeaff4",
+        "bytes": 10507,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/config.json",
+        "sha256": "fc27b8359ea7fb4f235a0f2ee77adf095bd5305517e66e33a7816c4e6c1efa42",
+        "bytes": 103822,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/plan.json",
+        "sha256": "ae6ccef2fc58d3dce9f27434d7cbd6da2eefef9a964a11331ef9672c9c50af07",
+        "bytes": 843934,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/worker_summary.json",
+        "sha256": "5410cdab34262220bc93595eb7b6bd05e84fa01a69c1747bd734cafffaac30a5",
+        "bytes": 707,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/results.json",
+        "sha256": "2dc09963e4bbc81c7d97f89f610206540f606f5925590423f525bb274dd559d9",
+        "bytes": 587591,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/budget.json",
+        "sha256": "b7652896be84d9b42a04643c00a1c5aeef82230449c70ccae7ecac859896f0f1",
+        "bytes": 181,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/recovery.json",
+        "sha256": "a23aa48f6780103756a229fb5061726a51ebe56ac38c65402c5cf45ce232a0b7",
+        "bytes": 11896,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/recovery_source.py",
+        "sha256": "eab8d16b277b78b246d10f2bb745ba82a0fe04be955f8cd4d53c0d95a0308a0b",
+        "bytes": 29752,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/mcp_calendar.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/mcp_mail.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/mcp_drive.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "role": "private_original"
+      }
+    ],
+    "later_retry": [
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/001_W2_mail_read_output_trustgate_r1/api_usage.json",
+        "sha256": "e6d59a4c04f70dcbfede85855d4589e6acc4af4210c5b981ca04ebe67eb10d90",
+        "bytes": 1583,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/001_W2_mail_read_output_trustgate_r1/defense_events.json",
+        "sha256": "52bd193ffa4f0c28011b37e3f74df046d537abd98d9effb778b2213187d7ec41",
+        "bytes": 6793,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/001_W2_mail_read_output_trustgate_r1/environment_after.json",
+        "sha256": "5dbdd37e31787365f8214924a56382b08fcd6ae6a83df665466feb99baf2b302",
+        "bytes": 139029,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/001_W2_mail_read_output_trustgate_r1/environment_before.json",
+        "sha256": "e9ead99eec45284ac9bfa8de3495cc9e0f3c137c2ff5c40150ccae987323a764",
+        "bytes": 139047,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/001_W2_mail_read_output_trustgate_r1/policy.json",
+        "sha256": "be14902737125940889fef55df84e4262d46cc418286ffee248b69fb5aadae57",
+        "bytes": 421,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/001_W2_mail_read_output_trustgate_r1/raw_tools.json",
+        "sha256": "71fd666b9fee906f2d79c7e15e04d97939776ceb4f31cc7f8d5ad221dad91591",
+        "bytes": 17718,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/001_W2_mail_read_output_trustgate_r1/request_01.json",
+        "sha256": "5ac75224098e258d221d790a7a25b89556188cbfc47f3649375232e72395abdc",
+        "bytes": 23443,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/001_W2_mail_read_output_trustgate_r1/request_02.json",
+        "sha256": "65f80b890f2dd00fc875d935036670aaf81da584936fffc4bb7a792a6832fb49",
+        "bytes": 27313,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/001_W2_mail_read_output_trustgate_r1/response_01.json",
+        "sha256": "8e3681d6b19bd76a91b54e72f00c93078e38ab422745184f2cacce45f661f211",
+        "bytes": 1434,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/001_W2_mail_read_output_trustgate_r1/response_02.json",
+        "sha256": "42434fe0957a3942daab6b358cf63d810519f18c3ecf952a784f954ad2403958",
+        "bytes": 2749,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/001_W2_mail_read_output_trustgate_r1/summary.json",
+        "sha256": "e4c06a4b37560d9debcd57c970c4c715dd7a2a14c2f07d1def82b02a72a0d7f1",
+        "bytes": 2874,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/001_W2_mail_read_output_trustgate_r1/tool_calls.json",
+        "sha256": "02ff7082f806192e90cf6e789b0939e50b21a6f7e118f4a17a1b7c4d5d8067ea",
+        "bytes": 3338,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/001_W2_mail_read_output_trustgate_r1/trajectory.json",
+        "sha256": "b8587415c2654f9191f58cdd828a5281b2882b6dcac1dbd3c3a6c1fcf7673897",
+        "bytes": 6403,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/manifest.json",
+        "sha256": "347936a0f3dc1292830d307651f327a5439351f316d76f57f7c0b99c5a25d3a9",
+        "bytes": 5334,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/worker_summary.json",
+        "sha256": "4fb6f1d5011c4ad5dd9b9f89b561edb54c7d9b452a5427dabae031155af90a1d",
+        "bytes": 428,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/budget.json",
+        "sha256": "9c4b1c30cfbd5b03e37f93d69982d651e7e2ba02c2c925c52a29474951d2f571",
+        "bytes": 180,
+        "role": "private_original"
+      },
+      {
+        "file": "runs/timeout-retries/person03-timeout-retry-20261020/shard-02/results.json",
+        "sha256": "59908c2e82f9409291d609e112c23541f8a8eab83d7215aeab496493cd70ec9e",
+        "bytes": 2960,
+        "role": "private_original"
+      }
+    ]
+  },
+  "disclosure": "Paths are relative to the private project root and contain no username or machine root. Originals stay private; these hashes identify source files, not redacted copies."
+}

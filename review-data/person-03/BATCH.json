@@ -1,0 +1,959 @@
+{
+  "schema": "trustgate-review-batch-v1",
+  "scope": "Historical formal-v1-001 person-03; four original/resume batches",
+  "recorded": 336,
+  "unique_case_ids": 336,
+  "complete": true,
+  "statuses": {
+    "completed": 323,
+    "error": 1,
+    "model_call_budget": 12
+  },
+  "source_plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+  "attempts": [
+    {
+      "attempt_id": "formal-v1-001",
+      "owned_indices": [
+        1,
+        18
+      ],
+      "cumulative_rows": 18,
+      "new_rows": 18,
+      "manifest": {
+        "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+        "source_sha256": {
+          "experiments/mvp/analyze_results.py": "cff576f4f941ceac14d89e07647d279131130b48a97963b5bfca6cbb90ac8e44",
+          "experiments/mvp/build_report.py": "14d2de2466d05f18e9dfea16ad41d0040d9dd75c19d4a8cb17acd9c8104f4f79",
+          "experiments/mvp/detector.py": "5811734d6c1713b97fcee8ee19bc8a955b74a9c2da77bcd30b3f70648f13a524",
+          "experiments/mvp/mcp_workspace_server.py": "d282f1e1d681c31e3eab5f408998e5a4cf87c91fbb66f999b64ff597584b2cbe",
+          "experiments/mvp/preflight.py": "58f95a006000be8e58c0ce77ef7c45a334e20af9434d0ced42b64c8fe08c6229",
+          "experiments/mvp/prepare_detector.py": "d8c25d6ec775e82e47e632df2553ce6fbca11f58a4d946214ba3e835e8f92301",
+          "experiments/mvp/run_bound_description.py": "15a22d4cd79724f069640b97e4b85b59cc2b6e4ca3a174680241363709b890b5",
+          "experiments/mvp/run_followup.py": "1ab63d46f568d79e44c70e97b5b672ad830404cc7d578cb44d948cb02407c31d",
+          "experiments/mvp/run_matrix.py": "88c755fed127d256169009c16692248487e7f073825c1a2f11687b55f913bebb",
+          "experiments/mvp/run_matrix_v2.py": "027287680e794639e0b3efcf8784eb4eaa9e2d958374eab38373dd723d5d437b",
+          "experiments/mvp/simulation_runtime.py": "2a86038b9aad258ce51d72c131f6c5ffde5b8a1aec9b1765400d87f362609280",
+          "experiments/mvp/test_parser_recovery.py": "4c0794a399a0b210ff218acc0c8c3692932260a08d8d25eec56fe1365a85b445",
+          "experiments/mvp/validate_delivery.py": "da2de2e5a515548d0c104f53294e93b87ba1640db0e186987c61023c86aaff8b",
+          "trustgate/__init__.py": "10c74404c9d0969788357a59900a2057acbcb093dd32aca3ccdf4190ded4489a",
+          "trustgate/__main__.py": "08307bdcb438819d952c1fd9329d964770928b0f7914235bf29f20546a02f450",
+          "trustgate/budget.py": "176c48173a530ac94270e4990d8ad0e300b72f43fcb14a58d99d6a719f9a8ce9",
+          "trustgate/delivery.py": "e756b39a45942bf3ad000acd6ad1c6df2fe4420819aa790c91c22f28e757bd77",
+          "trustgate/formal_allocation.py": "8e8332fb636358c3c6aa78201aee41d12c3b2e65b453ac82ccf2452729323a57",
+          "trustgate/formal_data.py": "1ea82dbb04bbf7c84e5c86e6205ab518ba93bf97b097f7235bd50a9d685d4eb5",
+          "trustgate/formal_engine.py": "33e4af4734f574f280645ea7bcedb1ac845412312cd7ec9b29e83ee9ad5bf960",
+          "trustgate/formal_manifest.py": "a4c1e0446c52d7235454156771be32323cd5d717955f2b22aa886f1ee91f1c74",
+          "trustgate/formal_policy.py": "18f539f962a3fe2b6d36a479d4bd4b49ff55a2d2b74fafdd62c60b84a5c8f7a5",
+          "trustgate/merge.py": "28594652f0c875d4e94a5e702f78ee699d820c3dfc599cc6e1c45960f7cbf614",
+          "trustgate/planning.py": "fc442b190e7f31ba9107072e977c36b84da51ca925094c6ecc303260e85d1808",
+          "trustgate/runner.py": "ee26d38bc436f552fd49a0dc9e70ab0adbdbe8a4ed271bcfef589834030d4857"
+        },
+        "run_id": "formal-v1-001",
+        "shard_index": 2,
+        "python": "3.10.20",
+        "packages": {
+          "agentdojo": "0.1.35",
+          "mcp": "1.26.0",
+          "transformers": "4.53.3",
+          "torch": "2.7.1+cu126",
+          "pydantic": "2.14.1",
+          "openai": "3.31.0"
+        },
+        "platform": {
+          "execution_backend": "local-linux-v1",
+          "system": "Linux",
+          "release": "6.6.87.2-microsoft-standard-WSL2",
+          "python": "3.10.20",
+          "git_commit": "80e05a3e8b6d7597791aa0ea5ee65c6e3d2ddc2a",
+          "thread_environment": {
+            "PYTHONHASHSEED": "0",
+            "TOKENIZERS_PARALLELISM": "false",
+            "OMP_NUM_THREADS": "2",
+            "MKL_NUM_THREADS": "2"
+          },
+          "pbs_job_id": null,
+          "adapter_sha256": {
+            "scripts/platforms/local/api_check.py": "b9a13226651ceccf3b6051db74bb01df37861d37245b5911505c3f0618e4ee7f",
+            "scripts/platforms/local/delivery.py": "3dc94fd33aa0f8a9271bf05a60f4491b4b430b928e0a8a91b16e893333a0286d",
+            "scripts/platforms/local/offline.py": "8ef3f292a983e1f3be2d55aaf4a2c37c0a3df618f9e67d662826c9a5da6e5709",
+            "scripts/platforms/local/pilot.py": "b72e0c5cf42164f6602b47f06caf90cb9ddbdf81699ecd72dbe5dade0ab3272b",
+            "scripts/platforms/local/prepare_detector.py": "75fa52d86c98aee1c4f9a24b1289be9b84e852bdb6a80e8fe0f16e0322043f4d",
+            "scripts/platforms/local/run.py": "2f90a90fc06bcf6489a90011c25ee68a2049171a8ecdc693c41a125f89fe875b",
+            "scripts/platforms/local/runtime.py": "d85d4679bd4beeeb1c5f02ab330fa86ae3e980157731b21b20d37044a68d0046"
+          },
+          "packages": {
+            "agentdojo": "0.1.35",
+            "mcp": "1.26.0",
+            "transformers": "4.53.3",
+            "torch": "2.7.1+cu126",
+            "pydantic": "2.14.1",
+            "openai": "3.31.0"
+          },
+          "acceptance": "Requires team review of adapter and real environment; not Vanda validation.",
+          "detector_sha256": {
+            "model.safetensors": "6521cb8d0ac08148c81464899c424e6148fcc62befa371089fa4061d8b6e0424",
+            "config.json": "05079f4735092040b780d459027afab413faa6eeb66a548571a58832304b60bb",
+            "tokenizer.json": "f0a66ad0d735d8dca9ecac4ff50fcdef4bb6adbadd2941a926844844d2c2059b",
+            "tokenizer_config.json": "557b3d33d3f41b81ad769244e506549e98a1857d41dd58160aacd4d98d710b5a",
+            "special_tokens_map.json": "9463f61e1b109a8eb4688b829260d7c6b1e6dff04c98ff7269bb89e2b92369b9",
+            "spm.model": "c679fbf93643d19aab7ee10c0b99e460bdbc02fedf34b92b05af343b4af586fd"
+          }
+        }
+      },
+      "runtime_configuration": {
+        "version": "formal-v1",
+        "benchmark": "v1.2.2",
+        "suite": "workspace",
+        "model": "qwen/qwen3-30b-a3b-instruct-2507",
+        "provider": "SiliconFlow",
+        "temperature": 0,
+        "max_model_calls": 8,
+        "max_output_tokens": 1024,
+        "max_task_seconds": 180,
+        "max_total_cost_usd": 2.0,
+        "max_denials": 3,
+        "classifier_threshold": 0.5,
+        "per_request_reservation_usd": 0.05
+      },
+      "worker_summary": null,
+      "worker_summary_status": "missing_after_initial_user_termination",
+      "budget": {
+        "limit_usd": 2.0,
+        "per_request_reservation_usd": 0.05,
+        "reported_cost_usd": 0.035071349999999994,
+        "uncertain_reserved_usd": 0.0,
+        "pending_reserved_usd": 0.0,
+        "halted": false
+      },
+      "checkpoint": {
+        "status": "paused_by_user",
+        "paused_at_utc": "2026-10-18T16:56:00.811599+00:00",
+        "reason": "User requested overnight pause; no API request in flight. Worker terminated after durable snapshot, not an inference failure.",
+        "run_id": "formal-v1-001",
+        "shard_index": 2,
+        "completed_count": 18,
+        "remaining_count": 318,
+        "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+        "budget": {
+          "limit_usd": 2.0,
+          "per_request_reservation_usd": 0.05,
+          "reported_cost_usd": 0.035071349999999994,
+          "uncertain_reserved_usd": 0.0,
+          "pending_reserved_usd": 0.0,
+          "halted": false
+        },
+        "results_sha256": "e0d4e0d5754f987754f76f0418a06c51c45a43270c623be3c846d7e5da71fdc1",
+        "remaining_budget_usd": 1.96492865,
+        "interrupted_case_index": 19,
+        "interrupted_case_requests": 0,
+        "restart_policy": "No native automatic resume exists yet. Preserve this attempt. Resume requires a separately bounded recovery manifest excluding completed IDs, retained cost accounting, and explicit multi-attempt provenance. Do not rerun the original full command."
+      },
+      "recovery_timestamps": {},
+      "timing": {
+        "exact_start_utc": null,
+        "exact_start_note": "Not independently recorded in the supplied original batch metadata; file mtimes are not substituted for start times.",
+        "paused_at_utc": "2026-10-18T16:56:00.811599+00:00",
+        "worker_wall_seconds": null,
+        "reported_wall_seconds": null,
+        "reported_wall_seconds_basis": null,
+        "cumulative_case_seconds": 354.09069957100024,
+        "new_case_seconds": 354.09069957100024
+      }
+    },
+    {
+      "attempt_id": "formal-v1-001-resume-01",
+      "owned_indices": [
+        19,
+        58
+      ],
+      "cumulative_rows": 58,
+      "new_rows": 40,
+      "manifest": {
+        "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+        "source_sha256": {
+          "experiments/mvp/analyze_results.py": "cff576f4f941ceac14d89e07647d279131130b48a97963b5bfca6cbb90ac8e44",
+          "experiments/mvp/build_report.py": "14d2de2466d05f18e9dfea16ad41d0040d9dd75c19d4a8cb17acd9c8104f4f79",
+          "experiments/mvp/detector.py": "5811734d6c1713b97fcee8ee19bc8a955b74a9c2da77bcd30b3f70648f13a524",
+          "experiments/mvp/mcp_workspace_server.py": "d282f1e1d681c31e3eab5f408998e5a4cf87c91fbb66f999b64ff597584b2cbe",
+          "experiments/mvp/preflight.py": "58f95a006000be8e58c0ce77ef7c45a334e20af9434d0ced42b64c8fe08c6229",
+          "experiments/mvp/prepare_detector.py": "d8c25d6ec775e82e47e632df2553ce6fbca11f58a4d946214ba3e835e8f92301",
+          "experiments/mvp/run_bound_description.py": "15a22d4cd79724f069640b97e4b85b59cc2b6e4ca3a174680241363709b890b5",
+          "experiments/mvp/run_followup.py": "1ab63d46f568d79e44c70e97b5b672ad830404cc7d578cb44d948cb02407c31d",
+          "experiments/mvp/run_matrix.py": "88c755fed127d256169009c16692248487e7f073825c1a2f11687b55f913bebb",
+          "experiments/mvp/run_matrix_v2.py": "027287680e794639e0b3efcf8784eb4eaa9e2d958374eab38373dd723d5d437b",
+          "experiments/mvp/simulation_runtime.py": "2a86038b9aad258ce51d72c131f6c5ffde5b8a1aec9b1765400d87f362609280",
+          "experiments/mvp/test_parser_recovery.py": "4c0794a399a0b210ff218acc0c8c3692932260a08d8d25eec56fe1365a85b445",
+          "experiments/mvp/validate_delivery.py": "da2de2e5a515548d0c104f53294e93b87ba1640db0e186987c61023c86aaff8b",
+          "trustgate/__init__.py": "10c74404c9d0969788357a59900a2057acbcb093dd32aca3ccdf4190ded4489a",
+          "trustgate/__main__.py": "08307bdcb438819d952c1fd9329d964770928b0f7914235bf29f20546a02f450",
+          "trustgate/budget.py": "176c48173a530ac94270e4990d8ad0e300b72f43fcb14a58d99d6a719f9a8ce9",
+          "trustgate/delivery.py": "e756b39a45942bf3ad000acd6ad1c6df2fe4420819aa790c91c22f28e757bd77",
+          "trustgate/formal_allocation.py": "8e8332fb636358c3c6aa78201aee41d12c3b2e65b453ac82ccf2452729323a57",
+          "trustgate/formal_data.py": "1ea82dbb04bbf7c84e5c86e6205ab518ba93bf97b097f7235bd50a9d685d4eb5",
+          "trustgate/formal_engine.py": "33e4af4734f574f280645ea7bcedb1ac845412312cd7ec9b29e83ee9ad5bf960",
+          "trustgate/formal_manifest.py": "a4c1e0446c52d7235454156771be32323cd5d717955f2b22aa886f1ee91f1c74",
+          "trustgate/formal_policy.py": "18f539f962a3fe2b6d36a479d4bd4b49ff55a2d2b74fafdd62c60b84a5c8f7a5",
+          "trustgate/merge.py": "28594652f0c875d4e94a5e702f78ee699d820c3dfc599cc6e1c45960f7cbf614",
+          "trustgate/planning.py": "fc442b190e7f31ba9107072e977c36b84da51ca925094c6ecc303260e85d1808",
+          "trustgate/runner.py": "ee26d38bc436f552fd49a0dc9e70ab0adbdbe8a4ed271bcfef589834030d4857"
+        },
+        "run_id": "formal-v1-001",
+        "shard_index": 2,
+        "python": "3.10.20",
+        "packages": {
+          "agentdojo": "0.1.35",
+          "mcp": "1.26.0",
+          "transformers": "4.53.3",
+          "torch": "2.7.1+cu126",
+          "pydantic": "2.14.1",
+          "openai": "3.31.0"
+        },
+        "platform": {
+          "execution_backend": "local-linux-v1",
+          "system": "Linux",
+          "release": "6.6.87.2-microsoft-standard-WSL2",
+          "python": "3.10.20",
+          "git_commit": "80e05a3e8b6d7597791aa0ea5ee65c6e3d2ddc2a",
+          "thread_environment": {
+            "PYTHONHASHSEED": "0",
+            "TOKENIZERS_PARALLELISM": "false",
+            "OMP_NUM_THREADS": "2",
+            "MKL_NUM_THREADS": "2"
+          },
+          "pbs_job_id": null,
+          "adapter_sha256": {
+            "scripts/platforms/local/api_check.py": "b9a13226651ceccf3b6051db74bb01df37861d37245b5911505c3f0618e4ee7f",
+            "scripts/platforms/local/delivery.py": "3dc94fd33aa0f8a9271bf05a60f4491b4b430b928e0a8a91b16e893333a0286d",
+            "scripts/platforms/local/offline.py": "8ef3f292a983e1f3be2d55aaf4a2c37c0a3df618f9e67d662826c9a5da6e5709",
+            "scripts/platforms/local/pilot.py": "b72e0c5cf42164f6602b47f06caf90cb9ddbdf81699ecd72dbe5dade0ab3272b",
+            "scripts/platforms/local/prepare_detector.py": "75fa52d86c98aee1c4f9a24b1289be9b84e852bdb6a80e8fe0f16e0322043f4d",
+            "scripts/platforms/local/run.py": "2f90a90fc06bcf6489a90011c25ee68a2049171a8ecdc693c41a125f89fe875b",
+            "scripts/platforms/local/runtime.py": "d85d4679bd4beeeb1c5f02ab330fa86ae3e980157731b21b20d37044a68d0046"
+          },
+          "packages": {
+            "agentdojo": "0.1.35",
+            "mcp": "1.26.0",
+            "transformers": "4.53.3",
+            "torch": "2.7.1+cu126",
+            "pydantic": "2.14.1",
+            "openai": "3.31.0"
+          },
+          "acceptance": "Requires team review of adapter and real environment; not Vanda validation.",
+          "detector_sha256": {
+            "model.safetensors": "6521cb8d0ac08148c81464899c424e6148fcc62befa371089fa4061d8b6e0424",
+            "config.json": "05079f4735092040b780d459027afab413faa6eeb66a548571a58832304b60bb",
+            "tokenizer.json": "f0a66ad0d735d8dca9ecac4ff50fcdef4bb6adbadd2941a926844844d2c2059b",
+            "tokenizer_config.json": "557b3d33d3f41b81ad769244e506549e98a1857d41dd58160aacd4d98d710b5a",
+            "special_tokens_map.json": "9463f61e1b109a8eb4688b829260d7c6b1e6dff04c98ff7269bb89e2b92369b9",
+            "spm.model": "c679fbf93643d19aab7ee10c0b99e460bdbc02fedf34b92b05af343b4af586fd"
+          }
+        }
+      },
+      "runtime_configuration": {
+        "version": "formal-v1",
+        "benchmark": "v1.2.2",
+        "suite": "workspace",
+        "model": "qwen/qwen3-30b-a3b-instruct-2507",
+        "provider": "SiliconFlow",
+        "temperature": 0,
+        "max_model_calls": 8,
+        "max_output_tokens": 1024,
+        "max_task_seconds": 180,
+        "max_total_cost_usd": 2.0,
+        "max_denials": 3,
+        "classifier_threshold": 0.5,
+        "per_request_reservation_usd": 0.05
+      },
+      "worker_summary": {
+        "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+        "shard_index": 2,
+        "planned": 336,
+        "recorded": 58,
+        "complete": false,
+        "fatal_error": {
+          "type": "TimeoutError",
+          "message": "See retained private trial record"
+        },
+        "paused": false,
+        "budget": {
+          "limit_usd": 2.0,
+          "per_request_reservation_usd": 0.05,
+          "reported_cost_usd": 0.08037558000000002,
+          "uncertain_reserved_usd": 0.05,
+          "pending_reserved_usd": 0.0,
+          "halted": true
+        },
+        "wall_seconds": 1008.5061742510002,
+        "wall_seconds_basis": "Sum of case seconds across attempts; excludes startup and overnight pause.",
+        "recovery_worker_seconds": 664.1455125379999,
+        "preserved_records": 18,
+        "newly_recorded": 40
+      },
+      "worker_summary_status": "present",
+      "budget": {
+        "limit_usd": 2.0,
+        "per_request_reservation_usd": 0.05,
+        "reported_cost_usd": 0.08037558000000002,
+        "uncertain_reserved_usd": 0.05,
+        "pending_reserved_usd": 0.0,
+        "halted": true
+      },
+      "checkpoint": {},
+      "recovery_timestamps": {
+        "created_at_utc": "2026-10-19T02:27:11.457479+00:00"
+      },
+      "timing": {
+        "exact_start_utc": null,
+        "exact_start_note": "Not independently recorded in the supplied original batch metadata; file mtimes are not substituted for start times.",
+        "paused_at_utc": null,
+        "worker_wall_seconds": 664.1455125379999,
+        "reported_wall_seconds": 1008.5061742510002,
+        "reported_wall_seconds_basis": "Sum of case seconds across attempts; excludes startup and overnight pause.",
+        "cumulative_case_seconds": 1008.5061742510002,
+        "new_case_seconds": 654.4154746800001
+      }
+    },
+    {
+      "attempt_id": "formal-v1-001-resume-02",
+      "owned_indices": [
+        59,
+        191
+      ],
+      "cumulative_rows": 191,
+      "new_rows": 133,
+      "manifest": {
+        "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+        "source_sha256": {
+          "experiments/mvp/analyze_results.py": "cff576f4f941ceac14d89e07647d279131130b48a97963b5bfca6cbb90ac8e44",
+          "experiments/mvp/build_report.py": "14d2de2466d05f18e9dfea16ad41d0040d9dd75c19d4a8cb17acd9c8104f4f79",
+          "experiments/mvp/detector.py": "5811734d6c1713b97fcee8ee19bc8a955b74a9c2da77bcd30b3f70648f13a524",
+          "experiments/mvp/mcp_workspace_server.py": "d282f1e1d681c31e3eab5f408998e5a4cf87c91fbb66f999b64ff597584b2cbe",
+          "experiments/mvp/preflight.py": "58f95a006000be8e58c0ce77ef7c45a334e20af9434d0ced42b64c8fe08c6229",
+          "experiments/mvp/prepare_detector.py": "d8c25d6ec775e82e47e632df2553ce6fbca11f58a4d946214ba3e835e8f92301",
+          "experiments/mvp/run_bound_description.py": "15a22d4cd79724f069640b97e4b85b59cc2b6e4ca3a174680241363709b890b5",
+          "experiments/mvp/run_followup.py": "1ab63d46f568d79e44c70e97b5b672ad830404cc7d578cb44d948cb02407c31d",
+          "experiments/mvp/run_matrix.py": "88c755fed127d256169009c16692248487e7f073825c1a2f11687b55f913bebb",
+          "experiments/mvp/run_matrix_v2.py": "027287680e794639e0b3efcf8784eb4eaa9e2d958374eab38373dd723d5d437b",
+          "experiments/mvp/simulation_runtime.py": "2a86038b9aad258ce51d72c131f6c5ffde5b8a1aec9b1765400d87f362609280",
+          "experiments/mvp/test_parser_recovery.py": "4c0794a399a0b210ff218acc0c8c3692932260a08d8d25eec56fe1365a85b445",
+          "experiments/mvp/validate_delivery.py": "da2de2e5a515548d0c104f53294e93b87ba1640db0e186987c61023c86aaff8b",
+          "trustgate/__init__.py": "10c74404c9d0969788357a59900a2057acbcb093dd32aca3ccdf4190ded4489a",
+          "trustgate/__main__.py": "08307bdcb438819d952c1fd9329d964770928b0f7914235bf29f20546a02f450",
+          "trustgate/budget.py": "176c48173a530ac94270e4990d8ad0e300b72f43fcb14a58d99d6a719f9a8ce9",
+          "trustgate/delivery.py": "e756b39a45942bf3ad000acd6ad1c6df2fe4420819aa790c91c22f28e757bd77",
+          "trustgate/formal_allocation.py": "8e8332fb636358c3c6aa78201aee41d12c3b2e65b453ac82ccf2452729323a57",
+          "trustgate/formal_data.py": "1ea82dbb04bbf7c84e5c86e6205ab518ba93bf97b097f7235bd50a9d685d4eb5",
+          "trustgate/formal_engine.py": "33e4af4734f574f280645ea7bcedb1ac845412312cd7ec9b29e83ee9ad5bf960",
+          "trustgate/formal_manifest.py": "a4c1e0446c52d7235454156771be32323cd5d717955f2b22aa886f1ee91f1c74",
+          "trustgate/formal_policy.py": "18f539f962a3fe2b6d36a479d4bd4b49ff55a2d2b74fafdd62c60b84a5c8f7a5",
+          "trustgate/merge.py": "28594652f0c875d4e94a5e702f78ee699d820c3dfc599cc6e1c45960f7cbf614",
+          "trustgate/planning.py": "fc442b190e7f31ba9107072e977c36b84da51ca925094c6ecc303260e85d1808",
+          "trustgate/runner.py": "ee26d38bc436f552fd49a0dc9e70ab0adbdbe8a4ed271bcfef589834030d4857"
+        },
+        "run_id": "formal-v1-001",
+        "shard_index": 2,
+        "python": "3.10.20",
+        "packages": {
+          "agentdojo": "0.1.35",
+          "mcp": "1.26.0",
+          "transformers": "4.53.3",
+          "torch": "2.7.1+cu126",
+          "pydantic": "2.14.1",
+          "openai": "3.31.0"
+        },
+        "platform": {
+          "execution_backend": "local-linux-v1",
+          "system": "Linux",
+          "release": "6.6.87.2-microsoft-standard-WSL2",
+          "python": "3.10.20",
+          "git_commit": "80e05a3e8b6d7597791aa0ea5ee65c6e3d2ddc2a",
+          "thread_environment": {
+            "PYTHONHASHSEED": "0",
+            "TOKENIZERS_PARALLELISM": "false",
+            "OMP_NUM_THREADS": "2",
+            "MKL_NUM_THREADS": "2"
+          },
+          "pbs_job_id": null,
+          "adapter_sha256": {
+            "scripts/platforms/local/api_check.py": "b9a13226651ceccf3b6051db74bb01df37861d37245b5911505c3f0618e4ee7f",
+            "scripts/platforms/local/delivery.py": "3dc94fd33aa0f8a9271bf05a60f4491b4b430b928e0a8a91b16e893333a0286d",
+            "scripts/platforms/local/offline.py": "8ef3f292a983e1f3be2d55aaf4a2c37c0a3df618f9e67d662826c9a5da6e5709",
+            "scripts/platforms/local/pilot.py": "b72e0c5cf42164f6602b47f06caf90cb9ddbdf81699ecd72dbe5dade0ab3272b",
+            "scripts/platforms/local/prepare_detector.py": "75fa52d86c98aee1c4f9a24b1289be9b84e852bdb6a80e8fe0f16e0322043f4d",
+            "scripts/platforms/local/run.py": "2f90a90fc06bcf6489a90011c25ee68a2049171a8ecdc693c41a125f89fe875b",
+            "scripts/platforms/local/runtime.py": "d85d4679bd4beeeb1c5f02ab330fa86ae3e980157731b21b20d37044a68d0046"
+          },
+          "packages": {
+            "agentdojo": "0.1.35",
+            "mcp": "1.26.0",
+            "transformers": "4.53.3",
+            "torch": "2.7.1+cu126",
+            "pydantic": "2.14.1",
+            "openai": "3.31.0"
+          },
+          "acceptance": "Requires team review of adapter and real environment; not Vanda validation.",
+          "detector_sha256": {
+            "model.safetensors": "6521cb8d0ac08148c81464899c424e6148fcc62befa371089fa4061d8b6e0424",
+            "config.json": "05079f4735092040b780d459027afab413faa6eeb66a548571a58832304b60bb",
+            "tokenizer.json": "f0a66ad0d735d8dca9ecac4ff50fcdef4bb6adbadd2941a926844844d2c2059b",
+            "tokenizer_config.json": "557b3d33d3f41b81ad769244e506549e98a1857d41dd58160aacd4d98d710b5a",
+            "special_tokens_map.json": "9463f61e1b109a8eb4688b829260d7c6b1e6dff04c98ff7269bb89e2b92369b9",
+            "spm.model": "c679fbf93643d19aab7ee10c0b99e460bdbc02fedf34b92b05af343b4af586fd"
+          }
+        }
+      },
+      "runtime_configuration": {
+        "version": "formal-v1",
+        "benchmark": "v1.2.2",
+        "suite": "workspace",
+        "model": "qwen/qwen3-30b-a3b-instruct-2507",
+        "provider": "SiliconFlow",
+        "temperature": 0,
+        "max_model_calls": 8,
+        "max_output_tokens": 1024,
+        "max_task_seconds": 180,
+        "max_total_cost_usd": 2.0,
+        "max_denials": 3,
+        "classifier_threshold": 0.5,
+        "per_request_reservation_usd": 0.05
+      },
+      "worker_summary": {
+        "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+        "shard_index": 2,
+        "planned": 336,
+        "recorded": 191,
+        "complete": false,
+        "fatal_error": null,
+        "paused": true,
+        "budget": {
+          "limit_usd": 2.0,
+          "per_request_reservation_usd": 0.05,
+          "reported_cost_usd": 0.2850117899999996,
+          "uncertain_reserved_usd": 0.05,
+          "pending_reserved_usd": 0.0,
+          "halted": false
+        },
+        "cost_reconciled": false,
+        "delivery_ready": false,
+        "wall_seconds": 3596.798858954999,
+        "wall_seconds_basis": "Sum of case seconds across attempts; excludes startup and overnight pause.",
+        "recovery_worker_seconds": 2603.521343251,
+        "preserved_records": 58,
+        "newly_recorded": 133
+      },
+      "worker_summary_status": "present",
+      "budget": {
+        "limit_usd": 2.0,
+        "per_request_reservation_usd": 0.05,
+        "reported_cost_usd": 0.2850117899999996,
+        "uncertain_reserved_usd": 0.05,
+        "pending_reserved_usd": 0.0,
+        "halted": false
+      },
+      "checkpoint": {
+        "status": "paused_by_user",
+        "paused_at_utc": "2026-10-19T03:45:35.586766+00:00",
+        "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+        "budget": {
+          "limit_usd": 2.0,
+          "per_request_reservation_usd": 0.05,
+          "reported_cost_usd": 0.2850117899999996,
+          "uncertain_reserved_usd": 0.05,
+          "pending_reserved_usd": 0.0,
+          "halted": false
+        },
+        "completed_count": 191,
+        "remaining_count": 145,
+        "results_sha256": "6316b0cb849e5bc58acfab08d02a9bdb80aa9b1f4f9d379fa486a877f3a289a9",
+        "interrupted_case_requests": 0
+      },
+      "recovery_timestamps": {
+        "allow_recorded_timeout": true,
+        "created_at_utc": "2026-10-19T02:59:22.988979+00:00"
+      },
+      "timing": {
+        "exact_start_utc": null,
+        "exact_start_note": "Not independently recorded in the supplied original batch metadata; file mtimes are not substituted for start times.",
+        "paused_at_utc": "2026-10-19T03:45:35.586766+00:00",
+        "worker_wall_seconds": 2603.521343251,
+        "reported_wall_seconds": 3596.798858954999,
+        "reported_wall_seconds_basis": "Sum of case seconds across attempts; excludes startup and overnight pause.",
+        "cumulative_case_seconds": 3596.798858954999,
+        "new_case_seconds": 2588.2926847039985
+      }
+    },
+    {
+      "attempt_id": "formal-v1-001-resume-03",
+      "owned_indices": [
+        192,
+        336
+      ],
+      "cumulative_rows": 336,
+      "new_rows": 145,
+      "manifest": {
+        "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+        "source_sha256": {
+          "experiments/mvp/analyze_results.py": "cff576f4f941ceac14d89e07647d279131130b48a97963b5bfca6cbb90ac8e44",
+          "experiments/mvp/build_report.py": "14d2de2466d05f18e9dfea16ad41d0040d9dd75c19d4a8cb17acd9c8104f4f79",
+          "experiments/mvp/detector.py": "5811734d6c1713b97fcee8ee19bc8a955b74a9c2da77bcd30b3f70648f13a524",
+          "experiments/mvp/mcp_workspace_server.py": "d282f1e1d681c31e3eab5f408998e5a4cf87c91fbb66f999b64ff597584b2cbe",
+          "experiments/mvp/preflight.py": "58f95a006000be8e58c0ce77ef7c45a334e20af9434d0ced42b64c8fe08c6229",
+          "experiments/mvp/prepare_detector.py": "d8c25d6ec775e82e47e632df2553ce6fbca11f58a4d946214ba3e835e8f92301",
+          "experiments/mvp/run_bound_description.py": "15a22d4cd79724f069640b97e4b85b59cc2b6e4ca3a174680241363709b890b5",
+          "experiments/mvp/run_followup.py": "1ab63d46f568d79e44c70e97b5b672ad830404cc7d578cb44d948cb02407c31d",
+          "experiments/mvp/run_matrix.py": "88c755fed127d256169009c16692248487e7f073825c1a2f11687b55f913bebb",
+          "experiments/mvp/run_matrix_v2.py": "027287680e794639e0b3efcf8784eb4eaa9e2d958374eab38373dd723d5d437b",
+          "experiments/mvp/simulation_runtime.py": "2a86038b9aad258ce51d72c131f6c5ffde5b8a1aec9b1765400d87f362609280",
+          "experiments/mvp/test_parser_recovery.py": "4c0794a399a0b210ff218acc0c8c3692932260a08d8d25eec56fe1365a85b445",
+          "experiments/mvp/validate_delivery.py": "da2de2e5a515548d0c104f53294e93b87ba1640db0e186987c61023c86aaff8b",
+          "trustgate/__init__.py": "10c74404c9d0969788357a59900a2057acbcb093dd32aca3ccdf4190ded4489a",
+          "trustgate/__main__.py": "08307bdcb438819d952c1fd9329d964770928b0f7914235bf29f20546a02f450",
+          "trustgate/budget.py": "176c48173a530ac94270e4990d8ad0e300b72f43fcb14a58d99d6a719f9a8ce9",
+          "trustgate/delivery.py": "e756b39a45942bf3ad000acd6ad1c6df2fe4420819aa790c91c22f28e757bd77",
+          "trustgate/formal_allocation.py": "8e8332fb636358c3c6aa78201aee41d12c3b2e65b453ac82ccf2452729323a57",
+          "trustgate/formal_data.py": "1ea82dbb04bbf7c84e5c86e6205ab518ba93bf97b097f7235bd50a9d685d4eb5",
+          "trustgate/formal_engine.py": "33e4af4734f574f280645ea7bcedb1ac845412312cd7ec9b29e83ee9ad5bf960",
+          "trustgate/formal_manifest.py": "a4c1e0446c52d7235454156771be32323cd5d717955f2b22aa886f1ee91f1c74",
+          "trustgate/formal_policy.py": "18f539f962a3fe2b6d36a479d4bd4b49ff55a2d2b74fafdd62c60b84a5c8f7a5",
+          "trustgate/merge.py": "28594652f0c875d4e94a5e702f78ee699d820c3dfc599cc6e1c45960f7cbf614",
+          "trustgate/planning.py": "fc442b190e7f31ba9107072e977c36b84da51ca925094c6ecc303260e85d1808",
+          "trustgate/runner.py": "ee26d38bc436f552fd49a0dc9e70ab0adbdbe8a4ed271bcfef589834030d4857"
+        },
+        "run_id": "formal-v1-001",
+        "shard_index": 2,
+        "python": "3.10.20",
+        "packages": {
+          "agentdojo": "0.1.35",
+          "mcp": "1.26.0",
+          "transformers": "4.53.3",
+          "torch": "2.7.1+cu126",
+          "pydantic": "2.14.1",
+          "openai": "3.31.0"
+        },
+        "platform": {
+          "execution_backend": "local-linux-v1",
+          "system": "Linux",
+          "release": "6.6.87.2-microsoft-standard-WSL2",
+          "python": "3.10.20",
+          "git_commit": "80e05a3e8b6d7597791aa0ea5ee65c6e3d2ddc2a",
+          "thread_environment": {
+            "PYTHONHASHSEED": "0",
+            "TOKENIZERS_PARALLELISM": "false",
+            "OMP_NUM_THREADS": "2",
+            "MKL_NUM_THREADS": "2"
+          },
+          "pbs_job_id": null,
+          "adapter_sha256": {
+            "scripts/platforms/local/api_check.py": "b9a13226651ceccf3b6051db74bb01df37861d37245b5911505c3f0618e4ee7f",
+            "scripts/platforms/local/delivery.py": "3dc94fd33aa0f8a9271bf05a60f4491b4b430b928e0a8a91b16e893333a0286d",
+            "scripts/platforms/local/offline.py": "8ef3f292a983e1f3be2d55aaf4a2c37c0a3df618f9e67d662826c9a5da6e5709",
+            "scripts/platforms/local/pilot.py": "b72e0c5cf42164f6602b47f06caf90cb9ddbdf81699ecd72dbe5dade0ab3272b",
+            "scripts/platforms/local/prepare_detector.py": "75fa52d86c98aee1c4f9a24b1289be9b84e852bdb6a80e8fe0f16e0322043f4d",
+            "scripts/platforms/local/run.py": "2f90a90fc06bcf6489a90011c25ee68a2049171a8ecdc693c41a125f89fe875b",
+            "scripts/platforms/local/runtime.py": "d85d4679bd4beeeb1c5f02ab330fa86ae3e980157731b21b20d37044a68d0046"
+          },
+          "packages": {
+            "agentdojo": "0.1.35",
+            "mcp": "1.26.0",
+            "transformers": "4.53.3",
+            "torch": "2.7.1+cu126",
+            "pydantic": "2.14.1",
+            "openai": "3.31.0"
+          },
+          "acceptance": "Requires team review of adapter and real environment; not Vanda validation.",
+          "detector_sha256": {
+            "model.safetensors": "6521cb8d0ac08148c81464899c424e6148fcc62befa371089fa4061d8b6e0424",
+            "config.json": "05079f4735092040b780d459027afab413faa6eeb66a548571a58832304b60bb",
+            "tokenizer.json": "f0a66ad0d735d8dca9ecac4ff50fcdef4bb6adbadd2941a926844844d2c2059b",
+            "tokenizer_config.json": "557b3d33d3f41b81ad769244e506549e98a1857d41dd58160aacd4d98d710b5a",
+            "special_tokens_map.json": "9463f61e1b109a8eb4688b829260d7c6b1e6dff04c98ff7269bb89e2b92369b9",
+            "spm.model": "c679fbf93643d19aab7ee10c0b99e460bdbc02fedf34b92b05af343b4af586fd"
+          }
+        }
+      },
+      "runtime_configuration": {
+        "version": "formal-v1",
+        "benchmark": "v1.2.2",
+        "suite": "workspace",
+        "model": "qwen/qwen3-30b-a3b-instruct-2507",
+        "provider": "SiliconFlow",
+        "temperature": 0,
+        "max_model_calls": 8,
+        "max_output_tokens": 1024,
+        "max_task_seconds": 180,
+        "max_total_cost_usd": 2.0,
+        "max_denials": 3,
+        "classifier_threshold": 0.5,
+        "per_request_reservation_usd": 0.05
+      },
+      "worker_summary": {
+        "plan_sha256": "b1817378e174e1cd742acedc465e63620a1dbe3bdbdca92c86c70d26d01f42c6",
+        "shard_index": 2,
+        "planned": 336,
+        "recorded": 336,
+        "complete": true,
+        "fatal_error": null,
+        "paused": false,
+        "budget": {
+          "limit_usd": 2.0,
+          "per_request_reservation_usd": 0.05,
+          "reported_cost_usd": 0.51220968,
+          "uncertain_reserved_usd": 0.05,
+          "pending_reserved_usd": 0.0,
+          "halted": false
+        },
+        "cost_reconciled": false,
+        "delivery_ready": false,
+        "wall_seconds": 6750.434497150001,
+        "wall_seconds_basis": "Sum of case seconds across attempts; excludes startup and overnight pause.",
+        "recovery_worker_seconds": 3171.056758687,
+        "preserved_records": 191,
+        "newly_recorded": 145
+      },
+      "worker_summary_status": "present",
+      "budget": {
+        "limit_usd": 2.0,
+        "per_request_reservation_usd": 0.05,
+        "reported_cost_usd": 0.51220968,
+        "uncertain_reserved_usd": 0.05,
+        "pending_reserved_usd": 0.0,
+        "halted": false
+      },
+      "checkpoint": {},
+      "recovery_timestamps": {
+        "allow_recorded_timeout": true,
+        "created_at_utc": "2026-10-19T04:17:07.401565+00:00"
+      },
+      "timing": {
+        "exact_start_utc": null,
+        "exact_start_note": "Not independently recorded in the supplied original batch metadata; file mtimes are not substituted for start times.",
+        "paused_at_utc": null,
+        "worker_wall_seconds": 3171.056758687,
+        "reported_wall_seconds": 6750.434497150001,
+        "reported_wall_seconds_basis": "Sum of case seconds across attempts; excludes startup and overnight pause.",
+        "cumulative_case_seconds": 6750.434497150001,
+        "new_case_seconds": 3153.635638195001
+      }
+    }
+  ],
+  "timing": {
+    "basis": "Original delivered wall_seconds is sum of case seconds across attempts, not continuous worker elapsed time.",
+    "original_case_seconds": 6750.434497150001,
+    "excludes": [
+      "Startup",
+      "User pauses",
+      "Export",
+      "Unrecorded initial worker wall time"
+    ],
+    "exact_total_continuous_worker_seconds": null,
+    "exact_total_continuous_worker_seconds_status": "unknown",
+    "timezone": "Stored checkpoint timestamps are UTC; display timezone Asia/Shanghai is UTC+08:00."
+  },
+  "cost": {
+    "currency": "USD",
+    "basis": "API usage.cost returned for original formal attempts",
+    "reported_formal_cost_usd": 0.51220968,
+    "pending_reserved_usd": 0.0,
+    "original_uncertain_reserved_usd": 0.05,
+    "historical_timeout_actual_final_charge_usd": null,
+    "client_reservation_is_provider_invoice": false,
+    "selected_10_cost_usd": 0.005171879999999999,
+    "selected_rows_are_not_extra_charges": true
+  },
+  "existing_delivery": [
+    {
+      "file": "results.csv",
+      "url": "https://github.com/zzy0304Raymond/TrustGate/blob/cd7c0acf188f19831f3451ce24d908f2a3a3f4d4/experiments/deliveries/person-03/results.csv"
+    },
+    {
+      "file": "receipt.json",
+      "url": "https://github.com/zzy0304Raymond/TrustGate/blob/cd7c0acf188f19831f3451ce24d908f2a3a3f4d4/experiments/deliveries/person-03/receipt.json"
+    },
+    {
+      "file": "ENVIRONMENT.md",
+      "url": "https://github.com/zzy0304Raymond/TrustGate/blob/cd7c0acf188f19831f3451ce24d908f2a3a3f4d4/experiments/deliveries/person-03/ENVIRONMENT.md"
+    },
+    {
+      "file": "platform_receipt.json",
+      "url": "https://github.com/zzy0304Raymond/TrustGate/blob/cd7c0acf188f19831f3451ce24d908f2a3a3f4d4/experiments/deliveries/person-03/platform_receipt.json"
+    },
+    {
+      "file": "ACCOUNTING.json",
+      "url": "https://github.com/zzy0304Raymond/TrustGate/blob/cd7c0acf188f19831f3451ce24d908f2a3a3f4d4/experiments/deliveries/person-03/ACCOUNTING.json"
+    },
+    {
+      "file": "recovery_receipt.json",
+      "url": "https://github.com/zzy0304Raymond/TrustGate/blob/cd7c0acf188f19831f3451ce24d908f2a3a3f4d4/experiments/deliveries/person-03/recovery_receipt.json"
+    }
+  ],
+  "source_files": [
+    {
+      "file": "runs/studies/formal-v1-001/shard-02/manifest.json",
+      "sha256": "344cfbf7b39fa50c150b027f23205e3acafb11be77818325c1d93cf997c6a21b",
+      "bytes": 5316,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/studies/formal-v1-001/shard-02/config.json",
+      "sha256": "fc27b8359ea7fb4f235a0f2ee77adf095bd5305517e66e33a7816c4e6c1efa42",
+      "bytes": 103822,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/studies/formal-v1-001/shard-02/plan.json",
+      "sha256": "ae6ccef2fc58d3dce9f27434d7cbd6da2eefef9a964a11331ef9672c9c50af07",
+      "bytes": 843934,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/studies/formal-v1-001/shard-02/results.json",
+      "sha256": "e0d4e0d5754f987754f76f0418a06c51c45a43270c623be3c846d7e5da71fdc1",
+      "bytes": 29543,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/studies/formal-v1-001/shard-02/budget.json",
+      "sha256": "14309cb41664e305d4621864fd7a85db32d2ef710a2957e33ad20fbc2e61723e",
+      "bytes": 190,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/studies/formal-v1-001/shard-02/PAUSE_CHECKPOINT.json",
+      "sha256": "de430a19c5887fb37b08dcaf0dd5c9101445985f42064b5ca87a0c33bb40fdb1",
+      "bytes": 14000,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/studies/formal-v1-001/shard-02/mcp_calendar.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/studies/formal-v1-001/shard-02/mcp_mail.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/studies/formal-v1-001/shard-02/mcp_drive.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/manifest.json",
+      "sha256": "fe9546bc8819692e08bf004536cd04e2cc5882dd31f8791bc31c4be766d430cc",
+      "bytes": 7897,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/config.json",
+      "sha256": "fc27b8359ea7fb4f235a0f2ee77adf095bd5305517e66e33a7816c4e6c1efa42",
+      "bytes": 103822,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/plan.json",
+      "sha256": "ae6ccef2fc58d3dce9f27434d7cbd6da2eefef9a964a11331ef9672c9c50af07",
+      "bytes": 843934,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/worker_summary.json",
+      "sha256": "16f27dbdfb6cd6865746c694cb30cbd9a80d3cde468de5e2c6ac087d38b90663",
+      "bytes": 742,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/results.json",
+      "sha256": "c56d761af4f0ea10bd61ff4b307f006499fd6ae60adb9f0816800b395aca0e11",
+      "bytes": 100799,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/budget.json",
+      "sha256": "4d914e72cad1697daaa18ad3ae1a80dd42ec38bddeff320866f7e4f0264c5de6",
+      "bytes": 189,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/recovery.json",
+      "sha256": "47e51c4a8b42730a0115471f2fccc756324fc390d0961edef101cc662ca9b519",
+      "bytes": 11546,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/recovery_source.py",
+      "sha256": "03a42ac45d81bdc5be78cf495cc684a12d13567fed0eb52551d61eb6e2b9a70d",
+      "bytes": 23415,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/mcp_calendar.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/mcp_mail.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-01/shard-02/mcp_drive.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/manifest.json",
+      "sha256": "c695f3c18d958ba2c389f3c49921a407dd2ee20376eb410924fcd04b29a0da00",
+      "bytes": 9202,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/config.json",
+      "sha256": "fc27b8359ea7fb4f235a0f2ee77adf095bd5305517e66e33a7816c4e6c1efa42",
+      "bytes": 103822,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/plan.json",
+      "sha256": "ae6ccef2fc58d3dce9f27434d7cbd6da2eefef9a964a11331ef9672c9c50af07",
+      "bytes": 843934,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/worker_summary.json",
+      "sha256": "b89453ffcbd1d1c03c67927015fe39545c54bbdb42b3d8dc0b634c7f02e28fcd",
+      "bytes": 714,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/results.json",
+      "sha256": "6316b0cb849e5bc58acfab08d02a9bdb80aa9b1f4f9d379fa486a877f3a289a9",
+      "bytes": 334937,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/budget.json",
+      "sha256": "e116052579439d04c8025406f3b3ddc7a93603621c2efeb0078cb65bec34116e",
+      "bytes": 189,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/PAUSE_CHECKPOINT.json",
+      "sha256": "e6fd6734b3e8571eccaa9606218ed30f52007d9dcfb88a9c3b073e9c5d85e630",
+      "bytes": 13470,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/recovery.json",
+      "sha256": "89f4d7d647f24114bdedcc76ae90df1ff4656f9bc6ee573ced7301d38505f7ca",
+      "bytes": 12078,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/recovery_source.py",
+      "sha256": "eab8d16b277b78b246d10f2bb745ba82a0fe04be955f8cd4d53c0d95a0308a0b",
+      "bytes": 29752,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/mcp_calendar.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/mcp_mail.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-02/shard-02/mcp_drive.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/manifest.json",
+      "sha256": "4e70bf16a48d68e807cf13196afcce171dd0aad5ea42b3ac112ebf1fdcaeaff4",
+      "bytes": 10507,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/config.json",
+      "sha256": "fc27b8359ea7fb4f235a0f2ee77adf095bd5305517e66e33a7816c4e6c1efa42",
+      "bytes": 103822,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/plan.json",
+      "sha256": "ae6ccef2fc58d3dce9f27434d7cbd6da2eefef9a964a11331ef9672c9c50af07",
+      "bytes": 843934,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/worker_summary.json",
+      "sha256": "5410cdab34262220bc93595eb7b6bd05e84fa01a69c1747bd734cafffaac30a5",
+      "bytes": 707,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/results.json",
+      "sha256": "2dc09963e4bbc81c7d97f89f610206540f606f5925590423f525bb274dd559d9",
+      "bytes": 587591,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/budget.json",
+      "sha256": "b7652896be84d9b42a04643c00a1c5aeef82230449c70ccae7ecac859896f0f1",
+      "bytes": 181,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/recovery.json",
+      "sha256": "a23aa48f6780103756a229fb5061726a51ebe56ac38c65402c5cf45ce232a0b7",
+      "bytes": 11896,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/recovery_source.py",
+      "sha256": "eab8d16b277b78b246d10f2bb745ba82a0fe04be955f8cd4d53c0d95a0308a0b",
+      "bytes": 29752,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/mcp_calendar.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/mcp_mail.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "private_original"
+    },
+    {
+      "file": "runs/recoveries/formal-v1-001-resume-03/shard-02/mcp_drive.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "private_original"
+    }
+  ],
+  "missing": [
+    {
+      "file": "initial worker_summary.json",
+      "reason": "Not written before initial user-requested termination; checkpoint retained."
+    },
+    {
+      "field": "all exact batch start times and continuous total wall time",
+      "reason": "Not independently established by available original metadata; no times reconstructed as exact."
+    }
+  ]
+}
