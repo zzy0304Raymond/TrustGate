@@ -1,12 +1,12 @@
-# WSL / Linux 运行来源
+# WSL / Linux run source
 
-第 3 份正式实验在 WSL2 / Ubuntu 22.04.5、Python 3.10.20 上完成，共 336 条，其中保留一条 TimeoutError。数据、环境与恢复凭据位于 [person-03](../../../experiments/deliveries/person-03/README.md)，共同统计与误差分母见 [正式结果](../../../results/formal/README_ZH.md)。
+Shard 3 ran on WSL2 / Ubuntu 22.04.5 with Python 3.10.20. It contains 336 records, including one retained TimeoutError. Data, environment, and recovery evidence are in [person-03](../../../experiments/deliveries/person-03/README.md), combined statistics and error denominator see [formal results](../../../results/formal/README_ZH.md).
 
-本目录继承冻结的 `FormalExperiment`，独立适配 MCP 进程启动及本机调度，不伪造 PBS 作业号。核心源码、模型、权限和攻击清单保持冻结；实际适配器哈希随交付保存。`tasks/03/resume.py`、早期恢复版本和校验脚本保留在原路径，以便核验来源。
+This directory inherits the frozen state `FormalExperiment`Independently adapts to MCP process startup and local scheduling without forging PBS job IDs. Core source code, models, permissions, and attack lists remain frozen; actual adapter hashes are preserved with delivery.`tasks/03/resume.py`Early recovery versions and verification scripts are retained in the original path for source verification.
 
-## 环境与离线检查
+## Environment and offline inspection
 
-按 [统一复现说明](../../../docs/REPRODUCE_ZH.md) 安装 Python 3.10.20 与固定依赖。Linux/WSL 的正式适配使用 Torch 2.7.1+cu126，并在 CPU 上运行。
+According to [Unified reproduction instructions](../../../docs/REPRODUCE_ZH.md) Install Python 3.10.20 and fixed dependencies. Official adaptation for Linux/WSL uses Torch 2.7.1+cu126 and runs on CPU.
 
 ```bash
 export PYTHONHASHSEED=0 TOKENIZERS_PARALLELISM=false
@@ -17,11 +17,11 @@ python scripts/platforms/local/run.py --check --detector-dir "$TRUSTGATE_DETECTO
 python scripts/platforms/local/offline.py --detector-dir "$TRUSTGATE_DETECTOR_DIR"
 ```
 
-这些本机入口在真实 PBS 作业中会拒绝运行；Vanda 应使用公共 PBS 入口。离线检查用预设回复，不计入模型效果实验。
+These native entries will be rejected in real PBS jobs; Vanda should use the public PBS entry. Offline inspection uses preset responses and does not count toward model performance experiments.
 
-## 复现本份真实模型实验
+## Reproduce this real model experiment
 
-本机入口只负责原第 3 份；使用新检出目录、新运行编号和私有凭据文件，保留发布数据。
+The native entry only handles the original Part 3; use the new checkout directory, new run ID, and private credential file while preserving published data.
 
 ```bash
 export TRUSTGATE_KEY_FILE=/absolute/private/openrouter_group9.key
@@ -32,4 +32,4 @@ python scripts/platforms/local/delivery.py export \
   --destination runs/export-person03
 ```
 
-记录保留拒绝、超时及调用上限。导出包含相同指标和本机来源凭据；不公开密钥、请求及模拟状态。原结果的跨平台统计在统一入口验证，但本机运行速度不能直接解释为与 Vanda 的硬件比较。
+Record rejections, timeouts, and call limits. Export with the same metrics and native source credentials; do not disclose keys, requests, or simulated states. Cross-platform statistics from original results are verified via unified entry, but native run speed cannot be directly interpreted as a hardware comparison with Vanda.

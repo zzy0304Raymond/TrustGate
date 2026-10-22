@@ -1,4 +1,8 @@
 """Person-01 provenance and passive cost monitoring; never sends model requests."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 import argparse
 import datetime
 import hashlib
@@ -56,8 +60,8 @@ def environment(stage):
         'startup_environment': {name: os.environ.get(name) for name in (
             'PYTHONHASHSEED', 'TOKENIZERS_PARALLELISM', 'OMP_NUM_THREADS', 'MKL_NUM_THREADS',
             'HF_HUB_OFFLINE', 'TRANSFORMERS_OFFLINE')},
-        'launcher_sha256': hashlib.sha256((ROOT / 'tasks/01/run_person01.pbs').read_bytes()).hexdigest(),
-        'support_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        'launcher_sha256': recorded_digest(hashlib.sha256((ROOT / 'tasks/01/run_person01.pbs').read_bytes()).hexdigest()),
+        'support_sha256': recorded_digest(hashlib.sha256(Path(__file__).read_bytes()).hexdigest()),
         'frozen_runtime_verified': True, 'credential_owner_only': True,
     }
     if stage == 'completed':
@@ -75,43 +79,43 @@ def environment(stage):
     delivery = ROOT / 'experiments/deliveries/person-01'
     delivery.mkdir(parents=True, exist_ok=True)
     package_lines = '\n'.join(f'- `{name}=={version}`' for name, version in info['packages'].items())
-    completion = ('336/336，`complete=true`，`fatal_error=null`。'
-                  if stage == 'completed' else '离线检查通过；正式运行及导出尚未完成。')
-    cost = (f"\n- 实际已报告 API 费用：${worker['budget']['reported_cost_usd']:.8f}。\n"
+    completion = ('336/336, `complete=true`, `fatal_error=null`.'
+                  if stage == 'completed' else 'Offline check passed; formal execution and export not yet completed.')
+    cost = (f"\n- Actual reported API cost: ${worker['budget']['reported_cost_usd']:.8f}.\n"
             if stage == 'completed' else '')
-    text = f'''# person-01 运行环境
+    text = f'''# person-01 runtime environment
 
-- 平台：Vanda；调度器：PBS；作业 `{info['pbs_job_id']}`；节点 `{info['host']}`。
-- 操作系统：`{info['platform']}`。
-- CPU：{cpu_model}；申请 2 CPU、8 GB 内存、6 小时。队列可调整实际内存，以 PBS 记录为准。
-- GPU：未申请、未使用；检测器在 CPU 上运行。
-- Conda：`dsa4213`；Python `{info['python']}`；使用既有冻结环境，没有安装或升级依赖。
-- 启动时 Git 基准 commit：`{info['git_commit_at_launch']}`；分支 `experiment-1`。本人新增启动与记录脚本在启动时尚未提交，其 SHA-256 另存于私有环境记录；冻结执行代码与清单一致。
-- 正式清单 SHA：`{info['plan_sha256']}`。
-- 运行编号：`{info['run_id']}`；分片：`shard-00`；人员：`person-01`。
-- 当前状态：{completion}
+- Platform: Vanda; scheduler: PBS; job `{info['pbs_job_id']}`; node `{info['host']}`.
+- Operating system:`{info['platform']}`.
+- CPU: {cpu_model}; Requested 2 CPU, 8 GB memory, 6 hours. Queue can adjust actual memory usage, as recorded by PBS.
+- GPU: not requested, not used; detector runs on CPU.
+- Conda: `dsa4213`; Python `{info['python']}`; using existing frozen environment, no dependencies installed or upgraded.
+- Git base commit at startup:`{info['git_commit_at_launch']}`; branch `experiment-1`. Personal added startup and logging scripts not yet committed at startup; their SHA-256 stored separately in private environment record; frozen execution code and list are consistent.
+- Final list SHA:`{info['plan_sha256']}`.
+- Run ID:`{info['run_id']}`; shard:`shard-00`; personnel:`person-01`.
+- Current status:{completion}
 {cost}
-## 关键依赖
+## Key dependencies
 
 {package_lines}
 
-## 模型与启动
+## Model and startup
 
-- API：`qwen/qwen3-30b-a3b-instruct-2507`，供应商 `SiliconFlow`，temperature=0。
-- 检测器：`protectai/deberta-v3-base-prompt-injection-v2`，阈值 0.5；模型文件哈希通过冻结清单校验。
-- Python 启动前设置 `PYTHONHASHSEED=0`、`TOKENIZERS_PARALLELISM=false`、`OMP_NUM_THREADS=2`、`MKL_NUM_THREADS=2`。
-- 本人入口：`qsub tasks/01/run_person01.pbs`。脚本使用私有 Group 9 密钥文件路径，不包含密钥值。
-- 入口先做离线检查，再调用仓库原有 `scripts/formal/person-1.pbs`，仅运行 shard-00，完成后调用原有导出工具。
-- 公共执行器、任务、攻击、模型、依赖和正式清单均未修改。新增代码仅记录本人环境、被动监控费用和安排检查/导出。
-- 本份 API 预算 $2，每次请求预留 $0.05。被动监控在 $1.50 写入费用提醒文件和日志，需由监控人员读取后向用户询问；该脚本不会自行发送通知。冻结执行器仍保留原预算停止行为及无自动续跑限制。$2 后继续需要单独审查，不能删除目录重跑。
+- API: `qwen/qwen3-30b-a3b-instruct-2507`, supplier `SiliconFlow`, temperature=0.
+- Detector:`protectai/deberta-v3-base-prompt-injection-v2`, threshold 0.5; model file hash verified through frozen list check.
+- Python startup configuration `PYTHONHASHSEED=0`, `TOKENIZERS_PARALLELISM=false`, `OMP_NUM_THREADS=2`, `MKL_NUM_THREADS=2`.
+- Personal entry point:`qsub tasks/01/run_person01.pbs`The script uses a private Group 9 key file path without including the key value.
+- Perform offline checks first at the entry point, then invoke the original repository. `scripts/formal/person-1.pbs`, run only shard-00, then invoke the original export tool after completion.
+- Public executor, tasks, attacks, models, dependencies, and official manifests remain unchanged. New code only records personal environment, passive monitoring costs, and schedules checks/export.
+- This API budget is $2, with $0.05 reserved per request. Passive monitoring writes cost alert files and logs at $1.50, requiring monitoring personnel to read and query users; the script does not send notifications automatically. Frozen executor retains original budget stop behavior and no automatic resumption limit. After $2, further continuation requires separate review and directory deletion for rerun is not allowed.
 
-## 验证与记录
+## Validation and recording
 
-- `pip check`、全部离线单元测试、MVP MCP 预检、解析恢复检查、正式 MCP 预检均通过后才启动 API 实验。
-- 正式预检包含 60 个攻击传输检查、20 个任务流程检查、14 个配置/入口流程检查，使用脚本回复，不计入正式模型结果。
-- 源代码、关键依赖、检测器哈希由原冻结校验器验证。
-- 私有准备日志及机器可读环境记录：`runs/person01-preparation/{info['pbs_job_id']}/`。
-- 私有正式记录：`runs/studies/{info['run_id']}/shard-00/`，完整保留，不提交原始请求、模拟状态或密钥。
+- `pip check`, all offline unit tests, MVP MCP pre-check, parsing recovery check, and formal MCP pre-check are passed before starting the API experiment.
+- Official pre-check includes 60 attack transmission checks, 20 task flow checks, 14 configuration/entry flow checks, using script responses, and does not count toward official model results.
+- Source code, critical dependencies, and detector hashes are verified by the original frozen validator.
+- Private prep logs and machine-readable environment records:`runs/person01-preparation/{info['pbs_job_id']}/`.
+- Private official records:`runs/studies/{info['run_id']}/shard-00/`, fully preserved without submitting original requests simulated states or keys.
 '''
     (delivery / 'ENVIRONMENT.md').write_text(text)
 

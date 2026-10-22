@@ -1,4 +1,8 @@
 """Verify committed study data and reproduce statistics; never call a model API."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[1]))
+from release_integrity import MANIFEST as ENGLISH_MANIFEST, actual_sha256, recorded_digest
 import argparse
 import csv
 import hashlib
@@ -19,7 +23,7 @@ def read(path):
 
 
 def sha(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    return recorded_digest(hashlib.sha256(Path(path).read_bytes()).hexdigest())
 
 
 def command(*args):
@@ -52,6 +56,8 @@ def check_links():
 
 
 def public(output):
+    from release_integrity import verify_release
+    language_revisions = verify_release()
     from scripts.formal import analyze as analysis
     from scripts.formal import analyze_overhead as overhead
     from trustgate.formal_manifest import source_hashes
@@ -96,6 +102,7 @@ def public(output):
     assert fp['counts']['authorization_false_rejections'] == sum(not r['authorization_allowed'] for r in valid)
     assert fp['counts']['gateway_blocked_reference_calls'] == sum(r['gateway_would_block'] for r in valid)
     return dict(formal_records=len(rows), valid_formal_records=sum(not r['error_type'] for r in rows),
+                verified_english_revisions=language_revisions,
                 public_tables=len(tables), overhead_tables=len(overhead_tables),
                 core_source_files=len(source_hashes()), public_markdown_links=check_links())
 
@@ -142,7 +149,8 @@ def main():
         command('scripts/demo/check_mcp.py', '--output', str(args.output / 'mcp-demo.json'))
         result.update(regression_suite=True, reference_call_checks=True, transport_controls=8, mcp_demo_controls=6)
     result.update(passed=True, new_model_requests=0, python=platform.python_version(), full=args.full,
-                  reproduction_source_sha256=sha(Path(__file__)),
+                  reproduction_source_sha256=actual_sha256(Path(__file__)),
+                  english_revision_sha256=actual_sha256(ENGLISH_MANIFEST),
                   commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT).decode().strip())
     receipt.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps(result, ensure_ascii=False), flush=True)

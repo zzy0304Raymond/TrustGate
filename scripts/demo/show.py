@@ -13,13 +13,13 @@ def main():
     from trustgate.runner import require_compute
     require_compute();sys.addaudithook(offline)
     data=verify_bundle()
-    print('TrustGate | '+data['mode_label']+' | 本次模型请求：0')
+    print('TrustGate | '+data['mode_label']+' | Current model request: 0')
     for c in data['cases']:
         if args.case not in ('all',c['id']):continue
-        print('\n'+c['number']+' '+c['title']+'\n任务：'+c['task'])
+        print('\n'+c['number']+' '+c['title']+'\nTask:'+c['task'])
         for i,step in enumerate(c['steps'],1):
-            print(f"  {i}. {step['title']}：{step['detail']}")
-        print('结果：'+c['result']+'\n解释：'+c['conclusion']+'\n边界：'+c['limit'])
-        print('案例：'+', '.join(c['case_ids']))
+            print(f"  {i}. {step['title']}: {step['detail']}")
+        print('Result:'+c['result']+'\nExplanation:'+c['conclusion']+'\nBoundary:'+c['limit'])
+        print('Case:'+', '.join(c['case_ids']))
 
 if __name__=='__main__':main()

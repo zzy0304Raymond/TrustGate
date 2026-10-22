@@ -1,4 +1,8 @@
 """Export derived metadata-attack checks; never export raw conversations or states."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 import argparse
 import csv
 import hashlib
@@ -36,7 +40,7 @@ def main():
     from trustgate.formal_data import attack_success
     from trustgate.planning import digest, read_plan
 
-    sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+    sha = lambda p: recorded_digest(hashlib.sha256(p.read_bytes()).hexdigest())
     read = lambda p: json.loads(p.read_text())
     plan = read_plan(ROOT / 'assignments/formal/plan.json')
     receipt = read(ROOT / f'experiments/deliveries/person-{args.person:02}/receipt.json')

@@ -9,7 +9,7 @@
     "condition": "trustgate",
     "repeat": "1",
     "case_id": "9f7467fd5e9ede0aa172",
-    "purpose": "核查唯一超时及相同场景对照",
+    "purpose": "Verification of unique timeouts and same scenario controls",
     "review_status": "pending",
     "recorded_status": "error",
     "recorded_task_success": "True",

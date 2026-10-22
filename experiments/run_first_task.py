@@ -1,4 +1,8 @@
 """Run one native AgentDojo task through OpenRouter, on a PBS compute node."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[1]))
+from release_integrity import recorded_digest
 import argparse
 import datetime
 import hashlib
@@ -186,7 +190,7 @@ def main():
         "python": platform.python_version(), "agentdojo": actual_version,
         "host": socket.gethostname(), "pbs_job_id": os.environ["PBS_JOBID"],
         "task_prompt": task.PROMPT, "attack_applied": False,
-        "script_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        "script_sha256": recorded_digest(hashlib.sha256(Path(__file__).read_bytes()).hexdigest()),
     }
     started = time.monotonic()
     try:

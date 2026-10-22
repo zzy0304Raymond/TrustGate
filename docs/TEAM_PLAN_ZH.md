@@ -1,15 +1,15 @@
-# 正式实验分片
+# Formal experiment shard
 
-五份均已完成并通过共同格式与冻结版本校验，每份 336 条，共 1,680 条。各份包含全部七种配置，每个任务在同一平台运行，不能把平台差异误当作配置差异。
+Five shards have been completed and verified against the common format and frozen version with each shard containing 336 items totaling 1,680 items. Each shard includes all seven configurations and each task runs on the same platform making it impossible to treat platform differences as configuration differences.
 
-| 分片 | 任务编号 | 正常／输出攻击／说明攻击 | 实际平台 |
+| shard | Task ID | Normal / Output Attack / Instruction Attack | Actual platform |
 |---|---|---|---|
-| 1 | 0、12、17、31 | 84／126／126 | Vanda |
-| 2 | 2、7、22、32 | 84／126／126 | macOS |
-| 3 | 16、24、27、35 | 84／126／126 | WSL |
-| 4 | 3、8、18、28 | 84／126／126 | Vanda |
-| 5 | 5、9、30、33 | 84／126／126 | Vanda |
+| 1 | 0, 12, 17, 31 | 84/126/126 | Vanda |
+| 2 | 2, 7, 22, 32 | 84/126/126 | macOS |
+| 3 | 16, 24, 27, 35 | 84/126/126 | WSL |
+| 4 | 3, 8, 18, 28 | 84/126/126 | Vanda |
+| 5 | 5, 9, 30, 33 | 84/126/126 | Vanda |
 
-冻结清单位于 `assignments/formal/plan.json`，单份清单为 `person-01.json` 至 `person-05.json`。脱敏原始指标位于 `experiments/deliveries/`，共同统计见 [正式结果](../results/formal/README_ZH.md)。
+Frozen list located at `assignments/formal/plan.json`, single shard list is `person-01.json` to `person-05.json`.De-identified raw metrics are located at `experiments/deliveries/`, common statistics are available at [formal results](../results/formal/README_ZH.md).
 
-原计划时间只用于运行前分配；最终性能解释采用 [实测开销及平台分层](../results/formal/overhead/README_ZH.md)。复现应在新目录使用新运行编号，并保留新采样结果；不会覆盖发布数据。运行入口见 [正式实验说明](FORMAL_START_ZH.md)。
+Planned time is used only for pre-run allocation; final performance interpretation adopts [measured overhead and platform layering](../results/formal/overhead/README_ZH.md).Reproduction should use a new directory with a new run ID and retain new sampling results; published data will not be overwritten. Run entry point is at [formal experiment instructions](FORMAL_START_ZH.md).

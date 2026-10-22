@@ -9,7 +9,7 @@
     "condition": "none",
     "repeat": "1",
     "case_id": "1bbd699cb28202332443",
-    "purpose": "核查唯一超时及相同场景对照",
+    "purpose": "Verification of unique timeouts and same scenario controls",
     "review_status": "pending",
     "recorded_status": "completed",
     "recorded_task_success": "True",

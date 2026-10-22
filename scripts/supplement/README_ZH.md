@@ -1,45 +1,45 @@
-# 补测入口
+# Supplemental test entry
 
-设计和结果见 [冻结协议](../../assignments/metadata_supplement/PROTOCOL_ZH.md) 与 [结果说明](../../results/metadata_supplement/README_ZH.md)。冻结执行器 `study.py` 不应编辑；改动会触发清单校验失败。分析与事后事实核查独立于该执行器。
+Design and results see [Frozen protocol](../../assignments/metadata_supplement/PROTOCOL_ZH.md) and [Results explanation](../../results/metadata_supplement/README_ZH.md). Frozen executor `study.py` Do not edit; modifications will trigger manifest validation failure. Analysis and post-hoc fact checking are independent of this executor.
 
-## 验证已交付结果
+## Verify delivered results
 
-在 Vanda PBS 计算节点激活 `dsa4213`（Python 3.10.20），从仓库根目录执行：
+Activated on Vanda PBS compute node `dsa4213`(Python 3.10.20), execute from the repository root directory:
 
 ```bash
 python scripts/supplement/verify_public.py
 python -m unittest tests.test_metadata_supplement tests.test_metadata_diagnosis
 ```
 
-上述操作不调用 API，也不需要原始请求或密钥。
+The above operations do not invoke APIs and do not require original requests or keys.
 
-## 重新执行冻结试验
+## Re-execute frozen trials
 
-原始执行使用 Vanda、AgentDojo 0.1.35 和既有固定依赖。运行前需有冻结检测器权重，以及本人有权使用的模型服务凭据。请沿用仓库的环境准备说明；不同集群仅适配作业入口，不能自行改模型、工具、阈值、依赖版本、清单或评分。
+Original execution used Vanda AgentDojo 0.1.35 and existing fixed dependencies. A frozen detector weight and model service credentials accessible to you must be available before running. Follow the environment setup instructions in the repository; different clusters only require adaptation of the job entry point. Do not modify models tools thresholds dependency versions manifests or scoring independently.
 
-推荐在全新的检出目录中运行，保留发布的两个 JSON 清单，不重新筛选模板：
+Recommended to run in a fresh checkout directory while preserving the two published JSON manifests without re-filtering templates.
 
 ```bash
 mkdir -p runs
-# 将这两个路径替换为自己的私有凭据文件和已准备的检测器目录。
+# Replace these two paths with your own private credential files and prepared detector directory.
 export TRUSTGATE_KEY_FILE=/absolute/private/openrouter_group9.key
 export TRUSTGATE_DETECTOR_DIR=/absolute/models/prompt_injection_detector
 qsub -v TRUSTGATE_KEY_FILE,TRUSTGATE_DETECTOR_DIR scripts/supplement/run_vanda.pbs
 ```
 
-`run_vanda.pbs` 按 `PBS_O_WORKDIR` 进入仓库，项目账号和资源需适配本人 Vanda 账户。它只在没有清单时生成新阶段；发布清单存在时原样复用。私有输出目录存在时拒绝运行，以免覆盖或重复消费。
+`run_vanda.pbs` According to `PBS_O_WORKDIR` Enter the repository, project account, and resources must be adapted to your personal Vanda account. It only generates a new phase when no manifest exists; it reuses the existing manifest as-is when a manifest is published. Refuses to run if the private output directory exists to prevent overwriting or duplicate consumption.
 
-实际复现输出应单独保存，不能替换已经交付的实测结果；模型服务即便温度为 0 也可能产生不同回答。对新结果做离线导出时注意使用独立检出目录，因为导出器会写入该检出的 `results/metadata_supplement/`。新结果应保留自己的来源校验与结果清单。
+Actual reproduction outputs should be saved separately and cannot replace already delivered test results; model services may produce different responses even with temperature set to 0. When exporting new results offline, be sure to use an independent checkout directory, as the exporter will write into this checkout. `results/metadata_supplement/`New results should retain their own source verification and result manifest.
 
-## 脱敏导出
+## Anonymized export
 
 ```bash
 python scripts/supplement/analyze.py runs/metadata_supplement/development runs/metadata_supplement/evaluation
 python scripts/supplement/audit_calendar.py runs/metadata_supplement/evaluation
 ```
 
-`analyze.py` 比对请求、响应、轨迹、工具执行与模拟前后状态，保留来源 SHA256，只导出指标与校验。`audit_calendar.py` 是发现评分问题后增加的事后事实检查，不能作为预注册的主指标。
+`analyze.py` Compare requests, responses, traces, tool executions, and pre- and post-simulation states, retain source SHA256, and export only metrics and verification.`audit_calendar.py` It is a post-hoc fact check added after discovering scoring issues and cannot serve as the primary metric for pre-registration.
 
-原始对话、请求、响应、模拟后端状态、模型权重与密钥均保留在被忽略的私有目录。
+Original conversations, requests, responses, simulated backend states, model weights, and keys are all retained in the ignored private directory.
 
-本次实测在第 128 条出现一次接口超时，随后只运行原清单中未启动的 16 条。重新导出本次记录需要同时提供两段目录，见 [续行说明](../../assignments/metadata_supplement/CONTINUATION_ZH.md)。不能重跑接口失败后再用成功结果覆盖它。
+This test encountered one interface timeout at entry 128 and subsequently ran only the 16 entries from the original list that had not started. To re-export this record, two directory segments must be provided simultaneously, see [continuation instructions](../../assignments/metadata_supplement/CONTINUATION_ZH.md). Cannot rerun the failed interface and then overwrite it with a successful result.

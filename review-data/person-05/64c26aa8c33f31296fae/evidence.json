@@ -9,7 +9,7 @@
     "condition": "none",
     "repeat": "1",
     "case_id": "64c26aa8c33f31296fae",
-    "purpose": "核查正常任务中的授权拒绝是否合理；拒绝计数不等于误报",
+    "purpose": "Verify whether authorization denial in normal tasks is reasonable; denial count does not equal false positive",
     "review_status": "pending",
     "recorded_status": "completed",
     "recorded_task_success": "True",

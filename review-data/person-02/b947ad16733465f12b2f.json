@@ -9,7 +9,7 @@
     "condition": "trustgate",
     "repeat": "1",
     "case_id": "b947ad16733465f12b2f",
-    "purpose": "核查正常任务失败：执行、内容、评分条件",
+    "purpose": "Review benign-task failures: execution, content, and scoring conditions",
     "review_status": "pending",
     "recorded_status": "completed",
     "recorded_task_success": "False",

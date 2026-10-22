@@ -68,7 +68,7 @@ def validate_plan(plan):
         from .formal_manifest import validate_formal_plan
         return validate_formal_plan(plan)
     if plan.get('profile') == 'formal_allocation':
-        raise ValueError('正式实验当前只有五份工作量清单；需先冻结权限、攻击案例并接入正式执行器。没有调用 API。')
+        raise ValueError('Formal experiments require frozen permissions, attack cases, and the formal executor. This allocation contains only five workload lists. No API calls are made.')
     content = {k: v for k, v in plan.items() if k != 'plan_sha256'}
     if digest(content) != plan.get('plan_sha256'):
         raise ValueError('Plan changed after hashing; regenerate it before execution.')

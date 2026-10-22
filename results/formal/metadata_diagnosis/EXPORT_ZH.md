@@ -1,40 +1,40 @@
-# 给实验 2、3、4、5 的组员
+# for participants in experiment 2, 3, 4, and 5
 
-**本轮四份材料已收齐并通过一致性审核，无需再次提交。**以下保留原导出方法供复现，最终检查结果见 [180 条汇总](README_ZH.md)。
+**All four materials for this round have been collected and passed consistency review no further submission required.** The original export method is retained below for reproducibility final check results are available at [180 summaries](README_ZH.md).
 
-这次只需交 **一个 JSON 检查文件**，不用重跑实验，不用 API，也不用上传原始请求、完整状态或密钥。
+This time only **one JSON check file** needs to be submitted no need to rerun the experiment no API usage and no uploading of raw requests complete states or keys.
 
-1. 获取包含 `scripts/formal/extract_metadata_trace_checks.py` 的代码版本，保留原实验目录，使用原来 Python 3.10.20 的依赖环境。不要改冻结算法、结果或运行凭据。
-2. 找到本人原始分片目录：其中应有 `results.json` 及各案例子目录；案例目录内有 `summary.json`、逐轮 `request_*.json` / `response_*.json`、`trajectory.json`、`tool_calls.json`、`defense_events.json`、`api_usage.json`、`raw_tools.json` 和 `environment_before.json` / `environment_after.json`。公开的 `results.csv` 或摘录不能代替这些原件。
-3. 在仓库根目录执行下面的命令。把人员编号、目录路径和输出文件名换成自己的；无需手动挑选案例，脚本会核查本人 36 条 `none` / `trustgate` 工具说明攻击。
+1. Obtain the code version containing `scripts/formal/extract_metadata_trace_checks.py` retain the original experiment directory and use the original Python 3.10.20 dependency environment. Do not modify the frozen algorithm results or execution credentials.
+2. Locate your original shard directory: it should contain `results.json` and subdirectories of each case; the case directory contains `summary.json`round by round `request_*.json` / `response_*.json`, `trajectory.json`, `tool_calls.json`, `defense_events.json`, `api_usage.json`, `raw_tools.json` and `environment_before.json` / `environment_after.json`Publicly available `results.csv` or excerpts cannot replace these original documents.
+3. Execute the following command in the repository root directory. Replace the personnel ID, directory path, and output filename with your own; no manual selection of cases is required as the script will verify your 36 items `none` / `trustgate` Tool instruction attack.
 
-Vanda：先进入 PBS 计算节点，激活 `dsa4213`。以实验四为例：
+Vanda: First log in to the PBS computing node and activate `dsa4213`For example: Experiment 4
 
 ```bash
 python scripts/formal/extract_metadata_trace_checks.py \
   --person 4 \
-  --shard-dir /实际路径/原始分片目录 \
+  --shard-dir /actual path/original shard directory \
   --output results/formal/metadata_diagnosis/trace_checks_person-04.json
 ```
 
-Mac / WSL：在本人原环境中使用同一脚本，额外加 `--platform local`。以实验二为例：
+Mac / WSL: Use the same script in your original environment with additional `--platform local`. Taking Experiment 2 as an example:
 
 ```bash
 python scripts/formal/extract_metadata_trace_checks.py \
   --platform local --person 2 \
-  --shard-dir /实际路径/原始分片目录 \
+  --shard-dir /actual path/original shard directory \
   --output results/formal/metadata_diagnosis/trace_checks_person-02.json
 ```
 
-其他集群须在该平台分配的计算节点中运行；`--platform local` 只取消 Vanda 的 PBS 检查，不豁免平台调度规则。原始目录结构若不同，应适配路径读取，不修改原件或通过伪造环境变量绕过检查。
+Other clusters must run on the compute nodes assigned by this platform;`--platform local` Only disable Vanda’s PBS check without exempting platform scheduling rules. If the original directory structure differs, adapt path reading accordingly without modifying the original files or bypassing checks through forged environment variables.
 
-| 实验 | 人员参数 | 唯一需要交的文件 |
+| Experiment | Personnel parameters | The only file required for submission |
 |---|---|---|
 | 2 | `--person 2` | `trace_checks_person-02.json` |
 | 3 | `--person 3` | `trace_checks_person-03.json` |
 | 4 | `--person 4` | `trace_checks_person-04.json` |
 | 5 | `--person 5` | `trace_checks_person-05.json` |
 
-脚本成功后会输出 `passed: true`、`cases: 36` 和 `new_model_requests: 0`。提交对应 JSON 到 `results/formal/metadata_diagnosis/`，在自己的分支开 PR 即可。若报错，保留错误信息和原件，由汇总人定位原因，不要手改检查结果、补造缺失记录或重复调用模型。
+The script will output after successful execution `passed: true`, `cases: 36` and `new_model_requests: 0`Submit the corresponding JSON to `results/formal/metadata_diagnosis/`create a PR in your own branch. If an error occurs, retain the error message and original file. Let the consolidator identify the cause. Do not manually modify check results, fabricate missing records, or repeatedly invoke the model.
 
-该脚本已在实验一的 Vanda 原件上验证。其他平台的实际原件仍需通过相同字段、状态和源码校验；尚未交付的检查不能预先记作完成。
+The script has been validated on the Vanda original from Experiment 1. Actual originals on other platforms still require validation via the same fields, status, and source code; checks that have not been delivered cannot be pre-marked as completed.

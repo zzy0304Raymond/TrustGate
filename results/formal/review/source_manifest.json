@@ -9,8 +9,8 @@
     "5": 13
   },
   "evidence_scope_counts": {
-    "完整私有状态独立重算；公开派生摘要": 9,
-    "公开脱敏证据、评分条件与正式结果交叉核对": 43
+    "Full private state independent recalculation; public derived summary": 9,
+    "Cross-verify public de-identified evidence, rating conditions, and official results": 43
   },
   "private_full_state_regraded": 9,
   "public_excerpt_cross_checked": 43,

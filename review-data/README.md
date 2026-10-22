@@ -1,22 +1,22 @@
-# 实验核查材料
+# Experimental review materials
 
-本目录用于集中收集正式实验的脱敏核查记录。现有正式成绩保持不变，核查发现与原始评分分开记录。
+This directory is used to centrally collect de-identified review records for formal experiments. Existing formal scores remain unchanged, and review findings are recorded separately from original scores.
 
-第一轮清单包含 52 条记录，覆盖 11 个任务；52 条均已完成核查，结论见[统一分析与逐条分类](../results/formal/review/README_ZH.md)。该清单是针对具体问题选择的案例，不用于重新估计总体成功率或误报率。
+The first round list contains 52 records covering 11 tasks; all 52 have completed review, conclusions see[Unified analysis and per-item classification](../results/formal/review/README_ZH.md). This list consists of cases selected for specific issues and is not used to re-estimate overall success rate or false positive rate.
 
-## 按实验提交
+## Submit experiment
 
-| 实验 | 任务 | 已核查记录数 | 抽查清单 |
+| Experiment | task | Number of verified records | Sampling checklist |
 |---|---|---:|---|
-| 实验 1 | 31 | 9 | [person-01/selection.csv](person-01/selection.csv) |
-| 实验 2 | 2、32 | 12 | [person-02/selection.csv](person-02/selection.csv) |
-| 实验 3 | 16、24 | 10 | [person-03/selection.csv](person-03/selection.csv) |
-| 实验 4 | 3、18 | 8 | [person-04/selection.csv](person-04/selection.csv) |
-| 实验 5 | 5、9、30、33 | 13 | [person-05/selection.csv](person-05/selection.csv) |
+| Experiment 1 | 31 | 9 | [person-01/selection.csv](person-01/selection.csv) |
+| Experiment 2 | 2, 32 | 12 | [person-02/selection.csv](person-02/selection.csv) |
+| Experiment 3 | 16, 24 | 10 | [person-03/selection.csv](person-03/selection.csv) |
+| Experiment 4 | 3, 18 | 8 | [person-04/selection.csv](person-04/selection.csv) |
+| Experiment 5 | 5, 9, 30, 33 | 13 | [person-05/selection.csv](person-05/selection.csv) |
 
-每份清单给出了 `case_id`、任务、场景、攻击槽位、配置、重复编号及核查目的。按精确编号找到对应记录，不要重新运行实验来代替原始记录。
+Each checklist provides `case_id`task, scenario, attack slot, configuration, repetition number, and verification purpose. Locate the corresponding record using the exact number; do not rerun experiments to replace original records.
 
-每条记录放在本人的目录下，以 `case_id` 命名，例如：
+Each record is placed under the individual’s directory, named `case_id` for example:
 
 ```text
 review-data/
@@ -27,24 +27,24 @@ review-data/
       explanation.md
 ```
 
-文件名可以沿用组内已有格式。核查材料应说明：
+The filename can reuse the existing format within the group. The verification materials should explain:
 
-- 任务要求与实际完成的操作。
-- 工具调用顺序、必要参数，以及工具成功或报错情况。
-- 防护允许、拒绝或隐藏工具的决定及理由。
-- 评分条件、原始评分与对应证据。
-- 停止原因；涉及超时或恢复时，附相关时间和费用说明。
-- 摘录对应的原始文件名、SHA-256，以及哪些内容经过脱敏或省略。
+- Task requirements and actual operations performed.
+- Tool invocation sequence, required parameters, and success or error status of the tools.
+- Decisions and justifications for allowing, rejecting, or hiding tools under protection.
+- Scoring criteria, original scores, and corresponding evidence.
+- Reason for stopping; if timeout or recovery is involved, include relevant time and cost explanations.
+- Original filename, SHA-256, and which content has been de-identified or omitted in the excerpt.
 
-原始完整请求、响应和后台状态保留在各自私有运行目录。本目录提交适合公开的脱敏摘录及分析；需要核对完整状态时另行私下传递。脱敏副本不能直接替代原始状态重新评分，不能通过删改内容改变原始结果。
+Original complete requests responses and backend status are retained in their respective private execution directories. This directory submits de-identified excerpts and analysis suitable for public release; full status verification requires separate private transfer. De-identified copies cannot directly replace original status for re-scoring, and content cannot be altered to change original results.
 
-## 两项特殊记录
+## Two special records
 
-- 实验 2：任务 32、`benign`、`none`、第 1 次，`case_id=98f0051e9f3cdb5a5daf`，对应原 trial151。核查材料应说明原始中断尝试、缓存恢复、计时和费用口径；该记录已包含在 12 条清单内。
-- 实验 3：任务 24、`output-2`、`trustgate`、第 1 次，`case_id=9f7467fd5e9ede0aa172`，是唯一的 `TimeoutError`。保留错误及请求费用的说明；该记录与无防护对照已包含在 10 条清单内。
+- Experiment 2: Task 32,`benign`, `none`, repetition 1,`case_id=98f0051e9f3cdb5a5daf`, corresponding to original trial151. Verification materials should explain the original interruption attempt, cache recovery, timing, and cost methodology; this record is already included in the 12-item list.
+- Experiment 3: Task 24,`output-2`, `trustgate`, repetition 1,`case_id=9f7467fd5e9ede0aa172`, is the only one `TimeoutError`. Retain explanation of errors and requested costs; this record and the unprotected control are already included in the 10-item list.
 
-## 公开范围
+## Public access scope
 
-当前仓库公开可见。不要提交 API 密钥、认证头、`.env`、`.secrets`、小组密钥 CSV、模型权重、真实个人信息或敏感业务内容。
+The current repository is publicly visible. Do not submit API keys, authentication headers, `.env`, `.secrets`group keys CSV, model weights, real personal information, or sensitive business content.
 
-后续删除本目录不会自动删除 Git 历史中的文件；从首次提交起，材料就应适合公开。核查结论整理到正式结果说明后，可以移除本收集目录。
+Subsequent deletion of this directory will not automatically remove files from Git history; materials should be suitable for public release from the first commit onward. After verification conclusions are compiled into the official result statement, this collection directory may be removed.

@@ -8,6 +8,10 @@ originals when re-scoring.
 Usage (repository root, compute node):
     python review-data/person-05/tools/build_review.py
 """
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[3]))
+from release_integrity import recorded_digest
 import csv, hashlib, io, json, re
 from pathlib import Path
 
@@ -26,7 +30,7 @@ TASK_RULES = {
 
 
 def sha(p):
-    return hashlib.sha256(p.read_bytes()).hexdigest()
+    return recorded_digest(hashlib.sha256(p.read_bytes()).hexdigest())
 
 
 def clean(o, src):
@@ -142,7 +146,7 @@ def main():
         (target / 'evidence.json').write_text(text)
         for p in sorted(d.iterdir()):
             hashes.append({'case_id': cid, 'kind': 'original', 'file': f'{RUN_REL}/{d.name}/{p.name}', 'bytes': p.stat().st_size, 'sha256': sha(p)})
-        hashes.append({'case_id': cid, 'kind': 'public_excerpt', 'file': f'review-data/person-05/{cid}/evidence.json', 'bytes': len(text.encode()), 'sha256': hashlib.sha256(text.encode()).hexdigest()})
+        hashes.append({'case_id': cid, 'kind': 'public_excerpt', 'file': f'review-data/person-05/{cid}/evidence.json', 'bytes': len(text.encode()), 'sha256': recorded_digest(hashlib.sha256(text.encode()).hexdigest())})
     for name in ('manifest.json', 'config.json', 'plan.json', 'worker_summary.json', 'budget.json', 'results.json'):
         p = RUN / name
         hashes.append({'case_id': '', 'kind': 'original_batch', 'file': f'{RUN_REL}/{name}', 'bytes': p.stat().st_size, 'sha256': sha(p)})

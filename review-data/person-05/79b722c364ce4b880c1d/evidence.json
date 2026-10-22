@@ -9,7 +9,7 @@
     "condition": "none",
     "repeat": "2",
     "case_id": "79b722c364ce4b880c1d",
-    "purpose": "核查正常任务失败：执行、内容、评分条件",
+    "purpose": "Review benign-task failures: execution, content, and scoring conditions",
     "review_status": "pending",
     "recorded_status": "completed",
     "recorded_task_success": "False",

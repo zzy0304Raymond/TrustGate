@@ -45,19 +45,19 @@ def stage(run_id):
             shutil.copy2(path, target / path.name)
     shutil.copy2(__file__, target / 'person2_supervisor.py')
     (OUTPUT / 'README_ZH.md').write_text(
-        '# 第 2 人实验：本地检查文件\n\n'
-        '该目录由已授权的本地实验自动整理，目前仅供本人检查，不自动上传。\n\n'
-        '- `STATUS.md`、`progress.json`：当前进度与本批次实际 API 费用。\n'
-        '- `partial_results.csv`：运行中的脱敏记录，不是完整正式结果。\n'
-        '- `results.csv`、`local-receipt.json`：仅全部 336 条完整记录通过核验后生成。\n'
-        '- `cost_summary.json`：本批次 API 报告费用、待结算和不确定预留，区别于全组账户余额。\n'
-        '- `ENVIRONMENT.md`：真实 Mac 环境、原始清单与本地配置指纹。\n'
-        '- `platform-local/`：本地适配源码与依赖配置；使用时按原项目目录结构放回。\n\n'
-        '本次 CPU Torch 构建与 Vanda 的 CUDA 构建不同，PBS 启动方式也不同。'
-        '原始冻结源代码、任务、权限、攻击和 336 个 ID 保持不变。'
-        '本地凭据使用 local-receipt.json，不能冒充原平台 receipt.json；'
-        '与全组正式结果合并前需要统一版本验收。原集群入口保持完整。\n\n'
-        '密钥、完整请求回复、模拟邮箱/日历/文件状态不在此目录中。\n', encoding='utf-8')
+        '# Person 2 experiment: local inspection files\n\n'
+        'This directory is automatically organized by authorized local experiments and is currently for personal inspection only, not automatically uploaded.\n\n'
+        '- `STATUS.md`, `progress.json`Current progress and actual API cost for this batch.\n'
+        '- `partial_results.csv`Ongoing de-identified records, not complete formal results.\n'
+        '- `results.csv`, `local-receipt.json`Generated only after all 336 records have passed verification.\n'
+        '- `cost_summary.json`API report cost, pending settlement, and uncertain reservation for this batch, distinct from the team’s total account balance.\n'
+        '- `ENVIRONMENT.md`Real Mac environment, original list, and local configuration fingerprint.\n'
+        '- `platform-local/`Local adaptation source code and dependency configuration; place back according to original project directory structure when used.\n\n'
+        'This CPU Torch build differs from Vanda’s CUDA build, and PBS startup method also differs.'
+        'Original frozen source code, tasks, permissions, attacks, and 336 IDs remain unchanged.'
+        'Local credentials use local-receipt.json and cannot impersonate the original platform receipt.json;'
+        'Unified version acceptance is required before merging with full team formal results. Original cluster entry remains intact.\n\n'
+        'Keys, full request responses, simulated email/calendar/file states are not in this directory.\n', encoding='utf-8')
     package_text = '\n'.join(f'- {k}: `{v}`' for k, v in manifest['packages'].items())
     (OUTPUT / 'ENVIRONMENT.md').write_text(
         '# Person 02 execution environment\n\n'
@@ -126,14 +126,14 @@ def refresh(run_id, process=None):
     save(OUTPUT / 'progress.json', report)
     save(OUTPUT / 'cost_summary.json', cost)
     (OUTPUT / 'STATUS.md').write_text(
-        '# 实验进度\n\n'
-        f'- 更新时间：{report["updated_at"]}\n- 状态：{status}\n'
-        f'- 已记录：{len(rows)} / 336（{report["completion_percent"]}%）\n'
-        f'- API 已报告费用：${cost["reported_cost_usd"]:.8f}\n'
-        f'- 待结算预留：${cost["pending_reserved_usd"]:.2f}\n'
-        f'- 不确定费用预留：${cost["uncertain_reserved_usd"]:.2f}\n'
-        f'- 错误记录：{report["errored_records"]}；失败保留，不自动重复\n\n'
-        '只有 complete=true 才表示本份记录完整，不表示每个用户任务均成功。\n', encoding='utf-8')
+        '# Experiment progress\n\n'
+        f'- Update time:{report["updated_at"]}\n- Status:{status}\n'
+        f'- Recorded:{len(rows)} / 336 ({report["completion_percent"]}%)\n'
+        f'- API reported cost: ${cost["reported_cost_usd"]:.8f}\n'
+        f'- Pending settlement reservation: ${cost["pending_reserved_usd"]:.2f}\n'
+        f'- Uncertain cost reserve: ${cost["uncertain_reserved_usd"]:.2f}\n'
+        f'- Error log:{report["errored_records"]}; failure retained, not automatically repeated\n\n'
+        'Only complete=true indicates this record is complete, not that every user task succeeded.\n', encoding='utf-8')
     return report
 
 
@@ -159,11 +159,11 @@ def watch(run_id):
         export_local(ROOT / 'runs/studies' / run_id / 'shard-01', OUTPUT)
         # The in-progress copy remains labeled, and the validated final CSV is separate.
         (OUTPUT / 'PROGRESS.md').write_text(
-            '# 第 2 人本地实验交付\n\n'
-            '- 已运行原始 336 个唯一试验 ID，完整性检查通过。\n'
-            '- 完整私有轨迹保留；脱敏 results.csv 和 local-receipt.json 已导出。\n'
-            '- 实际平台为 Mac，本地适配与 Vanda 验收差异见 ENVIRONMENT.md。\n'
-            '- 待本人检查；未提交 GitHub 或 PR，未合并其他分支。\n', encoding='utf-8')
+            '# Local experiment delivery by person 2\n\n'
+            '- 336 unique trial IDs originally run, integrity check passed.\n'
+            '- Complete private trace retained; de-identified results.csv and local-receipt.json exported.\n'
+            '- The actual platform is Mac. Differences in local adaptation and Vanda acceptance are detailed in ENVIRONMENT.md.\n'
+            '- Pending personal review; not submitted to GitHub or PR, no other branches merged.\n', encoding='utf-8')
     save(STATE / 'supervisor-exit.json', dict(finished_at=now(), runner_returncode=process.returncode,
         complete=report['complete'], recorded=report['recorded']))
 

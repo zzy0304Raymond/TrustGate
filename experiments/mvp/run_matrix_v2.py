@@ -1,3 +1,7 @@
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 from simulation_runtime import run_native,write_state,read_state
 """Reproducible pilot: 6 workflows, 2 attack surfaces, 7 conditions, 3 repetitions."""
 import argparse,asyncio,contextlib,datetime,hashlib,importlib.metadata,json,os,platform,random,re,socket,sys,time,urllib.request
@@ -206,7 +210,7 @@ async def main():
     tag=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')+'_'+os.environ['PBS_JOBID']
     out=ROOT/'runs/mvp'/tag;out.mkdir();(ROOT/'runs/mvp/latest.txt').write_text(str(out))
     cfg['classifier_revision']=(ROOT/'models/detector_revision.txt').read_text().strip();dump(out/'config.json',cfg)
-    manifest={'host':socket.gethostname(),'pbs_job_id':os.environ['PBS_JOBID'],'python_hash_seed':os.environ.get('PYTHONHASHSEED'),'python':platform.python_version(),'packages':{x:importlib.metadata.version(x) for x in ['agentdojo','mcp','transformers','torch']},'sources':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in Path(__file__).parent.glob('*.py')}};dump(out/'manifest.json',manifest)
+    manifest={'host':socket.gethostname(),'pbs_job_id':os.environ['PBS_JOBID'],'python_hash_seed':os.environ.get('PYTHONHASHSEED'),'python':platform.python_version(),'packages':{x:importlib.metadata.version(x) for x in ['agentdojo','mcp','transformers','torch']},'sources':{str(p.relative_to(ROOT)):recorded_digest(hashlib.sha256(p.read_bytes()).hexdigest()) for p in Path(__file__).parent.glob('*.py')}};dump(out/'manifest.json',manifest)
     started=time.monotonic();suite=get_suite(cfg['benchmark'],cfg['suite']);detector=None if args.stage=='basic' else Detector(ROOT/'models/prompt_injection_detector',cfg['classifier_threshold'])
     key=(ROOT/'.secrets/openrouter_group9.key').read_text().strip();experiment=Experiment(cfg,out,suite,detector,key)
     matrix=[]

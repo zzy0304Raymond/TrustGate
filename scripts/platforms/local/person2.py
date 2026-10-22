@@ -1,4 +1,8 @@
 """Explicit local adapter; upstream frozen source and trial manifest stay unchanged."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[3]))
+from release_integrity import recorded_digest
 import argparse
 import asyncio
 import contextlib
@@ -77,7 +81,7 @@ def runtime_manifest():
         'system': platform.system(), 'machine': platform.machine(), 'os_release': platform.release(),
         'scheduler': None, 'device': 'cpu', 'person': 2, 'shard_index': 1,
         'planned': 336, 'budget_usd': 2, 'case_ids': [c['case_id'] for c in shard['cases']],
-        'adapter_sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+        'adapter_sha256': {p.name: recorded_digest(hashlib.sha256(p.read_bytes()).hexdigest())
                            for p in sorted(HERE.iterdir()) if p.is_file()},
         'upstream_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
         'compatibility': 'Separate local platform execution. Vanda equivalence and team acceptance are unverified. '

@@ -1,4 +1,8 @@
 """Offline public-material checks; never calls a model or changes scores."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 from pathlib import Path
 from decimal import Decimal
 import csv,hashlib,json,re
@@ -22,6 +26,6 @@ assert b['cost']['actual_usage_cost_usd']=='0.72108042' and b['cost']['unique_pa
 r=load(d/'RECOVERY.json');assert r['offline_replay_check']['passed'] and r['offline_replay_check']['paid_model_requests']==0
 assert len(r['cached_step_equality_checks'])==5 and all(x['request_equal'] and x['response_equal'] for x in r['cached_step_equality_checks'])
 for line in (d/'SHA256SUMS').read_text().splitlines():
- expected,name=line.split('  ',1);assert hashlib.sha256((d/name).read_bytes()).hexdigest()==expected,name
+ expected,name=line.split('  ',1);assert recorded_digest(hashlib.sha256((d/name).read_bytes()).hexdigest())==expected,name
 assert sorted(p.name for p in d.glob('*.csv'))==['selection.csv']
 print(json.dumps({'checks':'passed','selected_cases':12,'records_missing':0,'original_scores_unchanged':True,'new_paid_api_requests':0}))

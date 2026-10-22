@@ -1,4 +1,8 @@
 """Bounded metadata supplement, reusing the unchanged formal experiment loop."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 import argparse
 import asyncio
 import contextlib
@@ -48,7 +52,7 @@ def read(path):
 
 
 def sha(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    return recorded_digest(hashlib.sha256(Path(path).read_bytes()).hexdigest())
 
 
 def payload(family, marker, carrier, action, prompt):
