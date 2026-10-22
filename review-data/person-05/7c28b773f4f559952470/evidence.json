@@ -9,7 +9,7 @@
     "condition": "trustgate",
     "repeat": "1",
     "case_id": "7c28b773f4f559952470",
-    "purpose": "核查正常任务中的授权拒绝是否合理；拒绝计数不等于误报",
+    "purpose": "Verify whether authorization denial in normal tasks is reasonable; denial count does not equal false positive",
     "review_status": "pending",
     "recorded_status": "completed",
     "recorded_task_success": "True",

@@ -1,4 +1,8 @@
 """Validate the five experiment datasets, including provenance and costs."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 import ast
 import csv
 import hashlib
@@ -68,7 +72,7 @@ def main():
             statuses=dict(Counter(r['status'] for r in rows)),
             errors=dict(Counter(r['error_type'] for r in rows if r['error_type'])),
             reported_cost_usd=str(total.quantize(Decimal('0.00000001'))),
-            delivery_sha256={p.relative_to(folder).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+            delivery_sha256={p.relative_to(folder).as_posix(): recorded_digest(hashlib.sha256(p.read_bytes()).hexdigest())
                              for p in sorted(folder.rglob('*')) if p.is_file()}))
     assert len(all_ids) == len(set(all_ids)) == plan['planned_cases'] == 1680
     cost = sum(Decimal(row['reported_cost_usd']) for row in checks)

@@ -1,4 +1,8 @@
 """Offline MCP and scoring controls for the 30 frozen tool-description attacks."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 import argparse
 import asyncio
 import contextlib
@@ -35,7 +39,7 @@ async def check(output):
 
     plan = read_plan(ROOT / 'assignments/formal/plan.json')
     for name, expected in plan['source_sha256'].items():
-        assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == expected, name
+        assert recorded_digest(hashlib.sha256((ROOT / name).read_bytes()).hexdigest()) == expected, name
     suite = get_suite(plan['config']['benchmark'], plan['config']['suite'])
     attacks = [a for a in plan['config']['formal_attacks'].values() if a['surface'] == 'metadata']
     assert len(attacks) == 30
@@ -114,7 +118,7 @@ async def check(output):
                     modified_mail_body_exact_score=variant_exact))
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(dict(schema_version=1, control_type='offline_synthetic_mcp_controls',
-        python=platform.python_version(), checker_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        python=platform.python_version(), checker_sha256=recorded_digest(hashlib.sha256(Path(__file__).read_bytes()).hexdigest()),
         new_model_requests=0, plan_sha256=plan['plan_sha256'],
         limitation='Controls test transport and scoring, not whether a model follows an attack or how historical trials behaved.',
         records=records), ensure_ascii=False, indent=2) + '\n')

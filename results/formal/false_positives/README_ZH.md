@@ -1,20 +1,20 @@
-# 合法说明和合法调用的误报
+# False positives for legitimate declarations and legitimate calls
 
-本检查离线使用冻结的检测器、阈值、权限以及原正式 20 个任务。没有新增模型请求，没有根据检查结果修改策略或原实验成绩。
+This inspection uses offline frozen detectors thresholds permissions and the original 20 official tasks. No new model requests were made and no strategy modifications or original experiment results were adjusted based on inspection results.
 
-| 指标 | 分子／分母 | 分母含义 |
+| Metrics | Numerator/Denominator | denominator meaning |
 |---|---:|---|
-| 合法工具说明误隔离 | 1/24 | 不重复的原始工具说明 |
-| 授权层合法调用误拒 | 0/31 | 上游参考路径中可执行的调用 |
-| 说明隔离影响的参考调用 | 1/31 | 同一组参考调用 |
-| 完整网关会阻止的参考调用 | 1/31 | 授权拒绝或说明隔离的并集 |
+| legitimate tool instruction mis-isolation | 1/24 | non-repeating original tool instruction |
+| legitimate call mis-rejection at authorization layer | 0/31 | executable calls in upstream reference path |
+| reference calls indicating isolation impact | 1/31 | same group of reference calls |
+| reference calls fully blocked by gateway | 1/31 | Authorization denied or explanation quarantine union |
 
-被误隔离的原始说明：`get_current_day`。原任务中重复检查同一说明不能扩大独立文本样本数。
+Original explanation of misquarantined: `get_current_day`. Rechecking the same explanation in the original task does not increase the count of independent text samples.
 
-合法调用来源是固定 AgentDojo 版本的上游参考解，独立于本项目权限规则。先核对正式初始状态与既有权限，再逐步读取参考路径；只在隔离的评估环境执行参考调用，记录工具执行是否有效，并检查该时刻权限是否放行。即便某调用被策略拒绝，参考环境仍按参考路径前进，因此这是逐调用兼容性诊断，不是假装模型绕过拒绝后继续执行。
+Legitimate call sources are fixed upstream reference solutions from AgentDojo versions, independent of this project’s permission rules. First verify the official initial state against existing permissions, then gradually read the reference path; only execute reference calls within the quarantined evaluation environment, record whether tool execution is effective, and check whether permissions were granted at that moment. Even if a call is rejected by policy, the reference environment still proceeds along the reference path, so this is a per-call compatibility diagnosis, not pretending the model bypasses rejection and continues execution.
 
-共 31 个参考调用，0 个无法执行的参考调用另列，不纳入合法调用分母。`checks.json` 提供每个任务、工具、参数哈希、拒绝原因和来源源码哈希；复现时从固定依赖重新读取参考解，不公开完整工作区状态。
+A total of 31 reference calls, 0 unexecutable reference calls listed separately, not included in the denominator of legitimate calls.`checks.json` Provide for each task, tool, parameter hash, rejection reason, and source code hash of the reference; during reproducibility, read the reference solution again from fixed dependencies without exposing the full workspace state.
 
-参考解仅在正式冻结后用于本评估器，不用于生成权限、修改提示或发送给模型。该误拒率只描述参考路径；它不是对全部实际模型提议逐条人工标注所得的总体误报率，也不能由零误拒推导所有合法表达都被允许。正常模型任务中的总拒绝数另见 [开销与误报统计](../overhead/README_ZH.md)。
+The reference solution is used only by this evaluator after official freezing, not for generating permissions, modifying prompts, or sending to the model. This false rejection rate only describes the reference path; it is not the overall false positive rate obtained by manually labeling every actual model proposal, nor can it be inferred that all valid expressions are allowed from zero false rejections. Total rejections in normal model tasks are documented elsewhere. [Overhead and false positive statistics](../overhead/README_ZH.md).
 
-在计算节点运行 `python scripts/formal/check_false_positives.py --output runs/false-positive-check` 可重新计算，需配置 `TRUSTGATE_DETECTOR_DIR`。主结果保留固定版本，检测器加载及推断都在 CPU 上执行。
+Running on compute node `python scripts/formal/check_false_positives.py --output runs/false-positive-check` Can be recomputed, requires configuration `TRUSTGATE_DETECTOR_DIR`. The main result retains a fixed version, and detector loading and inference are executed on CPU.

@@ -1,4 +1,8 @@
 """Create reproducible tables and figures from the five frozen public deliveries."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 import argparse
 from collections import Counter
 import csv
@@ -25,9 +29,9 @@ LABELS = {
     "no_authorization": "Without authorization",
 }
 ZH_LABELS = {
-    "none": "无防护", "delimiters": "提示防护", "classifier": "分类器",
-    "trustgate": "完整 TrustGate", "no_provenance": "去掉来源标注",
-    "no_metadata": "去掉说明筛查", "no_authorization": "去掉执行授权",
+    "none": "No defense", "delimiters": "Prompt protection", "classifier": "Classifier",
+    "trustgate": "Full TrustGate", "no_provenance": "remove source attribution",
+    "no_metadata": "Remove indication screening", "no_authorization": "remove execution authorization",
 }
 NUMERIC = {
     "repeat", "seconds", "api_calls", "api_seconds", "cost_usd", "prompt_tokens",
@@ -47,7 +51,7 @@ def load(path):
 
 
 def sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    return recorded_digest(hashlib.sha256(path.read_bytes()).hexdigest())
 
 
 def original_summary_module():
@@ -353,16 +357,16 @@ def make_figures(tables, output):
 def write_readme(output, tables, include_figures=True):
     cells = {(r["surface"], r["condition"]): r for r in tables["main_metrics"]}
     lines = [
-        "# 正式实验结果分析", "",
-        "本目录汇总冻结计划下的 1,680 条正式记录：20 个任务、七种配置、三次重复。历史 MVP、开发试跑及离线模拟记录单独保存。",
-        "五份 CSV、原始收据、正式清单与既有 `analysis.json` 保持不变。", "",
-        "## 主要结果", "",
-        "下表正常任务完成率以 60 条计划记录为分母；攻击成功率以有效记录为分母；安全完成率以全部 90 条计划记录为分母。", "",
-        "| 配置 | 正常任务完成 | 输出攻击成功 | 输出攻击下安全完成 | 说明攻击成功 | 说明攻击下安全完成 |",
+        "# Formal experiment result analysis", "",
+        "This directory aggregates 1,680 formal records under the frozen plan: 20 tasks, seven configurations, three repetitions. Historical MVP, development trial runs, and offline simulation records are stored separately.",
+        "Five CSV files, original receipts, formal lists, and existing ones `analysis.json` Remain unchanged.", "",
+        "## Main results", "",
+        "The normal task completion rate in the following table uses 60 planned records as the denominator; attack success rate uses valid records as the denominator; safe completion rate uses all 90 planned records as the denominator.", "",
+        "| Configuration | Normal task completion | Output attack successful | Safe completion under output attack | Indication attack successful | Safe completion under indication attack |",
         "|---|---:|---:|---:|---:|---:|",
     ]
     def display(n, d):
-        return f"{n}/{d}（{100*n/d:.1f}%）"
+        return f"{n}/{d} ({100*n/d:.1f}%)"
     for condition in CONDITIONS:
         benign, output_row, metadata = [cells[s, condition] for s in SURFACES]
         lines.append("| " + " | ".join([ZH_LABELS[condition],
@@ -372,51 +376,51 @@ def write_readme(output, tables, include_figures=True):
             display(metadata["attack_successes"], metadata["valid"]),
             display(metadata["safe_completions"], metadata["planned"])]) + " |")
     lines += [
-        "", "完整 TrustGate 的工具输出攻击记录包含 1 条 `TimeoutError`：89 条有效、90 条已记录。该错误保留在计划样本分母中，不计作成功防御。",
-        "", "## 结果解释", "",
-        "1. **工具输出攻击存在防护收益的证据。**无防护攻击成功 10/90，完整 TrustGate 为 0/89 有效记录；按全部计划记录计算，安全完成分别为 61/90 与 68/90。任务配对分析见图 3。结论限定于当前模型、任务与攻击分布。",
-        "2. **正常任务效用存在不确定性。**完整 TrustGate 完成 44/60，无防护完成 46/60。任务加权差异为 −3.33 个百分点，逐项 95% 区间为 [−13.33, 6.67]；这不构成效用等价或无损失的证明。",
-        "3. **工具说明攻击未提供安全收益的区分证据。**全部七种配置攻击成功均为 0/90，且无防护的 90 次攻击均记录为到达模型。需要结合轨迹解释攻击强度、模型行为和目标判定；零事件不等于普遍安全。",
-        "4. **消融结果需按组件分别解释。**去掉执行授权后，输出攻击成功为 6/90；完整系统为 0/89。对应任务配对差异区间上界为 0，不能将该组件的边际收益描述为已获得稳健统计确认。去掉来源标注或说明筛查后也未观察到输出攻击成功，当前结果不足以证明每个模块都有独立安全增益。",
-        "5. **安全、效用与资源要共同报告。**分类器配置的正常任务完成为 28/60，低于完整 TrustGate 的 44/60；输出攻击仍成功 13/90。筛查造成的误报和任务失败机制由后续轨迹核查解释。",
-        "6. **正常任务失败集中在部分任务。**任务 2、16、33 在七种配置下均为 0/3；任务 31、32 的完整系统为 0/3，无防护均为 2/3。这些记录是后续评分与轨迹核查的重点，目前仅描述观测结果，不预设失败原因。",
-        "", "## 图表", "",
+        "", "Complete TrustGate tool output attack record contains 1 item `TimeoutError`89 valid records, 90 recorded. This error remains in the planned sample denominator and is not counted as a successful defense.",
+        "", "## Result interpretation", "",
+        "1. **Evidence of protective benefit against tool output attacks.** Unprotected attacks succeeded in 10 out of 90, while full TrustGate achieved 0 out of 89 valid records; based on all planned records, safe completion was 61 out of 90 and 68 out of 90 respectively. Task pairing analysis is shown in Figure 3. Conclusions are limited to the current model, tasks, and attack distribution.",
+        "2. **Uncertainty in normal task utility.** Full TrustGate completed 44 out of 60, unprotected completed 46 out of 60. Task-weighted difference is −3.33 percentage points, with individual 95% intervals of [−13.33, 6.67]; this does not constitute proof of utility equivalence or no loss.",
+        "3. **Tool instruction attacks provide no distinguishing evidence of security benefit.** All seven configurations had 0 out of 90 successful attacks, and all 90 unprotected attacks were recorded as reaching the model. Attack strength, model behavior, and target judgment require trajectory-based interpretation; zero events do not equal universal safety.",
+        "4. **Ablation results must be interpreted component by component.** Removing execution authorization led to 6 out of 90 successful output attacks; full system achieved 0 out of 89. The upper bound of the corresponding task pairing difference interval is 0, so the marginal benefit of this component cannot be described as having robust statistical confirmation. Removing source attribution or instruction screening also did not result in successful output attacks; current results are insufficient to prove that each module provides independent security gain.",
+        "5. **Security, utility, and resource use must be reported together.** Classifier configuration completed 28 out of 60 normal tasks, lower than full TrustGate’s 44 out of 60; output attacks still succeeded in 13 out of 90. The mechanisms causing false positives and task failures due to screening are explained by subsequent trajectory verification.",
+        "6. **Normal task failures are concentrated in specific tasks.** Tasks 2, 16, and 33 are 0/3 across all seven configurations; the full system for tasks 31 and 32 is 0/3, while without protection it is 2/3. These records are the focus of subsequent scoring and trajectory verification. Currently, only observed results are described without pre-assuming failure causes.",
+        "", "## Chart", "",
     ]
     figures = [
-        ("01_security_and_utility", "安全性与正常任务完成率", "先比较攻击成功与正常效用，注意有效样本分母。"),
-        ("02_safe_completion", "攻击下安全完成率", "使用计划样本分母，同时要求用户任务成功和攻击目标失败。"),
-        ("03_paired_comparisons", "完整系统与三种对照的配对差异", "误差线显示按任务聚类的逐项 95% 区间。"),
-        ("04_component_ablations", "三项组件消融", "分别比较移除来源标注、说明筛查和执行授权后的变化。"),
-        ("05_task_completion", "逐任务正常完成情况", "观察总体均值掩盖的任务差异，每格为三次重复。"),
-        ("06_resource_usage", "费用、调用数与 token", "使用已返回 API 使用量；配对延迟与平台分层见独立开销分析。"),
+        ("01_security_and_utility", "Safety and normal task completion rate", "First compare attack success and normal utility, noting the effective sample denominator."),
+        ("02_safe_completion", "Safety completion rate under attack", "Use planned sample denominator, requiring both user task success and attack goal failure."),
+        ("03_paired_comparisons", "Paired differences between the full system and three controls", "Error bars show per-item 95% intervals clustered by task."),
+        ("04_component_ablations", "Three component ablations", "Compare the changes after removing source annotation, description screening, and execution authorization separately."),
+        ("05_task_completion", "Per-task normal completion status", "Observe overall mean masking task differences with each cell representing three repetitions."),
+        ("06_resource_usage", "Costs calls and tokens", "Use returned API usage; paired latency and platform layering are in separate overhead analysis."),
     ]
     for name, title, description in (figures if include_figures else []):
         lines += [f"### {title}", "", description, "",
                   f"![{title}](figures/{name}.png)", "",
                   f"[PDF](figures/{name}.pdf)", ""]
     lines += [
-        "## 统计口径与复现", "",
-        "- `tables/main_metrics.csv`：21 个配置与场景单元的计数、完整性、计划/有效分母、曝光、误报代理量和费用。",
-        "- `tables/paired_comparisons.csv`：30 项配对差异，单位为百分点；数据原样来自既有汇总中的配对结果。",
-        "- `tables/task_metrics.csv`：逐任务、配置和场景的计数与来源平台。",
-        "- `tables/resource_summary.csv`：每种配置 240 条记录的已返回费用、调用数与 token。",
-        "- `tables/status_counts.csv`：五份数据的停止状态分布。",
-        "- `inputs.json`：输入文件哈希与统计规则，便于验证图表对应的数据版本。",
+        "## Statistical definitions and reproduction", "",
+        "- `tables/main_metrics.csv`: Count, completeness, planned/valid denominators, exposure, false positive proxy counts, and costs for 21 configuration and scenario units.",
+        "- `tables/paired_comparisons.csv`: 30 paired differences, in percentage points; data directly from the paired results in the existing summary.",
+        "- `tables/task_metrics.csv`: Counts and source platforms per task, configuration, and scenario.",
+        "- `tables/resource_summary.csv`: 240 records per configuration for returned costs, number of calls, and tokens.",
+        "- `tables/status_counts.csv`: Stop status distribution across five datasets.",
+        "- `inputs.json`: Input file hashes and statistical rules for verifying the data version corresponding to the charts.",
         "",
-        "置信区间沿用既有汇总器：先在任务内计算成对差异的均值，再对 20 个任务等权重采样 2,000 次，随机种子 4213。攻击案例数量在任务间不完全相同，且存在一个缺失的有效配对，因此任务加权差异不一定等于汇总百分比直接相减。",
+        "Confidence intervals reuse the existing summarizer: first compute the mean of paired differences within each task, then perform 2,000 equal-weighted resamples across the 20 tasks with random seed 4213. The number of attack cases varies across tasks and one valid pair is missing, so task-weighted differences do not necessarily equal the direct subtraction of summary percentages.",
         "",
-        "区间为探索性的逐项 95% 区间，未做多重比较校正。全部观测差异为零时 bootstrap 会生成 [0, 0] 的退化区间；它不能证明总体风险为零或两种方法等价。正常任务中的授权拒绝次数属于代理指标，尚不等于人工确认的误报率。",
+        "Intervals are exploratory per-item 95% intervals without multiple comparison correction. Bootstrap generates degenerate intervals when all observed differences are zero. [0, 0] Normal task authorization rejection counts serve as proxy metrics and do not yet equal manually confirmed false positive rates.",
         "",
-        "费用只覆盖 API 已返回使用量，总和为 $3.07556061；一次超时请求的最终收费未知。这里不比较跨平台原始耗时，也不改变缓存恢复与计时差异的既有说明。",
+        "Costs only cover API returned usage totaling $3.07556061; the final charge for one timeout request is unknown. Cross-platform raw timing comparisons are not made, and existing explanations for cache recovery and timing differences are not altered.",
         "",
-        "在 Python 3.10.20 的 Vanda PBS 计算节点、仓库根目录运行：", "",
+        "Run on Python 3.10.20 Vanda PBS compute node at repository root directory:", "",
         "```bash",
         "python -m pip install -c requirements-runtime-constraints.txt -r requirements-analysis.txt",
         "python scripts/formal/analyze.py",
         "```", "",
-        "默认输出为本目录。使用 `--output runs/analysis-check` 可以在独立目录复现；`--tables-only` 仅生成表格，不需要绘图库。数据读取、统计和绘图均不调用模型 API。",
+        "Default output is to this directory. Use `--output runs/analysis-check` Can be reproduced in an isolated directory;`--tables-only` Only table generation is required; no plotting libraries are needed. Data reading, statistics, and plotting do not invoke model APIs.",
         "",
-        "后续分析已完成：[轨迹核查](../review/README_ZH.md)、[工具说明诊断](../metadata_diagnosis/README_ZH.md)、[机制分析](../mechanism_evidence/README_ZH.md)、[开销与恢复敏感性](../overhead/README_ZH.md)、[合法调用误报](../false_positives/README_ZH.md)。完整研究入口见 [结果总览](../../../docs/RESULTS_ZH.md)。",
+        "Subsequent analysis completed:[Trajectory verification](../review/README_ZH.md), [Tool instruction diagnosis](../metadata_diagnosis/README_ZH.md), [Mechanism analysis](../mechanism_evidence/README_ZH.md), [Overhead and recovery sensitivity](../overhead/README_ZH.md), [Legitimate call false positives](../false_positives/README_ZH.md). Complete research entry point is available at [Results overview](../../../docs/RESULTS_ZH.md).",
     ]
     (output / "README_ZH.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 

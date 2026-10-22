@@ -15,7 +15,7 @@ def main():
     parser.add_argument("--refresh-before-launch",action="store_true")
     args=parser.parse_args()
     if (ROOT/"assignments/formal/plan.json").exists() and not args.refresh_before_launch:
-        parser.error("正式清单已存在；组员不要重新生成。维护者在正式启动前显式使用 --refresh-before-launch。")
+        parser.error("Official checklist already exists; team members should not regenerate. Maintainer explicitly uses --refresh-before-launch before launch.")
     require_compute()
     if os.environ.get('PYTHONHASHSEED')!='0':raise RuntimeError('Set PYTHONHASHSEED=0 before Python starts')
     allocation=json.loads((ROOT/'assignments/formal/allocation.json').read_text())

@@ -1,41 +1,41 @@
-# 开销、正常说明误报与恢复敏感性
+# Overhead normal explanation false positives and recovery sensitivity
 
-本分析使用全部 1,680 条冻结记录，不新增模型请求、不改原分数。
+This analysis uses all 1,680 frozen records without adding new model requests or modifying original scores.
 
-## TrustGate 相对无防护的配对开销
+## TrustGate relative overhead compared to unprotected pairing
 
-先按相同任务、载荷位置和重复编号配对，再对任务等权平均。排除基础设施错误；任务失败、拒绝和调用上限仍保留。
+First pair by identical task, payload position, and repetition number; then average tasks equally. Exclude infrastructure errors; task failures, rejections, and call limits are still retained.
 
-| 场景 | 配对数 | 额外秒数（95% 区间） | 额外模型调用 | 额外 token |
+| Scenario | Pair count | Additional seconds (95% interval) | Additional model calls | Additional tokens |
 |---|---:|---:|---:|---:|
-| 正常任务 | 60 | 9.04 [6.61, 11.69] | 0.150 | 2964.2 |
-| 输出攻击 | 89 | 7.29 [4.17, 10.66] | -0.132 | 1040.3 |
-| 说明攻击 | 90 | 6.89 [5.23, 8.58] | 0.025 | 121.3 |
+| Normal task | 60 | 9.04 [6.61, 11.69] | 0.150 | 2964.2 |
+| Output attack | 89 | 7.29 [4.17, 10.66] | -0.132 | 1040.3 |
+| Instruction attack | 90 | 6.89 [5.23, 8.58] | 0.025 | 121.3 |
 
-区间为任务聚类 bootstrap（2,000 次、种子 421322）的探索性逐项区间，未作多重比较校正。重复次数不是独立任务数。
+Interval is exploratory per-item interval from task clustering bootstrap (2,000 iterations, seed 421322) without multiple comparison correction. Number of repetitions is not the number of independent tasks.
 
-## 平台及计时解释
+## Platform and timing explanation
 
-- `resource_by_platform.csv` 同时列出全体、Vanda、Mac 和 WSL，包含所有记录均值、有效均值及中位数。
-- `paired_resources.csv` 列出模型调用、token、总秒数、API 秒数、检测器秒数和已返回费用的配对差值，及移除缓存恢复记录后的结果。
-- 每个任务的所有配置由同一组员在同一平台执行，配对可减少平台混杂；不同平台承担不同任务，不能把平台间均值差解释为硬件效果。
-- 单条 `seconds` 是实际任务耗时；不比较各组员不同定义的 worker 总时长。耗时同时受任务路径、远端服务和失败早停影响，不是纯网关微基准。
-- 模型调用及 token 只覆盖返回响应；原始超时记录仍保留在全记录统计中，无法估算其未返回 token。
+- `resource_by_platform.csv` List all, Vanda, Mac, and WSL together, including mean, effective mean, and median for all records.
+- `paired_resources.csv` List paired differences for model calls, token count, total seconds, API seconds, detector seconds, and returned cost, as well as results after removing cached recovery records.
+- Each task’s all configurations are executed by the same team member on the same platform, pairing reduces platform confounding; different platforms handle different tasks, so mean differences between platforms cannot be interpreted as hardware effects.
+- Single record `seconds` It is actual task duration; do not compare total durations defined differently by different team members. Duration is affected by task path, remote services, and early termination due to failure, not a pure gateway micro-benchmark.
+- Model calls and token counts only cover returned responses; original timeout records remain in full record statistics, making it impossible to estimate tokens for non-returned responses.
 
-## 恢复与超时敏感性
+## Recovery and timeout sensitivity
 
-- 缓存恢复记录 `98f0051e9f3cdb5a5daf` 的部分 API 计时来自文件时间。所有对无防护的配对分析同时提供含此条及排除此条两种口径；排除时删除受影响的整对。
-- `recovery_sensitivity.csv` 提供对应的安全性及任务效用计数。正式结果仍以原始全量为主，敏感性结果不替换它。
-- 原正式唯一超时不能算防护成功；有效分析排除该条，计划分母的主图继续保留其位置。
+Cache recovery log `98f0051e9f3cdb5a5daf` Part of the API timing comes from file time. All unguarded pair analyses provide both inclusive and exclusive views of this entry; when excluded, the entire affected pair is removed.
+- `recovery_sensitivity.csv` Provide corresponding safety and task utility counts. Final results remain based on original full data; sensitivity results do not replace them.
+- Original official single timeout cannot be counted as protective success; effective analysis excludes this entry, but the main plot of the planned denominator retains its position.
 
-## 两类误报须分开
+## Two types of false positives must be separated
 
-- `metadata_false_positives.csv` 统计未被攻击修改的工具说明被隔离的次数及检查分母；未开启筛查的条件标为不适用。
-- 正常任务反复使用相同的 24 个工具说明，运行级检查分母不代表同等数量的独立文本。另见 [独立说明与合法调用检查](../false_positives/README_ZH.md)。
-- `benign_authorization_rejections.csv` 是正常任务中的授权拒绝比例，包含模型自己提出的错误或越权请求，不能称为误报率。
-- 合法调用误拒率由冻结权限对上游参考解的独立离线检查给出；该比例的分母是参考路径中的合法调用，不等于所有实际模型提议的人工标注结果。
+- `metadata_false_positives.csv` Count the number of times unattacked tool instructions were isolated and check the denominator; conditions with screening disabled are marked as not applicable.
+- Normal tasks repeatedly use the same 24 tool instructions; run-level check denominator does not represent an equivalent number of independent texts. See also [Distinct benign descriptions and legitimate-call checks](../false_positives/README_ZH.md).
+- `benign_authorization_rejections.csv` is the rate of authorization rejection in normal tasks, including errors or over-privileged requests proposed by the model itself, which cannot be considered false positive rate.
+- Legitimate call rejection rate is determined by independent offline inspection of upstream reference solutions with frozen permissions; the denominator of this ratio is legitimate calls in the reference path, not equal to all actual model-proposed manually annotated results.
 
-## 复现
+## Reproduction
 
-在已分配的 Vanda 计算节点运行 `python scripts/formal/analyze_overhead.py --check`。
-生成独立副本可用 `--output runs/overhead-check`。本目录文件的 SHA256 及输入来源见 `manifest.json`。
+Running on allocated Vanda computing nodes `python scripts/formal/analyze_overhead.py --check`.
+Independent replica generation available `--output runs/overhead-check`. The SHA256 and input source of this directory file are listed in `manifest.json`.

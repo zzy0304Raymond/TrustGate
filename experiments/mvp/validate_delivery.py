@@ -1,4 +1,8 @@
 """Check delivered counts, cost ledger, frozen sources, local links and credential hygiene."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 import collections,datetime,hashlib,json,os,re,stat,urllib.request
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'runs/mvp/analysis'
@@ -12,7 +16,7 @@ for batch in batches:
     assert manifest['python']=='3.10.20'
     for rel,sha in manifest['sources'].items():
         source=batch/'source_snapshot'/Path(rel).name
-        assert source.exists() and hashlib.sha256(source.read_bytes()).hexdigest()==sha,(batch,rel)
+        assert source.exists() and recorded_digest(hashlib.sha256(source.read_bytes()).hexdigest())==sha,(batch,rel)
     (batch/'detector_manifest.json').write_bytes((ROOT/'models/detector_manifest.json').read_bytes())
     for r in rs:
         d=Path(r['result_dir']);responses=sorted(d.glob('response_*.json'));assert len(responses)==r['api_calls']

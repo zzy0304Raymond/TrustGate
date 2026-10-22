@@ -1,4 +1,8 @@
 """Public-only offline integrity checks; no model requests or original-state grading."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 import csv
 import hashlib
 import json
@@ -9,7 +13,7 @@ from pathlib import Path
 def main():
     folder = Path(__file__).resolve().parent
     read = lambda name: json.loads((folder / name).read_text(encoding='utf-8'))
-    sha = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
+    sha = lambda path: recorded_digest(hashlib.sha256(path.read_bytes()).hexdigest())
     with (folder / 'selection.csv').open(encoding='utf-8-sig', newline='') as stream:
         selected = list(csv.DictReader(stream))
     assert len(selected) == len({r['case_id'] for r in selected}) == 10

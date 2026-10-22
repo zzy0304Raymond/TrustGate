@@ -1,4 +1,8 @@
 """Explicit bounded continuation; preserve old batch and reuse cached paid responses."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 import argparse
 import asyncio
 import contextlib
@@ -31,7 +35,7 @@ CHECK = STATE/'resume01-replay-check.json'
 
 
 def sha(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    return recorded_digest(hashlib.sha256(Path(path).read_bytes()).hexdigest())
 
 
 def inventory():
@@ -217,10 +221,10 @@ def watch():
         receipt['continuation']=json.loads((NEW/'continuation-manifest.json').read_text())
         # File names and hashes only; no prompts or private backend state are exported.
         original.dump(ROOT/'output/local-receipt.json',receipt)
-        (ROOT/'output/PROGRESS.md').write_text('# 第2人本地实验交付\n\n336个唯一ID均已记录。150条原记录原样保留；'
-            '第151条通过逐步校验缓存响应恢复，前5次API不重复调用。后续只运行原清单剩余部分。'
-            '全部费用累计统计。第151条旧API耗时由文件时间恢复，延迟分析需标注。'
-            '本地结果等待本人检查及全组平台验收，未上传GitHub。\n',encoding='utf-8')
+        (ROOT/'output/PROGRESS.md').write_text('# Person 2 local experiment delivery\n\n336 unique IDs have all been recorded. 150 original records are preserved as-is;'
+            'Record 151 is recovered through step-by-step cache response validation, with no repeated API calls in the first 5 attempts. Subsequent runs only execute the remaining portion of the original list.'
+            'Total cost is cumulatively tracked. The original API duration for record 151 is recovered from file timestamps; delay analysis must be annotated.'
+            'Local results await personal inspection and full team platform acceptance, not uploaded to GitHub.\n',encoding='utf-8')
     original.dump(STATE/'resume-exit.json',dict(run_id=NEW_ID,finished_at=supervisor.now(),
         runner_returncode=process.returncode,complete=report['complete'],recorded=report['recorded']))
 
@@ -243,8 +247,8 @@ def start():
             'must be flagged in statistical latency comparisons. Pause duration is excluded.\n')
     paused=ROOT/'output/PAUSED.txt'
     if paused.exists():paused.rename(ROOT/'output/PAUSED_history_1542.txt')
-    (ROOT/'output/RESUMED.txt').write_text('已按用户指令续跑。前150条不重跑；第151条复用已付费的缓存响应恢复；'
-        '其后仅运行未完成部分。费用包含暂停前的累计消费。\n',encoding='utf-8')
+    (ROOT/'output/RESUMED.txt').write_text('Ran as per user instruction. First 150 records are not rerun; record 151 reuses the previously paid cache response recovery;'
+        'Subsequent runs only execute unfinished portions. Cost includes cumulative consumption prior to pause.\n',encoding='utf-8')
     env={**os.environ,'PYTHONHASHSEED':'0','TOKENIZERS_PARALLELISM':'false','OMP_NUM_THREADS':'2','MKL_NUM_THREADS':'2'}
     with (STATE/'resume01-supervisor.log').open('x') as log:
         process=subprocess.Popen([sys.executable,str(Path(__file__).resolve()),'watch'],cwd=ROOT,env=env,

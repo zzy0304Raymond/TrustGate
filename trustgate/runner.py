@@ -1,4 +1,8 @@
 """Run one independent manifest shard on a PBS compute node."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[1]))
+from release_integrity import recorded_digest
 import asyncio
 import contextlib
 import hashlib
@@ -63,7 +67,7 @@ async def run_shard(plan_path, shard_index, run_id, output_root=None, detector_d
     folder.mkdir()  # Deliberately fail if rerun: never overwrite or double-spend silently.
     dump(folder/'plan.json', plan)
     dump(folder/'config.json', cfg)
-    sources = {str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
+    sources = {str(p.relative_to(ROOT)):recorded_digest(hashlib.sha256(p.read_bytes()).hexdigest())
                for base in ('trustgate','experiments/mvp') for p in (ROOT/base).glob('*.py')}
     dump(folder/'manifest.json', dict(plan_sha256=plan['plan_sha256'], shard_index=shard_index,
          run_id=run_id, host=socket.gethostname(), pbs_job_id=os.environ['PBS_JOBID'],

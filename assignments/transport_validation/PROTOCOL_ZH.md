@@ -1,13 +1,13 @@
-# 本地与 MCP 的最终适配验证
+# Local and MCP final adaptation validation
 
-本批次在正式研究之后单独执行，验证传输适配，不并入原 1,680 条成绩，不调模型、攻击、阈值或权限。
+This batch is executed separately after formal research to validate transmission adaptation, not included in original 1,680 results, no model, attack, threshold, or permission calls.
 
-- 正常任务：原正式 task 0、17、27、12、31、18，覆盖六类业务。仅使用无防护配置，以隔离传输差异；本地/MCP 各三次，共 36 条。
-- 输出攻击：原 task 0 与 task 17 的 output-1，同载荷、同初始状态、本地/MCP 各三次，共 12 条。
-- 共 48 条、24 对，成对相邻执行并随机化对内次序和对的次序（种子 421322）。每条上限沿用八次请求、180 秒软限额、60 秒单请求等待；最多 384 次请求，总预留预算 1 美元。
-- 原正式执行器及清单不变。附加原生传输适配器在指定首次成功读取后追加相同载荷；MCP 沿用既有服务端注入。工具、调用、结果和状态在付费试验前通过八组确定性双传输检查。
-- 全部预定结果保留；基础设施错误停批，不重跑失败以替换成绩。恢复只能另列尚未开始的 ID。
-- 报告每入口的有效样本、原生任务成功、攻击成功、曝光及耗时。样本较小且复用正式任务，本批次不能证明两个入口统计等价，也不能当作新攻击泛化测试。
-- 记录保持隔离；公开指标与源文件哈希，私有请求、响应和完整模拟状态保留在 runs/。
+- Normal task: Original official tasks 0, 17, 27, 12, 31, 18 covering six business categories. Only unsecured configurations used to isolate transmission differences; three local/MCP runs each, totaling 36 entries.
+- Output attack: output-1 from original tasks 0 and 17, same payload, same initial state, three local/MCP runs each, totaling 12 entries.
+- Total 48 entries, 24 pairs, executed in adjacent pairs with randomized within-pair order and pair order (seed 421322). Each entry capped at eight requests, 180-second soft limit, 60-second per-request wait; maximum 384 requests, total reserved budget 1 USD.
+- Original official executor and inventory unchanged. Additional native transport adapter appended after first successful read, same payload; MCP reuses existing server-side injection. Tools, calls, results, and states verified via eight deterministic dual-transport checks before paid trials.
+- Retain all planned results. Stop the batch on infrastructure errors; do not rerun failed trials to replace their scores. Any continuation must separately list IDs that have not started.
+- Report effective samples per entry, native task success, attack success, exposure, and duration. Samples small and reuse official tasks; this batch cannot prove statistical equivalence between two entries, nor serve as new attack generalization test.
+- Maintain isolation; public metrics and source file hashes disclosed, private requests, responses, and full simulation states retained in runs/.
 
-运行前生成一次 plan.json，冻结本文件、执行器和 48 个案例。公开重现复用该清单，不能重新选择任务。
+Generate plan.json once before run, freeze this file, executor, and 48 cases. Public reproducibility reuses this list; tasks cannot be reselected.

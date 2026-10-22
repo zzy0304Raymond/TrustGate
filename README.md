@@ -63,6 +63,8 @@ This entry point verifies and rebuilds public results without model API calls. F
 
 The historical pilot and later supplemental studies are separate datasets. Failed trials are retained. Public results can be verified from the committed data; complete raw requests, responses, workspace snapshots, credentials, and model weights are excluded. Re-running the model experiment produces a new sample and need not reproduce identical answers.
 
+The English publication preserves the original measurements and experiment identities. See [language revision and artifact integrity](docs/ENGLISH_RELEASE.md) for the exact mapping between original and translated files.
+
 ## Sources
 
 The benchmark and native evaluators come from [AgentDojo](https://github.com/ethz-spylab/agentdojo); tool transport uses the [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk); metadata screening uses a pinned [Protect AI DeBERTa detector](https://huggingface.co/protectai/deberta-v3-base-prompt-injection-v2). The study's attacks are documented adaptations of tool-poisoning settings, not a reproduction of an external benchmark's complete attack suite. See [sources and scope](docs/SOURCES.md). Upstream software, model weights, and benchmark data retain their respective licenses.

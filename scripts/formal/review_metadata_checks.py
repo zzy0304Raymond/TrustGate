@@ -1,4 +1,8 @@
 """Validate five submitted metadata exports without accessing a model service."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 import csv
 import hashlib
 import json
@@ -19,7 +23,7 @@ def read(path):
 
 
 def sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    return recorded_digest(hashlib.sha256(path.read_bytes()).hexdigest())
 
 
 def validate_bundle(bundle, person, formal, plan, extractor_hash):

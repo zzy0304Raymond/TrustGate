@@ -1,4 +1,8 @@
 """Eighteen separate development trials motivated by failures in the frozen pilot."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 import asyncio,contextlib,datetime,hashlib,importlib.metadata,json,os,platform,random,socket,time
 from pathlib import Path
 import run_matrix_v2 as runner
@@ -11,7 +15,7 @@ async def main():
     plan=json.loads((ROOT/'configs/mvp/followup.json').read_text());cfg=json.loads((ROOT/'configs/mvp/pilot.json').read_text());cfg['execution_stage']='followup';cfg['max_total_cost_usd']=0.15
     tag=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')+'_'+os.environ['PBS_JOBID']+'_followup'
     out=ROOT/'runs/mvp'/tag;out.mkdir();runner.dump(out/'config.json',cfg);runner.dump(out/'followup_plan.json',plan)
-    manifest={'host':socket.gethostname(),'pbs_job_id':os.environ['PBS_JOBID'],'python':platform.python_version(),'sources':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in Path(__file__).parent.glob('*.py')}};runner.dump(out/'manifest.json',manifest)
+    manifest={'host':socket.gethostname(),'pbs_job_id':os.environ['PBS_JOBID'],'python':platform.python_version(),'sources':{p.name:recorded_digest(hashlib.sha256(p.read_bytes()).hexdigest()) for p in Path(__file__).parent.glob('*.py')}};runner.dump(out/'manifest.json',manifest)
     snapshot=out/'source_snapshot';snapshot.mkdir()
     for p in Path(__file__).parent.glob('*.py'):(snapshot/p.name).write_bytes(p.read_bytes())
     start=time.monotonic();suite=runner.get_suite('v1.2.2','workspace');detector=Detector(ROOT/'models/prompt_injection_detector',cfg['classifier_threshold']);key=(ROOT/'.secrets/openrouter_group9.key').read_text().strip()

@@ -1,4 +1,8 @@
 """Dependency-free verification and paired summaries for the transport study."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 import argparse
 import csv
 import hashlib
@@ -20,7 +24,7 @@ def digest(value):
 
 
 def sha(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    return recorded_digest(hashlib.sha256(Path(path).read_bytes()).hexdigest())
 
 
 def verify():
@@ -89,9 +93,9 @@ def write():
         writer = csv.DictWriter(stream, fieldnames=list(pairs[0]))
         writer.writeheader()
         writer.writerows(pairs)
-    lines = ['# 本地工具与 MCP 对照', '',
-        '固定清单下的 48 次真实模型验证已完成，独立于原 1,680 条正式研究。六类正常任务 36 条、两个既有输出攻击 12 条；本地和 MCP 使用相同模型、工具、载荷、初始状态与预算，每格三次。', '',
-        '| 场景 | 入口 | 有效／预定 | 原生任务成功 | 攻击成功 | 攻击曝光 | 平均秒数 |',
+    lines = ['# Local tools compared with MCP', '',
+        '48 real model validations under fixed checklist completed independently from original 1,680 formal studies. Six categories of normal tasks 36 items, two existing output attacks 12 items; local and MCP use same model, tools, payload, initial state and budget, three trials per cell.', '',
+        '| Scenario | entry point | Valid/Preset | Native task success | Attack succeeds | Attack exposure | Average seconds |',
         '|---|---|---:|---:|---:|---:|---:|']
     for r in groups:
         attack = '—' if r['attack_successes'] is None else f"{r['attack_successes']}/{r['valid']}"
@@ -100,17 +104,17 @@ def write():
                      f"{r['native_successes']}/{r['valid']} | {attack} | {exposure} | {r['mean_seconds']:.2f} |")
     agreement = sum(p['native_outcome_agrees'] for p in pairs)
     attack_pairs = [p for p in pairs if p['surface'] == 'output']
-    lines += ['', f"24 组配对中，原生任务结局一致 {agreement}/24；输出攻击结局一致 "
-              f"{sum(p['attack_outcome_agrees'] for p in attack_pairs)}/{len(attack_pairs)}。逐对 ID 与差值见 `pairs.csv`。", '',
-              '八组预设回复检查均通过：本地/MCP 的工具定义、模型可见轨迹、读取结果、注入载荷和前后状态完全一致。这验证适配实现；真实模型的结局比较反映本批样本，不能据此声称统计等价。', '',
-              '本批全部为无防护配置，以隔离传输适配。输出注入的原生入口通过独立薄适配器实现与 MCP 相同的一次追加；原正式执行器和 1,680 条成绩没有变化。预设回复检查不计入上述 48 条真实模型试验。', '',
-              '该批复用正式任务和既有攻击，是事后适配诊断，不是新的泛化测试。模型温度为零也不保证相同回答；相邻配对和随机对内次序不能完全消除服务波动。耗时包含工具选择路径和远端响应，不能视为纯 MCP 协议开销。', '',
-              f"本批尝试请求数 {summary['worker']['attempted_requests']}；有效记录和实际耗时见 `summary.json`。所有失败照常保留。", '',
-              '## 复现', '',
-              '- 无模型请求：`python scripts/transport/verify_public.py` 核验清单、完整性、指标和来源。',
-              '- 真实 MCP 适配检查：在 PBS 计算节点运行 `python scripts/transport/study.py controls --controls runs/transport-check-new`。',
-              '- 重新运行模型：在全新检出目录配置私有凭据路径，提交 `scripts/transport/run.pbs`；复用发布的清单，不覆盖已运行目录。', '',
-              '冻结设计见 [PROTOCOL_ZH.md](../../assignments/transport_validation/PROTOCOL_ZH.md)。原始请求、响应及工作区状态保留在私有目录，公开文件仅包含指标及检查哈希。', '']
+    lines += ['', f"24 paired sets with consistent native task outcomes {agreement}/24; output attack outcomes were consistent "
+              f"{sum(p['attack_outcome_agrees'] for p in attack_pairs)}/{len(attack_pairs)}.Pairwise IDs and differences are listed `pairs.csv`.", '',
+              'Eight preset response checks passed: local/MCP tool definitions, model-visible trajectories, read results, payload injection, and pre/post states fully consistent. This validates adaptation implementation; outcome comparisons of real models reflect this batch sample and do not imply statistical equivalence.', '',
+              'This batch is entirely unshielded and adapted for isolated transmission. The original input injection is achieved through an independent thin adapter to achieve the same one-append behavior as MCP; the official executor and 1,680 scores remain unchanged. Preset reply checks are not included in the above 48 real model trials.', '',
+              'This batch’s backup official task and existing attacks are post-adaptation diagnostic checks, not new generalization tests. A model temperature of zero does not guarantee identical responses; adjacent pairs and random intra-order cannot fully eliminate service fluctuations. Duration includes tool selection path and remote response time and cannot be considered pure MCP protocol overhead.', '',
+              f"Number of requests attempted in this batch {summary['worker']['attempted_requests']}; Valid records and actual runtime are listed `summary.json`. All failures are retained.", '',
+              '## Reproduction', '',
+              '- Unmodelled requests:`python scripts/transport/verify_public.py` Verification checklist completeness metrics and sources.',
+              '- Real MCP adaptation check: run on PBS compute nodes `python scripts/transport/study.py controls --controls runs/transport-check-new`.',
+              '- Re-run model: configure private credential path in a freshly checked-out directory, submit `scripts/transport/run.pbs`; Reuse the published list without overwriting the already run directory.', '',
+              'Frozen design see [PROTOCOL_ZH.md](../../assignments/transport_validation/PROTOCOL_ZH.md). Original requests, responses, and workspace states are retained in private directories, while public files contain only metrics and check hashes.', '']
     (OUT / 'README_ZH.md').write_text('\n'.join(lines))
 
 

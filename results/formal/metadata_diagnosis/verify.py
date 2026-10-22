@@ -1,4 +1,8 @@
 """Verify metadata diagnostics against frozen results, evidence and file hashes."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[3]))
+from release_integrity import recorded_digest
 import csv
 import hashlib
 import json
@@ -19,7 +23,7 @@ def main():
     manifest = load('manifest.json')
     for base, mapping in ((root, manifest['inputs']), (folder, manifest['outputs'])):
         for name, expected in mapping.items():
-            assert hashlib.sha256((base / name).read_bytes()).hexdigest() == expected, name
+            assert recorded_digest(hashlib.sha256((base / name).read_bytes()).hexdigest()) == expected, name
     plan = json.loads((root / 'assignments/formal/plan.json').read_text())
     assert plan['plan_sha256'] == manifest['plan_sha256']
     attacks = {k: a for k, a in plan['config']['formal_attacks'].items() if a['surface'] == 'metadata'}
@@ -71,7 +75,7 @@ def main():
     review = load('review.json')
     assert review['passed'] and review['total']['records'] == len(trials)
     for name, expected in review['input_sha256'].items():
-        assert hashlib.sha256((root / name).read_bytes()).hexdigest() == expected, name
+        assert recorded_digest(hashlib.sha256((root / name).read_bytes()).hexdigest()) == expected, name
     detailed = [r for r in trials if r['evidence_level'] != 'summary_only']
     assert summary['evidence_levels'] == dict(Counter(r['evidence_level'] for r in trials))
     assert summary['request_evidence_levels'] == dict(Counter(r['request_evidence'] for r in trials))

@@ -1,7 +1,7 @@
-# Mac 实验来源与恢复
+# Mac experiment source and recovery
 
-第 2 份正式数据已完成，权威记录为 `experiments/deliveries/person-02/`。其 336 个 ID、冻结核心源码与总体清单已统一核验。
+The 2nd official data has been completed, authoritative record is `experiments/deliveries/person-02/`The 336 IDs, frozen core source code, and overall list have been uniformly verified.
 
-本地适配使用 CPU Torch 2.7.1；Vanda 使用 2.7.1+cu126，差异保留在来源说明中。第 151 条记录复用了五个相同请求的缓存响应；总调用预算仍为八次，原目录未覆盖。部分历史 API 时间来自文件时间，最终 [开销分析](../../results/formal/overhead/README_ZH.md) 同时排除此条作敏感性比较。
+Local adaptation uses CPU Torch 2.7.1; Vanda uses 2.7.1+cu126, with differences retained in the source description. Record 151 reused cached responses for five identical requests; total call budget remains eight times, original directory not covered. Some historical API times come from file times, final [Overhead analysis](../../results/formal/overhead/README_ZH.md) This entry is also excluded for sensitivity comparison.
 
-`person2_supervisor.py`、`person2_resume.py` 和 `tasks/02/prepare_delivery.py` 保留原运行与导出逻辑。完整请求和状态不公开；公开 CSV、收据、恢复说明及哈希可独立核验。新的系统复现优先使用 [统一入口](../../docs/REPRODUCE_ZH.md)，不要重新启动原已完成目录。
+`person2_supervisor.py`, `person2_resume.py` and `tasks/02/prepare_delivery.py` Retain original execution and export logic. Full requests and states are not disclosed; public CSV, receipts, recovery instructions, and hashes can be independently verified. New system reproducibility is prioritized. [Unified entry point](../../docs/REPRODUCE_ZH.md) Do not restart the original completed directory.

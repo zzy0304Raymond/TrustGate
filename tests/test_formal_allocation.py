@@ -38,5 +38,5 @@ class FormalAllocationTests(unittest.TestCase):
 
     def test_formal_allocation_cannot_enter_pilot_runner(self):
         from trustgate.planning import validate_plan
-        with self.assertRaisesRegex(ValueError, '正式实验'):
+        with self.assertRaisesRegex(ValueError, 'Formal experiment'):
             validate_plan(self.plan)

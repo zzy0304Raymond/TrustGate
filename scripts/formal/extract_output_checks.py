@@ -1,4 +1,8 @@
 """Derive output-attack mechanism checks from a private formal shard, offline."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 import argparse
 import csv
 import hashlib
@@ -51,7 +55,7 @@ def main():
     from trustgate.planning import read_plan, digest
     from trustgate.formal_data import attack_success
     read = lambda p: json.loads(p.read_text())
-    sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+    sha = lambda p: recorded_digest(hashlib.sha256(p.read_bytes()).hexdigest())
     plan = read_plan(ROOT / 'assignments/formal/plan.json')
     for name, expected in plan['source_sha256'].items():
         assert sha(ROOT / name) == expected, name

@@ -1,4 +1,8 @@
 """Prepare/recheck the person-02 sanitized delivery. Never starts an experiment."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[2]))
+from release_integrity import recorded_digest
 import argparse
 import csv
 import hashlib
@@ -17,7 +21,7 @@ from trustgate.delivery import PUBLIC_FIELDS
 
 
 def load(path):return json.loads(path.read_text())
-def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+def sha(path):return recorded_digest(hashlib.sha256(path.read_bytes()).hexdigest())
 def write_json(path,value):path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def rows_from(path):
     with path.open(newline='') as stream:return list(csv.DictReader(stream))
@@ -56,13 +60,13 @@ def prepare():
     csv_write(DEST/'results.csv',rows)
     for name in ('local-receipt.json','ENVIRONMENT.md','AUDIT_REPORT.json','verification.json'):
         shutil.copy2(source/name,DEST/name)
-    shutil.copy2(source/'结果复核与问题说明.txt',DEST/'AUDIT_ZH.txt')
+    shutil.copy2(source/'Results review and issue description.txt',DEST/'AUDIT_ZH.txt')
     delivered_audit=load(DEST/'AUDIT_REPORT.json')
     delivered_audit['submission_format_update']={'standard_receipt_added':True,'original_local_receipt_retained':True,'platform_review':'pending','note':'Original audit in output is preserved. This submission now includes standard receipt fields with truthful local-platform provenance; parser readability does not approve Vanda equivalence.'}
     delivered_audit['issues'][0]['finding']='Mac Torch 2.7.1 and local execution differ from Vanda. A standard-field receipt.json is now supplied with actual package versions and explicit pending_team_platform_review; local-receipt.json remains unchanged. Standard collector readability does not validate platform equivalence.'
     write_json(DEST/'AUDIT_REPORT.json',delivered_audit)
     audit_text=(DEST/'AUDIT_ZH.txt').read_text()
-    audit_text=audit_text.replace('标准正式交付收集器寻找receipt.json，目前本地提供local-receipt.json，不会被自动当作原Vanda交付读入。','原审计时仅有local-receipt.json；本提交另生成标准字段receipt.json，明确保留实际Mac包版本和待平台审核状态。原local-receipt保持不变。共享汇总程序可读取，不代表平台已通过验收。')
+    audit_text=audit_text.replace('The standard formal delivery collector looks for receipt.json. Currently, local-receipt.json is provided locally and will not be automatically read in as the original Vanda delivery.','During the original audit, only local-receipt.json was present; this submission additionally generates the standard field receipt.json to explicitly retain the actual Mac package version and pending platform review status. The original local-receipt remains unchanged. Shared aggregation programs can read it, but this does not indicate platform acceptance has been completed.')
     (DEST/'AUDIT_ZH.txt').write_text(audit_text,encoding='utf-8')
     before=sum((Decimal(x['cost_usd']) for x in rows[:150]),Decimal(0))
     after=sum((Decimal(x['cost_usd']) for x in rows[150:]),Decimal(0))

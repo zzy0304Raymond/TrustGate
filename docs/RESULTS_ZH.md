@@ -1,31 +1,31 @@
-# 结果与证据总览
+# Results and evidence
 
-## 三个研究问题
+## Research questions
 
-| 问题 | 主要发现 | 结果入口 |
+| Question | Main finding | Evidence |
 |---|---|---|
-| RQ1：安全性 | 输出攻击：无防护 10/90，TrustGate 0/89；说明攻击所有条件均无成功，无法证明该入口的增益 | [总体表与六张图](../results/formal/analysis/README_ZH.md) |
-| RQ2：任务效用与开销 | 正常任务无防护 46/60、TrustGate 44/60；配对正常任务平均增加约 9.04 秒、0.15 次模型调用、2,964 token | [平台与开销分析](../results/formal/overhead/README_ZH.md) |
-| RQ2：误报 | 独立合法说明误隔离 1/24；参考路径授权误拒 0/31，说明隔离影响 1/31 次参考调用 | [误报统计与分母](../results/formal/false_positives/README_ZH.md) |
-| RQ3：模块与失败机制 | 去授权后输出攻击成功 6/90，有实际调用被拒的轨迹；其他两个模块的独立增益未确认 | [消融及机制证据](../results/formal/mechanism_evidence/README_ZH.md) |
+| RQ1: Security | Output attack success is 10/90 without defense and 0/89 with TrustGate. Metadata attacks never succeed in any configuration, so they do not demonstrate an added security benefit. | [Main tables and six figures](../results/formal/analysis/README_ZH.md) |
+| RQ2: Task utility and overhead | Benign completion is 46/60 without defense and 44/60 with TrustGate. Matched benign trials average about 9.04 additional seconds, 0.15 additional model calls, and 2,964 additional tokens. | [Platform and overhead analysis](../results/formal/overhead/README_ZH.md) |
+| RQ2: False positives | 1/24 distinct benign descriptions is quarantined. Authorization rejects 0/31 executable reference calls; metadata quarantine affects 1/31 reference calls. | [False-positive counts and denominators](../results/formal/false_positives/README_ZH.md) |
+| RQ3: Modules and failure mechanisms | Removing authorization produces 6/90 output attack successes. A recorded trace directly shows authorization denying an attack call. Independent gains from the other two modules remain unconfirmed. | [Ablations and mechanism evidence](../results/formal/mechanism_evidence/README_ZH.md) |
 
-上述攻击比例按有效记录计算；TrustGate 另有一条超时，不算成功防御。正常任务使用冻结原生评分，不能等同于完整事实正确性。授权增量差异的任务聚类区间包含零；实际机制轨迹与总体统计各自说明不同层面的证据。
+Attack fractions use valid trials. TrustGate has one additional timeout, which is not credited as successful defense. Benign completion uses the frozen native evaluator and does not guarantee factual correctness. The task-clustered interval for the incremental authorization effect includes zero. Direct mechanism traces and aggregate statistics address different levels of evidence.
 
-## 分开报告的数据集
+## Datasets reported separately
 
-| 数据 | 范围与用途 |
+| Dataset | Scope and purpose |
 |---|---|
-| [原正式研究](../results/formal/README_ZH.md) | 20 任务、60 攻击、7 配置、3 重复，1,680 条；用于主结论 |
-| [52 条重点核查](../results/formal/review/README_ZH.md) | 定向检查失败、误报、评分及攻击路径，不用于重新估计总体成功率 |
-| [说明攻击诊断](../results/formal/metadata_diagnosis/README_ZH.md) | 180 条派生检查、90 组对照；区分可见载荷、精确攻击目标与合法同名工具调用 |
-| [独立说明补测](../results/metadata_supplement/README_ZH.md) | 开发 12 条、评估 144 条；保留一条超时。无防护仍无攻击成功；另有评分误通过的事后事实检查 |
-| [本地／MCP 验证](../results/transport_validation/README_ZH.md) | 48 次真实模型试验，六类正常业务与两个输出攻击；八组预设轨迹验证传输一致性 |
-| [三个演示案例](../demos/README_ZH.md) | 合法写入、实际授权防御、误隔离及评分问题；回放与离线机制检查分开标示 |
+| [Original formal study](../results/formal/README_ZH.md) | 20 tasks, 60 attacks, seven configurations, three repetitions: 1,680 trials supporting the main conclusions |
+| [52 selected reviews](../results/formal/review/README_ZH.md) | Targeted checks of failures, false positives, grading, and attack paths; not a sample for re-estimating overall success rates |
+| [Metadata attack diagnosis](../results/formal/metadata_diagnosis/README_ZH.md) | 180 derived checks and 90 matched comparisons distinguishing visible payloads, exact attack goals, and legitimate calls to the same tool |
+| [Separate metadata supplement](../results/metadata_supplement/README_ZH.md) | 12 development and 144 evaluation trials, retaining one timeout; attacks still never succeed without defense; a separate post-hoc audit examines incorrect answers that pass native grading |
+| [Local/MCP validation](../results/transport_validation/README_ZH.md) | 48 model trials spanning six benign workflows and two output attacks; eight scripted paired controls check transport consistency |
+| [Three demonstration cases](../demos/README_ZH.md) | Legitimate writes, execution authorization, and false quarantine with a grading blind spot; recorded replays and offline mechanism controls are identified separately |
 
-历史 102 次 MVP 与 20 次开发就绪检查保留在 `results/pilot/` 和 `results/readiness/`，不混入主实验。补测和传输适配验证也不扩大主实验的独立任务数。
+The historical 102-trial MVP and 20 development readiness checks remain under `results/pilot/` and `results/readiness/`. They are excluded from the main study. The supplement and transport checks also do not increase the number of independent tasks in the main study.
 
-## 解释边界
+## Interpretation limits
 
-当前证据支持在这套模拟任务、攻击和冻结权限下的工具输出防护效果；不能推广为所有提示注入都被防住。工具说明攻击没有提供额外收益的对照证据。正常工具误隔离、评分误通过及部分字段未受权限约束都已保留。完整边界见 [研究局限](KNOWN_LIMITATIONS_ZH.md)。
+The evidence supports protection against the tested tool-output injections under these simulated tasks, attacks, and frozen permissions. It does not establish protection against all prompt injections. Metadata attacks provide no comparative evidence of additional protection. False quarantine, native grading false passes, and fields outside permission constraints remain documented. See [study limitations](KNOWN_LIMITATIONS_ZH.md).
 
-公开统计可从已提交数据独立重算；完整私有状态只用于已有派生检查或自行重跑模型。运行方式见 [复现指南](REPRODUCE_ZH.md)。
+Public statistics can be independently recomputed from committed data. Complete private states were used for the published derived checks; reproducing model trials generates new private records. See the [reproduction guide](REPRODUCE_ZH.md).

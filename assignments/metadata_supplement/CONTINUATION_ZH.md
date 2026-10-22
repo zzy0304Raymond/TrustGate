@@ -1,14 +1,14 @@
-# 运行中断与剩余清单
+# Run interruption and remaining list
 
-原评估清单共 144 条。第 128 条（`11df1052bb099ae64ee7`，任务 23、分隔符、调用示例模板、重复 2）在第三次模型请求遇到 60 秒读取超时，原批次按规则停止。该记录保留为接口错误，未重跑或替换，不当作一次有效攻击失败。
+The original assessment list had 144 items. Item 128 (`11df1052bb099ae64ee7`task 23, delimiter, call example template, repeat 2) encountered a 60-second read timeout during the third model request, and the original batch was stopped according to the rules. This record was retained as an interface error, not rerun or replaced, and was not counted as a valid attack failure.
 
-[续行清单](continuation-01.json)只包含原顺序中的第 129–144 条，全部此前未启动。记录原结果、原执行摘要、父清单和续行脚本的哈希，防止重复运行或覆盖已有数据。续行预算从原评估 $3 的余量中划出 $1；原超时请求仍保留 $0.05 预留，总停止预算没有扩大。
+[Continuation list](continuation-01.json) contains only items 129–144 in the original order, all previously unstarted. It records the original results, original execution summary, parent manifest, and continuation script hash to prevent duplicate runs or overwriting existing data. Its $1 budget is taken from the remaining allowance of the original $3 evaluation budget; the timed-out request retains its $0.05 reservation, so the total stopping budget is unchanged.
 
-开发和原评估的执行器 `study.py` 保持冻结。`continue_remaining.py` 复用完全相同的 `FormalExperiment`、模型、工具、阈值、评分和每案例调用上限，只负责明确的剩余案例循环及独立预算账本。它不提供自动重试。
+Development and original assessment executor `study.py` Remains frozen.`continue_remaining.py` Reuse exactly the same `FormalExperiment`models, tools, thresholds, scores, and the maximum number of calls per case are handled, responsible only for explicitly defined remaining case loops and independent budget ledgers. It does not provide automatic retries.
 
-汇总保留 144 个预定 ID，其中 143 个有效比较，1 个接口失败。模型调用预算耗尽属于有效任务失败，仍进入比较；接口超时单列。原始部分评分以状态观察保留，并通过 `valid_for_comparison` 防止将接口错误计作防御成功。无防护/TrustGate 的 18 对配对全部有效。
+The summary retains all 144 planned IDs, including 143 valid comparisons and 1 infrastructure failure. Model-call budget exhaustion remains a valid task failure and stays in the comparison; the interface timeout is listed separately. Original partial scores are retained as observations of state and handled through `valid_for_comparison` to prevent counting interface errors as successful defenses. All 18 pairs of unprotected/TrustGate are fully valid.
 
-本次私有记录分为 `evaluation/` 与 `continuation-01/` 两段；重新导出时必须同时传入：
+This private record is divided into `evaluation/` and `continuation-01/` segments; when re-exporting, both must be provided simultaneously:
 
 ```bash
 python scripts/supplement/analyze.py runs/metadata_supplement/development runs/metadata_supplement/evaluation --continuation runs/metadata_supplement/continuation-01

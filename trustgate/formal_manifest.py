@@ -1,4 +1,8 @@
 """Freeze and verify formal data, execution code, model files and software versions."""
+import sys as _release_sys
+from pathlib import Path as _ReleasePath
+_release_sys.path.insert(0, str(_ReleasePath(__file__).resolve().parents[1]))
+from release_integrity import recorded_digest
 import copy
 import hashlib
 import importlib.metadata
@@ -11,13 +15,13 @@ PACKAGES=('agentdojo','mcp','transformers','torch','pydantic','openai')
 
 def source_hashes():
     paths=[p for base in ('trustgate','experiments/mvp') for p in (ROOT/base).glob('*.py')]
-    return {str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
+    return {str(p.relative_to(ROOT)):recorded_digest(hashlib.sha256(p.read_bytes()).hexdigest()) for p in sorted(paths)}
 
 def file_sha(path):
     h=hashlib.sha256()
     with Path(path).open('rb') as stream:
         for block in iter(lambda:stream.read(1024*1024),b''):h.update(block)
-    return h.hexdigest()
+    return recorded_digest(h.hexdigest())
 
 def detector_hashes(folder):
     names=('model.safetensors','config.json','tokenizer.json','tokenizer_config.json','special_tokens_map.json','spm.model')

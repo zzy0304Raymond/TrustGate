@@ -1,13 +1,13 @@
-# 研究局限
+# Study limitations
 
-- 本研究只测量一个固定模型、一个模拟工作区及明确权限边界；不代表所有模型或真实系统。
-- 60 个攻击案例复用少量模板家族，三次重复不等于独立任务；置信区间按任务分组，仍不能消除共享情境的相关性。
-- 来源标注包含包装与配套提示，不能视为完整信息流追踪。权限依赖可信的攻击前资源目录，一些内容和日历字段仍不受语义约束。
-- 工具输出攻击有防护收益和实际授权机制证据；来源标注、说明筛查的独立安全收益尚未建立。工具说明攻击的无防护条件也没有成功攻击。
-- 正常说明 `get_current_day` 被误隔离；任务完成率可能降低。原生评分存在措辞敏感与事实错误误通过的问题，诊断不改写冻结成绩。
-- 合法调用误拒率来自上游参考路径，不能当作所有模型提议的人工标注结果；只有部分输出攻击具有完整轨迹核查。
-- 正式实验在 Vanda、Mac、WSL 上执行；Mac Torch 构建不同。平台与任务分配相关，不能据平台均值做硬件因果比较。缓存恢复及一次超时已分别做敏感性分析和分母标注。
-- 补充说明攻击复用开发阶段选择的模板家族；本地/MCP 验证复用正式任务。两者均单列，不作为新增的独立泛化测试。
-- 公开指标、代码、配置及派生证据可独立复现；完整原始请求和模拟状态私下保留。重新调用模型可能产生不同回答。
+- The study evaluates one fixed model, one simulated workspace, and explicit permission boundaries. It does not represent all models or production systems.
+- The 60 attack cases reuse a small set of template families. Three repetitions are not independent tasks. Task-grouped confidence intervals still cannot remove all dependence from shared context.
+- Provenance consists of source wrappers and supporting instructions, rather than complete information-flow tracking. Permissions depend on a trusted pre-attack resource catalog. Some content and calendar fields remain outside semantic constraints.
+- Tool-output attacks show a security benefit and direct authorization mechanism evidence. Independent benefits from provenance and metadata screening are not established. Metadata attacks also never succeed without defense.
+- The benign `get_current_day` description is falsely quarantined, and task completion can decrease. Native grading is sensitive to wording and can pass factually incorrect answers. Diagnostic findings do not replace frozen scores.
+- Legitimate-call rejection rates use upstream reference paths; they are not manual labels for every model proposal. Only a subset of output attacks has a complete trace audit.
+- Formal trials ran on Vanda, macOS, and WSL, with a different Torch build on macOS. Platform and task allocation are associated, so platform means cannot establish hardware effects. Cache recovery has a separate sensitivity analysis, and the timeout is identified in denominators.
+- The metadata supplement reuses template families selected during development. Local/MCP validation reuses formal tasks. Both are reported separately and are not new independent generalization tests.
+- Public metrics, code, configuration, and derived evidence support independent reproduction. Complete original requests and simulated states are retained privately. New model calls may produce different answers.
 
-完整结果见 [结果总览](RESULTS_ZH.md)，实现与比较范围见 [系统说明](SYSTEM.md)。
+See the [results overview](RESULTS_ZH.md) and [system description](SYSTEM.md) for the full evidence and comparison scope.

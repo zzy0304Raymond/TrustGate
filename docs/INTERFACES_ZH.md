@@ -1,29 +1,29 @@
-# 五份实验共同遵守的接口
+# Interfaces common to five experiments
 
-## 案例与分片
+## Cases and shards
 
-一个执行案例必须包含 `case_id, workflow, task, surface, condition, repeat, transport`。`surface` 为 `benign/output/metadata`；七种 condition 的名字在 `trustgate/planning.py` 中固定。模型、供应商、提示版本、阈值和预算来自清单 config，不按节点私自改变。
+An execution case must include `case_id, workflow, task, surface, condition, repeat, transport`.`surface` is `benign/output/metadata`; the names of the seven conditions are fixed in `trustgate/planning.py` The model supplier prompt version threshold and budget come from the configuration list and must not be changed privately by node.
 
-正式案例还包含 `slot_id, attack_case_id, split`，通过 attack_case_id 关联冻结的 `metadata_tool, output_tools, payload, goal, template_family`。正式输出攻击使用指定 MCP 返回文字追加，不修改后端数据；原生用户任务评估器保持不变，攻击目标使用显式状态差异判定。
+Official cases also include `slot_id, attack_case_id, split`, associated with frozen via attack_case_id `metadata_tool, output_tools, payload, goal, template_family`Official output of attack appends text returned by specified MCP without modifying backend data; native user task scorer remains unchanged, with attack objective determined by explicit state difference detection.
 
-每路只拥有自己的 `runs/studies/<run-id>/shard-NN/`，任何分支不能共享修改同一个 state.pickle。模型文件共享只读。
+Each path only owns its own `runs/studies/<run-id>/shard-NN/`, no branch can share modifications to the same state.pickle. Model files are shared read-only.
 
-## 权限
+## permissions
 
-权限从原用户请求与攻击前可信资源目录确定，最少包含 `origin, task_prompt, read_tools, writes`。写权限约束工具、对象、收件人和参数；不得读取 `ground_truth`、攻击者目标或隐藏评估结果。正式编译器为 `compile_policy(task, env, runtime, workflow)`；真实执行时仅读取冻结策略。动态共享对象只允许可信后端确认本次新建且名称符合用户请求的文件。策略不会根据攻击文字扩大。
+Permissions are determined from the original user request and the trusted resource directory before attack, with minimum inclusion of `origin, task_prompt, read_tools, writes`Write permissions constrain tools, objects, recipients, and parameters; reading of `ground_truth`, attacker targets, or hidden evaluation results is not allowed. Official compiler is `compile_policy(task, env, runtime, workflow)`; during actual execution only the frozen policy is read. Dynamically shared objects are allowed only if confirmed by a trusted backend that the newly created file matches the user request. The policy does not expand based on attack text.
 
-## 检测
+## Detection
 
-`Detector.score(text)` 返回 `score, blocked, seconds, windows`。阈值在开发集确定，测试集冻结后不能调整；文档长于一个窗口时必须覆盖全文。来源标注不能在提示中虚构可信度或授予额外权限。
+`Detector.score(text)` Return `score, blocked, seconds, windows`. The threshold is determined on the development set and cannot be adjusted after the test set is frozen; when the document exceeds one window, the entire text must be covered. Source attribution cannot fabricate credibility or grant additional permissions in the prompt.
 
-## 输出
+## Output
 
-每条结果至少包含 `case_id`、案例身份字段、`status, native_utility, attacker_success, safe_completion, injection_reached_model, seconds, api_calls, cost_usd, result_dir`。错误、超时和拒绝保留记录，未到达注入位置不能混同“攻击被阻止”。
+Each result must include at least `case_id`case identity field,`status, native_utility, attacker_success, safe_completion, injection_reached_model, seconds, api_calls, cost_usd, result_dir`. Errors timeouts and rejections are recorded; failure to reach the injection point must not be conflated with ’attack blocked’.
 
-统一的汇总统计以全部已计划案例为分母，并另报已执行/已到达子集。按任务分组、配对比较条件；同一攻击三次重复不算三个独立攻击种类。说明攻击和输出攻击分开报告。
+The unified summary statistics use all planned cases as the denominator and additionally report the subset of executed/arrived cases. Group by task and pair-wise comparison conditions; three repetitions of the same attack do not count as three independent attack types. Report attack and output attack separately.
 
-## 共同文件修改
+## Shared file modifications
 
-五位成员使用同一个冻结版本运行各自数据，不分别开发五个模块。正式运行期间不单独修改模型、权限、检测器、提示或主循环；需要改代码时先统一审核和更新版本，再重新发布清单。
+Five members ran their data using the same frozen version without separately developing five modules. During formal execution, no individual modifications to the model, permissions, detectors, prompts, or main loop were allowed; any code changes required unified review and version update before re-publishing the checklist.
 
-每人只写自己的 `experiments/deliveries/person-NN/` 和对应运行目录。结果汇总与报告使用全部五份，避免各写一套不一致的指标。
+Each person writes only their own `experiments/deliveries/person-NN/` and the corresponding run directory. Results summary and reporting use all five sets to avoid inconsistent metrics from separate reporting.

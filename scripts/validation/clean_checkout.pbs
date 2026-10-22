@@ -12,6 +12,7 @@ mkdir -p "$output"
 exec > "$output/run.log" 2>&1
 source "${TRUSTGATE_CONDA_LOADER:-/scratch/xinqi.chen/load-conda.sh}"
 conda activate dsa4213
+if ! command -v git >/dev/null 2>&1; then module load git/2.40.0; fi
 export PYTHONHASHSEED=0 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
 export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 MPLBACKEND=Agg
 unset OPENROUTER_API_KEY TRUSTGATE_KEY_FILE

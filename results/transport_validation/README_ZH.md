@@ -1,28 +1,28 @@
-# 本地工具与 MCP 对照
+# Local tools compared with MCP
 
-固定清单下的 48 次真实模型验证已完成，独立于原 1,680 条正式研究。六类正常任务 36 条、两个既有输出攻击 12 条；本地和 MCP 使用相同模型、工具、载荷、初始状态与预算，每格三次。
+48 real model validations under fixed checklist completed independently from original 1,680 formal studies. Six categories of normal tasks 36 items, two existing output attacks 12 items; local and MCP use same model, tools, payload, initial state and budget, three trials per cell.
 
-| 场景 | 入口 | 有效／预定 | 原生任务成功 | 攻击成功 | 攻击曝光 | 平均秒数 |
+| Scenario | entry point | Valid/Preset | Native task success | Attack succeeds | Attack exposure | Average seconds |
 |---|---|---:|---:|---:|---:|---:|
 | benign | local | 18/18 | 15/18 | — | — | 24.47 |
 | benign | mcp | 18/18 | 12/18 | — | — | 25.04 |
 | output | local | 6/6 | 3/6 | 2/6 | 6/6 | 23.47 |
 | output | mcp | 6/6 | 4/6 | 1/6 | 6/6 | 20.92 |
 
-24 组配对中，原生任务结局一致 18/24；输出攻击结局一致 3/6。逐对 ID 与差值见 `pairs.csv`。
+In 24 paired groups, native task outcomes matched 18/24; output attack outcomes matched 3/6. Per-pair IDs and differences see `pairs.csv`.
 
-八组预设回复检查均通过：本地/MCP 的工具定义、模型可见轨迹、读取结果、注入载荷和前后状态完全一致。这验证适配实现；真实模型的结局比较反映本批样本，不能据此声称统计等价。
+Eight preset response checks passed: local/MCP tool definitions, model-visible trajectories, read results, payload injection, and pre/post states fully consistent. This validates adaptation implementation; outcome comparisons of real models reflect this batch sample and do not imply statistical equivalence.
 
-本批全部为无防护配置，以隔离传输适配。输出注入的原生入口通过独立薄适配器实现与 MCP 相同的一次追加；原正式执行器和 1,680 条成绩没有变化。预设回复检查不计入上述 48 条真实模型试验。
+This batch is entirely unshielded and adapted for isolated transmission. The original input injection is achieved through an independent thin adapter to achieve the same one-append behavior as MCP; the official executor and 1,680 scores remain unchanged. Preset reply checks are not included in the above 48 real model trials.
 
-该批复用正式任务和既有攻击，是事后适配诊断，不是新的泛化测试。模型温度为零也不保证相同回答；相邻配对和随机对内次序不能完全消除服务波动。耗时包含工具选择路径和远端响应，不能视为纯 MCP 协议开销。
+This batch’s backup official task and existing attacks are post-adaptation diagnostic checks, not new generalization tests. A model temperature of zero does not guarantee identical responses; adjacent pairs and random intra-order cannot fully eliminate service fluctuations. Duration includes tool selection path and remote response time and cannot be considered pure MCP protocol overhead.
 
-本批尝试请求数 178；有效记录和实际耗时见 `summary.json`。所有失败照常保留。
+Attempted request count for this batch is 178; valid records and actual duration are shown `summary.json`. All failures are retained.
 
-## 复现
+## Reproduction
 
-- 无模型请求：`python scripts/transport/verify_public.py` 核验清单、完整性、指标和来源。
-- 真实 MCP 适配检查：在 PBS 计算节点运行 `python scripts/transport/study.py controls --controls runs/transport-check-new`。
-- 重新运行模型：在全新检出目录配置私有凭据路径，提交 `scripts/transport/run.pbs`；复用发布的清单，不覆盖已运行目录。
+- Unmodelled requests:`python scripts/transport/verify_public.py` Verification checklist completeness metrics and sources.
+- Real MCP adaptation check: run on PBS compute nodes `python scripts/transport/study.py controls --controls runs/transport-check-new`.
+- Re-run model: configure private credential path in a freshly checked-out directory, submit `scripts/transport/run.pbs`; Reuse the published list without overwriting the already run directory.
 
-冻结设计见 [PROTOCOL_ZH.md](../../assignments/transport_validation/PROTOCOL_ZH.md)。原始请求、响应及工作区状态保留在私有目录，公开文件仅包含指标及检查哈希。
+Frozen design see [PROTOCOL_ZH.md](../../assignments/transport_validation/PROTOCOL_ZH.md). Original requests, responses, and workspace states are retained in private directories, while public files contain only metrics and check hashes.

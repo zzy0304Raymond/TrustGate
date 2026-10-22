@@ -1,17 +1,17 @@
-# 安装、运行与复现
+# Installation, execution, and reproduction
 
-## 1. 获取代码
+## 1. Get the code
 
 ```bash
 git clone https://github.com/zzy0304Raymond/TrustGate.git
 cd TrustGate
 ```
 
-参考环境是 Python **3.10.20**，Conda 环境名 `dsa4213`。Vanda 上安装、计算和验证均通过 PBS；登录节点仅进行调度、编辑、检查和 Git 操作。CPU 即可，不申请 GPU。
+The reference environment uses Python **3.10.20** and the Conda environment `dsa4213`. On Vanda, installation, computation, and validation must run through PBS. Login nodes are for scheduling, editing, inspection, and Git operations. CPUs are sufficient; these jobs do not need GPUs.
 
-## 2. 安装依赖
+## 2. Install dependencies
 
-已有参考环境可直接使用。新环境在获分配的计算节点中创建，先加载本人的 Conda：
+Use the existing reference environment if available. Otherwise, create the environment inside an allocated compute session after loading your own Conda installation:
 
 ```bash
 source /path/to/your/load-conda.sh
@@ -23,42 +23,44 @@ python -m pip install -c requirements-runtime-constraints.txt -r requirements-an
 python -m pip check
 ```
 
-`requirements-runtime-constraints.txt` 固定运行依赖，正式清单还校验六项关键包版本。Torch 为 `2.7.1+cu126`，但推理在 CPU 上执行。旧 `requirements-agentdojo.lock` 和 `requirements-mvp.lock` 是安装历史，不用于覆盖最终约束。分析绘图依赖与运行依赖分开列出。
+`requirements-runtime-constraints.txt` pins runtime dependencies. The frozen experiment manifest additionally checks six key package versions. The reference Torch build is `2.7.1+cu126`, although inference runs on CPUs. The older `requirements-agentdojo.lock` and `requirements-mvp.lock` record installation history and must not override the final constraints. Plotting dependencies are listed separately from runtime dependencies.
 
-仅重算公开统计时，Python 3.10.20 标准库即可运行下面的默认入口，不需要 API、模型权重或完整运行依赖。绘图另需 `requirements-analysis.txt`。模型和 MCP 检查使用完整环境。
+Recomputing public statistics requires only the Python 3.10.20 standard library: no API key, detector weights, or full runtime dependencies. Plotting additionally requires `requirements-analysis.txt`. Model and MCP execution require the full environment.
 
-## 3. 复现公开统计，不调用 API
+## 3. Reproduce public statistics without API calls
 
-普通电脑或已分配的计算节点：
+On a personal computer or inside an allocated compute session:
 
 ```bash
 export PYTHONHASHSEED=0
 python scripts/reproduce.py --output runs/reproduce
 ```
 
-Vanda 从仓库根目录提交：
+On Vanda, submit from the repository root:
 
 ```bash
 export TRUSTGATE_CONDA_LOADER=/path/to/your/load-conda.sh
 qsub -P personal-YOUR_ACCOUNT -v TRUSTGATE_CONDA_LOADER scripts/reproduce.pbs
 ```
 
-入口核对五份 CSV、冻结源码、案例完整性、评分分母、诊断及演示来源，并从公开记录重新生成主表和开销表，与已提交表格逐字比较。输出为 `runs/reproduce/`；PBS 入口使用 `runs/reproduce-作业号/`，包含 `run.log`、结果副本及 `verification.json`。它不会读取密钥或重新请求模型。
+This entry point verifies the five trial CSVs, frozen source identities, case coverage, scoring denominators, diagnostic evidence, and demo inputs. It rebuilds the main and overhead tables from public records and compares them byte for byte with the published tables. The English release map verifies translated files against their recorded revisions while preserving original experiment identities; see [artifact integrity](ENGLISH_RELEASE.md).
 
-需要重新画六张图时，加 `--plots`；PBS 使用 `TRUSTGATE_PLOTS=1` 并通过 `qsub -v` 传递。PDF 的生成时间等元数据不作为实验结果，数值表格才是逐字校验对象。
+Direct execution writes to `runs/reproduce/`. The PBS wrapper writes to `runs/reproduce-JOB_ID/`, including `run.log`, regenerated results, and `verification.json`. Neither reads an API key nor calls a model.
 
-## 4. 准备固定检测器
+Add `--plots` to rebuild the six figures. With PBS, set `TRUSTGATE_PLOTS=1` and include it in `qsub -v`. PDF creation timestamps are not experiment measurements; the numeric tables are the objects compared byte for byte.
 
-下载发生在计算节点，只有第一次需要网络：
+## 4. Prepare the pinned detector
+
+Download on a compute node. Only the initial download needs network access:
 
 ```bash
 python experiments/mvp/prepare_detector.py
 export TRUSTGATE_DETECTOR_DIR="$PWD/models/prompt_injection_detector"
 ```
 
-下载版本由 `models/detector_revision.txt` 指定，正式清单固定六个模型文件的 SHA256。已有缓存可以直接设置其绝对路径。权重不上传 Git。
+`models/detector_revision.txt` specifies the revision. The formal manifest pins SHA256 hashes for six model files. To reuse an existing cache, set its absolute path. Model weights are excluded from Git.
 
-## 5. 完整离线系统验收
+## 5. Run full offline validation
 
 ```bash
 export TRUSTGATE_CONDA_LOADER=/path/to/your/load-conda.sh
@@ -70,26 +72,33 @@ qsub -P personal-YOUR_ACCOUNT \
   scripts/reproduce.pbs
 ```
 
-这一模式额外运行完整回归测试、依赖校验、24 工具适配、60 攻击传输与目标可达性、20 任务权限和七配置检查、合法说明及参考调用误报检查、八组双传输检查、六组真实 MCP 演示。模型回复在这些机制检查中是预设的；不会产生新的 LLM 效果数据。
+Full mode also runs the regression suite, dependency checks, adaptation checks for 24 tools, transport and goal-reachability checks for 60 attacks, permissions for 20 tasks and seven configurations, benign-description and reference-call false-positive checks, eight paired transport controls, and six MCP demo controls. Model responses in mechanism controls are scripted; these checks produce no new LLM effectiveness observations.
 
-已经位于 PBS 计算节点时，可直接运行 `python scripts/reproduce.py --full --plots --output runs/reproduce-new`。完整模式的输出目录应使用新名称，避免覆盖先前控制记录。不能伪造 PBS 变量来绕开集群规则。
+Inside an allocated PBS session, use `python scripts/reproduce.py --full --plots --output runs/reproduce-new`. Choose a new output directory for full mode to preserve earlier control records. Do not fabricate PBS variables to bypass cluster rules.
 
-## 6. 重新运行真实模型实验
+## 6. Repeat the model experiments
 
-提供本人获授权的 OpenRouter 凭据，放在私有文件中并 `chmod 600`，通过 `TRUSTGATE_KEY_FILE` 指定路径。也支持进程环境中的 `OPENROUTER_API_KEY`；不要把密钥值放进命令行、Git 或 PBS 导出参数。
+Store an authorized OpenRouter credential in a private file, set its permissions with `chmod 600`, and point `TRUSTGATE_KEY_FILE` to that file. The process environment variable `OPENROUTER_API_KEY` is also supported. Keep key values out of command arguments, Git, and PBS export arguments.
 
-| 研究 | 冻结清单 | 执行入口 |
+| Study | Frozen manifest | Entry point |
 |---|---|---|
-| 原正式 1,680 条 | `assignments/formal/plan.json` | [五份正式运行](FORMAL_START_ZH.md) |
-| 工具说明补测 156 条 | `assignments/metadata_supplement/` | [补测运行说明](../scripts/supplement/README_ZH.md) |
-| 双传输验证 48 条 | `assignments/transport_validation/plan.json` | `scripts/transport/run.pbs` |
+| Original formal study: 1,680 trials | `assignments/formal/plan.json` | [Five formal shards](FORMAL_START_ZH.md) |
+| Metadata supplement: 156 trials | `assignments/metadata_supplement/` | [Supplement instructions](../scripts/supplement/README_ZH.md) |
+| Transport validation: 48 trials | `assignments/transport_validation/plan.json` | `scripts/transport/run.pbs` |
 
-使用全新检出目录与新运行编号，复用发布清单，不重新选任务或模板。核心源码、模型和关键依赖的校验必须通过；保持失败与超时，基础设施错误不自动重试。新采样不能覆盖原 `results/` 中的实测成绩。
+Use a fresh checkout and new run identifier. Reuse the published manifests without selecting new tasks or templates. Core source, model, and key dependency checks must pass. Retain failures and timeouts; infrastructure errors are not retried automatically. New samples must not overwrite the measurements under `results/`.
 
-双传输启动文件将新统计导出到 `runs/transport_validation/export/`。独立导出也可使用 `python scripts/transport/export_run.py --run runs/transport_validation/live --controls runs/transport_validation/live-controls --output runs/transport-validation-export-new`。
+The transport launcher exports new statistics to `runs/transport_validation/export/`. An independent export can also use:
 
-Vanda 启动文件中的项目、Conda 加载器、凭据及模型目录需配置为本人路径。双传输入口传递 `TRUSTGATE_KEY_FILE,TRUSTGATE_DETECTOR_DIR,TRUSTGATE_CONDA_LOADER`；说明补测的既有入口需按本人环境设置 Conda 加载路径。其他调度器使用其实际分配的计算节点，参考 [跨平台要求](CROSS_PLATFORM_CHECKLIST_ZH.md)。
+```bash
+python scripts/transport/export_run.py \
+  --run runs/transport_validation/live \
+  --controls runs/transport_validation/live-controls \
+  --output runs/transport-validation-export-new
+```
 
-## 7. 演示
+Set the Vanda project, Conda loader, credential path, and detector path for your own account. Pass `TRUSTGATE_KEY_FILE,TRUSTGATE_DETECTOR_DIR,TRUSTGATE_CONDA_LOADER` to the transport entry point. Configure the Conda loader in the supplement launcher for your environment. Other clusters must use their actual scheduler allocations; see [cross-platform requirements](CROSS_PLATFORM_CHECKLIST_ZH.md).
 
-下载 `demos/index.html` 并在浏览器打开，或运行 `python scripts/demo/show.py` 查看记录回放。真实 MCP 机制检查已包含在完整验收入口中。见 [演示说明](../demos/README_ZH.md)。
+## 7. Present the demonstrations
+
+Download `demos/index.html` and open it in a browser, or run `python scripts/demo/show.py` for a terminal replay. Full validation already includes the MCP mechanism controls. See the [demo guide](../demos/README_ZH.md).
