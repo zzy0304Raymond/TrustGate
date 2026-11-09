@@ -1,0 +1,8 @@
+condition,denials,denial_trials,denial_limit_stops
+none,0,0,0
+delimiters,0,0,0
+classifier,0,0,0
+trustgate,14,12,1
+no_provenance,39,27,4
+no_metadata,13,12,0
+no_authorization,0,0,0

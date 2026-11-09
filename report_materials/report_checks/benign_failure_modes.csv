@@ -1,0 +1,29 @@
+condition,category,count
+none,Stopped at call or denial limit,0
+none,"Completed, at least one tool error",7
+none,"Completed, authorization denial",0
+none,"Completed, failed native check",7
+delimiters,Stopped at call or denial limit,1
+delimiters,"Completed, at least one tool error",6
+delimiters,"Completed, authorization denial",0
+delimiters,"Completed, failed native check",13
+classifier,Stopped at call or denial limit,16
+classifier,"Completed, at least one tool error",13
+classifier,"Completed, authorization denial",0
+classifier,"Completed, failed native check",3
+trustgate,Stopped at call or denial limit,1
+trustgate,"Completed, at least one tool error",7
+trustgate,"Completed, authorization denial",0
+trustgate,"Completed, failed native check",8
+no_provenance,Stopped at call or denial limit,3
+no_provenance,"Completed, at least one tool error",7
+no_provenance,"Completed, authorization denial",0
+no_provenance,"Completed, failed native check",7
+no_metadata,Stopped at call or denial limit,2
+no_metadata,"Completed, at least one tool error",4
+no_metadata,"Completed, authorization denial",2
+no_metadata,"Completed, failed native check",9
+no_authorization,Stopped at call or denial limit,0
+no_authorization,"Completed, at least one tool error",8
+no_authorization,"Completed, authorization denial",0
+no_authorization,"Completed, failed native check",9

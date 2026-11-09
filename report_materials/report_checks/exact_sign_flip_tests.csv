@@ -1,0 +1,19 @@
+surface,metric,comparison,tasks,difference_pp,favour_left,favour_right,exact_p
+output,attacker_success,trustgate minus none,20,-13.333333333333334,8,0,0.0078125
+output,safe_completion,trustgate minus none,20,10.833333333333334,8,1,0.015625
+benign,native_utility,trustgate minus none,20,-3.3333333333333335,1,2,1.0
+output,attacker_success,trustgate minus delimiters,20,-11.666666666666666,5,0,0.0625
+output,safe_completion,trustgate minus delimiters,20,18.333333333333332,8,0,0.0078125
+benign,native_utility,trustgate minus delimiters,20,6.666666666666667,3,1,0.5
+output,attacker_success,trustgate minus classifier,20,-14.166666666666666,5,0,0.0625
+output,safe_completion,trustgate minus classifier,20,39.166666666666664,11,0,0.0009765625
+benign,native_utility,trustgate minus classifier,20,26.666666666666668,7,2,0.03125
+output,attacker_success,trustgate minus no_provenance,20,0.0,0,0,1.0
+output,safe_completion,trustgate minus no_provenance,20,2.5,2,1,0.75
+benign,native_utility,trustgate minus no_provenance,20,1.6666666666666667,2,1,1.0
+output,attacker_success,trustgate minus no_metadata,20,0.0,0,0,1.0
+output,safe_completion,trustgate minus no_metadata,20,5.0,3,2,0.375
+benign,native_utility,trustgate minus no_metadata,20,1.6666666666666667,2,1,1.0
+output,attacker_success,trustgate minus no_authorization,20,-5.0,2,0,0.5
+output,safe_completion,trustgate minus no_authorization,20,2.5,3,2,0.6875
+benign,native_utility,trustgate minus no_authorization,20,1.6666666666666667,1,0,1.0

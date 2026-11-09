@@ -1,0 +1,2 @@
+surface,metric,comparison,tasks,difference_pp,favour_left,favour_right,exact_p,bootstrap_low_pp,bootstrap_high_pp
+output,attacker_success,trustgate minus none,12,-22.22222222222222,8,0,0.0078125,-34.72222222222222,-12.5

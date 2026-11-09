@@ -1,0 +1,18 @@
+{
+  "recorded": 1680,
+  "valid": 1679,
+  "primary_counts_match": true,
+  "input_sha256": {
+    "assignments/formal/plan.json": "ae6ccef2fc58d3dce9f27434d7cbd6da2eefef9a964a11331ef9672c9c50af07",
+    "experiments/deliveries/person-01/results.csv": "5eb1241ac630a78a19fbe8e173bd2cb84f8f976760edb68e2c3f8d17f9e27b09",
+    "experiments/deliveries/person-02/results.csv": "42bcaf2ee6b8dbfb73d0ec1bf49870c0e413546e8558e3b47a250e0c35bd7fe6",
+    "experiments/deliveries/person-03/results.csv": "3c1108a44627fac4ef02f1f7a0a5789bd20e3d4b51c82337c716d0b6e95acac7",
+    "experiments/deliveries/person-04/results.csv": "75fcf3d97837a6543ff10008eccdd971e8781f2708f4e562fb8b79dc70902049",
+    "experiments/deliveries/person-05/results.csv": "0f0ad259cabbd44feaeaacf19869c6cc4b83dcd9cc43be4268b8cf5211ff9c86",
+    "data/formal/attacks.json": "6a1c9ed93279f9281dd6fb5560d7ffed5936cd1c83c3a3198822c97b505a5ab2",
+    "results/formal/analysis/tables/main_metrics.csv": "0322565e8c0356c257b478bbea4d5c6ae7a67bdd27a38d644b0b41519cf214a2"
+  },
+  "exact_method": "All sign patterns on nonzero task differences; exact rational arithmetic; two-sided.",
+  "bootstrap_method": "2000 equal-weight task resamples, seed 4213 reset per comparison; sorted task IDs; order-statistic endpoints 50 and 1949 (zero-based).",
+  "scope": "Supplementary report analysis. This does not replace the release integrity verifier or rerun models."
+}

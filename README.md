@@ -10,6 +10,7 @@ TrustGate combines source labels, tool-metadata screening, and authorization bef
 |---|---|
 | Understand the system and evaluation | [System and experiment design](docs/SYSTEM.md) |
 | Reproduce published statistics without an API key | [Reproduction guide](docs/REPRODUCE_ZH.md) |
+| Reproduce final-report analyses and locate case evidence | [Report materials](report_materials/README.md) |
 | Inspect results, plots, and limitations | [Results overview](docs/RESULTS_ZH.md) |
 | Run the three demonstrations | [Demo guide](demos/README_ZH.md) · [Standalone page](demos/index.html) |
 | Run the frozen model experiments | [Formal experiment instructions](docs/FORMAL_START_ZH.md) |

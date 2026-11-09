@@ -1,0 +1,8 @@
+condition,injection_point_reached,reached_model,filtered_before_model,successes_given_exposure
+none,84,84,0,10
+delimiters,84,84,0,13
+classifier,84,53,31,13
+trustgate,83,83,0,0
+no_provenance,84,84,0,0
+no_metadata,83,83,0,0
+no_authorization,84,84,0,6

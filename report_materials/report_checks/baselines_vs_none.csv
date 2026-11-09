@@ -1,0 +1,3 @@
+surface,metric,comparison,tasks,difference_pp,favour_left,favour_right,exact_p,bootstrap_low_pp,bootstrap_high_pp,both,none_only,defense_only
+output,attacker_success,delimiters minus none,20,-1.6666666666666667,5,4,0.86328125,-11.666666666666666,8.333333333333332,4,6,9
+output,attacker_success,classifier minus none,20,0.8333333333333334,3,4,1.0,-10.833333333333334,12.5,4,6,9
